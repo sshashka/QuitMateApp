@@ -10,12 +10,13 @@ import Combine
 
 class MainScreenViewModel: ObservableObject {
     private var disposeBag = Set<AnyCancellable>()
-    private let currentDate = Date()
     @Published private var userStatistics: UserStatisticsModel? {
         didSet {
             setupPiplines()
         }
     }
+    
+    var didSendEventClosure: ((MainScreenViewModel.EventType) -> Void)?
     
     @Published var percentsToFinish: Float = 0.0
     
@@ -29,7 +30,15 @@ class MainScreenViewModel: ObservableObject {
     
     @Published var enviromentalChanges = 6
     
+    @Published var daysToFinish = ""
+    
     @Published var dateComponentsWithoutSmoking: String = ""
+    
+    @Published var userConfirmedRequest = false {
+        didSet {
+            
+        }
+    }
     
     init() {
         getUserModel()
@@ -44,7 +53,9 @@ class MainScreenViewModel: ObservableObject {
             }.store(in: &disposeBag)
     }
     
-    
+    func finish() {
+        self.didSendEventClosure?(.tapbar)
+    }
 }
 
 private extension MainScreenViewModel {
@@ -54,6 +65,7 @@ private extension MainScreenViewModel {
         getTodayDate()
         getDaysWithoutSmoking()
         getDateComponentsWithoutSmoking()
+        getDaysLeft()
     }
     
     func getDaysWithoutSmoking() {
@@ -81,5 +93,17 @@ private extension MainScreenViewModel {
     func getDateComponentsWithoutSmoking() {
         guard let userStatistics = userStatistics else { return }
         dateComponentsWithoutSmoking = userStatistics.dateInComponentsWithoutSmoking
+    }
+    
+    func getDaysLeft() {
+        guard let userStatistics = userStatistics else { return }
+        daysToFinish = String(userStatistics.daysToFinish)
+        print(daysToFinish + "DAYS LEFT")
+    }
+}
+
+extension MainScreenViewModel {
+    enum EventType {
+        case tapbar
     }
 }

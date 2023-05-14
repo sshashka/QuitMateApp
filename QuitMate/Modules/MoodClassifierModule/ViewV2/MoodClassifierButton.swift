@@ -20,7 +20,7 @@ struct MoodClassifierButton: View {
             Group {
                 HStack {
                     TextView(text: labelText.rawValue, font: .poppinsSemiBold, size: 14)
-                    Text(buttonPressed ? "√" : "")
+                    Image(systemName: buttonPressed ? "checkmark" : "")
                 }
             }
         }

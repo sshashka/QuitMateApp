@@ -35,6 +35,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let image = UIImage(named: "2")?.pngData()
 //        let imageCropped = UserMoodClassifierService().cropImage(image: image!)
 //        UserMoodClassifierService().classifyImage(image: (imageCropped?.pngData())!)
+        
+//        FirebaseStorageService().createUser()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

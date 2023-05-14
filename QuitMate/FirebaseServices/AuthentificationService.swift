@@ -20,6 +20,7 @@
 
 import Foundation
 import FirebaseAuth
+import Combine
 
 enum ResultOfAuthentification {
     case success
@@ -32,7 +33,7 @@ protocol AuthentificationServiceProtocol: AnyObject {
 }
 
 final class AuthentificationService: AuthentificationServiceProtocol {
-
+    
     func didSelectLoginWithEmailLogin(email: String, password: String, completion: @escaping(ResultOfAuthentification) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if error != nil, let error = error as NSError? {
@@ -73,6 +74,14 @@ final class AuthentificationService: AuthentificationServiceProtocol {
             } else {
                 completion(.success)
             }
+        }
+    }
+    
+    func signOut() {
+        do{
+            try Auth.auth().signOut()
+        } catch {
+            print("Error Signing Out.")
         }
     }
 }

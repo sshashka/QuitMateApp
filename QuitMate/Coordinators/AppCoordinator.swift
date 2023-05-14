@@ -15,7 +15,10 @@ protocol AppCoordinatorProtocol: Coordinator {
 
 final class AppCoordinator: AppCoordinatorProtocol {
     func showReasonsToStop() {
-    
+        let vc = ReasonsToStopCoordinator(navigationController)
+        vc.finishDelegate = self
+        vc.start()
+        childCoordinators.append(vc)
     }
     
     
@@ -64,7 +67,7 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         switch childCoordinator.type {
         case .tabbar:
             navigationController.viewControllers.removeAll()
-            showLogin()
+            showReasonsToStop()
         case .login:
             navigationController.viewControllers.removeAll()
             showMainFlow()
@@ -73,7 +76,6 @@ extension AppCoordinator: CoordinatorFinishDelegate {
             showMainFlow()
         default:
             break
-            
         }
     }
     

@@ -10,11 +10,10 @@ import FirebaseDatabaseSwift
 import Firebase
 
 enum FirebaseStorageServiceReferences: String {
-    case user = "User"
+    case userStats = "User-Stats"
     case moods = "User-Moods"
+    case user = "User"
 }
-
-
 
 class FirebaseStorageService {
     private var userId = UserDefaults.standard.string(forKey: "UserID")
@@ -51,14 +50,14 @@ class FirebaseStorageService {
     }
     
     func createUserStatistics() {
-        let reference = getChildReference(for: .user).child(userId!).childByAutoId()
+        let reference = getChildReference(for: .userStats).child(userId!).childByAutoId()
         let key = reference.key!
         let model = UserStatisticsModel(id: key, moneySpentOnSigs: 25.0, enviromentalChanges: 4)
         try? reference.setValue(from: model)
     }
     
     func getUserStatistics() -> AnyPublisher<[UserStatisticsModel], Error> {
-        let reference = getChildReference(for: .user).child(userId!)
+        let reference = getChildReference(for: .userStats).child(userId!)
         let subject = PassthroughSubject<[UserStatisticsModel], Error>()
         
         reference.observe(.value) { snapshot, error in
@@ -70,6 +69,31 @@ class FirebaseStorageService {
                 }
                 print(dataForCharts)
                 subject.send(dataForCharts)
+            }
+        }
+        return subject.eraseToAnyPublisher()
+    }
+    
+    func createUser() {
+        let image = UIImage(named: "Tokyo")?.pngData()
+        let reference = getChildReference(for: .user).childByAutoId()
+        let key = reference.key!
+        let user = User(name: "Sasha", age: 21, email: "sash.vas2001@gmail.com", id: key, profileImage: image)
+        
+        try? reference.setValue(from: user)
+    }
+    
+    func getUserModel() -> AnyPublisher<[User], Error> {
+        let reference = getChildReference(for: .user).child(userId!)
+        let subject = PassthroughSubject<[User], Error>()
+        reference.observe(.value) { snapshot, error in
+            if let error = error {
+                subject.send(completion: .failure(error as! Error))
+            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
+                let data = children.compactMap { snapshot in
+                    try? snapshot.data(as: User.self)
+                }
+                subject.send(data)
             }
         }
         return subject.eraseToAnyPublisher()

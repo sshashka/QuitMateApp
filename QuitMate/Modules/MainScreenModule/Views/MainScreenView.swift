@@ -22,7 +22,7 @@ struct MainScreenView: View {
                 Group {
                     TimeAndScoreView(quittingDuration: $viewModel.dateComponentsWithoutSmoking)
                         .foregroundColor(Color(ColorConstants.labelColor))
-                    QuittingInformationView(moneySpentOnCigarets: $viewModel.moneySaved, daysFree: $viewModel.daysWithoutSmoking, enviromentalChanges: $viewModel.enviromentalChanges)
+                    QuittingInformationView(moneySpentOnCigarets: $viewModel.moneySaved, daysFree: $viewModel.daysWithoutSmoking, enviromentalChanges: $viewModel.enviromentalChanges, daysToFinish: $viewModel.daysToFinish, userConfirmedReset: $viewModel.userConfirmedRequest)
                         .background(Color.white)
                         .cornerRadius(35, corners: [.topLeft, .topRight])
                         .frame(height: frame.size.height / 2 - Spacings.spacing40)

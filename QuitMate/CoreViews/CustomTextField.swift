@@ -22,6 +22,7 @@ class CustomTextField: UITextField {
         self.setRightPaddingPoints(20)
         self.backgroundColor = .clear
         self.makeGlassEffectOnView(style: .extraLight)
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder: NSCoder) {

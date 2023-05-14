@@ -12,7 +12,7 @@ struct MoodClassifierMainScreenView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            TextView(text: "Hey username", font: .poppinsRegular, size: 18)
+            TextView(text: "Hey Sasha", font: .poppinsRegular, size: 18)
             TextView(text: "What`s in your mind", font: .poppinsRegular, size: 18)
             TextView(text: "I feel...", font: .poppinsLight, size: 14)
             MoodSelectionView(moods: $viewModel.moodsArray, selectedMood: $viewModel.selectedMood)

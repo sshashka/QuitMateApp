@@ -57,4 +57,8 @@ extension UserStatisticsModel {
         let difference = calendar.dateComponents(components, from: lessDate, to: moreDate)
         return difference.toSting()
     }
+    
+    var daysToFinish: Int {
+        substractTwoDatesInDay(from: currnetDate, to: finishingDate)
+    }
 }

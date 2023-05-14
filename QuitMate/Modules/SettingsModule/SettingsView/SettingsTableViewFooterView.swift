@@ -8,11 +8,11 @@
 import UIKit
 
 class SettingsTableViewFooterView: UIView {
+    
     private let logoutButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: ColorConstants.greenButtonColor)
         button.setTitle("Log out", for: .normal)
-        button.setTitleColor(.systemRed, for: .normal)
+        button.setTitleColor(.red, for: .normal)
         return button
     }()
     
@@ -20,9 +20,17 @@ class SettingsTableViewFooterView: UIView {
         super.init(frame: frame)
         addSubview(logoutButton)
         logoutButton.frame = self.frame
+        setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+private extension SettingsTableViewFooterView {
+    func setupView() {
+        self.layer.cornerRadius = LayoutConstants.cornerRadius
+        
     }
 }

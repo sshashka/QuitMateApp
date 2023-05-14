@@ -8,11 +8,11 @@
 import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
+    
     static let identifier = "SettingsTableViewCell"
     private let settingsTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Sas"
-        
+        label.font = UIFont(name: FontsEnum.poppinsLight.rawValue, size: 14)
         return label
     }()
     
@@ -20,7 +20,12 @@ class SettingsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(settingsTextLabel)
         self.backgroundColor = .clear
+        self.accessoryType = .disclosureIndicator
         settingsTextLabel.frame = contentView.frame
+    }
+    
+    func setText(text: String) {
+        settingsTextLabel.text = text
     }
     
     required init?(coder: NSCoder) {

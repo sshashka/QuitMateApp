@@ -47,7 +47,6 @@ final class ProgressChartsViewModel: ObservableObject {
     
     init() {
         getChartsData()
-        
     }
 }
 
@@ -56,8 +55,8 @@ extension ProgressChartsViewModel {
         FirebaseStorageService().getChartsData()
             .sink { finish in
                 print(finish)
-            } receiveValue: { data in
-                self.chartModelData = data
+            } receiveValue: { [weak self] data in
+                self?.chartModelData = data
                     .sorted(by: {
                         $0.dateOfClassification < $1.dateOfClassification
                     })

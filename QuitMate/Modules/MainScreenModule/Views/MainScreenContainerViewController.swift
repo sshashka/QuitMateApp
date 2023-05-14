@@ -7,9 +7,11 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class MainScreenContainerViewController: UIViewController {
     private let mainScreenView = UIHostingController(rootView: MainScreenView())
+    private var disposeBag = Set<AnyCancellable>()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)

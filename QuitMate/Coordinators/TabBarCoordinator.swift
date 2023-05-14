@@ -28,11 +28,12 @@ final class TabBarCoordinator: NSObject, Coordinator {
     }
     
     func start() {
-        let pages: [TabBarPages] = [.charts, .home, .setup]
+        let pages: [TabBarPages] = [.charts, .home, .setup, .debug]
         
         let controllers: [UINavigationController] = pages.map {getTabControllers(page: $0)}
         
         setupTabBar(controllers: controllers)
+        
     }
     
     private func getTabControllers(page: TabBarPages) -> UINavigationController {
@@ -47,11 +48,14 @@ final class TabBarCoordinator: NSObject, Coordinator {
             let mainVC = MainScreenContainerViewController()
             navVC.pushViewController(mainVC, animated: true)
         case .setup:
-//            let settingsVC = SettingsViewController()
-            let settingsVC = MoodClassifierHostingViewController()
+            let settingsVC = SettingsViewController()
+//            let settingsVC = MoodClassifierHostingViewController()
             navVC.pushViewController(settingsVC, animated: true)
+            
+        case .debug:
+            let debugVC = MoodClassifierHostingViewController()
+            navVC.pushViewController(debugVC, animated: true)
         }
-        
         return navVC
     }
     
