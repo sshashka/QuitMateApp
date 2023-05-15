@@ -11,6 +11,7 @@ import Foundation
 class MoodClassifierModuleViewModel: ObservableObject {
     @Published var moodsArray: [ClassifiedMood] = []
     @Published var selectedMood: ClassifiedMood? = nil
+    var didSendEndEventClosure: ((MoodClassifierModuleViewModel.EndEvent) -> Void)?
     
     init() {
         let moods = ClassifiedMood.allCases
@@ -24,5 +25,10 @@ class MoodClassifierModuleViewModel: ObservableObject {
     func didTapOnDoneButton() {
         guard let selectedMood = selectedMood else { return }
         FirebaseStorageService().uploadNewUserMood(mood: selectedMood)
+        self.didSendEndEventClosure?(.moodClassifier)
     }
+}
+
+extension MoodClassifierModuleViewModel {
+    enum EndEvent { case moodClassifier }
 }

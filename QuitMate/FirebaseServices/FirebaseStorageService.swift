@@ -98,4 +98,8 @@ class FirebaseStorageService {
         }
         return subject.eraseToAnyPublisher()
     }
+    
+    deinit {
+        print("\(self) deinited")
+    }
 }

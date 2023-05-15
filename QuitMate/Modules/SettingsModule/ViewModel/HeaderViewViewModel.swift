@@ -9,12 +9,12 @@ import Foundation
 
 class HeaderViewViewModel: ObservableObject {
     @Published var image: Data?
-    var name: String
-    var email: String
+    @Published var name: String
+    @Published var email: String
     
-    init(name: String, email: String, image: Data?) {
-        self.email = email
-        self.name = name
+    init(image: Data? = nil, name: String, email: String) {
         self.image = image
+        self.name = name
+        self.email = email
     }
 }

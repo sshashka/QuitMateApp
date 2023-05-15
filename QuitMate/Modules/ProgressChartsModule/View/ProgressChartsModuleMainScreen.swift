@@ -14,7 +14,7 @@ struct ProgressChartsModuleMainScreen: View {
         
         GeometryReader { frame in
             VStack(spacing: Spacings.spacing20) {
-                MoodChartView(dataForCharts: $viewModel.dataForCharts)
+                MoodChartView(dataForCharts: $viewModel.weekDataForCharts)
                     .frame(height: frame.size.height * 2/10)
                 Group {
                     ProgressStatsViewContainer(bestDay: $viewModel.bestDay, worstDay: $viewModel.worstDay, bestScore: $viewModel.bestDayScore, worstScore: $viewModel.worstDayScore)

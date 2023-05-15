@@ -10,9 +10,11 @@ import Combine
 
 enum ProgressChartsPeriods: String {
     case oneWeek = "1 Week"
+    case twoWeeks = "2 Weeks"
     case oneMonth = "1 Month"
     case threeMonth = "3 Month"
     case sixMonth = "6 Month"
+    
 }
 
 final class ProgressChartsViewModel: ObservableObject {
@@ -22,10 +24,11 @@ final class ProgressChartsViewModel: ObservableObject {
         didSet {
             self.dataForCharts = chartModelData
             filterChartsData(for: selectedSotringMethod)
+            filterChartsData(for: .oneWeek)
         }
     }
     
-    @Published var selectedSotringMethod: ProgressChartsPeriods = .oneMonth {
+    @Published var selectedSotringMethod: ProgressChartsPeriods = .twoWeeks {
         didSet {
             filterChartsData(for: selectedSotringMethod)
         }
@@ -38,6 +41,8 @@ final class ProgressChartsViewModel: ObservableObject {
     
         }
     }
+    
+    @Published var weekDataForCharts: [ChartModel] = []
     
     @Published var bestDay: String = ""
     @Published var worstDay: String = ""
@@ -68,6 +73,7 @@ extension ProgressChartsViewModel {
         let currentDate = Date.now
         let calendar = Calendar.current
         let oneWeekAgo = calendar.date(byAdding: .weekday, value: -7, to: currentDate)!
+        let twoWeeksAgo = calendar.date(byAdding: .weekday, value: -14,to: currentDate)!
         let oneMonthAgo = calendar.date(byAdding: .month, value: -1, to: currentDate)!
         let threeMonthAgo = calendar.date(byAdding: .month, value: -3, to: currentDate)!
         let sixMonthAgo = calendar.date(byAdding: .month, value: -6, to: currentDate)!
@@ -85,8 +91,13 @@ extension ProgressChartsViewModel {
                 $0.dateOfClassification > sixMonthAgo && $0.dateOfClassification < currentDate
             }
         case .oneWeek:
-            dataForCharts = chartModelData.filter({
+            weekDataForCharts = chartModelData.filter({
                 $0.dateOfClassification > oneWeekAgo && $0.dateOfClassification < currentDate
+            })
+            
+        case .twoWeeks:
+            dataForCharts = chartModelData.filter({
+                $0.dateOfClassification > twoWeeksAgo && $0.dateOfClassification < currentDate
             })
         }
     }

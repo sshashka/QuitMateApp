@@ -31,6 +31,6 @@ final class MoodClassifierModulePresenter: MoodClassifierModulePresenterProtocol
         }
     }
     private func detectMood(image: Data) {
-//        classifierService.classifyImage(image: image)
+        classifierService.classifyImage(image: image)
     }
 }

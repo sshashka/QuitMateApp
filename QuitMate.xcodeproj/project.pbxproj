@@ -10,6 +10,9 @@
 		301821CF299D79C10088863C /* AuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301821CE299D79C10088863C /* AuthentificationService.swift */; };
 		3019DEE72A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */; };
 		3021339E29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021339D29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift */; };
+		3025FF3B2A11824A002D71A8 /* MoodClassifierSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */; };
+		3025FF3E2A118AA6002D71A8 /* ManualMoodCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3D2A118AA6002D71A8 /* ManualMoodCoordinator.swift */; };
+		3025FF402A119881002D71A8 /* CoreMLClassifierCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3F2A119881002D71A8 /* CoreMLClassifierCoordinator.swift */; };
 		302B48C229F9442B0031CFE6 /* AuthentificationModuleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B48C129F9442B0031CFE6 /* AuthentificationModuleConstants.swift */; };
 		302B48C429F952470031CFE6 /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B48C329F952470031CFE6 /* LayoutConstants.swift */; };
 		302B48C729F957690031CFE6 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B48C629F957690031CFE6 /* RegistrationViewController.swift */; };
@@ -122,6 +125,9 @@
 		301821CE299D79C10088863C /* AuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationService.swift; sourceTree = "<group>"; };
 		3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProfileHeaderView.swift; sourceTree = "<group>"; };
 		3021339D29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierViewControllerProtocol.swift; sourceTree = "<group>"; };
+		3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierSelectionView.swift; sourceTree = "<group>"; };
+		3025FF3D2A118AA6002D71A8 /* ManualMoodCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualMoodCoordinator.swift; sourceTree = "<group>"; };
+		3025FF3F2A119881002D71A8 /* CoreMLClassifierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLClassifierCoordinator.swift; sourceTree = "<group>"; };
 		302B48C129F9442B0031CFE6 /* AuthentificationModuleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationModuleConstants.swift; sourceTree = "<group>"; };
 		302B48C329F952470031CFE6 /* LayoutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
 		302B48C629F957690031CFE6 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +274,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		3025FF392A1181F3002D71A8 /* ManualClassificationView */ = {
+			isa = PBXGroup;
+			children = (
+				302C494D29FB276300D43421 /* MoodClassifierButton.swift */,
+				302C494B29FB26FC00D43421 /* MoodSelectionView.swift */,
+				302C494929FB26DB00D43421 /* MoodClassifierMainScreenView.swift */,
+			);
+			path = ManualClassificationView;
+			sourceTree = "<group>";
+		};
+		3025FF3C2A11836F002D71A8 /* MoodClassifierCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */,
+				3025FF3D2A118AA6002D71A8 /* ManualMoodCoordinator.swift */,
+				3025FF3F2A119881002D71A8 /* CoreMLClassifierCoordinator.swift */,
+			);
+			path = MoodClassifierCoordinator;
+			sourceTree = "<group>";
+		};
 		302B48C529F9552E0031CFE6 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,9 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				302C494629FB267200D43421 /* MoodClassifierHostingViewController.swift */,
-				302C494929FB26DB00D43421 /* MoodClassifierMainScreenView.swift */,
-				302C494B29FB26FC00D43421 /* MoodSelectionView.swift */,
-				302C494D29FB276300D43421 /* MoodClassifierButton.swift */,
+				3025FF392A1181F3002D71A8 /* ManualClassificationView */,
+				3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */,
 			);
 			path = ViewV2;
 			sourceTree = "<group>";
@@ -434,7 +459,7 @@
 				30A0E4CC29DE1B35000CA339 /* AppCoordinator.swift */,
 				30A0E4CE29DEF35B000CA339 /* LoginCoordinator.swift */,
 				30A0E4D329DF7256000CA339 /* TabBarCoordinator.swift */,
-				30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */,
+				3025FF3C2A11836F002D71A8 /* MoodClassifierCoordinator */,
 				302B48CD29F9D7FF0031CFE6 /* FirstTimeEntryCoordinator.swift */,
 				30AAD9242A106553000FF93D /* ReasonsToStopCoordinator.swift */,
 			);
@@ -764,6 +789,7 @@
 				30A11FF929FB29920062A019 /* ButtonWithCheckMarkButtonStyle.swift in Sources */,
 				30CA3A3029B0F04600181539 /* ReasonsToStopCollectionViewCell.swift in Sources */,
 				3057162029C7E292002C20A0 /* ReasonsToStopModulePresenter.swift in Sources */,
+				3025FF3E2A118AA6002D71A8 /* ManualMoodCoordinator.swift in Sources */,
 				30A1205A29FD22A10062A019 /* ChartModel.swift in Sources */,
 				30CA3A2C29B0125F00181539 /* TabBarController.swift in Sources */,
 				30A7636F2A01BE9300C91C6A /* Binding+Extension.swift in Sources */,
@@ -776,6 +802,7 @@
 				30CA3A2E29B0EF7000181539 /* ReasonsToStopViewController.swift in Sources */,
 				3021339E29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift in Sources */,
 				30E9CB3629F6AFF000E1F0C2 /* ProgressView.swift in Sources */,
+				3025FF3B2A11824A002D71A8 /* MoodClassifierSelectionView.swift in Sources */,
 				304EC1A92A03BEE0001667FC /* ProgressStatsView.swift in Sources */,
 				30A1200629FBE7B00062A019 /* FirebaseStorageService.swift in Sources */,
 				3057162229C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift in Sources */,
@@ -804,6 +831,7 @@
 				30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */,
 				306531F829E4B84800E0544F /* SettingsTableViewFooterView.swift in Sources */,
 				3044406129F7456E00AD40F2 /* Spacings.swift in Sources */,
+				3025FF402A119881002D71A8 /* CoreMLClassifierCoordinator.swift in Sources */,
 				302B48CE29F9D7FF0031CFE6 /* FirstTimeEntryCoordinator.swift in Sources */,
 				30E9CB4229F6D13800E1F0C2 /* QuittingInformationView.swift in Sources */,
 				3098C25F2A028CC6008B4114 /* FilterMenuView.swift in Sources */,

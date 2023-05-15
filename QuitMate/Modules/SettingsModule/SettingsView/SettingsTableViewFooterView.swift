@@ -31,6 +31,5 @@ class SettingsTableViewFooterView: UIView {
 private extension SettingsTableViewFooterView {
     func setupView() {
         self.layer.cornerRadius = LayoutConstants.cornerRadius
-        
     }
 }

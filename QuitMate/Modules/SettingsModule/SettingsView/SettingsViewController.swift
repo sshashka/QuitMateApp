@@ -11,6 +11,7 @@ import SwiftUI
 class SettingsViewController: UIViewController {
     private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app"]
     private let gradientLayer = CAGradientLayer()
+    private let viewModel = SettingsViewModel()
     private let profileHeaderView = UIHostingController(rootView: SettingsViewProfileHeaderView())
     private let settingsTableView: UITableView = {
         let tv = UITableView()

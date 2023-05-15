@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol TabBarCoordinatorProtocol: Coordinator {
     var tabBarController: UITabBarController { get }
@@ -45,8 +46,9 @@ final class TabBarCoordinator: NSObject, Coordinator {
             let chartsVC = ProgressChartsModuleHostingViewController()
             navVC.pushViewController(chartsVC, animated: true)
         case .home:
-            let mainVC = MainScreenContainerViewController()
-            navVC.pushViewController(mainVC, animated: true)
+            let mainView = MainScreenView()
+            let hostingVC = UIHostingController(rootView: mainView)
+            navVC.pushViewController(hostingVC, animated: true)
         case .setup:
             let settingsVC = SettingsViewController()
 //            let settingsVC = MoodClassifierHostingViewController()

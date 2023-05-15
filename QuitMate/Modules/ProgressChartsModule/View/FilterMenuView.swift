@@ -22,8 +22,8 @@ struct FilterMenuView: View {
                 .stroke()
                 .overlay {
                     Menu {
-                        Button("1 Week", action: {
-                            selectedFilteringMethod = .oneWeek
+                        Button("2 Weeks", action: {
+                            selectedFilteringMethod = .twoWeeks
                         })
                         Button("1 Month", action: {
                             selectedFilteringMethod = .oneMonth
@@ -31,9 +31,6 @@ struct FilterMenuView: View {
                         Button("3 Months") {
                             selectedFilteringMethod = .threeMonth
                         }
-//                        Button("6 Months") {
-//                            selectedFilteringMethod = .sixMonth
-//                        }
                     } label: {
                         Text(selectedFilteringMethod.rawValue)
                     }

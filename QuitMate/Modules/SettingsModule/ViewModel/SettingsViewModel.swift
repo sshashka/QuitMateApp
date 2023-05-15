@@ -10,14 +10,15 @@ import Combine
 
 class SettingsViewModel: ObservableObject {
     private var disposeBag = Set<AnyCancellable>()
-    @Published var userModel = [User]() {
-        didSet {
-            getViewModels()
-        }
-    }
-    @Published var headerViewModel: [HeaderViewViewModel] = []
+    @Published var userModel: User?
+    @Published var headerViewModel: HeaderViewViewModel?
+    
     func didTapLogout() {
         
+    }
+    
+    init() {
+        getUserModel()
     }
     
     func getUserModel() {
@@ -25,14 +26,12 @@ class SettingsViewModel: ObservableObject {
             .sink {
                 print($0)
             } receiveValue: {[weak self] in
-                self?.userModel = $0
+                self?.userModel = $0.first
             }.store(in: &disposeBag)
     }
     
     func getViewModels() {
-        guard let user = userModel.first else { return }
-        let model = HeaderViewViewModel(name: user.name, email: user.email, image: user.profileImage ?? nil)
-        headerViewModel.append(model)
+        
     }
     
 }
