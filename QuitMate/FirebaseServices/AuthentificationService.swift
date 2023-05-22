@@ -77,6 +77,10 @@ final class AuthentificationService: AuthentificationServiceProtocol {
         }
     }
     
+    deinit {
+        print("Auth service deinit")
+    }
+    
     func signOut() {
         do{
             try Auth.auth().signOut()

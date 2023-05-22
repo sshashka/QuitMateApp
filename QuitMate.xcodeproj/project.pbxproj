@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30064B2F2A1574C600C70664 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */; };
 		301821CF299D79C10088863C /* AuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301821CE299D79C10088863C /* AuthentificationService.swift */; };
 		3019DEE72A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */; };
 		3021339E29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021339D29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift */; };
@@ -40,6 +41,8 @@
 		3057162029C7E292002C20A0 /* ReasonsToStopModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057161F29C7E292002C20A0 /* ReasonsToStopModulePresenter.swift */; };
 		3057162229C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057162129C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift */; };
 		3057162429C7E77D002C20A0 /* ReasonsTopStopView+Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057162329C7E77D002C20A0 /* ReasonsTopStopView+Module.swift */; };
+		305B654E2A1C089D006215E6 /* LongAssText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B654D2A1C089D006215E6 /* LongAssText.swift */; };
+		305B65522A1C0B20006215E6 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 305B65512A1C0B20006215E6 /* OpenAI */; };
 		306531F629E4B20500E0544F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306531F529E4B20500E0544F /* SettingsViewController.swift */; };
 		306531F829E4B84800E0544F /* SettingsTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */; };
 		306531FA29E4BB5100E0544F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306531F929E4BB5100E0544F /* SettingsTableViewCell.swift */; };
@@ -122,6 +125,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		301821CE299D79C10088863C /* AuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationService.swift; sourceTree = "<group>"; };
 		3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProfileHeaderView.swift; sourceTree = "<group>"; };
 		3021339D29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierViewControllerProtocol.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		3057161F29C7E292002C20A0 /* ReasonsToStopModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopModulePresenter.swift; sourceTree = "<group>"; };
 		3057162129C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopPresenterProtocol.swift; sourceTree = "<group>"; };
 		3057162329C7E77D002C20A0 /* ReasonsTopStopView+Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReasonsTopStopView+Module.swift"; sourceTree = "<group>"; };
+		305B654D2A1C089D006215E6 /* LongAssText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongAssText.swift; sourceTree = "<group>"; };
 		306531F529E4B20500E0544F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewFooterView.swift; sourceTree = "<group>"; };
 		306531F929E4BB5100E0544F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +246,7 @@
 				30A1205029FC1A0A0062A019 /* FirebaseDatabase in Frameworks */,
 				30A1205429FC1A0A0062A019 /* FirebaseFirestore in Frameworks */,
 				30A1205829FC1A0A0062A019 /* FirebaseStorage in Frameworks */,
+				305B65522A1C0B20006215E6 /* OpenAI in Frameworks */,
 				30A1204E29FC1A0A0062A019 /* FirebaseAuth in Frameworks */,
 				30A1205629FC1A0A0062A019 /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -249,13 +255,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30064B2C2A1574A400C70664 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+				304F776A29A978B9004FF548 /* AuthentificationModule.swift */,
+				30CA1B44299AE191001E5BF3 /* AutentificationViewController.swift */,
+				304F776829A97039004FF548 /* AuthentificationModulePresenter.swift */,
+			);
+			path = Authentification;
+			sourceTree = "<group>";
+		};
+		30064B2D2A1574B700C70664 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				302B48C629F957690031CFE6 /* RegistrationViewController.swift */,
+				30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		301821CC299D22AF0088863C /* AuthModule */ = {
 			isa = PBXGroup;
 			children = (
-				30CA1B44299AE191001E5BF3 /* AutentificationViewController.swift */,
-				304F776829A97039004FF548 /* AuthentificationModulePresenter.swift */,
-				304F776A29A978B9004FF548 /* AuthentificationModule.swift */,
-				302B48C629F957690031CFE6 /* RegistrationViewController.swift */,
+				30064B2C2A1574A400C70664 /* Authentification */,
+				30064B2D2A1574B700C70664 /* Registration */,
 			);
 			path = AuthModule;
 			sourceTree = "<group>";
@@ -363,6 +386,7 @@
 				30A1200329FB45D70062A019 /* CustomTextField.swift */,
 				3044405A29F7125D00AD40F2 /* RoundedCorner.swift */,
 				30E9CB3F29F6D0B700E1F0C2 /* TextView.swift */,
+				305B654D2A1C089D006215E6 /* LongAssText.swift */,
 			);
 			path = CoreViews;
 			sourceTree = "<group>";
@@ -383,6 +407,13 @@
 				303B9EB729C1C415008D2C64 /* ReasonsToStopViewProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		305B654F2A1C0AEA006215E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		306531F429E4B1EB00E0544F /* SettingsModule */ = {
@@ -556,6 +587,7 @@
 			children = (
 				30CA1B3F299AE191001E5BF3 /* QuitMate */,
 				30CA1B3E299AE191001E5BF3 /* Products */,
+				305B654F2A1C0AEA006215E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -682,6 +714,7 @@
 				30A1205329FC1A0A0062A019 /* FirebaseFirestore */,
 				30A1205529FC1A0A0062A019 /* FirebaseFirestoreSwift */,
 				30A1205729FC1A0A0062A019 /* FirebaseStorage */,
+				305B65512A1C0B20006215E6 /* OpenAI */,
 			);
 			productName = QuitMate;
 			productReference = 30CA1B3D299AE191001E5BF3 /* QuitMate.app */;
@@ -713,6 +746,7 @@
 			mainGroup = 30CA1B34299AE191001E5BF3;
 			packageReferences = (
 				30A1204C29FC1A0A0062A019 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				305B65502A1C0B20006215E6 /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = 30CA1B3E299AE191001E5BF3 /* Products */;
 			projectDirPath = "";
@@ -801,6 +835,7 @@
 				30CA3A0B29AFFA7200181539 /* MoodChartView.swift in Sources */,
 				30CA3A2E29B0EF7000181539 /* ReasonsToStopViewController.swift in Sources */,
 				3021339E29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift in Sources */,
+				30064B2F2A1574C600C70664 /* RegistrationViewModel.swift in Sources */,
 				30E9CB3629F6AFF000E1F0C2 /* ProgressView.swift in Sources */,
 				3025FF3B2A11824A002D71A8 /* MoodClassifierSelectionView.swift in Sources */,
 				304EC1A92A03BEE0001667FC /* ProgressStatsView.swift in Sources */,
@@ -829,6 +864,7 @@
 				303B9EB829C1C415008D2C64 /* ReasonsToStopViewProtocol.swift in Sources */,
 				302C494529FB116500D43421 /* MoodModel.swift in Sources */,
 				30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */,
+				305B654E2A1C089D006215E6 /* LongAssText.swift in Sources */,
 				306531F829E4B84800E0544F /* SettingsTableViewFooterView.swift in Sources */,
 				3044406129F7456E00AD40F2 /* Spacings.swift in Sources */,
 				3025FF402A119881002D71A8 /* CoreMLClassifierCoordinator.swift in Sources */,
@@ -1067,6 +1103,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		305B65502A1C0B20006215E6 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI#completions";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
 		30A1204C29FC1A0A0062A019 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1078,6 +1122,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		305B65512A1C0B20006215E6 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 305B65502A1C0B20006215E6 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
 		30A1204D29FC1A0A0062A019 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 30A1204C29FC1A0A0062A019 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

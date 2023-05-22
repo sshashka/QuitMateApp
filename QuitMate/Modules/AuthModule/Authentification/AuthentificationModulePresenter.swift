@@ -37,7 +37,7 @@ final class AuthentificationModulePresenter: AuthentificationModulePresenterProt
         authentificationService.didSelectLoginWithEmailLogin(email: email, password: password) { [weak self] result in
             switch result {
             case .success:
-                self?.didSendEventClosure?(.authentification)
+                self?.didSendEventClosure?(.login)
             case .failure(let reason):
                 self?.LoginView?.didReceiveErrorFromFirebaseAuth(error: reason)
             }
@@ -54,8 +54,12 @@ final class AuthentificationModulePresenter: AuthentificationModulePresenterProt
             }
         }
     }
+    
+    deinit {
+        print("AuthPres deinit")
+    }
 }
 
 extension AuthentificationModulePresenter {
-    enum EventType { case authentification }
+    enum EventType { case login }
 }

@@ -130,6 +130,10 @@ final class AutentificationViewController: UIViewController {
             .assign(to: \.isEnabled, on: loginButton)
             .store(in: &cancellables)
     }
+    
+    deinit {
+        print("AuthVC deinit")
+    }
 }
 
 private extension AutentificationViewController {
@@ -137,8 +141,8 @@ private extension AutentificationViewController {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             rootStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            rootStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: LayoutConstants.spacing32),
-            rootStackView.widthAnchor.constraint(equalToConstant: 300),
+            rootStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            rootStackView.widthAnchor.constraint(equalToConstant: view.frame.width * (4/5)),
             
             rootStackView.heightAnchor.constraint(equalToConstant: view.frame.height/3)
         ])
@@ -169,6 +173,8 @@ private extension AutentificationViewController {
     func passwordIsValid(password: String) -> Bool {
         return password.count >= 8
     }
+    
+    
 }
 
 extension AutentificationViewController: AutentificationLoginViewControllerProtocol {

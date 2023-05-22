@@ -26,7 +26,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
     
     var navigationController: UINavigationController
     
-    var childCoordinators: [Coordinator] = [Coordinator]()
+    var childCoordinators: [Coordinator] = []
     
     var type: CoordinatorType {.app}
     
@@ -70,9 +70,11 @@ extension AppCoordinator: CoordinatorFinishDelegate {
             showReasonsToStop()
         case .login:
             navigationController.viewControllers.removeAll()
+            childCoordinators = []
             showMainFlow()
         case .moodClassifier:
             navigationController.viewControllers.removeAll()
+            childCoordinators = []
             showMainFlow()
         default:
             break

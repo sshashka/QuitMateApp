@@ -15,11 +15,9 @@ protocol MoodClassifierCoordinatorProtocol: Coordinator {
 
 final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol, CoordinatorFinishDelegate {
     func coordinatorDidFinish(childCoordinator: Coordinator) {
-        switch childCoordinator.type {
-        case .moodClassifier:
-            self.finish()
+        switch childCoordinator {
         default:
-            break
+            self.finish()
         }
     }
     
@@ -48,10 +46,13 @@ final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol, Coordi
         let coordinator = ManualMoodCoordinator(navigationController)
         coordinator.start()
         coordinator.finishDelegate = self
+//        coordinator.didSendEventClosure = { [weak self] event in
+//            self?.finish()
+//        }
         childCoordinators.append(coordinator)
     }
     
-    var finishDelegate: CoordinatorFinishDelegate? 
+    weak var finishDelegate: CoordinatorFinishDelegate? 
     
     var navigationController: UINavigationController
     

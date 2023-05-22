@@ -13,6 +13,7 @@ protocol ManualMoodCoordinatorProtocol: Coordinator {
 }
 
 final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
+    var didSendEventClosure: ((CoordinatorType) -> Void)?
     func showManualSelectionView() {
         let viewModel = MoodClassifierModuleViewModel()
         let view = MoodClassifierMainScreenView(viewModel: viewModel)
@@ -23,7 +24,7 @@ final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    var finishDelegate: CoordinatorFinishDelegate?
+    weak var finishDelegate: CoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
     
@@ -42,5 +43,4 @@ final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
     deinit {
         print("\(self) deinited")
     }
-    
 }

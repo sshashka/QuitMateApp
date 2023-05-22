@@ -9,7 +9,7 @@
 import UIKit
 
 enum TabBarPages {
-    case charts, home, setup, debug
+    case charts, home, setup
     
     init?(index: Int) {
         switch index {
@@ -19,8 +19,6 @@ enum TabBarPages {
             self = .home
         case 2:
             self = .setup
-        case 3 :
-            self = .debug
         default:
             return nil
         }
@@ -33,8 +31,6 @@ enum TabBarPages {
         case .home:
             return UIImage(systemName: "house")!
         case .setup:
-            return UIImage(systemName: "gear")!
-        case .debug:
             return UIImage(systemName: "gear")!
         }
     }

@@ -15,7 +15,8 @@ protocol LoginCoordinatorProtocol: Coordinator {
 final class LoginCoordinator: LoginCoordinatorProtocol {
     func showAuthentificationViewController() {
         let authentificationVC = AutentificationViewController.module
-        authentificationVC.presenter?.didSendEventClosure = { [weak self] event in
+        guard let presenter = authentificationVC.presenter else { return }
+        presenter.didSendEventClosure = { [weak self] event in
             self?.finish()
         }
 
@@ -36,5 +37,9 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+    }
+    
+    deinit {
+        print("\(self) is deinited")
     }
 }
