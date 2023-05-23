@@ -10,6 +10,7 @@
 		30064B2F2A1574C600C70664 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */; };
 		301821CF299D79C10088863C /* AuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301821CE299D79C10088863C /* AuthentificationService.swift */; };
 		3019DEE72A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */; };
+		301D900C2A1D6EB400043F37 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 301D900B2A1D6EB400043F37 /* CNNEmotions.mlmodel */; };
 		3021339E29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021339D29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift */; };
 		3025FF3B2A11824A002D71A8 /* MoodClassifierSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */; };
 		3025FF3E2A118AA6002D71A8 /* ManualMoodCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3D2A118AA6002D71A8 /* ManualMoodCoordinator.swift */; };
@@ -120,7 +121,6 @@
 		30E9CB4229F6D13800E1F0C2 /* QuittingInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4129F6D13800E1F0C2 /* QuittingInformationView.swift */; };
 		30E9CB4429F6D40800E1F0C2 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4329F6D40800E1F0C2 /* StatsView.swift */; };
 		30E9CB4629F6D9B400E1F0C2 /* StandartButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */; };
-		30E9CB4C29F6E6B400E1F0C2 /* CNNEmotions.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4B29F6E6B400E1F0C2 /* CNNEmotions.mlpackage */; };
 		30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +128,7 @@
 		30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		301821CE299D79C10088863C /* AuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationService.swift; sourceTree = "<group>"; };
 		3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProfileHeaderView.swift; sourceTree = "<group>"; };
+		301D900B2A1D6EB400043F37 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		3021339D29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierViewControllerProtocol.swift; sourceTree = "<group>"; };
 		3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierSelectionView.swift; sourceTree = "<group>"; };
 		3025FF3D2A118AA6002D71A8 /* ManualMoodCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualMoodCoordinator.swift; sourceTree = "<group>"; };
@@ -233,7 +234,6 @@
 		30E9CB4129F6D13800E1F0C2 /* QuittingInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuittingInformationView.swift; sourceTree = "<group>"; };
 		30E9CB4329F6D40800E1F0C2 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartButtonStyle.swift; sourceTree = "<group>"; };
-		30E9CB4B29F6E6B400E1F0C2 /* CNNEmotions.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = CNNEmotions.mlpackage; sourceTree = "<group>"; };
 		30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowEffectSwiftUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -534,7 +534,7 @@
 		30A64CFA29EA1F09000E3E90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				30E9CB4B29F6E6B400E1F0C2 /* CNNEmotions.mlpackage */,
+				301D900B2A1D6EB400043F37 /* CNNEmotions.mlmodel */,
 				30B7513529F345FD00295A7E /* ClassificationResultModel.swift */,
 				302C494429FB116500D43421 /* MoodModel.swift */,
 			);
@@ -792,6 +792,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				301D900C2A1D6EB400043F37 /* CNNEmotions.mlmodel in Sources */,
 				3078302429A2DD9A003FAA10 /* UILabel+Extension.swift in Sources */,
 				30A0E4CD29DE1B35000CA339 /* AppCoordinator.swift in Sources */,
 				304F776B29A978B9004FF548 /* AuthentificationModule.swift in Sources */,
@@ -842,7 +843,6 @@
 				30A1200629FBE7B00062A019 /* FirebaseStorageService.swift in Sources */,
 				3057162229C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift in Sources */,
 				302C494E29FB276300D43421 /* MoodClassifierButton.swift in Sources */,
-				30E9CB4C29F6E6B400E1F0C2 /* CNNEmotions.mlpackage in Sources */,
 				30AAD9232A0F0A40000FF93D /* HeaderViewViewModel.swift in Sources */,
 				3057162429C7E77D002C20A0 /* ReasonsTopStopView+Module.swift in Sources */,
 				3044405F29F7438700AD40F2 /* TimeAndScoreView.swift in Sources */,
