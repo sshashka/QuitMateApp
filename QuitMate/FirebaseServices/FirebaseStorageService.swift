@@ -76,9 +76,9 @@ class FirebaseStorageService {
     
     func createUser() {
         let image = UIImage(named: "Tokyo")?.pngData()
-        let reference = getChildReference(for: .user).childByAutoId()
+        let reference = getChildReference(for: .user).child(userId!).childByAutoId()
         let key = reference.key!
-        let user = User(name: "Sasha", age: 21, email: "sash.vas2001@gmail.com", id: key, profileImage: image)
+        let user = User(name: "Sasha", age: 21, email: "sshashkaov@gmail.com", id: key, profileImage: image)
         
         try? reference.setValue(from: user)
     }
@@ -94,6 +94,7 @@ class FirebaseStorageService {
                     try? snapshot.data(as: User.self)
                 }
                 subject.send(data)
+                print(data)
             }
         }
         return subject.eraseToAnyPublisher()

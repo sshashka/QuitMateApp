@@ -6,25 +6,33 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct SettingsViewProfileHeaderView: View {
-    @StateObject var viewModel = SettingsViewModel()
+    @StateObject var viewModel: HeaderViewViewModel
     var body: some View {
         VStack(spacing: Spacings.spacing10) {
-            Image("Tokyo")
+            createImage()
                 .resizable()
                 .clipShape(Circle())
                 .frame(width: 100, height: 100)
-            TextView(text: "$viewModel.userModel.first.name", font: .poppinsMedium, size: 16)
-            TextView(text: "alex.underbill@example.com", font: .poppinsMedium, size: 14)
+            TextView(text: viewModel.name, font: .poppinsMedium, size: 16)
+            TextView(text: viewModel.email, font: .poppinsMedium, size: 14)
                 .foregroundColor(.gray)
         }
         .padding()
     }
-}
-
-struct SettingsViewProfileHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsViewProfileHeaderView()
+    
+    private func createImage() -> Image {
+        let data = viewModel.image
+        guard let data = data else { return Image("3")}
+        let UIKitImage = UIImage(data: data)
+        return Image(uiImage: UIKitImage!)
     }
 }
+
+//struct SettingsViewProfileHeaderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SettingsViewProfileHeaderView()
+//    }
+//}
