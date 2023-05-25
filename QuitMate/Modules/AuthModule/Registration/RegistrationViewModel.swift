@@ -89,7 +89,7 @@ class RegistrationViewModel: ObservableObject {
 extension Publisher where Output == Bool, Failure == Never {
     func mapToFieldInputColor() -> AnyPublisher<UIColor?, Never> {
         map { isValid -> UIColor? in
-            isValid ? .label : .systemRed
+            isValid ? .systemGray : .systemRed
         }
         .eraseToAnyPublisher()
     }

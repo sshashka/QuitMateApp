@@ -45,6 +45,8 @@ final class AuthentificationService: AuthentificationServiceProtocol {
                         completion(.failure("OOPS... user's account is disabled. Try creating a new one"))
                     case .wrongPassword:
                         completion(.failure("OOPS... looks like you have attempted to sign in with a wrong password."))
+                    case .invalidRecipientEmail:
+                        completion(.failure("Oops... Looks like email is wrong. Try again"))
                     default:
                         completion(.failure("OOPS... looks like unknow error. Try again later"))
                     }
