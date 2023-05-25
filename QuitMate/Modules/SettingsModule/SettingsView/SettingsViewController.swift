@@ -7,12 +7,13 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class SettingsViewController: UIViewController {
     private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app"]
     private let gradientLayer = CAGradientLayer()
     private let viewModel = SettingsViewModel()
-    private let profileHeaderView = UIHostingController(rootView: SettingsViewProfileHeaderView())
+    private var disposeBag = Set<AnyCancellable>()
     private let settingsTableView: UITableView = {
         let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +22,7 @@ class SettingsViewController: UIViewController {
     }()
     
     private lazy var rootStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [profileHeaderView.view, settingsTableView])
+        let stackView = UIStackView(arrangedSubviews: [settingsTableView])
         stackView.axis = .vertical
         stackView.spacing = Spacings.spacing15
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,16 +35,25 @@ class SettingsViewController: UIViewController {
         view.backgroundColor = .systemBackground
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
-        setupHeaderProfileView()
+//        setupHeaderProfileView()
         setupEditButton()
         setupConstraints()
+        setupHeaderProfileView(viewModel: viewModel.headerViewModel)
     }
 }
 
 private extension SettingsViewController {
-    func setupHeaderProfileView() {
+    func setupHeaderProfileView(viewModel: HeaderViewViewModel) {
+        
+        print("Sas")
+        let profileHeaderView = UIHostingController(rootView: SettingsViewProfileHeaderView(viewModel: viewModel))
         addChild(profileHeaderView)
         profileHeaderView.didMove(toParent: self)
+        profileHeaderView.view.translatesAutoresizingMaskIntoConstraints = false
+        rootStackView.insertArrangedSubview(profileHeaderView.view, at: 0)
+        NSLayoutConstraint.activate([
+            profileHeaderView.view.heightAnchor.constraint(equalToConstant: view.frame.height / 3)
+        ])
     }
     
     func setupEditButton() {
@@ -58,9 +68,9 @@ private extension SettingsViewController {
             rootStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             rootStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Spacings.spacing20),
             
-            profileHeaderView.view.heightAnchor.constraint(equalToConstant: view.frame.height / 3)
         ])
     }
+    
     
     func didSelectPasswordReset() {
         let alert = UIAlertController(title: "Do you want to reset your password?", message: "Note: еhis action cannot be undone ", preferredStyle: .alert)

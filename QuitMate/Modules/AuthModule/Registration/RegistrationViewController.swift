@@ -102,15 +102,15 @@ class RegistrationViewController: UIViewController {
             .store(in: &disposeBag)
         
         viewModel.$emailTextFieldColor
-            .assign(to: \.textColor, on: emailTextField)
+            .assign(to: \.backgroundColor, on: emailTextField)
             .store(in: &disposeBag)
         
         viewModel.$passwordTextFieldColor
-            .assign(to: \.textColor, on: passwordTextField)
+            .assign(to: \.backgroundColor, on: passwordTextField)
             .store(in: &disposeBag)
         
         viewModel.$passwordConfirmationTextFieldColor
-            .assign(to: \.textColor, on: passwordTextField)
+            .assign(to: \.backgroundColor, on: passwordTextField)
             .store(in: &disposeBag)
         // Do any additional setup after loading the view.
     }

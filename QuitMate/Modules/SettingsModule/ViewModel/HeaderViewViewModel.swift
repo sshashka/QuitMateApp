@@ -9,12 +9,16 @@ import Foundation
 
 class HeaderViewViewModel: ObservableObject {
     @Published var image: Data?
-    @Published var name: String
-    @Published var email: String
+    @Published var name: String = ""
+    @Published var email: String = ""
     
-    init(image: Data? = nil, name: String, email: String) {
-        self.image = image
-        self.name = name
-        self.email = email
+    init(user: User) {
+        updateWith(user: user)
+    }
+    
+    func updateWith(user: User) {
+        self.image = user.profileImage
+        self.name = user.name
+        self.email = user.email
     }
 }
