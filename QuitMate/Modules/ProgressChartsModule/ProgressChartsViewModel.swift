@@ -25,6 +25,7 @@ final class ProgressChartsViewModel: ObservableObject {
             self.dataForCharts = chartModelData
             filterChartsData(for: selectedSotringMethod)
             filterChartsData(for: .oneWeek)
+            print("Latest day: \(chartModelData.last?.dateOfClassification)")
         }
     }
     
@@ -38,7 +39,6 @@ final class ProgressChartsViewModel: ObservableObject {
     @Published var dataForCharts: [ChartModel] = [] {
         didSet {
             getStatistics()
-    
         }
     }
     

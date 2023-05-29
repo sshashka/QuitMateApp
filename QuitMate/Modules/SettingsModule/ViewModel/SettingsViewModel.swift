@@ -39,7 +39,6 @@ class SettingsViewModel: ObservableObject {
     func getViewModels() {
         guard let user = userModel else { return }
         headerViewModel.updateWith(user: user)
-        print("Settings")
     }
     
 }

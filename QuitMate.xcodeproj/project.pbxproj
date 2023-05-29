@@ -15,7 +15,7 @@
 		301D90112A1D74CB00043F37 /* AgeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D90102A1D74CB00043F37 /* AgeEntryView.swift */; };
 		301D90132A1D751000043F37 /* PeriodOfTimeToQuitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D90122A1D751000043F37 /* PeriodOfTimeToQuitView.swift */; };
 		3021339E29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021339D29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift */; };
-		3025FF3B2A11824A002D71A8 /* MoodClassifierSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */; };
+		3025FF3B2A11824A002D71A8 /* MoodClassifierSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionViewModel.swift */; };
 		3025FF3E2A118AA6002D71A8 /* ManualMoodCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3D2A118AA6002D71A8 /* ManualMoodCoordinator.swift */; };
 		3025FF402A119881002D71A8 /* CoreMLClassifierCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3F2A119881002D71A8 /* CoreMLClassifierCoordinator.swift */; };
 		302B48C229F9442B0031CFE6 /* AuthentificationModuleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B48C129F9442B0031CFE6 /* AuthentificationModuleConstants.swift */; };
@@ -136,7 +136,7 @@
 		301D90102A1D74CB00043F37 /* AgeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeEntryView.swift; sourceTree = "<group>"; };
 		301D90122A1D751000043F37 /* PeriodOfTimeToQuitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodOfTimeToQuitView.swift; sourceTree = "<group>"; };
 		3021339D29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierViewControllerProtocol.swift; sourceTree = "<group>"; };
-		3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierSelectionView.swift; sourceTree = "<group>"; };
+		3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierSelectionViewModel.swift; sourceTree = "<group>"; };
 		3025FF3D2A118AA6002D71A8 /* ManualMoodCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualMoodCoordinator.swift; sourceTree = "<group>"; };
 		3025FF3F2A119881002D71A8 /* CoreMLClassifierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLClassifierCoordinator.swift; sourceTree = "<group>"; };
 		302B48C129F9442B0031CFE6 /* AuthentificationModuleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationModuleConstants.swift; sourceTree = "<group>"; };
@@ -358,7 +358,7 @@
 			children = (
 				302C494629FB267200D43421 /* MoodClassifierHostingViewController.swift */,
 				3025FF392A1181F3002D71A8 /* ManualClassificationView */,
-				3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */,
+				3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionViewModel.swift */,
 			);
 			path = ViewV2;
 			sourceTree = "<group>";
@@ -856,7 +856,7 @@
 				30064B2F2A1574C600C70664 /* RegistrationViewModel.swift in Sources */,
 				301D90132A1D751000043F37 /* PeriodOfTimeToQuitView.swift in Sources */,
 				30E9CB3629F6AFF000E1F0C2 /* ProgressView.swift in Sources */,
-				3025FF3B2A11824A002D71A8 /* MoodClassifierSelectionView.swift in Sources */,
+				3025FF3B2A11824A002D71A8 /* MoodClassifierSelectionViewModel.swift in Sources */,
 				304EC1A92A03BEE0001667FC /* ProgressStatsView.swift in Sources */,
 				30A1200629FBE7B00062A019 /* FirebaseStorageService.swift in Sources */,
 				3057162229C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift in Sources */,
