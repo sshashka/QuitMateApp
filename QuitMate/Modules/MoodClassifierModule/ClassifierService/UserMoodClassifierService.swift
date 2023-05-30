@@ -21,6 +21,7 @@ protocol UserMoodClassifierServiceProtocol: AnyObject {
 }
 
 final class UserMoodClassifierService: UserMoodClassifierServiceProtocol {
+    var classificationPublisher = PassthroughSubject<String, Never>()
     private lazy var classificationRequest: VNCoreMLRequest = {
         do {
             let model = try VNCoreMLModel(for: CNNEmotions().model)
@@ -31,7 +32,9 @@ final class UserMoodClassifierService: UserMoodClassifierServiceProtocol {
                         (confidence: $0.confidence, identifier: $0.identifier)
                     }
                     print("Top classifications: \(topClassification)")
-
+                    if let topClassification {
+                        self.classificationPublisher.send(topClassification.identifier)
+                    }
                 }
             }
             request.imageCropAndScaleOption = .centerCrop

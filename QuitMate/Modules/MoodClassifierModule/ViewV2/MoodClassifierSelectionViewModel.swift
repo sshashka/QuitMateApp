@@ -21,27 +21,32 @@ class MoodClassifierSelectionViewModel: ObservableObject {
 }
 
 struct MoodClassifierSelectionView: View {
-    @StateObject var viewModel: MoodClassifierSelectionViewModel
+    @ObservedObject var viewModel: MoodClassifierSelectionViewModel
     var body: some View {
         VStack {
+            Group {
+                TextView(text: "Please specify your mood", font: .poppinsBold, size: 24)
+                TextView(text: "I want to do this...", font: .poppinsMedium, size: 18)
+            }.multilineTextAlignment(.leading)
             Group {
                 Button {
                     viewModel.didChooseClassifierType(selectedMethod: .automatic)
                 } label: {
-                    TextView(text: "Automatic", font: .poppinsSemiBold, size: 14)
+                    TextView(text: "Automaticly", font: .poppinsSemiBold, size: 14)
                 }
                 Button {
                     viewModel.didChooseClassifierType(selectedMethod: .manual)
                 } label: {
-                    TextView(text: "Manual", font: .poppinsSemiBold, size: 14)
+                    TextView(text: "By myself", font: .poppinsSemiBold, size: 14)
                 }
             }.buttonStyle(StandartButtonStyle())
-        }
+        }.padding(Spacings.spacing25)
     }
 }
 
-//struct MoodClassifierSelectionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MoodClassifierSelectionView()
-//    }
-//}
+struct MoodClassifierSelectionView_Previews: PreviewProvider {
+    static var previews: some View {
+        @StateObject var vm = MoodClassifierSelectionViewModel()
+        MoodClassifierSelectionView(viewModel: vm)
+    }
+}

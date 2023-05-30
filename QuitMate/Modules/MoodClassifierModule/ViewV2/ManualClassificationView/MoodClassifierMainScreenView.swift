@@ -31,3 +31,9 @@ struct MoodClassifierMainScreenView: View {
         }
     }
 }
+
+struct MoodClassifierMainScreenView_Previews: PreviewProvider {
+    static var previews: some View {
+        MoodClassifierMainScreenView()
+    }
+}

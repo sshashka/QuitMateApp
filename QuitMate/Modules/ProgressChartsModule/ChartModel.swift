@@ -19,17 +19,17 @@ struct ChartModel: Codable, Identifiable {
     var scoreForUser: Int {
         switch classification {
         case .angry:
-            return 10
+            return 11
         case .disgust:
             return 12
         case .fear:
-            return 14
+            return 10
         case .happy:
-            return 16
+            return 20
         case .neutral:
             return 18
         case .sad:
-            return 20
+            return 16
         case .surprise:
             return 22
         }

@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //Seting up an SDWebImage
 //        SDWebImageHelper.shared.setupSDWebImage()
-        UserDefaults.standard.set(Auth.auth().currentUser!.uid, forKey: "UserID")
+        UserDefaults.standard.set("Q6flCIpCmyfmifYHvyYcRGfkfPz1", forKey: "UserID")
 //        ProgressChartsViewModel()
 //        FirebaseStorageService().createUserStatistics()
 //        let image = UIImage(named: "2")?.pngData()
