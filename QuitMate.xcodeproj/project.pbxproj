@@ -45,13 +45,11 @@
 		3057162029C7E292002C20A0 /* ReasonsToStopModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057161F29C7E292002C20A0 /* ReasonsToStopModulePresenter.swift */; };
 		3057162229C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057162129C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift */; };
 		3057162429C7E77D002C20A0 /* ReasonsTopStopView+Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057162329C7E77D002C20A0 /* ReasonsTopStopView+Module.swift */; };
-		305B654E2A1C089D006215E6 /* LongAssText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B654D2A1C089D006215E6 /* LongAssText.swift */; };
 		305B65522A1C0B20006215E6 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 305B65512A1C0B20006215E6 /* OpenAI */; };
 		306531F629E4B20500E0544F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306531F529E4B20500E0544F /* SettingsViewController.swift */; };
 		306531F829E4B84800E0544F /* SettingsTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */; };
 		306531FA29E4BB5100E0544F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306531F929E4BB5100E0544F /* SettingsTableViewCell.swift */; };
 		3078300E299D82B8003FAA10 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078300D299D82B8003FAA10 /* UIButton+Extension.swift */; };
-		30783017299EECFF003FAA10 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30783016299EECFF003FAA10 /* API.swift */; };
 		3078302229A2DD25003FAA10 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078302129A2DD25003FAA10 /* ColorConstants.swift */; };
 		3078302429A2DD9A003FAA10 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078302329A2DD9A003FAA10 /* UILabel+Extension.swift */; };
 		307E7DFE29EF312200DFCEE3 /* MoodClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307E7DFD29EF312200DFCEE3 /* MoodClassifierViewController.swift */; };
@@ -166,12 +164,10 @@
 		3057161F29C7E292002C20A0 /* ReasonsToStopModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopModulePresenter.swift; sourceTree = "<group>"; };
 		3057162129C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopPresenterProtocol.swift; sourceTree = "<group>"; };
 		3057162329C7E77D002C20A0 /* ReasonsTopStopView+Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReasonsTopStopView+Module.swift"; sourceTree = "<group>"; };
-		305B654D2A1C089D006215E6 /* LongAssText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongAssText.swift; sourceTree = "<group>"; };
 		306531F529E4B20500E0544F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewFooterView.swift; sourceTree = "<group>"; };
 		306531F929E4BB5100E0544F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		3078300D299D82B8003FAA10 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		30783016299EECFF003FAA10 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3078302129A2DD25003FAA10 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		3078302329A2DD9A003FAA10 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		307E7DFD29EF312200DFCEE3 /* MoodClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierViewController.swift; sourceTree = "<group>"; };
@@ -203,7 +199,7 @@
 		30ABA7B329E8C7660048C97E /* DateComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+Extension.swift"; sourceTree = "<group>"; };
 		30B7513529F345FD00295A7E /* ClassificationResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationResultModel.swift; sourceTree = "<group>"; };
 		30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierCoordinator.swift; sourceTree = "<group>"; };
-		30CA1B3D299AE191001E5BF3 /* QuitMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30CA1B3D299AE191001E5BF3 /* QuitMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = QuitMate.app; path = "/Users/sashavasylenko/Documents/Mine/QuitMate/QuitMateApp/build/Debug-iphoneos/QuitMate.app"; sourceTree = "<absolute>"; };
 		30CA1B40299AE191001E5BF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30CA1B42299AE191001E5BF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		30CA1B44299AE191001E5BF3 /* AutentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutentificationViewController.swift; sourceTree = "<group>"; };
@@ -389,20 +385,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		3048CD3929AEB6DC0016308B /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		304EC1A72A03BC65001667FC /* CoreViews */ = {
 			isa = PBXGroup;
 			children = (
 				30A1200329FB45D70062A019 /* CustomTextField.swift */,
 				3044405A29F7125D00AD40F2 /* RoundedCorner.swift */,
 				30E9CB3F29F6D0B700E1F0C2 /* TextView.swift */,
-				305B654D2A1C089D006215E6 /* LongAssText.swift */,
 			);
 			path = CoreViews;
 			sourceTree = "<group>";
@@ -423,13 +411,6 @@
 				303B9EB729C1C415008D2C64 /* ReasonsToStopViewProtocol.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		305B654F2A1C0AEA006215E6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		306531F429E4B1EB00E0544F /* SettingsModule */ = {
@@ -603,17 +584,7 @@
 			isa = PBXGroup;
 			children = (
 				30CA1B3F299AE191001E5BF3 /* QuitMate */,
-				30CA1B3E299AE191001E5BF3 /* Products */,
-				305B654F2A1C0AEA006215E6 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		30CA1B3E299AE191001E5BF3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				30CA1B3D299AE191001E5BF3 /* QuitMate.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		30CA1B3F299AE191001E5BF3 /* QuitMate */ = {
@@ -628,12 +599,10 @@
 				30A0E4D029DEF4E7000CA339 /* Coordinators */,
 				3093432A29DC5E4B00D9C1AA /* Modules */,
 				30CA3A2829B008FD00181539 /* TapBar */,
-				3048CD3929AEB6DC0016308B /* Helpers */,
 				301821CD299D22BD0088863C /* Extensions */,
 				30E9CB4D29F6E6D400E1F0C2 /* App */,
 				30CA1B49299AE192001E5BF3 /* Assets.xcassets */,
 				30CA1B4B299AE192001E5BF3 /* LaunchScreen.storyboard */,
-				30783016299EECFF003FAA10 /* API.swift */,
 				302B48C529F9552E0031CFE6 /* Constants */,
 				30AAD9202A0EFB72000FF93D /* UserModel.swift */,
 			);
@@ -765,7 +734,7 @@
 				30A1204C29FC1A0A0062A019 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				305B65502A1C0B20006215E6 /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
-			productRefGroup = 30CA1B3E299AE191001E5BF3 /* Products */;
+			productRefGroup = 30CA1B34299AE191001E5BF3;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -848,7 +817,6 @@
 				302B48C429F952470031CFE6 /* LayoutConstants.swift in Sources */,
 				301821CF299D79C10088863C /* AuthentificationService.swift in Sources */,
 				30A0E4D429DF7256000CA339 /* TabBarCoordinator.swift in Sources */,
-				30783017299EECFF003FAA10 /* API.swift in Sources */,
 				30A0E4CF29DEF35B000CA339 /* LoginCoordinator.swift in Sources */,
 				30CA3A0B29AFFA7200181539 /* MoodChartView.swift in Sources */,
 				30CA3A2E29B0EF7000181539 /* ReasonsToStopViewController.swift in Sources */,
@@ -884,7 +852,6 @@
 				301D900F2A1D716F00043F37 /* NameEntry.swift in Sources */,
 				302C494529FB116500D43421 /* MoodModel.swift in Sources */,
 				30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */,
-				305B654E2A1C089D006215E6 /* LongAssText.swift in Sources */,
 				306531F829E4B84800E0544F /* SettingsTableViewFooterView.swift in Sources */,
 				3044406129F7456E00AD40F2 /* Spacings.swift in Sources */,
 				3025FF402A119881002D71A8 /* CoreMLClassifierCoordinator.swift in Sources */,

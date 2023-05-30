@@ -58,7 +58,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
     
     func start() {
         //Add logics to determine if user is loggined
-        showMainFlow()
+        showLogin()
     }
 }
 
