@@ -12,4 +12,5 @@ struct ColorConstants {
     static let labelColor = "LabelColor"
     static let backgroundColor = "BackgroundColor"
     static let purpleColor = "PurpleColor"
+    static let gray = "ColorGray"
 }

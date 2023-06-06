@@ -14,11 +14,11 @@ struct ProgressPercentageView: View {
             VStack(alignment: .center, spacing: Spacings.spacing10) {
                 Group {
                     Text("Progress")
-                        .font(.custom("Poppins-Medium", size: 18))
+                        .modifier(TextViewModifier(font: .poppinsMedium, size: 18))
                     Text("\(Int(percentage * 100))")
-                        .font(.custom("Poppins-Black", size: 48))
+                        .modifier(TextViewModifier(font: .poppinsBlack, size: 48))
                     Text("%")
-                        .font(.custom("Poppins-Medium", size: 18))
+                        .modifier(TextViewModifier(font: .poppinsMedium, size: 18))
                 }
                 .minimumScaleFactor(0.6)
             }

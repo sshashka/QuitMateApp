@@ -25,7 +25,7 @@ protocol Coordinator: AnyObject {
 
 extension Coordinator {
     func finish() {
-        childCoordinators.removeAll()
+        childCoordinators.removeAll(keepingCapacity: false)
         finishDelegate?.coordinatorDidFinish(childCoordinator: self)
     }
 }

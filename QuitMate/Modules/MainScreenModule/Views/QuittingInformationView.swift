@@ -22,12 +22,12 @@ struct QuittingInformationView: View {
                 .foregroundColor(.black)
             
             HStack(alignment: .center, spacing: Spacings.spacing10) {
-                StatsView(titleText: "\(daysFree)", secondaryText: "Days without smoking")
-                StatsView(titleText: String(moneySpentOnCigarets) + "$", secondaryText: "Money saved")
+                StatsView(image: IconConstants.noSmoking, titleText: "\(daysFree)", secondaryText: "Days without smoking", tintColor: .blue)
+                StatsView(image: IconConstants.money, titleText: String(moneySpentOnCigarets) + "$", secondaryText: "Money saved", tintColor: .green)
             }.foregroundColor(.black)
             HStack(alignment: .center, spacing: Spacings.spacing10) {
-                StatsView(titleText: "\(enviromentalChanges)", secondaryText: "Enviromental changes")
-                StatsView(titleText: daysToFinish, secondaryText: "Days to finish")
+                StatsView(image: IconConstants.earth, titleText: "\(enviromentalChanges)", secondaryText: "Enviromental changes", tintColor: .green)
+                StatsView(image: IconConstants.moon,titleText: daysToFinish, secondaryText: "Days to finish", tintColor: .mint)
             }
             .foregroundColor(.black)
             
@@ -37,7 +37,7 @@ struct QuittingInformationView: View {
                 TextView(text: "Reset Progress", font: .poppinsSemiBold, size: 14)
             }
             .buttonStyle(StandartButtonStyle())
-            .alert("Do yo want to reset timer?", isPresented: $resetButtonPressed) {
+            .alert("Do you want to reset timer? (note: this operation cannot be undone)", isPresented: $resetButtonPressed) {
                 Button("Cancel", role: .cancel) {
                     resetButtonPressed.toggle()
                 }

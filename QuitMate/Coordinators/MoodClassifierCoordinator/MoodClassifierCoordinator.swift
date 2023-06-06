@@ -46,9 +46,6 @@ final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol, Coordi
         let coordinator = ManualMoodCoordinator(navigationController)
         coordinator.start()
         coordinator.finishDelegate = self
-//        coordinator.didSendEventClosure = { [weak self] event in
-//            self?.finish()
-//        }
         childCoordinators.append(coordinator)
     }
     

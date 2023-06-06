@@ -17,25 +17,20 @@ final class AutentificationViewController: UIViewController {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = AuthentificationModuleConstants.headerLabel()
-        label.textAlignment = .center
+        label.text = "Log In"
+        label.font = UIFont(name: FontsEnum.poppinsSemiBold.rawValue, size: 36)
+        label.textAlignment = .left
         return label
     }()
     
     private let registerButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(configuration: .plain())
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(AuthentificationModuleConstants.signUpForFreeButtonTitle(), for: .normal)
         button.setTitleColor(UIColor(named: ColorConstants.purpleColor), for: .normal)
         button.isEnabled = true
+        button.configuration!.contentInsets = NSDirectionalEdgeInsets(top: 32.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
         return button
-    }()
-    
-    private lazy var headerStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [headerLabel, registerButton])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        return stackView
     }()
     
     private let emailTextField: CustomTextField = {
@@ -54,6 +49,15 @@ final class AutentificationViewController: UIViewController {
         return textField
     }()
     
+    private let forgotPasswordButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Forgot password?", for: .normal)
+        button.titleLabel?.textAlignment = .right
+        button.setTitleColor(UIColor(named: ColorConstants.purpleColor), for: .normal)
+        return button
+    }()
+    
     private let loginButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -66,20 +70,21 @@ final class AutentificationViewController: UIViewController {
     
     // MARK: Setting up buttons and textFields stackView
     private lazy var buttonsAndTextFieldsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
+        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, forgotPasswordButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = 16
-        stackView.setCustomSpacing(32, after: passwordTextField)
+        stackView.spacing = Spacings.spacing10
         return stackView
     }()
     
     private lazy var rootStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [headerStackView, buttonsAndTextFieldsStackView])
-        stackView.spacing = LayoutConstants.spacing16
+        let stackView = UIStackView(arrangedSubviews: [headerLabel ,buttonsAndTextFieldsStackView, loginButton])
+        stackView.spacing = Spacings.spacing10
+        stackView.distribution = .fillProportionally
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
+        stackView.setCustomSpacing(Spacings.spacing40, after: buttonsAndTextFieldsStackView)
         return stackView
     }()
     
@@ -144,7 +149,7 @@ private extension AutentificationViewController {
             rootStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             rootStackView.widthAnchor.constraint(equalToConstant: view.frame.width * (4/5)),
             
-            rootStackView.heightAnchor.constraint(equalToConstant: view.frame.height/3)
+            rootStackView.heightAnchor.constraint(equalToConstant: view.frame.height/2)
         ])
     }
     // MARK: Adding selectors to UI

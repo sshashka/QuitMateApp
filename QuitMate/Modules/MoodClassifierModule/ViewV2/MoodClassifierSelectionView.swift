@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-class MoodClassifierSelectionViewModel: ObservableObject {
-    var didSendEventClosure: ((MoodClassifierSelectionViewModel.EventType) -> Void)?
-    
-    func didChooseClassifierType(selectedMethod: EventType) {
-        self.didSendEventClosure?(selectedMethod)
-    }
-    
-    enum EventType {
-        case automatic
-        case manual
-    }
-}
 
 struct MoodClassifierSelectionView: View {
     @ObservedObject var viewModel: MoodClassifierSelectionViewModel

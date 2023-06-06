@@ -116,5 +116,7 @@ extension ProgressChartsViewModel {
         
         bestDayScore = "\(maxScoreDay.scoreForUser)"
         worstDayScore = "\(minScoreDay.scoreForUser)"
+        
+        print("latest day of classifications \(dataForCharts.last?.dateOfClassification)")
     }
 }

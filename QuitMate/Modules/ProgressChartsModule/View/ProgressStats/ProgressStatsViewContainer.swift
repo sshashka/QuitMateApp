@@ -17,7 +17,7 @@ struct ProgressStatsViewContainer: View {
             VStack(alignment: .leading, spacing: Spacings.spacing15) {
                 ProgressStatsView(titleText: "Best day", secondaryText: bestDay)
                 ProgressStatsView(titleText: "Best score", secondaryText: bestScore)
-                ProgressStatsView(titleText: "Wiii", secondaryText: "Character #1")
+//                ProgressStatsView(titleText: "Wiii", secondaryText: "Character #1")
             }
             Spacer()
             VStack(alignment: .leading, spacing: Spacings.spacing15) {

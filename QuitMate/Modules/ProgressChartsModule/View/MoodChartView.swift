@@ -26,20 +26,8 @@ struct MoodChartView: View {
             }
 //            .chartXScale(domain: [0, dataForCharts.endIndex])
             .animation(.linear, value: dataForCharts.count)
-            .scaleEffect(CGSize(width: 1, height: calculateScale()))
+//            .scaleEffect(CGSize(width: 1, height: calculateScale()))
         }
-    }
-    
-    private func calculateScale() -> CGFloat {
-        guard let firstDate = dataForCharts.first?.dateOfClassification,
-              let lastDate = dataForCharts.last?.dateOfClassification else {
-            return 1.0
-        }
-        
-        let daysBetween = Calendar.current.dateComponents([.day], from: firstDate, to: lastDate).day ?? 0
-        
-        // Set a minimum scale of 1.0 to avoid the chart becoming too small
-        return max(1.0, CGFloat(daysBetween) / 100.0)
     }
 }
 

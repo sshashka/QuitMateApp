@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Money.png",
+      "filename" : "Moon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -19,6 +19,6 @@
     "version" : 1
   },
   "properties" : {
-    "preserves-vector-representation" : true
+    "template-rendering-intent" : "template"
   }
 }

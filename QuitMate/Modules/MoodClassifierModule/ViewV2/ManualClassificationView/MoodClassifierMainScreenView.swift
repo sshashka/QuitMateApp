@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct MoodClassifierMainScreenView: View {
-    @StateObject var viewModel = MoodClassifierModuleViewModel()
+    @StateObject var viewModel = ManualMoodClassifierModuleViewModel()
     
     var body: some View {
         VStack(alignment: .center) {
-            TextView(text: "Hey Sasha", font: .poppinsRegular, size: 18)
-            TextView(text: "What`s in your mind", font: .poppinsRegular, size: 18)
-            TextView(text: "I feel...", font: .poppinsLight, size: 14)
+            Text("Hey Sasha")
+                .modifier(TextViewModifier(font: .poppinsRegular, size: 18))
+            Text("What`s in your mind")
+                .modifier(TextViewModifier(font: .poppinsRegular, size: 18))
+            Text("I feel...")
+                .modifier(TextViewModifier(font: .poppinsLight, size: 14))
             MoodSelectionView(moods: $viewModel.moodsArray, selectedMood: $viewModel.selectedMood)
             Button {
                 viewModel.didTapOnDoneButton()
             } label: {
-                TextView(text: "Done", font: .poppinsBold, size: 14)
+                Text("Done")
+                    .modifier(TextViewModifier(font: .poppinsBold, size: 14))
             }
             .buttonStyle(StandartButtonStyle())
         }

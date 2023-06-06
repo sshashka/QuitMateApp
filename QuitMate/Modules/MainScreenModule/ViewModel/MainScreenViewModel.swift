@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class MainScreenViewModel: ObservableObject {
+final class MainScreenViewModel: ObservableObject {
     private var disposeBag = Set<AnyCancellable>()
     @Published private var userStatistics: UserStatisticsModel? {
         didSet {

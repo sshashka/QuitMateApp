@@ -12,8 +12,10 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                TextView(text: "Quitting Analysis", font:  .poppinsSemiBold, size: 18)
-                TextView(text: dateInString, font:  .poppinsMedium, size: 14)
+                Text("Quitting Analysis")
+                    .modifier(TextViewModifier(font: .poppinsSemiBold, size: 18))
+                Text(dateInString)
+                    .modifier(TextViewModifier(font: .poppinsMedium, size: 14))
             }
             Spacer()
         }

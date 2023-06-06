@@ -15,7 +15,7 @@ protocol ManualMoodCoordinatorProtocol: Coordinator {
 final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
     var didSendEventClosure: ((CoordinatorType) -> Void)?
     func showManualSelectionView() {
-        let viewModel = MoodClassifierModuleViewModel()
+        let viewModel = ManualMoodClassifierModuleViewModel()
         let view = MoodClassifierMainScreenView(viewModel: viewModel)
         let vc = UIHostingController(rootView: view)
         viewModel.didSendEndEventClosure = { [weak self] event in

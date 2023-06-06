@@ -16,8 +16,10 @@ struct SettingsViewProfileHeaderView: View {
                 .resizable()
                 .clipShape(Circle())
                 .frame(width: 100, height: 100)
-            TextView(text: viewModel.name, font: .poppinsMedium, size: 16)
-            TextView(text: viewModel.email, font: .poppinsMedium, size: 14)
+            Text(viewModel.name)
+                .modifier(TextViewModifier(font: .poppinsMedium, size: 16))
+            Text(viewModel.email)
+                .modifier(TextViewModifier(font: .poppinsMedium, size: 14))
                 .foregroundColor(.gray)
         }
         .padding()

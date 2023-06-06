@@ -8,10 +8,10 @@
 import Foundation
 
 
-class MoodClassifierModuleViewModel: ObservableObject {
+class ManualMoodClassifierModuleViewModel: ObservableObject {
     @Published var moodsArray: [ClassifiedMood] = []
     @Published var selectedMood: ClassifiedMood? = nil
-    var didSendEndEventClosure: ((MoodClassifierModuleViewModel.EndEvent) -> Void)?
+    var didSendEndEventClosure: ((ManualMoodClassifierModuleViewModel.EndEvent) -> Void)?
     
     init() {
         let moods = ClassifiedMood.allCases
@@ -29,6 +29,6 @@ class MoodClassifierModuleViewModel: ObservableObject {
     }
 }
 
-extension MoodClassifierModuleViewModel {
+extension ManualMoodClassifierModuleViewModel {
     enum EndEvent { case moodClassifier }
 }

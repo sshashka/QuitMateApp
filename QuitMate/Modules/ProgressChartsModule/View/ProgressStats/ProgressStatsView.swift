@@ -12,9 +12,11 @@ struct ProgressStatsView: View {
     let secondaryText: String
     var body: some View {
         VStack(alignment: .leading) {
-            TextView(text: titleText, font: .poppinsSemiBold, size: 18)
+            Text(titleText)
+                .modifier(TextViewModifier(font: .poppinsSemiBold, size: 18))
                 .foregroundColor(Color(ColorConstants.purpleColor))
-            TextView(text: secondaryText, font: .poppinsLight, size: 14)
+            Text(secondaryText)
+                .modifier(TextViewModifier(font: .poppinsSemiBold, size: 18))
                 .lineLimit(2)
         }
     }

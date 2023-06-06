@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainScreenView: View {
-    @StateObject var viewModel = MainScreenViewModel()
+    @StateObject var viewModel: MainScreenViewModel
     var body: some View {
         GeometryReader { frame in
             VStack {
@@ -22,6 +22,7 @@ struct MainScreenView: View {
                 Group {
                     TimeAndScoreView(quittingDuration: $viewModel.dateComponentsWithoutSmoking)
                         .foregroundColor(Color(ColorConstants.labelColor))
+                        .padding(.top, Spacings.spacing5)
                     QuittingInformationView(moneySpentOnCigarets: $viewModel.moneySaved, daysFree: $viewModel.daysWithoutSmoking, enviromentalChanges: $viewModel.enviromentalChanges, daysToFinish: $viewModel.daysToFinish, userConfirmedReset: $viewModel.userConfirmedRequest)
                         .background(Color.white)
                         .cornerRadius(35, corners: [.topLeft, .topRight])
@@ -33,6 +34,7 @@ struct MainScreenView: View {
 }
 struct MainScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        MainScreenView()
+        @StateObject var vm = MainScreenViewModel()
+        MainScreenView(viewModel: vm)
     }
 }

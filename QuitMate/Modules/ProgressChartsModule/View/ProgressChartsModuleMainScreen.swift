@@ -23,6 +23,7 @@ struct ProgressChartsModuleMainScreen: View {
                         .frame(height: frame.size.height * 1/20)
                 }.padding(.horizontal, Spacings.spacing20)
                 MoodChartView(dataForCharts: $viewModel.dataForCharts)
+                    .padding(.top, Spacings.spacing10)
                 //                        .frame(height: frame.size.height * 4/10)
             }
         }

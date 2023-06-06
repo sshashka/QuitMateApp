@@ -84,7 +84,7 @@ private extension SettingsViewController {
     }
     
     @objc func editButtonDidTap() {
-        print("Bruh")
+        
     }
 }
 
@@ -105,11 +105,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             didSelectPasswordReset()
         case 1:
-            print("Sosi")
+            print()
         case 2:
-            print("bruh")
+            print()
         default:
-            print("Ahhhh")
+            print()
         }
     }
     

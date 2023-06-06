@@ -46,12 +46,12 @@ final class TabBarCoordinator: NSObject, Coordinator {
             let chartsVC = ProgressChartsModuleHostingViewController()
             navVC.pushViewController(chartsVC, animated: true)
         case .home:
-            let mainView = MainScreenView()
+            let vm = MainScreenViewModel()
+            let mainView = MainScreenView(viewModel: vm)
             let hostingVC = UIHostingController(rootView: mainView)
             navVC.pushViewController(hostingVC, animated: true)
         case .setup:
             let settingsVC = SettingsViewController()
-//            let settingsVC = MoodClassifierHostingViewController()
             navVC.pushViewController(settingsVC, animated: true)
             
         }
@@ -60,7 +60,6 @@ final class TabBarCoordinator: NSObject, Coordinator {
     
     private func setupTabBar(controllers tabController: [UIViewController]) {
         tabBarController.tabBar.tintColor = UIColor(named: ColorConstants.purpleColor)
-        tabBarController.selectedIndex = 2
         tabBarController.tabBar.backgroundColor = .systemBackground
         tabBarController.setViewControllers(tabController, animated: true)
         navigationController.viewControllers = [tabBarController]

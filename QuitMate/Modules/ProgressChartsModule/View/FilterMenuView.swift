@@ -12,8 +12,10 @@ struct FilterMenuView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                TextView(text: TextStringConstants.activity, font: .poppinsMedium, size: 20)
-                TextView(text: TextStringConstants.checkYourActivityThroughPeriod, font: .poppinsRegular, size: 12)
+                Text(TextStringConstants.activity)
+                    .modifier(TextViewModifier(font: .poppinsMedium, size: 20))
+                Text(TextStringConstants.checkYourActivityThroughPeriod)
+                    .modifier(TextViewModifier(font: .poppinsRegular, size: 12))
             }
             
             .fixedSize()

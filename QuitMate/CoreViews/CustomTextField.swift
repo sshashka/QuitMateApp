@@ -20,7 +20,7 @@ class CustomTextField: UITextField {
         self.textColor = .black
         self.setLeftPaddingPoints(20)
         self.setRightPaddingPoints(20)
-        self.backgroundColor = .clear
+        self.backgroundColor = .lightGray
 //        self.makeGlassEffectOnView(style: .extraLight)
         self.translatesAutoresizingMaskIntoConstraints = false
     }
