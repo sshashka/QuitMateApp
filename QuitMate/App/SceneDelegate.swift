@@ -26,10 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appCoordinator = AppCoordinator(navVC)
         appCoordinator?.start()
         window?.makeKeyAndVisible()
-        
         //Seting up an SDWebImage
 //        SDWebImageHelper.shared.setupSDWebImage()
-        UserDefaults.standard.set("Q6flCIpCmyfmifYHvyYcRGfkfPz1", forKey: "UserID")
 //        ProgressChartsViewModel()
 //        FirebaseStorageService().createUserStatistics()
 //        let image = UIImage(named: "2")?.pngData()
@@ -44,6 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        UserDefaults.standard.set(nil, forKey: "UserID")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -65,6 +64,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        
     }
 
 

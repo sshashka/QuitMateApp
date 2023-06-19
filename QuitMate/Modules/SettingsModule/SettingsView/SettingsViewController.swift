@@ -67,7 +67,6 @@ private extension SettingsViewController {
             rootStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Spacings.spacing20),
             rootStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             rootStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Spacings.spacing20),
-            
         ])
     }
     

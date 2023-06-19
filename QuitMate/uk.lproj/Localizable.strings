@@ -1,0 +1,17 @@
+/*
+  Localizable.strings
+  QuitMate
+
+  Created by Саша Василенко on 19.06.2023.
+  
+*/
+
+"Log In" = "Вхід";
+"Email" = "Email";
+"Password, at least 8 characters" = "Пароль, мінімум 8 символів";
+"Forgot password?" = "Забули пароль?";
+"Don`t have an account? Create new" = "Немає аккаунту? Створіть новий зараз";
+// MARK: Registration
+"Register" = "Register";
+"Password confirmation" = "Підтвердження паролю";
+"Already have an accout? Log In" = "Вже маєте аккаут? Перейти до входу";

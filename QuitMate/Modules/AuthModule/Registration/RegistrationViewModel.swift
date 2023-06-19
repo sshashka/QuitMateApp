@@ -8,18 +8,25 @@
 import Foundation
 import Combine
 import UIKit
+import SwiftUI
 
-class RegistrationViewModel: ObservableObject {
+final class RegistrationViewModel: ObservableObject {
+    private let authentificationService: AuthentificationServiceProtocol
+    var didSendEventClosure: ((RegistrationViewModel.EventType) -> Void)?
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmationPassword: String = ""
     
     @Published var registerButtonEnabled: Bool = false
-    @Published var emailTextFieldColor: UIColor?
-    @Published var passwordTextFieldColor: UIColor?
-    @Published var passwordConfirmationTextFieldColor: UIColor?
+    @Published var emailTextFieldColor: Color?
+    @Published var passwordTextFieldColor: Color?
+    @Published var passwordConfirmationTextFieldColor: Color?
     
-    init() {
+    @Published var isShowingAlert: Bool = false
+    @Published var error: String = ""
+    
+    init(authentificationService: AuthentificationServiceProtocol) {
+        self.authentificationService = authentificationService
         setupPiplines()
     }
     
@@ -74,23 +81,26 @@ class RegistrationViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }
     
+    func didTapLoginButton() {
+        didSendEventClosure?(.backToLogin)
+    }
+    
     func didTapDoneButton() {
-        AuthentificationService().didSelectRegisterWithEmailLogin(email: email, password: password) {
-            switch $0 {
+        authentificationService.didSelectRegisterWithEmailLogin(email: email, password: password) { [weak self] result in
+            switch result {
             case .success:
-                print("SuckAss")
-            case .failure(_):
-                print("failure")
+                self?.didSendEventClosure?(.done)
+            case .failure(let error):
+                self?.isShowingAlert = true
+                self?.error = error
             }
         }
     }
 }
 
-extension Publisher where Output == Bool, Failure == Never {
-    func mapToFieldInputColor() -> AnyPublisher<UIColor?, Never> {
-        map { isValid -> UIColor? in
-            isValid ? .lightGray : .systemRed
-        }
-        .eraseToAnyPublisher()
+extension RegistrationViewModel {
+    enum EventType {
+        case backToLogin
+        case done
     }
 }

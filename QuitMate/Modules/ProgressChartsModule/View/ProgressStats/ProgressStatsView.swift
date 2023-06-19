@@ -14,7 +14,7 @@ struct ProgressStatsView: View {
         VStack(alignment: .leading) {
             Text(titleText)
                 .modifier(TextViewModifier(font: .poppinsSemiBold, size: 18))
-                .foregroundColor(Color(ColorConstants.purpleColor))
+                .foregroundColor(Color(ColorConstants.buttonsColor))
             Text(secondaryText)
                 .modifier(TextViewModifier(font: .poppinsSemiBold, size: 18))
                 .lineLimit(2)

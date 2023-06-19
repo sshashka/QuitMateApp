@@ -21,7 +21,7 @@ final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol, Coordi
         }
     }
     
-    func showMoodClassifierChoiceViewController() {
+    internal func showMoodClassifierChoiceViewController() {
         let viewModel = MoodClassifierSelectionViewModel()
         let view = MoodClassifierSelectionView(viewModel: viewModel)
         let vc = UIHostingController(rootView: view)
@@ -36,13 +36,13 @@ final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol, Coordi
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showCoreMLClassifierViewController() {
+    internal func showCoreMLClassifierViewController() {
         let coordinator = CoreMLClassifierCoordinator(navigationController)
         coordinator.start()
         childCoordinators.append(coordinator)
     }
     
-    func showManualClassifierViewController() {
+    internal func showManualClassifierViewController() {
         let coordinator = ManualMoodCoordinator(navigationController)
         coordinator.start()
         coordinator.finishDelegate = self

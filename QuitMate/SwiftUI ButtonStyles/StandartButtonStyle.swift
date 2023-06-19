@@ -13,9 +13,8 @@ struct StandartButtonStyle: ButtonStyle {
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
             .foregroundColor(.white)
-            .background(Color(ColorConstants.purpleColor))
+            .background(Color(ColorConstants.buttonsColor))
             .cornerRadius(10)
-            
     }
     
 }

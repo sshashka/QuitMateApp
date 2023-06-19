@@ -59,7 +59,7 @@ final class TabBarCoordinator: NSObject, Coordinator {
     }
     
     private func setupTabBar(controllers tabController: [UIViewController]) {
-        tabBarController.tabBar.tintColor = UIColor(named: ColorConstants.purpleColor)
+        tabBarController.tabBar.tintColor = UIColor(named: ColorConstants.buttonsColor)
         tabBarController.tabBar.backgroundColor = .systemBackground
         tabBarController.setViewControllers(tabController, animated: true)
         navigationController.viewControllers = [tabBarController]

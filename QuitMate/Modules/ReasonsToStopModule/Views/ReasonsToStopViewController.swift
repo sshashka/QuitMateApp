@@ -16,7 +16,7 @@ final class ReasonsToStopViewController: UIViewController {
         button.setTitle("Done", for: .normal)
         button.titleLabel?.font = UIFont(name: "Poppins-SemiBold", size: 18)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: ColorConstants.purpleColor)
+        button.backgroundColor = UIColor(named: ColorConstants.buttonsColor)
         button.isEnabled = false
         button.layer.cornerRadius = 10
         return button

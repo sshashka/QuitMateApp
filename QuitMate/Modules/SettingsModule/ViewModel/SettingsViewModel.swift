@@ -22,7 +22,7 @@ class SettingsViewModel: ObservableObject {
     }
     
     init() {
-        let user = User(name: "", age: 0, email: "", id: "")
+        let user = User(name: "", age: "", id: "", moneyUserSpendsOnSmoking: 0.0)
         self.headerViewModel = HeaderViewViewModel(user: user)
         getUserModel()
     }

@@ -12,7 +12,7 @@ protocol CoreMLClassifierCoordinatorProtocol: Coordinator {
 }
 
 class CoreMLClassifierCoordinator: CoreMLClassifierCoordinatorProtocol {
-    func showCoreMLClassifier() {
+    internal func showCoreMLClassifier() {
         let vc = MoodClassifierViewController.module
         navigationController.pushViewController(vc, animated: true)
     }

@@ -19,6 +19,7 @@ class HeaderViewViewModel: ObservableObject {
     func updateWith(user: User) {
         self.image = user.profileImage
         self.name = user.name
-        self.email = user.email
+        // Decode if present
+        self.email = user.email ?? ""
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PeriodOfTimeToQuitView: View {
+    let headerText: String
+    let datePickerText: String
     let dateRange: ClosedRange<Date> = {
         let calendar = Calendar.current
         let startComponents = Date.now.toDateComponents(neededComponents: [.year, .month, .day])
@@ -16,23 +18,21 @@ struct PeriodOfTimeToQuitView: View {
         ...
         calendar.date(from:endComponents)!
     }()
-    @State var date = Date()
+    @Binding var date: Date
     var body: some View {
         VStack {
-            DatePicker("Finishing date", selection: $date, in: dateRange, displayedComponents: .date)
+            FirstTimeEntryHeaderView(text: headerText)
             Spacer()
-            Button {
-                
-            } label: {
-                TextView(text: "Next step", font: .poppinsBold, size: 14)
-            }.buttonStyle(StandartButtonStyle())
-        }
-        .padding(Spacings.spacing30)
+            DatePicker(datePickerText, selection: $date, in: dateRange, displayedComponents: .date)
+                .font(.custom(FontsEnum.poppinsBold.rawValue, size: 24))
+            Spacer()
+        }.padding(.horizontal, Spacings.spacing30)
     }
 }
 
 struct PeriodOfTimeToQuitView_Previews: PreviewProvider {
     static var previews: some View {
-        PeriodOfTimeToQuitView()
+        @State var date: Date = Date()
+        PeriodOfTimeToQuitView(headerText: "When did u start your quitting process?", datePickerText: "Starting date:", date: $date)
     }
 }

@@ -10,6 +10,4 @@ import Foundation
 final class StatiscticsViewModel: ObservableObject {
     @Published var value: String = ""
     @Published var text: String = ""
-    
-    
 }

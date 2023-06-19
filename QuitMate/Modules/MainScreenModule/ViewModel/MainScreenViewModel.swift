@@ -10,9 +10,10 @@ import Combine
 
 final class MainScreenViewModel: ObservableObject {
     private var disposeBag = Set<AnyCancellable>()
-    @Published private var userStatistics: UserStatisticsModel? {
+    @Published private var userStatistics: User? {
         didSet {
             setupPiplines()
+            print(userStatistics)
         }
     }
     
@@ -33,12 +34,6 @@ final class MainScreenViewModel: ObservableObject {
     @Published var daysToFinish = ""
     
     @Published var dateComponentsWithoutSmoking: String = ""
-    
-    @Published var userConfirmedRequest = false {
-        didSet {
-            
-        }
-    }
     
     init() {
         getUserModel()

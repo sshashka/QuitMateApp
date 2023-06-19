@@ -7,20 +7,30 @@
 import Combine
 import FirebaseDatabase
 import FirebaseDatabaseSwift
-import Firebase
+import UIKit
 
 enum FirebaseStorageServiceReferences: String {
-    case userStats = "User-Stats"
     case moods = "User-Moods"
     case user = "User"
 }
 
-class FirebaseStorageService {
-    private var userId = UserDefaults.standard.string(forKey: "UserID")
+protocol FirebaseStorageServiceProtocol: AnyObject {
+    func createNewUser(userModel: User)
+    func getChartsData() -> AnyPublisher<[ChartModel], Error>
+    func uploadNewUserMood(mood: ClassifiedMood)
+    func createUserStatistics()
+    func getUserStatistics() -> AnyPublisher<[User], Error>
+    func getUserModel() -> AnyPublisher<[User], Error>
+}
+
+class FirebaseStorageService: FirebaseStorageServiceProtocol {
+    
     var cancellables = Set<AnyCancellable>()
     
     
     func uploadNewUserMood(mood: ClassifiedMood) {
+        // Костыль
+        var userId = UserDefaults.standard.string(forKey: "UserID")
         let reference = getChildReference(for: .moods).child(userId!).childByAutoId()
         let key = reference.key!
         let mood = ChartModel(id: key, classification: mood)
@@ -32,6 +42,8 @@ class FirebaseStorageService {
     }
     
     func getChartsData() -> AnyPublisher<[ChartModel], Error> {
+        // Костыль
+        var userId = UserDefaults.standard.string(forKey: "UserID")
         let reference = getChildReference(for: .moods).child(userId!)
         let subject = PassthroughSubject<[ChartModel], Error>()
         
@@ -50,22 +62,26 @@ class FirebaseStorageService {
     }
     
     func createUserStatistics() {
-        let reference = getChildReference(for: .userStats).child(userId!).childByAutoId()
+        // Костыль
+        var userId = UserDefaults.standard.string(forKey: "UserID")
+        let reference = getChildReference(for: .user).child(userId!).childByAutoId()
         let key = reference.key!
         let model = UserStatisticsModel(id: key, moneySpentOnSigs: 25.0, enviromentalChanges: 4)
         try? reference.setValue(from: model)
     }
     
-    func getUserStatistics() -> AnyPublisher<[UserStatisticsModel], Error> {
-        let reference = getChildReference(for: .userStats).child(userId!)
-        let subject = PassthroughSubject<[UserStatisticsModel], Error>()
+    func getUserStatistics() -> AnyPublisher<[User], Error> {
+        // Костыль
+        var userId = UserDefaults.standard.string(forKey: "UserID")
+        let reference = getChildReference(for: .user).child(userId!)
+        let subject = PassthroughSubject<[User], Error>()
         
         reference.observe(.value) { snapshot, error in
             if let error = error {
                 subject.send(completion: .failure(error as! Error))
             } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
                 let dataForCharts = children.compactMap { snapshot in
-                    try? snapshot.data(as: UserStatisticsModel.self)
+                    try? snapshot.data(as: User.self)
                 }
                 print(dataForCharts)
                 subject.send(dataForCharts)
@@ -74,16 +90,18 @@ class FirebaseStorageService {
         return subject.eraseToAnyPublisher()
     }
     
-    func createUser() {
-        let image = UIImage(named: "Tokyo")?.pngData()
+    func createNewUser(userModel: User) {
+        // Костыль
+        var userId = UserDefaults.standard.string(forKey: "UserID")
         let reference = getChildReference(for: .user).child(userId!).childByAutoId()
+        print(userId)
         let key = reference.key!
-        let user = User(name: "Sasha", age: 21, email: "sshashkaov@gmail.com", id: key, profileImage: image)
-        
-        try? reference.setValue(from: user)
+        try? reference.setValue(from: userModel)
     }
     
     func getUserModel() -> AnyPublisher<[User], Error> {
+        // Костыль
+        var userId = UserDefaults.standard.string(forKey: "UserID")
         let reference = getChildReference(for: .user).child(userId!)
         let subject = PassthroughSubject<[User], Error>()
         reference.observe(.value) { snapshot, error in

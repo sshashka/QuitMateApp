@@ -20,13 +20,9 @@ struct MoodChartView: View {
                 PointMark(x: .value("Day", day.dateOfClassification), y: .value("Score", day.scoreForUser))
                     .foregroundStyle(Color(ColorConstants.labelColor))
                     .interpolationMethod(.cardinal)
-//                AreaMark(x: .value("Day", day.dateOfClassification), y: .value("Score", day.scoreForUser))
-//                    .foregroundStyle(Gradient(colors: [Color(ColorConstants.labelColor), Color(uiColor: .systemBackground)]))
-//                    .interpolationMethod(.cardinal)
             }
-//            .chartXScale(domain: [0, dataForCharts.endIndex])
             .animation(.linear, value: dataForCharts.count)
-//            .scaleEffect(CGSize(width: 1, height: calculateScale()))
+            
         }
     }
 }

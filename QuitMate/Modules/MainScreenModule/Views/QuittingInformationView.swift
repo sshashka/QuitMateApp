@@ -13,23 +13,22 @@ struct QuittingInformationView: View {
     @Binding var enviromentalChanges: Int
     @Binding var daysToFinish: String
     
-    @Binding var userConfirmedReset: Bool
     @State private var resetButtonPressed: Bool = false
     var body: some View {
         VStack(alignment: .leading, spacing: Spacings.spacing10) {
             Spacer(minLength: Spacings.spacing10)
             TextView(text: "Quitting information", font: .poppinsSemiBold, size: 16)
-                .foregroundColor(.black)
+                .foregroundColor(Color(ColorConstants.labelColor))
             
             HStack(alignment: .center, spacing: Spacings.spacing10) {
                 StatsView(image: IconConstants.noSmoking, titleText: "\(daysFree)", secondaryText: "Days without smoking", tintColor: .blue)
                 StatsView(image: IconConstants.money, titleText: String(moneySpentOnCigarets) + "$", secondaryText: "Money saved", tintColor: .green)
-            }.foregroundColor(.black)
+            }.foregroundColor(Color(ColorConstants.labelColor))
             HStack(alignment: .center, spacing: Spacings.spacing10) {
                 StatsView(image: IconConstants.earth, titleText: "\(enviromentalChanges)", secondaryText: "Enviromental changes", tintColor: .green)
                 StatsView(image: IconConstants.moon,titleText: daysToFinish, secondaryText: "Days to finish", tintColor: .mint)
             }
-            .foregroundColor(.black)
+            .foregroundColor(Color(ColorConstants.labelColor))
             
             Button {
                 resetButtonPressed.toggle()
@@ -42,7 +41,7 @@ struct QuittingInformationView: View {
                     resetButtonPressed.toggle()
                 }
                 Button("Yes", role: .destructive) {
-                    userConfirmedReset.toggle()
+                    
                 }
             }
             Spacer(minLength: Spacings.spacing10)

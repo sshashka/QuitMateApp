@@ -11,6 +11,7 @@ protocol AppCoordinatorProtocol: Coordinator {
     func showLogin()
     func showMainFlow()
     func showReasonsToStop()
+//    func showRegistration()
 }
 
 final class AppCoordinator: AppCoordinatorProtocol {
@@ -56,9 +57,16 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinators.append(moodClassifierCoordinator)
     }
     
+    func showRegistration() {
+        let registrationCoordinator = FirstTimeEntryCoordinator(navigationController)
+        registrationCoordinator.finishDelegate = self
+        registrationCoordinator.start()
+        childCoordinators.append(registrationCoordinator)
+    }
+    
     func start() {
         //Add logics to determine if user is loggined
-        showMainFlow()
+        showLogin()
     }
 }
 
@@ -68,7 +76,7 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         case .tabbar:
             navigationController.viewControllers.removeAll()
             showReasonsToStop()
-        case .login:
+        case .auth:
             navigationController.viewControllers.removeAll()
             childCoordinators = []
             showMainFlow()
@@ -76,10 +84,12 @@ extension AppCoordinator: CoordinatorFinishDelegate {
             navigationController.viewControllers.removeAll()
             childCoordinators = []
             showMainFlow()
+        case .register:
+            navigationController.viewControllers.removeAll()
+            childCoordinators = []
+            showMainFlow()
         default:
             break
         }
     }
-    
-    
 }

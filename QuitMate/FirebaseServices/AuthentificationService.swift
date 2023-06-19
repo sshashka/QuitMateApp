@@ -53,7 +53,10 @@ final class AuthentificationService: AuthentificationServiceProtocol {
                 }
             }
             else {
+                // Костыль
+                UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "UserID")
                 completion(.success)
+                print(Auth.auth().currentUser?.uid)
             }
         }
     }
@@ -74,9 +77,16 @@ final class AuthentificationService: AuthentificationServiceProtocol {
                     }
                 }
             } else {
+                // Костыль
                 completion(.success)
+                UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "UserID")
+                print(Auth.auth().currentUser?.uid)
             }
         }
+    }
+    
+    func restorePassword(email: String) {
+        Auth.auth().sendPasswordReset(withEmail: email)
     }
     
     deinit {

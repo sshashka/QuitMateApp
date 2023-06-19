@@ -8,9 +8,9 @@
 import Foundation
 
 struct ColorConstants {
-    static let greenButtonColor = "ButtonsColor"
     static let labelColor = "LabelColor"
     static let backgroundColor = "BackgroundColor"
-    static let purpleColor = "PurpleColor"
+    static let buttonsColor = "PurpleColor"
     static let gray = "ColorGray"
+    static let red = "ColorRed"
 }

@@ -14,24 +14,39 @@ struct ProgressChartsModuleMainScreen: View {
         
         GeometryReader { frame in
             VStack(spacing: Spacings.spacing20) {
-                MoodChartView(dataForCharts: $viewModel.weekDataForCharts)
-                    .frame(height: frame.size.height * 2/10)
+                // Add a delay 
+                if $viewModel.weekDataForCharts.count == 0 {
+                    Text("No data")
+                        .modifier(TextViewModifier(PoppinsTextStyles.header))
+                        .frame(height: frame.size.height * 2/10)
+                } else {
+                    MoodChartView(dataForCharts: $viewModel.weekDataForCharts)
+                        .frame(height: frame.size.height * 2/10)
+                }
                 Group {
                     ProgressStatsViewContainer(bestDay: $viewModel.bestDay, worstDay: $viewModel.worstDay, bestScore: $viewModel.bestDayScore, worstScore: $viewModel.worstDayScore)
                         .frame(height: frame.size.height * 3/10)
                     FilterMenuView(selectedFilteringMethod: $viewModel.selectedSotringMethod)
                         .frame(height: frame.size.height * 1/20)
                 }.padding(.horizontal, Spacings.spacing20)
-                MoodChartView(dataForCharts: $viewModel.dataForCharts)
-                    .padding(.top, Spacings.spacing10)
+                // Add a delay
+                if $viewModel.dataForCharts.count == 0 {
+                    Text("No data")
+                        .modifier(TextViewModifier(PoppinsTextStyles.header))
+                        .padding(.top, Spacings.spacing10)
+                    
+                } else {
+                    MoodChartView(dataForCharts: $viewModel.dataForCharts)
+                        .padding(.top, Spacings.spacing10)
+                }
                 //                        .frame(height: frame.size.height * 4/10)
             }
         }
     }
 }
-//
+
 //struct ProgressChartsModuleMainScreen_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ProgressChartsModuleMainScreen()
+//        ProgressChartsModuleMainScreen(viewModel: ProgressChartsViewModel())
 //    }
 //}
