@@ -35,6 +35,12 @@ final class MainScreenViewModel: ObservableObject {
     
     @Published var dateComponentsWithoutSmoking: String = ""
     
+    @Published var confirmedReset = false {
+        didSet {
+            finish()
+        }
+    }
+    
     init() {
         getUserModel()
     }
@@ -47,9 +53,9 @@ final class MainScreenViewModel: ObservableObject {
                 self.userStatistics = stats.first
             }.store(in: &disposeBag)
     }
-    
+    // Rename this func
     func finish() {
-        self.didSendEventClosure?(.tapbar)
+        self.didSendEventClosure?(.didTapResetButton)
     }
 }
 
@@ -99,6 +105,6 @@ private extension MainScreenViewModel {
 
 extension MainScreenViewModel {
     enum EventType {
-        case tapbar
+        case didTapResetButton
     }
 }

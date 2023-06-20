@@ -10,18 +10,12 @@ import SwiftUI
 
 protocol MoodClassifierCoordinatorProtocol: Coordinator {
     func showMoodClassifierChoiceViewController()
-    func showCoreMLClassifierViewController()
 }
 
-final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol, CoordinatorFinishDelegate {
-    func coordinatorDidFinish(childCoordinator: Coordinator) {
-        switch childCoordinator {
-        default:
-            self.finish()
-        }
-    }
-    
+final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol {
     internal func showMoodClassifierChoiceViewController() {
+        // Remove this when push notififcation support added
+        self.navigationController.tabBarController?.tabBar.isHidden = true
         let viewModel = MoodClassifierSelectionViewModel()
         let view = MoodClassifierSelectionView(viewModel: viewModel)
         let vc = UIHostingController(rootView: view)
@@ -36,16 +30,16 @@ final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol, Coordi
         navigationController.pushViewController(vc, animated: true)
     }
     
-    internal func showCoreMLClassifierViewController() {
+    private func showCoreMLClassifierViewController() {
         let coordinator = CoreMLClassifierCoordinator(navigationController)
         coordinator.start()
         childCoordinators.append(coordinator)
     }
     
-    internal func showManualClassifierViewController() {
+    private func showManualClassifierViewController() {
         let coordinator = ManualMoodCoordinator(navigationController)
+        coordinator.finishDelegate = finishDelegate
         coordinator.start()
-        coordinator.finishDelegate = self
         childCoordinators.append(coordinator)
     }
     

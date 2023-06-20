@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class ReasonsToStopModulePresenter: ReasonsToStopPresenterProtocol {
+final class ReasonsToStopModulePresenter: ReasonsToStopPresenterProtocol {    
+    var didSendEventClosure: ((ReasonsToStopModulePresenter.EventType) -> Void)?
     let array = ["Nicotine addiction", "Stress", "Social situations", "Habits and routines", "Weight gain", "Boredom", "Lack of support", "Alcohol consumption", "Advertising", "Low mood", "Peer pressure", "Mental health conditions", "Lack of information", "Feeling overwhelmed", "Lack of alternatives", "The belief that smoking is enjoyable", "Access to cigarettes", "Lack of commitment", "Lack of self-efficacy", "Fear of failure"]
     weak var view: ReasonsToStopViewProtocol?
     
@@ -21,6 +22,12 @@ final class ReasonsToStopModulePresenter: ReasonsToStopPresenterProtocol {
     }
     
     func didTapDoneButton(reasons: [String]) {
-        // save reasons and so
+        didSendEventClosure?(.done)
+    }
+}
+
+extension ReasonsToStopModulePresenter {
+    enum EventType {
+        case done
     }
 }

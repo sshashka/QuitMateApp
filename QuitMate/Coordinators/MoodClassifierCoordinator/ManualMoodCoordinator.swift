@@ -20,7 +20,7 @@ final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
         let view = MoodClassifierMainScreenView(viewModel: viewModel)
         let vc = UIHostingController(rootView: view)
         viewModel.didSendEndEventClosure = { [weak self] event in
-            self?.finish()
+            self?.showRecomendations()
         }
         navigationController.pushViewController(vc, animated: true)
     }
@@ -32,6 +32,14 @@ final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
     var childCoordinators: [Coordinator] = []
     
     var type: CoordinatorType {.moodClassifier}
+    
+    private func showRecomendations() {
+        
+        let coordinator = RecomendationsCoordinator(navigationController)
+        coordinator.finishDelegate = finishDelegate
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
     
     func start() {
         showManualSelectionView()

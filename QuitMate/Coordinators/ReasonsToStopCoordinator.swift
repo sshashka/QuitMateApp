@@ -14,10 +14,11 @@ protocol ReasonsToStopCoordinatorProtocol: Coordinator {
 final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     func showReasonsToStop() {
         let vc = ReasonsToStopViewController.module
-//        authentificationVC.presenter?.didSendEventClosure = { [weak self] event in
-//            self?.finish()
-//        }
-        navigationController.pushViewController(vc, animated: true)
+        vc.presenter?.didSendEventClosure = { [weak self] event in
+            self?.finish()
+        }
+        navigationController.modalPresentationStyle = .overFullScreen
+        navigationController.present(vc, animated: true)
     }
     
     var finishDelegate: CoordinatorFinishDelegate?
@@ -26,7 +27,7 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
     
-    var type: CoordinatorType { .reasonsToStop}
+    var type: CoordinatorType { .reasonsToStop }
     
     func start() {
         showReasonsToStop()

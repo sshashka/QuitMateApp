@@ -68,17 +68,17 @@ extension User {
     }
 }
 
-extension User {
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        name = try container.decode(String.self, forKey: .name)
-        age = try container.decode(String.self, forKey: .age)
-        email = try container.decodeIfPresent(String.self, forKey: .email) ?? "Please add your email"
-        id = try container.decode(String.self, forKey: .id)
-        profileImage = try? container.decode(Data.self, forKey: .profileImage)
-        
-        startingDate = try container.decode(Date.self, forKey: .startingDate)
-        finishingDate = try container.decode(Date.self, forKey: .finishingDate)
-        moneyUserSpendsOnSmoking = try container.decode(Double.self, forKey: .moneyUserSpendsOnSmoking)
-    }
-}
+//extension User {
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        name = try container.decode(String.self, forKey: .name)
+//        age = try container.decode(String.self, forKey: .age)
+//        email = try container.decodeIfPresent(String.self, forKey: .email) ??
+//        id = try container.decode(String.self, forKey: .id)
+//        profileImage = try? container.decode(Data.self, forKey: .profileImage)
+//        
+//        startingDate = try container.decode(Date.self, forKey: .startingDate)
+//        finishingDate = try container.decode(Date.self, forKey: .finishingDate)
+//        moneyUserSpendsOnSmoking = try container.decode(Double.self, forKey: .moneyUserSpendsOnSmoking)
+//    }
+//}

@@ -30,6 +30,7 @@ enum ResultOfAuthentification {
 protocol AuthentificationServiceProtocol: AnyObject {
     func didSelectLoginWithEmailLogin(email: String, password: String, completion: @escaping(ResultOfAuthentification) -> Void)
     func didSelectRegisterWithEmailLogin(email: String, password: String, completion: @escaping(ResultOfAuthentification) -> Void)
+    func resetPassword()
 }
 
 final class AuthentificationService: AuthentificationServiceProtocol {
@@ -56,7 +57,6 @@ final class AuthentificationService: AuthentificationServiceProtocol {
                 // Костыль
                 UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "UserID")
                 completion(.success)
-                print(Auth.auth().currentUser?.uid)
             }
         }
     }
@@ -80,13 +80,14 @@ final class AuthentificationService: AuthentificationServiceProtocol {
                 // Костыль
                 completion(.success)
                 UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "UserID")
-                print(Auth.auth().currentUser?.uid)
             }
         }
     }
     
-    func restorePassword(email: String) {
-        Auth.auth().sendPasswordReset(withEmail: email)
+    func resetPassword() {
+        // Add a completion and error handling
+        let email = Auth.auth().currentUser?.email
+        Auth.auth().sendPasswordReset(withEmail: email!)
     }
     
     deinit {

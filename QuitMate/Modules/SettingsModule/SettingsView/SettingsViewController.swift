@@ -10,9 +10,9 @@ import SwiftUI
 import Combine
 
 class SettingsViewController: UIViewController {
-    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app"]
+    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood"]
     private let gradientLayer = CAGradientLayer()
-    private let viewModel = SettingsViewModel()
+    private var viewModel: SettingsViewModel?
     private var disposeBag = Set<AnyCancellable>()
     private let settingsTableView: UITableView = {
         let tv = UITableView()
@@ -38,14 +38,22 @@ class SettingsViewController: UIViewController {
 //        setupHeaderProfileView()
         setupEditButton()
         setupConstraints()
+        guard let viewModel = viewModel else { return }
         setupHeaderProfileView(viewModel: viewModel.headerViewModel)
+    }
+    
+    init(viewModel: SettingsViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
 private extension SettingsViewController {
     func setupHeaderProfileView(viewModel: HeaderViewViewModel) {
-        
-        print("Sas")
         let profileHeaderView = UIHostingController(rootView: SettingsViewProfileHeaderView(viewModel: viewModel))
         addChild(profileHeaderView)
         profileHeaderView.didMove(toParent: self)
@@ -73,7 +81,9 @@ private extension SettingsViewController {
     
     func didSelectPasswordReset() {
         let alert = UIAlertController(title: "Do you want to reset your password?", message: "Note: еhis action cannot be undone ", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Sure", style: .destructive)
+        let action = UIAlertAction(title: "Sure", style: .destructive) { [weak self] _ in
+            self?.viewModel?.resetPassword()
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addAction(action)
@@ -107,6 +117,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             print()
         case 2:
             print()
+        case 3:
+            viewModel?.didTapOnAddingMood()
         default:
             print()
         }

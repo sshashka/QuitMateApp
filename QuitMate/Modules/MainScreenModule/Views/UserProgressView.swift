@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgressView: View {
+struct UserProgressView: View {
     @Binding var percentage: Float
     var body: some View {
         ZStack {
@@ -30,6 +30,6 @@ struct ProgressView: View {
 struct ProgressView_Previews: PreviewProvider {
     static var previews: some View {
         @State var percentage: Float = 25.0
-        ProgressView(percentage: $percentage)
+        UserProgressView(percentage: $percentage)
     }
 }

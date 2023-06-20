@@ -17,38 +17,31 @@ struct AuthentificationView: View {
                 TextView(text: "Log In", font: .poppinsSemiBold, size: 36)
                 Spacer()
             }
-            
-            TextField("", text: $viewModel.email, prompt: Text("Email").foregroundColor(Color.black))
-                    .padding(.horizontal, Spacings.spacing25)
-                    .frame(height: 47)
-                    .font(.custom(FontsEnum.poppinsRegular.rawValue, size: 14))
-                    .background(Color(ColorConstants.gray))
-                    .foregroundColor(Color.black)
+            Group {
+                
+                TextField("", text: $viewModel.email, prompt: Text("Email").foregroundColor(Color.black))
                     .keyboardType(.emailAddress)
-                    .autocorrectionDisabled(true)
-                    .textInputAutocapitalization(.never)
-                    .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
-                    }
-
-            SecureField("", text: $viewModel.password, prompt: Text("Password, at least 8 characters").foregroundColor(.black))
-                    .padding(.horizontal, Spacings.spacing25)
-                    .frame(height: 47)
-                    .font(.custom(FontsEnum.poppinsRegular.rawValue, size: 14))
-                    .background(Color(ColorConstants.gray))
-                    .foregroundColor(Color.black)
-                    .autocorrectionDisabled(true)
-                    .textInputAutocapitalization(.never)
-                    .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
-                    }
-            
+//                    .overlay {
+//                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+//                            .stroke(lineWidth: 1)
+//                            .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
+//                    }
+                
+                SecureField("", text: $viewModel.password, prompt: Text("Password, at least 8 characters").foregroundColor(.black))
+//                    .overlay {
+//                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+//                            .stroke(lineWidth: 1)
+//                            .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
+//                    }
+            }
+            .padding(.horizontal, Spacings.spacing25)
+            .frame(height: 47)
+            .font(.custom(FontsEnum.poppinsRegular.rawValue, size: 14))
+            .background(Color(ColorConstants.gray))
+            .foregroundColor(Color.black)
+            .autocorrectionDisabled(true)
+            .textInputAutocapitalization(.never)
+            .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
             Button {
                 print("k")
             } label: {
@@ -65,7 +58,7 @@ struct AuthentificationView: View {
                 TextView(text: "Log In", font: .poppinsSemiBold, size: 14)
             }
             .buttonStyle(StandartButtonStyle())
-//            .modifier(ButtonOpacityViewModifier(isDisabled: $viewModel.loginButtonDisabled.wrappedValue))
+            //            .modifier(ButtonOpacityViewModifier(isDisabled: $viewModel.loginButtonDisabled.wrappedValue))
             .padding(.top, Spacings.spacing25)
             .disabled($viewModel.loginButtonDisabled.wrappedValue ? false : true)
             

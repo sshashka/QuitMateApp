@@ -10,6 +10,7 @@
 		30064B2F2A1574C600C70664 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */; };
 		300ACB0B2A3FB8B500DA76D5 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300ACB0A2A3FB8B500DA76D5 /* RegistrationView.swift */; };
 		300ACB0F2A3FC3B100DA76D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 300ACB112A3FC3B100DA76D5 /* Localizable.strings */; };
+		300ACB192A40ABF000DA76D5 /* RecomendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300ACB182A40ABF000DA76D5 /* RecomendationsView.swift */; };
 		301821CF299D79C10088863C /* AuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301821CE299D79C10088863C /* AuthentificationService.swift */; };
 		3019DEE72A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */; };
 		301D900C2A1D6EB400043F37 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 301D900B2A1D6EB400043F37 /* CNNEmotions.mlmodel */; };
@@ -80,6 +81,9 @@
 		30A1205829FC1A0A0062A019 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 30A1205729FC1A0A0062A019 /* FirebaseStorage */; };
 		30A1205A29FD22A10062A019 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1205929FD22A10062A019 /* ChartModel.swift */; };
 		30A1205C29FD31640062A019 /* UserStatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1205B29FD31640062A019 /* UserStatisticsModel.swift */; };
+		30A245382A40F40900AA0093 /* RecomendationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A245372A40F40900AA0093 /* RecomendationsViewModel.swift */; };
+		30A2453A2A40FAE000AA0093 /* RecomendationPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A245392A40FAE000AA0093 /* RecomendationPrompts.swift */; };
+		30A2453C2A41151500AA0093 /* RecomendationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2453B2A41151500AA0093 /* RecomendationsCoordinator.swift */; };
 		30A7636D2A01BC1E00C91C6A /* ProgressChartsModuleHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7636C2A01BC1E00C91C6A /* ProgressChartsModuleHostingViewController.swift */; };
 		30A7636F2A01BE9300C91C6A /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7636E2A01BE9300C91C6A /* Binding+Extension.swift */; };
 		30AAD91B2A0E4BB7000FF93D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD91A2A0E4BB7000FF93D /* SettingsViewModel.swift */; };
@@ -121,7 +125,7 @@
 		30E0C88129F1DA670011F736 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E0C87029F1DA660011F736 /* Poppins-ExtraBold.ttf */; };
 		30E0C88229F1DA670011F736 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E0C87129F1DA670011F736 /* Poppins-Regular.ttf */; };
 		30E0C88329F1DA670011F736 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E0C87229F1DA670011F736 /* Poppins-MediumItalic.ttf */; };
-		30E9CB3629F6AFF000E1F0C2 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB3529F6AFF000E1F0C2 /* ProgressView.swift */; };
+		30E9CB3629F6AFF000E1F0C2 /* UserProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB3529F6AFF000E1F0C2 /* UserProgressView.swift */; };
 		30E9CB3829F6B1CA00E1F0C2 /* ProgressPercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB3729F6B1CA00E1F0C2 /* ProgressPercentageView.swift */; };
 		30E9CB3E29F6D02C00E1F0C2 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB3D29F6D02C00E1F0C2 /* MainScreenView.swift */; };
 		30E9CB4029F6D0B700E1F0C2 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB3F29F6D0B700E1F0C2 /* TextView.swift */; };
@@ -139,6 +143,7 @@
 		300ACB0C2A3FC28200DA76D5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		300ACB102A3FC3B100DA76D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		300ACB122A3FC3B400DA76D5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		300ACB182A40ABF000DA76D5 /* RecomendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsView.swift; sourceTree = "<group>"; };
 		301821CE299D79C10088863C /* AuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationService.swift; sourceTree = "<group>"; };
 		3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProfileHeaderView.swift; sourceTree = "<group>"; };
 		301D900B2A1D6EB400043F37 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
@@ -204,6 +209,9 @@
 		30A1204729FC13A70062A019 /* ProgressChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartsViewModel.swift; sourceTree = "<group>"; };
 		30A1205929FD22A10062A019 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		30A1205B29FD31640062A019 /* UserStatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatisticsModel.swift; sourceTree = "<group>"; };
+		30A245372A40F40900AA0093 /* RecomendationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsViewModel.swift; sourceTree = "<group>"; };
+		30A245392A40FAE000AA0093 /* RecomendationPrompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationPrompts.swift; sourceTree = "<group>"; };
+		30A2453B2A41151500AA0093 /* RecomendationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsCoordinator.swift; sourceTree = "<group>"; };
 		30A7636C2A01BC1E00C91C6A /* ProgressChartsModuleHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartsModuleHostingViewController.swift; sourceTree = "<group>"; };
 		30A7636E2A01BE9300C91C6A /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		30AAD91A2A0E4BB7000FF93D /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -245,7 +253,7 @@
 		30E0C87029F1DA660011F736 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		30E0C87129F1DA670011F736 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		30E0C87229F1DA670011F736 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
-		30E9CB3529F6AFF000E1F0C2 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		30E9CB3529F6AFF000E1F0C2 /* UserProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgressView.swift; sourceTree = "<group>"; };
 		30E9CB3729F6B1CA00E1F0C2 /* ProgressPercentageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressPercentageView.swift; sourceTree = "<group>"; };
 		30E9CB3D29F6D02C00E1F0C2 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		30E9CB3F29F6D0B700E1F0C2 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -292,6 +300,16 @@
 				300ACB0A2A3FB8B500DA76D5 /* RegistrationView.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		300ACB172A40A6C300DA76D5 /* RecomendationsModule */ = {
+			isa = PBXGroup;
+			children = (
+				300ACB182A40ABF000DA76D5 /* RecomendationsView.swift */,
+				30A245372A40F40900AA0093 /* RecomendationsViewModel.swift */,
+				30A245392A40FAE000AA0093 /* RecomendationPrompts.swift */,
+			);
+			path = RecomendationsModule;
 			sourceTree = "<group>";
 		};
 		301821CC299D22AF0088863C /* AuthModule */ = {
@@ -489,6 +507,7 @@
 		3093432A29DC5E4B00D9C1AA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				300ACB172A40A6C300DA76D5 /* RecomendationsModule */,
 				301D900D2A1D714F00043F37 /* FirstTimeEntryModule */,
 				306531F429E4B1EB00E0544F /* SettingsModule */,
 				3093432B29DC5E8C00D9C1AA /* MoodClassifierModule */,
@@ -534,6 +553,7 @@
 				30A0E4D329DF7256000CA339 /* TabBarCoordinator.swift */,
 				3025FF3C2A11836F002D71A8 /* MoodClassifierCoordinator */,
 				30AAD9242A106553000FF93D /* ReasonsToStopCoordinator.swift */,
+				30A2453B2A41151500AA0093 /* RecomendationsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -671,6 +691,7 @@
 		30CA1B3F299AE191001E5BF3 /* QuitMate */ = {
 			isa = PBXGroup;
 			children = (
+				3093432A29DC5E4B00D9C1AA /* Modules */,
 				30549F132A3A7B2000872DAD /* SwiftUIViewModifiers */,
 				30B2DA6B2A312FB800AC4B2E /* ButtonModifiers */,
 				30AAD91C2A0E6702000FF93D /* FirebaseServices */,
@@ -680,7 +701,6 @@
 				30CA1B4E299AE192001E5BF3 /* Info.plist */,
 				30E0C83B29F1D6FA0011F736 /* Poppins */,
 				30A0E4D029DEF4E7000CA339 /* Coordinators */,
-				3093432A29DC5E4B00D9C1AA /* Modules */,
 				30CA3A2829B008FD00181539 /* TapBar */,
 				301821CD299D22BD0088863C /* Extensions */,
 				30E9CB4D29F6E6D400E1F0C2 /* App */,
@@ -744,7 +764,7 @@
 				30E9CB3D29F6D02C00E1F0C2 /* MainScreenView.swift */,
 				3044405C29F741B500AD40F2 /* HeaderView.swift */,
 				30E9CB3729F6B1CA00E1F0C2 /* ProgressPercentageView.swift */,
-				30E9CB3529F6AFF000E1F0C2 /* ProgressView.swift */,
+				30E9CB3529F6AFF000E1F0C2 /* UserProgressView.swift */,
 				30E9CB4129F6D13800E1F0C2 /* QuittingInformationView.swift */,
 				3044405E29F7438700AD40F2 /* TimeAndScoreView.swift */,
 			);
@@ -884,6 +904,7 @@
 				30A1204629FC138A0062A019 /* SettingModuleViewModule.swift in Sources */,
 				30E9CB3E29F6D02C00E1F0C2 /* MainScreenView.swift in Sources */,
 				3044405B29F7125D00AD40F2 /* RoundedCorner.swift in Sources */,
+				30A2453C2A41151500AA0093 /* RecomendationsCoordinator.swift in Sources */,
 				30A0E4CB29DE19E1000CA339 /* Coordinator.swift in Sources */,
 				307E7DFE29EF312200DFCEE3 /* MoodClassifierViewController.swift in Sources */,
 				30A0E4D229DF71AF000CA339 /* TabBarPages.swift in Sources */,
@@ -900,6 +921,7 @@
 				30CA3A2C29B0125F00181539 /* TabBarController.swift in Sources */,
 				30A7636F2A01BE9300C91C6A /* Binding+Extension.swift in Sources */,
 				302B48C429F952470031CFE6 /* LayoutConstants.swift in Sources */,
+				300ACB192A40ABF000DA76D5 /* RecomendationsView.swift in Sources */,
 				301821CF299D79C10088863C /* AuthentificationService.swift in Sources */,
 				30A0E4D429DF7256000CA339 /* TabBarCoordinator.swift in Sources */,
 				300ACB0B2A3FB8B500DA76D5 /* RegistrationView.swift in Sources */,
@@ -912,7 +934,7 @@
 				301D90132A1D751000043F37 /* PeriodOfTimeToQuitView.swift in Sources */,
 				30D308FB2A33F52100994371 /* FirstTimeEntryHeaderView.swift in Sources */,
 				30727A1C2A33E56C004A29B6 /* PoppinsTextStyles.swift in Sources */,
-				30E9CB3629F6AFF000E1F0C2 /* ProgressView.swift in Sources */,
+				30E9CB3629F6AFF000E1F0C2 /* UserProgressView.swift in Sources */,
 				304EC1A92A03BEE0001667FC /* ProgressStatsView.swift in Sources */,
 				30A1200629FBE7B00062A019 /* FirebaseStorageService.swift in Sources */,
 				3057162229C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift in Sources */,
@@ -940,6 +962,7 @@
 				307E7E0129EF486300DFCEE3 /* MoodClassifierModulePresenterProtocol.swift in Sources */,
 				303B9EB829C1C415008D2C64 /* ReasonsToStopViewProtocol.swift in Sources */,
 				302C494529FB116500D43421 /* MoodModel.swift in Sources */,
+				30A2453A2A40FAE000AA0093 /* RecomendationPrompts.swift in Sources */,
 				30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */,
 				30549F172A3A7E7600872DAD /* FirstTimeEntryViewModel.swift in Sources */,
 				306531F829E4B84800E0544F /* SettingsTableViewFooterView.swift in Sources */,
@@ -953,6 +976,7 @@
 				30E9CB4629F6D9B400E1F0C2 /* StandartButtonStyle.swift in Sources */,
 				30CA1B57299AF0EB001E5BF3 /* TextField+Extension.swift in Sources */,
 				30F7E58F2A2EBAA200EAE058 /* AuthentificationView.swift in Sources */,
+				30A245382A40F40900AA0093 /* RecomendationsViewModel.swift in Sources */,
 				303A3F3C2A2E8E510006B903 /* IconConstants.swift in Sources */,
 				30A1204829FC13A70062A019 /* ProgressChartsViewModel.swift in Sources */,
 				306531FA29E4BB5100E0544F /* SettingsTableViewCell.swift in Sources */,
@@ -1107,6 +1131,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
@@ -1127,6 +1152,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sshashka.QuitMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1141,6 +1167,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
@@ -1161,6 +1188,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sshashka.QuitMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

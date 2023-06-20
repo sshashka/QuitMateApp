@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 class SettingsViewModel: ObservableObject {
+    var didSendEventClosure: ((SettingsViewModel.EventType) -> Void)?
+    private let storageService: FirebaseStorageServiceProtocol
     private var disposeBag = Set<AnyCancellable>()
     @Published var userModel: User? {
         didSet {
@@ -21,14 +23,20 @@ class SettingsViewModel: ObservableObject {
         
     }
     
-    init() {
+    func didTapOnAddingMood() {
+        didSendEventClosure?(.didTapOnNewMood)
+    }
+    
+    init(storageService: FirebaseStorageServiceProtocol) {
+        self.storageService = storageService
         let user = User(name: "", age: "", id: "", moneyUserSpendsOnSmoking: 0.0)
         self.headerViewModel = HeaderViewViewModel(user: user)
         getUserModel()
     }
     
     func getUserModel() {
-        FirebaseStorageService().getUserModel()
+        // Fix to storage service
+        storageService.getUserModel()
             .sink {
                 print($0)
             } receiveValue: {[weak self] in
@@ -41,4 +49,13 @@ class SettingsViewModel: ObservableObject {
         headerViewModel.updateWith(user: user)
     }
     
+    func resetPassword() {
+        AuthentificationService().resetPassword()
+    }
+}
+
+extension SettingsViewModel {
+    enum EventType {
+        case didTapOnNewMood
+    }
 }

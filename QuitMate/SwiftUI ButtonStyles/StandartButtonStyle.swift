@@ -15,6 +15,7 @@ struct StandartButtonStyle: ButtonStyle {
             .foregroundColor(.white)
             .background(Color(ColorConstants.buttonsColor))
             .cornerRadius(10)
+            .font(.custom(FontsEnum.poppinsSemiBold.rawValue, size: 14))
     }
     
 }

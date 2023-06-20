@@ -28,4 +28,8 @@ class PoppinsTextStyles {
     static var greyHeaderText: fontTuple {
         return (font: FontsEnum.poppinsMedium, size: 16)
     }
+    
+    static var recomendationsText: fontTuple {
+        return (font: FontsEnum.poppinsMedium, size: 18)
+    }
 }

@@ -37,6 +37,21 @@ final class TabBarCoordinator: NSObject, Coordinator {
         
     }
     
+    private func showMoodClassifier(navVC: UINavigationController) {
+        let moodCoordinator = MoodClassifierCoordinator(navVC)
+        moodCoordinator.finishDelegate = finishDelegate
+        childCoordinators.append(moodCoordinator)
+        moodCoordinator.start()
+//        self.finish()
+    }
+    
+    private func showReasonsToStop() {
+        let coordinator = ReasonsToStopCoordinator(navigationController)
+        coordinator.finishDelegate = finishDelegate
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+    
     private func getTabControllers(page: TabBarPages) -> UINavigationController {
         let navVC = UINavigationController()
         navVC.tabBarItem = UITabBarItem.init(title: nil, image: page.getImages(), selectedImage: nil)
@@ -48,10 +63,18 @@ final class TabBarCoordinator: NSObject, Coordinator {
         case .home:
             let vm = MainScreenViewModel()
             let mainView = MainScreenView(viewModel: vm)
+            vm.didSendEventClosure = { [weak self] event in
+                self?.showReasonsToStop()
+            }
             let hostingVC = UIHostingController(rootView: mainView)
             navVC.pushViewController(hostingVC, animated: true)
         case .setup:
-            let settingsVC = SettingsViewController()
+            let storageService = FirebaseStorageService()
+            let vm = SettingsViewModel(storageService: storageService)
+            let settingsVC = SettingsViewController(viewModel: vm)
+            vm.didSendEventClosure = { [weak self] event in
+                self?.showMoodClassifier(navVC: navVC)
+            }
             navVC.pushViewController(settingsVC, animated: true)
             
         }

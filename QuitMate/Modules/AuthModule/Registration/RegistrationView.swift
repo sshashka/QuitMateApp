@@ -28,11 +28,11 @@ struct RegistrationView: View {
                     .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.never)
                     .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
-                    }
+//                    .overlay {
+//                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+//                            .stroke(lineWidth: 1)
+//                            .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
+//                    }
 
             SecureField("", text: $viewModel.password, prompt: Text("Password, at least 8 characters").foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
@@ -43,11 +43,11 @@ struct RegistrationView: View {
                     .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.never)
                     .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
-                    }
+//                    .overlay {
+//                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+//                            .stroke(lineWidth: 1)
+//                            .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
+//                    }
             
             SecureField("", text: $viewModel.confirmationPassword, prompt: Text("Password confirmation").foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)

@@ -8,6 +8,8 @@
 import Foundation
 
 protocol ReasonsToStopPresenterProtocol: AnyObject {
+    // Remove this because of using type enum
+    var didSendEventClosure: ((ReasonsToStopModulePresenter.EventType) -> Void)? { get set }
     func showArrayOfReasons()
     func didTapDoneButton(reasons: [String])
 }

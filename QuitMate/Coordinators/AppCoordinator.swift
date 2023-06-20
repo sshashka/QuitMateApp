@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol AppCoordinatorProtocol: Coordinator {
     func showLogin()
@@ -48,8 +49,9 @@ final class AppCoordinator: AppCoordinatorProtocol {
         mainCoordinator.finishDelegate = self
         mainCoordinator.start()
         childCoordinators.append(mainCoordinator)
+        print(navigationController.viewControllers)
     }
-    
+    // This should be called from push notification not tabbar
     func showMoodClassificationVC() {
         let moodClassifierCoordinator = MoodClassifierCoordinator(navigationController)
         moodClassifierCoordinator.finishDelegate = self
@@ -64,6 +66,14 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinators.append(registrationCoordinator)
     }
     
+//    func showRecomendations() {
+//        UserDefaults.standard.set("Q6flCIpCmyfmifYHvyYcRGfkfPz1", forKey: "UserID")
+//        let storageService = FirebaseStorageService()
+//        let vm = RecomendationsViewModel(storageService: storageService)
+//        let vc = UIHostingController(rootView: RecomendationsView(viewModel: vm))
+//        navigationController.pushViewController(vc, animated: true)
+//    }
+    
     func start() {
         //Add logics to determine if user is loggined
         showLogin()
@@ -75,7 +85,8 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         switch childCoordinator.type {
         case .tabbar:
             navigationController.viewControllers.removeAll()
-            showReasonsToStop()
+            childCoordinators = []
+            showLogin()
         case .auth:
             navigationController.viewControllers.removeAll()
             childCoordinators = []
@@ -86,6 +97,10 @@ extension AppCoordinator: CoordinatorFinishDelegate {
             showMainFlow()
         case .register:
             navigationController.viewControllers.removeAll()
+            childCoordinators = []
+            showMainFlow()
+        case .recomendations:
+            navigationController.viewControllers = []
             childCoordinators = []
             showMainFlow()
         default:

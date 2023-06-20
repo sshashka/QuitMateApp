@@ -14,7 +14,7 @@ struct MainScreenView: View {
             VStack {
                 Group {
                     HeaderView(dateInString: $viewModel.todayDate)
-                    ProgressView(percentage: $viewModel.percentsToFinish)
+                    UserProgressView(percentage: $viewModel.percentsToFinish)
                         .foregroundColor(Color(ColorConstants.labelColor))
                         .frame(width: frame.size.width / 2 + Spacings.spacing40)
                 }
@@ -23,7 +23,7 @@ struct MainScreenView: View {
                     TimeAndScoreView(quittingDuration: $viewModel.dateComponentsWithoutSmoking)
                         .foregroundColor(Color(ColorConstants.labelColor))
                         .padding(.top, Spacings.spacing5)
-                    QuittingInformationView(moneySpentOnCigarets: $viewModel.moneySaved, daysFree: $viewModel.daysWithoutSmoking, enviromentalChanges: $viewModel.enviromentalChanges, daysToFinish: $viewModel.daysToFinish)
+                    QuittingInformationView(moneySpentOnCigarets: $viewModel.moneySaved, daysFree: $viewModel.daysWithoutSmoking, enviromentalChanges: $viewModel.enviromentalChanges, daysToFinish: $viewModel.daysToFinish, confirmedReset: $viewModel.confirmedReset)
                         .cornerRadius(35, corners: [.topLeft, .topRight])
                         .frame(height: frame.size.height / 2 - Spacings.spacing40)
                 }

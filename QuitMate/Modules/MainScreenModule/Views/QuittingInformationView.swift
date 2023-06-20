@@ -12,7 +12,7 @@ struct QuittingInformationView: View {
     @Binding var daysFree: Int
     @Binding var enviromentalChanges: Int
     @Binding var daysToFinish: String
-    
+    @Binding var confirmedReset: Bool
     @State private var resetButtonPressed: Bool = false
     var body: some View {
         VStack(alignment: .leading, spacing: Spacings.spacing10) {
