@@ -17,7 +17,7 @@ struct ProgressChartsModuleMainScreen: View {
                 // Add a delay 
                 if $viewModel.weekDataForCharts.count == 0 {
                     Text("No data")
-                        .modifier(TextViewModifier(PoppinsTextStyles.header))
+                        .fontStyle(.header)
                         .frame(height: frame.size.height * 2/10)
                 } else {
                     MoodChartView(dataForCharts: $viewModel.weekDataForCharts)
@@ -32,7 +32,7 @@ struct ProgressChartsModuleMainScreen: View {
                 // Add a delay
                 if $viewModel.dataForCharts.count == 0 {
                     Text("No data")
-                        .modifier(TextViewModifier(PoppinsTextStyles.header))
+                        .fontStyle(.header)
                         .padding(.top, Spacings.spacing10)
                     
                 } else {

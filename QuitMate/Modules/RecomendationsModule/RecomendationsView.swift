@@ -19,7 +19,7 @@ struct RecomendationsView: View {
             VStack {
                 ScrollView(showsIndicators: false) {
                     Text(text)
-                        .modifier(TextViewModifier(PoppinsTextStyles.recomendationsText))
+                        .fontStyle(.recomendationsText)
                 }.padding(.bottom, Spacings.spacing15)
                 Button {
                     viewModel.generateResponse()

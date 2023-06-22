@@ -27,6 +27,7 @@ final class AuthentificationViewModel: ObservableObject {
     }
     
     private func setupPiplines() {
+        // Add a check if fields are not empty + Make a static class that just combines chacks
         formIsValid.assign(to: &$loginButtonDisabled)
         emailIsValid.mapToFieldInputColor()
             .assign(to: &$emailTextFieldColor)
@@ -66,11 +67,11 @@ final class AuthentificationViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }
     
-    func userDidTapOnRegister() {
+    func didTapOnRegister() {
         self.didSendEventClosure?(.regiser)
     }
     
-    func userDidTapOnLogin() {
+    func didTapOnLogin() {
         authentificationService.didSelectLoginWithEmailLogin(email: email, password: password) {[weak self] result in
             switch result {
             case .success:
@@ -80,6 +81,12 @@ final class AuthentificationViewModel: ObservableObject {
                 self?.error = string
             }
         }
+    }
+    
+    func didTapOnForgotPassword() {
+        authentificationService.resetPassword()
+        isShowingAlert = true
+        error = "Email with instructions has been sent"
     }
 }
 

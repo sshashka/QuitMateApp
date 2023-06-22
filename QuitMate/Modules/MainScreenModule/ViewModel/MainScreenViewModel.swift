@@ -36,7 +36,9 @@ final class MainScreenViewModel: ObservableObject {
     @Published var dateComponentsWithoutSmoking: String = ""
     
     @Published var confirmedReset = false {
+        // ITs a wrong way of doing this
         didSet {
+            guard confirmedReset != false else { return }
             finish()
         }
     }

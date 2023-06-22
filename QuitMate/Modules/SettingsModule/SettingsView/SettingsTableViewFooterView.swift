@@ -20,6 +20,7 @@ class SettingsTableViewFooterView: UIView {
         super.init(frame: frame)
         addSubview(logoutButton)
         logoutButton.frame = self.frame
+        logoutButton.addTarget(self, action: #selector(didTapOnSignOut), for: .touchUpInside)
         setupView()
     }
     
@@ -31,5 +32,9 @@ class SettingsTableViewFooterView: UIView {
 private extension SettingsTableViewFooterView {
     func setupView() {
         self.layer.cornerRadius = LayoutConstants.cornerRadius
+    }
+    // Wrong, needs delegation or combine way
+    @objc func didTapOnSignOut() {
+        AuthentificationService().signOut()
     }
 }

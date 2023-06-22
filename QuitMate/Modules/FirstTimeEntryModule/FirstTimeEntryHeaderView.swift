@@ -12,7 +12,8 @@ struct FirstTimeEntryHeaderView: View {
     var body: some View {
         Text(text)
             .foregroundColor(.gray)
-            .modifier(TextViewModifier(PoppinsTextStyles.greyHeaderText))
+            .fontStyle(.greyHeaderText)
+
     }
 }
 

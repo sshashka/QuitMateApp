@@ -15,7 +15,7 @@ protocol RecomendationsCoordinatorProtocol: Coordinator {
 final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
     internal func showRecomendationsView() {
         let storageService = FirebaseStorageService()
-        let viewModel = RecomendationsViewModel(storageService: storageService)
+        let viewModel = RecomendationsViewModel(storageService: storageService, type: recomendationType)
         let recomendationsVC = UIHostingController(rootView: RecomendationsView(viewModel: viewModel))
         viewModel.didSendEventClosure = { [weak self] event in
             // Remove this when push notififcation support added
@@ -30,6 +30,8 @@ final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
     var navigationController: UINavigationController
     
     var childCoordinators: [Coordinator] = []
+    // looks like this doesnt work
+    var recomendationType: Types = .moods
     
     var type: CoordinatorType { .recomendations }
     
@@ -40,6 +42,12 @@ final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
-    
+}
+
+extension RecomendationsCoordinator {
+    // remane
+    enum Types {
+        case moods
+        case smoking
+    }
 }

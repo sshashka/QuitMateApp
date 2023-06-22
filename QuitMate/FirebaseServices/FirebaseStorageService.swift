@@ -7,6 +7,7 @@
 import Combine
 import FirebaseDatabase
 import FirebaseDatabaseSwift
+import FirebaseFirestore
 import UIKit
 
 enum FirebaseStorageServiceReferences: String {
@@ -21,6 +22,7 @@ protocol FirebaseStorageServiceProtocol: AnyObject {
     func createUserStatistics()
     func getUserStatistics() -> AnyPublisher<[User], Error>
     func getUserModel() -> AnyPublisher<[User], Error>
+    func updateUserFinishingDate(with date: Date)
 }
 
 class FirebaseStorageService: FirebaseStorageServiceProtocol {
@@ -97,6 +99,14 @@ class FirebaseStorageService: FirebaseStorageServiceProtocol {
         print(userId)
         let key = reference.key!
         try? reference.setValue(from: userModel)
+    }
+    
+    func updateUserFinishingDate(with date: Date) {
+        // Interestingly enough either firebase or apple uses 2001 timeinterval in codable rather than 1970
+        let dateFormatted = date.timeIntervalSinceReferenceDate
+        var userId = UserDefaults.standard.string(forKey: "UserID")
+        let reference = getChildReference(for: .user).child(userId!).child("-NYIR-FZGB2BXQTO5vP-")
+        reference.updateChildValues(["finishingDate" : Int(dateFormatted)])
     }
     
     func getUserModel() -> AnyPublisher<[User], Error> {

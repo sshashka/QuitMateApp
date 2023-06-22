@@ -103,6 +103,10 @@ extension AppCoordinator: CoordinatorFinishDelegate {
             navigationController.viewControllers = []
             childCoordinators = []
             showMainFlow()
+        case .reasonsToStop:
+            navigationController.viewControllers = []
+            childCoordinators = []
+            showMainFlow()
         default:
             break
         }

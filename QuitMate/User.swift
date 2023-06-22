@@ -14,8 +14,8 @@ struct User: Codable {
     var id: String
     var profileImage: Data?
     let currentDate = Date.now
-    var startingDate = Date()
-    var finishingDate = Date()
+    var startingDate: Date
+    var finishingDate: Date
     var moneyUserSpendsOnSmoking: Double
         // Add currency support in future
 //    var userCurrency: Currency

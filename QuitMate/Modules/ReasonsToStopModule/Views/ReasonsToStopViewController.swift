@@ -17,7 +17,7 @@ final class ReasonsToStopViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Poppins-SemiBold", size: 18)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: ColorConstants.buttonsColor)
-        button.isEnabled = false
+        button.isEnabled = true
         button.layer.cornerRadius = 10
         return button
     }()
@@ -39,11 +39,15 @@ final class ReasonsToStopViewController: UIViewController {
         setupCollectionView()
         view.addSubview(rootStackView)
         setupConstraints()
+        doneButton.addTarget(self, action: #selector(didTapDoneButton), for: .touchUpInside)
     }
 }
 
 private extension ReasonsToStopViewController {
     
+    @objc func didTapDoneButton() {
+        presenter?.didTapDoneButton(reasons: ["sas"])
+    }
 //    func setupNav
     
     func setupLayout() -> UICollectionViewLayout {

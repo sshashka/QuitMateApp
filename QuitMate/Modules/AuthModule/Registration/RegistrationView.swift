@@ -18,51 +18,41 @@ struct RegistrationView: View {
                 Spacer()
             }
             
-            TextField("", text: $viewModel.email, prompt: Text("Email").foregroundColor(.black))
+            Group {
+                TextField("", text: $viewModel.email, prompt: Text("Email").foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
                     .frame(height: 47)
-                    .font(.custom(FontsEnum.poppinsRegular.rawValue, size: 14))
-                    .background(Color(ColorConstants.gray))
-                    .foregroundColor(Color.black)
-                    .keyboardType(.emailAddress)
-                    .autocorrectionDisabled(true)
-                    .textInputAutocapitalization(.never)
-                    .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
-//                    .overlay {
-//                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-//                            .stroke(lineWidth: 1)
-//                            .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
-//                    }
-
-            SecureField("", text: $viewModel.password, prompt: Text("Password, at least 8 characters").foregroundColor(.black))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
+                    }
+                
+                SecureField("", text: $viewModel.password, prompt: Text("Password, at least 8 characters").foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
                     .frame(height: 47)
-                    .font(.custom(FontsEnum.poppinsRegular.rawValue, size: 14))
-                    .background(Color(ColorConstants.gray))
-                    .foregroundColor(Color.black)
-                    .autocorrectionDisabled(true)
-                    .textInputAutocapitalization(.never)
-                    .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
-//                    .overlay {
-//                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-//                            .stroke(lineWidth: 1)
-//                            .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
-//                    }
-            
-            SecureField("", text: $viewModel.confirmationPassword, prompt: Text("Password confirmation").foregroundColor(.black))
-                    .padding(.horizontal, Spacings.spacing25)
-                    .frame(height: 47)
-                    .font(.custom(FontsEnum.poppinsRegular.rawValue, size: 14))
-                    .background(Color(ColorConstants.gray))
-                    .foregroundColor(Color.black)
-                    .autocorrectionDisabled(true)
-                    .textInputAutocapitalization(.never)
-                    .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
                     .overlay {
                         RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
                             .stroke(lineWidth: 1)
                             .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
                     }
+                
+                SecureField("", text: $viewModel.confirmationPassword, prompt: Text("Password confirmation").foregroundColor(.black))
+                    .padding(.horizontal, Spacings.spacing25)
+                    .frame(height: 47)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
+                    }
+            }
+            .fontStyle(.textFieldText)
+            .background(Color(ColorConstants.gray))
+            .foregroundColor(Color.black)
+            .autocorrectionDisabled(true)
+            .textInputAutocapitalization(.never)
+            .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
+            
             
             Button {
                 viewModel.didTapDoneButton()
@@ -70,9 +60,9 @@ struct RegistrationView: View {
                 TextView(text: "Register", font: .poppinsSemiBold, size: 14)
             }
             .buttonStyle(StandartButtonStyle())
-//            .modifier(ButtonOpacityViewModifier(isDisabled: $viewModel.loginButtonDisabled.wrappedValue))
+            //            .modifier(ButtonOpacityViewModifier(isDisabled: $viewModel.loginButtonDisabled.wrappedValue))
             .padding(.top, Spacings.spacing25)
-//            .disabled($viewModel.loginButtonDisabled.wrappedValue ? false : true)
+            //            .disabled($viewModel.loginButtonDisabled.wrappedValue ? false : true)
             
             Spacer()
             

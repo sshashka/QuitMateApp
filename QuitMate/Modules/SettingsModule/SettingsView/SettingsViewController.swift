@@ -36,7 +36,7 @@ class SettingsViewController: UIViewController {
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
 //        setupHeaderProfileView()
-        setupEditButton()
+//        setupEditButton()
         setupConstraints()
         guard let viewModel = viewModel else { return }
         setupHeaderProfileView(viewModel: viewModel.headerViewModel)
@@ -83,6 +83,7 @@ private extension SettingsViewController {
         let alert = UIAlertController(title: "Do you want to reset your password?", message: "Note: еhis action cannot be undone ", preferredStyle: .alert)
         let action = UIAlertAction(title: "Sure", style: .destructive) { [weak self] _ in
             self?.viewModel?.resetPassword()
+            self?.showPasswordResetAlert()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
@@ -90,6 +91,10 @@ private extension SettingsViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+    }
+    
+    func showPasswordResetAlert() {
+        let alert = UIAlertController(title: "Password reset message has been sent", message: "Please check your email for instructions", preferredStyle: .alert)
     }
     
     @objc func editButtonDidTap() {

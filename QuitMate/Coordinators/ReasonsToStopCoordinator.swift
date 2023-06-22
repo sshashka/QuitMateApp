@@ -6,19 +6,37 @@
 //
 
 import UIKit
-
+import SwiftUI
 protocol ReasonsToStopCoordinatorProtocol: Coordinator {
     func showReasonsToStop()
 }
 
 final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     func showReasonsToStop() {
+        self.navigationController.tabBarController?.tabBar.isHidden = true
         let vc = ReasonsToStopViewController.module
         vc.presenter?.didSendEventClosure = { [weak self] event in
-            self?.finish()
+            self?.showFinishingDate()
         }
-        navigationController.modalPresentationStyle = .overFullScreen
-        navigationController.present(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showFinishingDate() {
+        let vm = ReasonsToStopNewFinishingDateViewModel(storageService: FirebaseStorageService())
+        let vc = UIHostingController(rootView: ReasonsToStopNewFinishingDateView(viewModel: vm))
+        
+        vm.didSendEventClosure = { [weak self] event in
+            self?.showRecomendations()
+        }
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showRecomendations() {
+        let recomendationsCoordinator = RecomendationsCoordinator(navigationController)
+        recomendationsCoordinator.recomendationType = .smoking
+        recomendationsCoordinator.finishDelegate = finishDelegate
+        childCoordinators.append(recomendationsCoordinator)
+        recomendationsCoordinator.start()
     }
     
     var finishDelegate: CoordinatorFinishDelegate?

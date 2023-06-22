@@ -22,6 +22,8 @@ final class ReasonsToStopModulePresenter: ReasonsToStopPresenterProtocol {
     }
     
     func didTapDoneButton(reasons: [String]) {
+        // Remove
+        UserDefaults.standard.set(reasons, forKey: "UserSmoked")
         didSendEventClosure?(.done)
     }
 }

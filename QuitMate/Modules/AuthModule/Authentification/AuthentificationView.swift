@@ -14,46 +14,49 @@ struct AuthentificationView: View {
             Spacer()
             
             HStack {
-                TextView(text: "Log In", font: .poppinsSemiBold, size: 36)
+                Text("Log In")
+                    .fontStyle(.header)
                 Spacer()
             }
             Group {
-                
                 TextField("", text: $viewModel.email, prompt: Text("Email").foregroundColor(Color.black))
+                    .padding(.horizontal, Spacings.spacing25)
+                    .frame(height: 47)
                     .keyboardType(.emailAddress)
-//                    .overlay {
-//                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-//                            .stroke(lineWidth: 1)
-//                            .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
-//                    }
+                    .overlay {
+                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
+                    }
                 
                 SecureField("", text: $viewModel.password, prompt: Text("Password, at least 8 characters").foregroundColor(.black))
-//                    .overlay {
-//                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-//                            .stroke(lineWidth: 1)
-//                            .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
-//                    }
+                    .padding(.horizontal, Spacings.spacing25)
+                    .frame(height: 47)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
+                    }
             }
-            .padding(.horizontal, Spacings.spacing25)
-            .frame(height: 47)
-            .font(.custom(FontsEnum.poppinsRegular.rawValue, size: 14))
+            .fontStyle(.textFieldText)
             .background(Color(ColorConstants.gray))
             .foregroundColor(Color.black)
             .autocorrectionDisabled(true)
             .textInputAutocapitalization(.never)
             .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
+            
             Button {
-                print("k")
+                viewModel.didTapOnForgotPassword()
             } label: {
                 HStack {
                     Spacer()
                     Text("Forgot password?")
-                        .modifier(TextViewModifier(font: .poppinsMedium, size: 14))
+                        .fontStyle(.clearButtonsText)
                 }
             }
             
             Button {
-                viewModel.userDidTapOnLogin()
+                viewModel.didTapOnLogin()
             } label: {
                 TextView(text: "Log In", font: .poppinsSemiBold, size: 14)
             }
@@ -65,9 +68,10 @@ struct AuthentificationView: View {
             Spacer()
             
             Button {
-                viewModel.userDidTapOnRegister()
+                viewModel.didTapOnRegister()
             } label: {
-                TextView(text: "Don`t have an account? Create new", font: .poppinsSemiBold, size: 14)
+                Text("Don`t have an account? Create new")
+                    .fontStyle(.clearButtonsText)
             }
         }.padding(Spacings.spacing30)
             .alert($viewModel.error.wrappedValue, isPresented: $viewModel.isShowingAlert) {

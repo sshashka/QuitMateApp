@@ -76,7 +76,6 @@ struct FirstTimeEntryView: View {
                 }
             } label: {
                 Text(selectedField == .money ? "Finish" : "Next")
-                    .modifier(TextViewModifier(PoppinsTextStyles.buttonsText))
             }
             .buttonStyle(StandartButtonStyle())
             .padding(Spacings.spacing30)

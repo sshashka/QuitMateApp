@@ -29,7 +29,7 @@ class SettingsViewModel: ObservableObject {
     
     init(storageService: FirebaseStorageServiceProtocol) {
         self.storageService = storageService
-        let user = User(name: "", age: "", id: "", moneyUserSpendsOnSmoking: 0.0)
+        let user = User(name: "", age: "", id: "", startingDate: Date(), finishingDate: Date(), moneyUserSpendsOnSmoking: 0.0)
         self.headerViewModel = HeaderViewViewModel(user: user)
         getUserModel()
     }

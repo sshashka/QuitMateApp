@@ -26,7 +26,7 @@ struct QuittingInformationView: View {
             }.foregroundColor(Color(ColorConstants.labelColor))
             HStack(alignment: .center, spacing: Spacings.spacing10) {
                 StatsView(image: IconConstants.earth, titleText: "\(enviromentalChanges)", secondaryText: "Enviromental changes", tintColor: .green)
-                StatsView(image: IconConstants.moon,titleText: daysToFinish, secondaryText: "Days to finish", tintColor: .mint)
+                StatsView(image: IconConstants.finish,titleText: daysToFinish, secondaryText: "Days to finish", tintColor: .mint)
             }
             .foregroundColor(Color(ColorConstants.labelColor))
             
@@ -41,7 +41,7 @@ struct QuittingInformationView: View {
                     resetButtonPressed.toggle()
                 }
                 Button("Yes", role: .destructive) {
-                    
+                    confirmedReset = true
                 }
             }
             Spacer(minLength: Spacings.spacing10)

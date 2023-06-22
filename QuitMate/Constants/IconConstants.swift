@@ -12,6 +12,6 @@ class IconConstants {
     static var noSmoking: String { "Nosmoking" }
     static var earth: String { "Earth" }
     static var moon: String { "Moon" }
-    
+    static var finish: String  { "Finish" }
     static var noProfilePic: String { "NoProfilePic" }
 }
