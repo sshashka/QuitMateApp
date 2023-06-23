@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Spacings {
+final class Spacings {
     static var spacing5: CGFloat { 5 }
     static var spacing10: CGFloat { 10 }
     static var spacing15: CGFloat { 15 }

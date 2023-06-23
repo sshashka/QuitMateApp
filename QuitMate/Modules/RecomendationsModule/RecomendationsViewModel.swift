@@ -9,7 +9,7 @@ import Combine
 import OpenAI
 import Foundation
 
-class RecomendationsViewModel: ObservableObject {
+final class RecomendationsViewModel: ObservableObject {
     enum State {
         case loading
         case loaded(String)

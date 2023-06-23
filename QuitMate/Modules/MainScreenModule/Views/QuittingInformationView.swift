@@ -8,51 +8,34 @@
 import SwiftUI
 
 struct QuittingInformationView: View {
-    @Binding var moneySpentOnCigarets: Double
-    @Binding var daysFree: Int
-    @Binding var enviromentalChanges: Int
-    @Binding var daysToFinish: String
-    @Binding var confirmedReset: Bool
-    @State private var resetButtonPressed: Bool = false
+    // All strings?
+    let moneySpentOnCigarets: Double
+    let daysWithoutSmoking: Int
+    let enviromentalChanges: Int
+    let daysToFinish: String
     var body: some View {
+        
         VStack(alignment: .leading, spacing: Spacings.spacing10) {
-            Spacer(minLength: Spacings.spacing10)
-            TextView(text: "Quitting information", font: .poppinsSemiBold, size: 16)
-                .foregroundColor(Color(ColorConstants.labelColor))
-            
+            Spacer()
+            Text("Quitting information")
+                .fontStyle(.poppinsSemibold16)
             HStack(alignment: .center, spacing: Spacings.spacing10) {
-                StatsView(image: IconConstants.noSmoking, titleText: "\(daysFree)", secondaryText: "Days without smoking", tintColor: .blue)
+                StatsView(image: IconConstants.noSmoking, titleText: "\(daysWithoutSmoking)", secondaryText: "Days without smoking", tintColor: .blue)
                 StatsView(image: IconConstants.money, titleText: String(moneySpentOnCigarets) + "$", secondaryText: "Money saved", tintColor: .green)
-            }.foregroundColor(Color(ColorConstants.labelColor))
+            }
+            
             HStack(alignment: .center, spacing: Spacings.spacing10) {
                 StatsView(image: IconConstants.earth, titleText: "\(enviromentalChanges)", secondaryText: "Enviromental changes", tintColor: .green)
                 StatsView(image: IconConstants.finish,titleText: daysToFinish, secondaryText: "Days to finish", tintColor: .mint)
             }
-            .foregroundColor(Color(ColorConstants.labelColor))
             
-            Button {
-                resetButtonPressed.toggle()
-            } label: {
-                TextView(text: "Reset Progress", font: .poppinsSemiBold, size: 14)
-            }
-            .buttonStyle(StandartButtonStyle())
-            .alert("Do you want to reset timer? (note: this operation cannot be undone)", isPresented: $resetButtonPressed) {
-                Button("Cancel", role: .cancel) {
-                    resetButtonPressed.toggle()
-                }
-                Button("Yes", role: .destructive) {
-                    confirmedReset = true
-                }
-            }
-            Spacer(minLength: Spacings.spacing10)
         }
-        .padding([.horizontal], 30)
     }
 }
 
-//struct QuittingInformationView_Previews: PreviewProvider {
-//    @State var mockDataForSigarets = 0.0
-//    static var previews: some View {
-//        QuittingInformationView(moneySpentOnCigarets: $mockDataForSigarets)
-//    }
-//}
+struct QuittingInformationView_Previews: PreviewProvider {
+    static var previews: some View {
+        @State var confirmedReset = false
+        QuittingInformationView(moneySpentOnCigarets: 0.0, daysWithoutSmoking: 0, enviromentalChanges: 0, daysToFinish: "0")
+    }
+}

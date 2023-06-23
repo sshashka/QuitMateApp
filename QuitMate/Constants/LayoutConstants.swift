@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LayoutConstants {
+final class LayoutConstants {
     static var cornerRadius: CGFloat { 10 }
     static var spacing10: CGFloat { 10 }
     static var spacing16: CGFloat { 16 }

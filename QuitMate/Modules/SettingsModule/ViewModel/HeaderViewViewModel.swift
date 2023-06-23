@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HeaderViewViewModel: ObservableObject {
+final class HeaderViewViewModel: ObservableObject {
     @Published var image: Data?
     @Published var name: String = ""
     @Published var email: String = ""

@@ -13,6 +13,7 @@ struct StatsView: View {
     let secondaryText: String
     let tintColor: Color
     var body: some View {
+        
         HStack(alignment: .center) {
             Image(image)
                 .resizable()
@@ -26,8 +27,7 @@ struct StatsView: View {
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
             }
-        }
-        .minimumScaleFactor(0.6)
+        }.minimumScaleFactor(0.8)
     }
 }
 

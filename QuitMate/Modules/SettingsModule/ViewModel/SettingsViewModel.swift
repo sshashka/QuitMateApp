@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class SettingsViewModel: ObservableObject {
+final class SettingsViewModel: ObservableObject {
     var didSendEventClosure: ((SettingsViewModel.EventType) -> Void)?
     private let storageService: FirebaseStorageServiceProtocol
     private var disposeBag = Set<AnyCancellable>()

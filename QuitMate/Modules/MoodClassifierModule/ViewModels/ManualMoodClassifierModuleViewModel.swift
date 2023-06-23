@@ -8,7 +8,7 @@
 import Foundation
 
 
-class ManualMoodClassifierModuleViewModel: ObservableObject {
+final class ManualMoodClassifierModuleViewModel: ObservableObject {
     @Published var moodsArray: [ClassifiedMood] = []
     @Published var selectedMood: ClassifiedMood? = nil
     var didSendEndEventClosure: ((ManualMoodClassifierModuleViewModel.EndEvent) -> Void)?

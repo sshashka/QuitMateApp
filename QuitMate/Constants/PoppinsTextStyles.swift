@@ -10,7 +10,7 @@ import Foundation
 enum PoppinsTextStyles {
     
     typealias fontTuple = (font: FontsEnum, size: CGFloat)
-    case header, textViewText, buttonsText, clearButtonsText, greyHeaderText, recomendationsText, textFieldText
+    case header, textViewText, buttonsText, clearButtonsText, greyHeaderText, recomendationsText, textFieldText, poppinsSemibold16
     
     func getTextStyle(style: PoppinsTextStyles) -> fontTuple {
         switch style {
@@ -28,6 +28,8 @@ enum PoppinsTextStyles {
             return (font: FontsEnum.poppinsMedium, size: 18)
         case .textFieldText:
             return (font: FontsEnum.poppinsRegular, size: 14)
+        case .poppinsSemibold16:
+            return (font: FontsEnum.poppinsSemiBold, size: 16)
         }
     }
 //    static var header: fontTuple {

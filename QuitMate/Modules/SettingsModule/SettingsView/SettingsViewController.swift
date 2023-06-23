@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import Combine
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood"]
     private let gradientLayer = CAGradientLayer()
     private var viewModel: SettingsViewModel?

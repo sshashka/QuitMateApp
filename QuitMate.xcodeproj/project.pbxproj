@@ -80,7 +80,6 @@
 		30A1205629FC1A0A0062A019 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30A1205529FC1A0A0062A019 /* FirebaseFirestoreSwift */; };
 		30A1205829FC1A0A0062A019 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 30A1205729FC1A0A0062A019 /* FirebaseStorage */; };
 		30A1205A29FD22A10062A019 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1205929FD22A10062A019 /* ChartModel.swift */; };
-		30A1205C29FD31640062A019 /* UserStatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1205B29FD31640062A019 /* UserStatisticsModel.swift */; };
 		30A245382A40F40900AA0093 /* RecomendationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A245372A40F40900AA0093 /* RecomendationsViewModel.swift */; };
 		30A2453A2A40FAE000AA0093 /* RecomendationPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A245392A40FAE000AA0093 /* RecomendationPrompts.swift */; };
 		30A2453C2A41151500AA0093 /* RecomendationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2453B2A41151500AA0093 /* RecomendationsCoordinator.swift */; };
@@ -210,7 +209,6 @@
 		30A1204529FC138A0062A019 /* SettingModuleViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModuleViewModule.swift; sourceTree = "<group>"; };
 		30A1204729FC13A70062A019 /* ProgressChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartsViewModel.swift; sourceTree = "<group>"; };
 		30A1205929FD22A10062A019 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
-		30A1205B29FD31640062A019 /* UserStatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatisticsModel.swift; sourceTree = "<group>"; };
 		30A245372A40F40900AA0093 /* RecomendationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsViewModel.swift; sourceTree = "<group>"; };
 		30A245392A40FAE000AA0093 /* RecomendationPrompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationPrompts.swift; sourceTree = "<group>"; };
 		30A2453B2A41151500AA0093 /* RecomendationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsCoordinator.swift; sourceTree = "<group>"; };
@@ -424,7 +422,6 @@
 		3048CD3129AD71B90016308B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				30A1205B29FD31640062A019 /* UserStatisticsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -949,7 +946,6 @@
 				302C494A29FB26DB00D43421 /* MoodClassifierMainScreenView.swift in Sources */,
 				3044405D29F741B500AD40F2 /* HeaderView.swift in Sources */,
 				30A11FFB29FB2D070062A019 /* FontsEnum.swift in Sources */,
-				30A1205C29FD31640062A019 /* UserStatisticsModel.swift in Sources */,
 				302B48C729F957690031CFE6 /* RegistrationViewController.swift in Sources */,
 				30CA1B55299AE573001E5BF3 /* UIView+Extension.swift in Sources */,
 				30A1200029FB338C0062A019 /* ManualMoodClassifierModuleViewModel.swift in Sources */,

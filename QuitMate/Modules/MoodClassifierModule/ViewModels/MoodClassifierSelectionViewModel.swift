@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MoodClassifierSelectionViewModel: ObservableObject {
+final class MoodClassifierSelectionViewModel: ObservableObject {
     var didSendEventClosure: ((MoodClassifierSelectionViewModel.EventType) -> Void)?
     
     func didChooseClassifierType(selectedMethod: EventType) {

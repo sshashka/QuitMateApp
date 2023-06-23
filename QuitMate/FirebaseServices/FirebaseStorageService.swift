@@ -19,13 +19,13 @@ protocol FirebaseStorageServiceProtocol: AnyObject {
     func createNewUser(userModel: User)
     func getChartsData() -> AnyPublisher<[ChartModel], Error>
     func uploadNewUserMood(mood: ClassifiedMood)
-    func createUserStatistics()
+//    func createUserStatistics()
     func getUserStatistics() -> AnyPublisher<[User], Error>
     func getUserModel() -> AnyPublisher<[User], Error>
     func updateUserFinishingDate(with date: Date)
 }
 
-class FirebaseStorageService: FirebaseStorageServiceProtocol {
+final class FirebaseStorageService: FirebaseStorageServiceProtocol {
     
     var cancellables = Set<AnyCancellable>()
     
@@ -63,14 +63,14 @@ class FirebaseStorageService: FirebaseStorageServiceProtocol {
         return subject.eraseToAnyPublisher()
     }
     
-    func createUserStatistics() {
-        // Костыль
-        var userId = UserDefaults.standard.string(forKey: "UserID")
-        let reference = getChildReference(for: .user).child(userId!).childByAutoId()
-        let key = reference.key!
-        let model = UserStatisticsModel(id: key, moneySpentOnSigs: 25.0, enviromentalChanges: 4)
-        try? reference.setValue(from: model)
-    }
+//    func createUserStatistics() {
+//        // Костыль
+//        var userId = UserDefaults.standard.string(forKey: "UserID")
+//        let reference = getChildReference(for: .user).child(userId!).childByAutoId()
+//        let key = reference.key!
+//        let model = UserStatisticsModel(id: key, moneySpentOnSigs: 25.0, enviromentalChanges: 4)
+//        try? reference.setValue(from: model)
+//    }
     
     func getUserStatistics() -> AnyPublisher<[User], Error> {
         // Костыль

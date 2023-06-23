@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ColorConstants {
+final class ColorConstants {
     static let labelColor = "LabelColor"
     static let backgroundColor = "BackgroundColor"
     static let buttonsColor = "PurpleColor"

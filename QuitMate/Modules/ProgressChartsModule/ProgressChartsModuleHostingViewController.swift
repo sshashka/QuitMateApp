@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class ProgressChartsModuleHostingViewController: UIViewController {
+final class ProgressChartsModuleHostingViewController: UIViewController {
 
     private let mainScreenView = UIHostingController(rootView: ProgressChartsModuleMainScreen())
     private let qutittingInfoLabel: UILabel = {

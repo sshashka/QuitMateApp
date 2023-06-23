@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsTableViewFooterView: UIView {
+final class SettingsTableViewFooterView: UIView {
     
     private let logoutButton: UIButton = {
         let button = UIButton()

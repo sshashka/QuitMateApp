@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReasonsToStopCollectionViewCell: UICollectionViewCell {
+final class ReasonsToStopCollectionViewCell: UICollectionViewCell {
     static let identifier = "ReasonsToStopCollectionViewCell"
     
     

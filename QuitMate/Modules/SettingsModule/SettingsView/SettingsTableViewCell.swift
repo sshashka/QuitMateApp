@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsTableViewCell: UITableViewCell {
+final class SettingsTableViewCell: UITableViewCell {
     
     static let identifier = "SettingsTableViewCell"
     private let settingsTextLabel: UILabel = {

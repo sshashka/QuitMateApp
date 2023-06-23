@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TextStringConstants {
+final class TextStringConstants {
     static var activity: String = "Activity"
     static var checkYourActivityThroughPeriod = "Check your activity through period"
 

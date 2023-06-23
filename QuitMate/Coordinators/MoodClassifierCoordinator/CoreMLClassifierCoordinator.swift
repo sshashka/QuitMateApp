@@ -11,7 +11,7 @@ protocol CoreMLClassifierCoordinatorProtocol: Coordinator {
     func showCoreMLClassifier()
 }
 
-class CoreMLClassifierCoordinator: CoreMLClassifierCoordinatorProtocol {
+final class CoreMLClassifierCoordinator: CoreMLClassifierCoordinatorProtocol {
     internal func showCoreMLClassifier() {
         let vc = MoodClassifierViewController.module
         navigationController.pushViewController(vc, animated: true)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AuthentificationModuleConstants {
+final class AuthentificationModuleConstants {
     static var headerLabel = { "New to QuitMate?" }
     static var signUpForFreeButtonTitle = { "Sign up for free "}
     static var cornerRadius = 7

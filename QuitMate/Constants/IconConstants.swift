@@ -7,7 +7,7 @@
 
 import Foundation
 
-class IconConstants {
+final class IconConstants {
     static var money: String { "Money" }
     static var noSmoking: String { "Nosmoking" }
     static var earth: String { "Earth" }
