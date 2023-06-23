@@ -63,7 +63,7 @@ extension MoodClassifierViewController: UIImagePickerControllerDelegate {
 
 extension MoodClassifierViewController: MoodClassifierViewControllerProtocol {
     func classifierServiceSentSuccess() {
-        print("fuck you")
+        
     }
     
     func showValidationFailureAlert(message: String) {

@@ -125,15 +125,24 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case 3:
             viewModel?.didTapOnAddingMood()
         default:
-            print()
+            break
         }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return SettingsTableViewFooterView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+        let view = SettingsTableViewFooterView()
+        view.delegate = self
+        view.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40)
+        return view
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 40
+    }
+}
+
+extension SettingsViewController: SettingsTableViewFooterViewDelegate {
+    func didTapLogout() {
+        viewModel?.didTapLogout()
     }
 }

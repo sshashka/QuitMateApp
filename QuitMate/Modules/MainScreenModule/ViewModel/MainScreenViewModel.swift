@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 final class MainScreenViewModel: ObservableObject {
+    private let storageService: FirebaseStorageServiceProtocol
     private var disposeBag = Set<AnyCancellable>()
     @Published private var userStatistics: User? {
         didSet {
@@ -39,16 +40,17 @@ final class MainScreenViewModel: ObservableObject {
         // ITs a wrong way of doing this
         didSet {
             guard confirmedReset != false else { return }
-            finish()
+            didTapOnReset()
         }
     }
     
-    init() {
+    init(storageService: FirebaseStorageServiceProtocol) {
+        self.storageService = storageService
         getUserModel()
     }
     
     func getUserModel() {
-        FirebaseStorageService().getUserStatistics()
+        storageService.getUserStatistics()
             .sink {
                 print($0)
             } receiveValue: { stats in
@@ -56,7 +58,7 @@ final class MainScreenViewModel: ObservableObject {
             }.store(in: &disposeBag)
     }
     // Rename this func
-    func finish() {
+    func didTapOnReset() {
         self.didSendEventClosure?(.didTapResetButton)
     }
 }

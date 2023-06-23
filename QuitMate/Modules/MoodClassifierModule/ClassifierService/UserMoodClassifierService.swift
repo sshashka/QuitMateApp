@@ -40,7 +40,7 @@ final class UserMoodClassifierService: UserMoodClassifierServiceProtocol {
             request.imageCropAndScaleOption = .centerCrop
             return request
         } catch {
-            fatalError("Not sas")
+            fatalError("Classification Error")
         }
     }()
     

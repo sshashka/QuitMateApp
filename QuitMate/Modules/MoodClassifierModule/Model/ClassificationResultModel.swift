@@ -28,11 +28,4 @@ struct ClassificationResultModel {
     var classifiedMood: ClassifiedMood? {
         return ClassifiedMood(rawValue: moodString)
     }
-    
-    func toDict() -> [String: Any] {
-        [
-            "MoodString": moodString,
-            "MoodConfidence": moodConfidence
-        ]
-    }
 }

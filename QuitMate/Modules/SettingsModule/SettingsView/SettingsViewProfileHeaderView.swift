@@ -27,10 +27,11 @@ struct SettingsViewProfileHeaderView: View {
     
     private func createImage() -> Image {
         let data = viewModel.image
-        guard let data = data else { return Image(IconConstants.noProfilePic)}
+        guard let data else { return Image(IconConstants.noProfilePic)}
         let UIKitImage = UIImage(data: data)
         // remove force unwrap
-        return Image(uiImage: UIKitImage!)
+        guard let UIKitImage else { return Image(IconConstants.noProfilePic)}
+        return Image(uiImage: UIKitImage)
     }
 }
 

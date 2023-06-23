@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MoodClassifierMainScreenView: View {
-    @StateObject var viewModel = ManualMoodClassifierModuleViewModel()
+    @StateObject var viewModel: ManualMoodClassifierModuleViewModel
     
     var body: some View {
         VStack(alignment: .center) {
@@ -38,6 +38,6 @@ struct MoodClassifierMainScreenView: View {
 
 struct MoodClassifierMainScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        MoodClassifierMainScreenView()
+        MoodClassifierMainScreenView(viewModel: ManualMoodClassifierModuleViewModel(storageService: FirebaseStorageService()))
     }
 }

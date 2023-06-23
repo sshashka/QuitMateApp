@@ -9,11 +9,13 @@ import Foundation
 
 
 final class ManualMoodClassifierModuleViewModel: ObservableObject {
+    private let storageService: FirebaseStorageServiceProtocol
     @Published var moodsArray: [ClassifiedMood] = []
     @Published var selectedMood: ClassifiedMood? = nil
     var didSendEndEventClosure: ((ManualMoodClassifierModuleViewModel.EndEvent) -> Void)?
     
-    init() {
+    init(storageService: FirebaseStorageServiceProtocol) {
+        self.storageService = storageService
         let moods = ClassifiedMood.allCases
         moodsArray = moods
     }
@@ -24,7 +26,7 @@ final class ManualMoodClassifierModuleViewModel: ObservableObject {
     
     func didTapOnDoneButton() {
         guard let selectedMood = selectedMood else { return }
-        FirebaseStorageService().uploadNewUserMood(mood: selectedMood)
+        storageService.uploadNewUserMood(mood: selectedMood)
         self.didSendEndEventClosure?(.moodClassifier)
     }
 }

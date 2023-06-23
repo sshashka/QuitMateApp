@@ -30,7 +30,6 @@ extension User {
     
     var daysWithoutSmoking: Int {
         let result = substractTwoDatesInDay(from: startingDate, to: currentDate)
-        print(result)
         return result
     }
     
@@ -40,11 +39,8 @@ extension User {
     
     var completionPercents: Float {
         let startingToFinishingDateDifference = startingToFinishingDateDifference
-        print(startingToFinishingDateDifference)
         let daysLeft = daysWithoutSmoking
-        print(daysLeft)
         let result = Float(daysLeft)/Float(startingToFinishingDateDifference)
-        print(result)
         return result
     }
     

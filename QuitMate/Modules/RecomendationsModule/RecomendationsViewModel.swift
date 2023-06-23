@@ -43,6 +43,7 @@ final class RecomendationsViewModel: ObservableObject {
         state = .loading
         storageService.getUserModel()
             .sink { _ in
+                // Add completion handling
                 print("Error")
             } receiveValue: {[weak self] users in
                 self?.userData = users.first

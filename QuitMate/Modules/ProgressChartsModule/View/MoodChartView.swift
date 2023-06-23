@@ -22,7 +22,6 @@ struct MoodChartView: View {
                     .interpolationMethod(.cardinal)
             }
             .animation(.linear, value: dataForCharts.count)
-            
         }
     }
 }

@@ -18,7 +18,6 @@ struct FirstTimeEntryView: View {
     var body: some View {
         VStack {
             TabView(selection: $selectedField) {
-                // Divide views on smaller ones
                 TextFieldWithUnderlineView(headerText: "What should we call you?", text: $viewModel.name, placeHolderText: "Your name")
                     .focused($focusedField, equals: .name)
                     .tag(Field.name)

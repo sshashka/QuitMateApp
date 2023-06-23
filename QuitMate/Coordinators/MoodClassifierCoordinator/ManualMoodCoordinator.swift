@@ -16,7 +16,7 @@ final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
     var didSendEventClosure: ((CoordinatorType) -> Void)?
     
     internal func showManualSelectionView() {
-        let viewModel = ManualMoodClassifierModuleViewModel()
+        let viewModel = ManualMoodClassifierModuleViewModel(storageService: FirebaseStorageService())
         let view = MoodClassifierMainScreenView(viewModel: viewModel)
         let vc = UIHostingController(rootView: view)
         viewModel.didSendEndEventClosure = { [weak self] event in

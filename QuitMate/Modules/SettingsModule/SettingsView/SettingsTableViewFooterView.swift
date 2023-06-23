@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol SettingsTableViewFooterViewDelegate: AnyObject {
+    func didTapLogout()
+}
+
 final class SettingsTableViewFooterView: UIView {
+    weak var delegate: SettingsTableViewFooterViewDelegate?
     
     private let logoutButton: UIButton = {
         let button = UIButton()
@@ -35,6 +40,6 @@ private extension SettingsTableViewFooterView {
     }
     // Wrong, needs delegation or combine way
     @objc func didTapOnSignOut() {
-        AuthentificationService().signOut()
+        delegate?.didTapLogout()
     }
 }

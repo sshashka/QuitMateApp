@@ -11,7 +11,6 @@ struct TextFieldWithUnderlineView: View {
     var headerText: String
     @Binding var text: String
     var placeHolderText: String
-//    @Binding var deviderColor: Color
     var body: some View {
         VStack(spacing: Spacings.spacing10) {
             FirstTimeEntryHeaderView(text: headerText)

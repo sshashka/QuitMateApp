@@ -9,8 +9,9 @@ import Foundation
 import Combine
 
 final class SettingsViewModel: ObservableObject {
-    var didSendEventClosure: ((SettingsViewModel.EventType) -> Void)?
     private let storageService: FirebaseStorageServiceProtocol
+    private let authService: AuthentificationServiceProtocol
+    var didSendEventClosure: ((SettingsViewModel.EventType) -> Void)?
     private var disposeBag = Set<AnyCancellable>()
     @Published var userModel: User? {
         didSet {
@@ -27,15 +28,15 @@ final class SettingsViewModel: ObservableObject {
         didSendEventClosure?(.didTapOnNewMood)
     }
     
-    init(storageService: FirebaseStorageServiceProtocol) {
+    init(storageService: FirebaseStorageServiceProtocol, authService: AuthentificationServiceProtocol) {
         self.storageService = storageService
+        self.authService = authService
         let user = User(name: "", age: "", id: "", startingDate: Date(), finishingDate: Date(), moneyUserSpendsOnSmoking: 0.0)
         self.headerViewModel = HeaderViewViewModel(user: user)
         getUserModel()
     }
     
     func getUserModel() {
-        // Fix to storage service
         storageService.getUserModel()
             .sink {
                 print($0)
@@ -50,7 +51,7 @@ final class SettingsViewModel: ObservableObject {
     }
     
     func resetPassword() {
-        AuthentificationService().resetPassword()
+        authService.resetPassword()
     }
 }
 
