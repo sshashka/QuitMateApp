@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 final class ManualMoodClassifierModuleViewModel: ObservableObject {
     private let storageService: FirebaseStorageServiceProtocol
     @Published var moodsArray: [ClassifiedMood] = []

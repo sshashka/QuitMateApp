@@ -52,7 +52,7 @@ struct MainScreenView: View {
 }
 struct MainScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        @StateObject var vm = MainScreenViewModel()
+        @StateObject var vm = MainScreenViewModel(storageService: FirebaseStorageService())
         MainScreenView(viewModel: vm)
     }
 }

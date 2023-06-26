@@ -65,7 +65,6 @@
 		30A0E4CF29DEF35B000CA339 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0E4CE29DEF35B000CA339 /* LoginCoordinator.swift */; };
 		30A0E4D229DF71AF000CA339 /* TabBarPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0E4D129DF71AF000CA339 /* TabBarPages.swift */; };
 		30A0E4D429DF7256000CA339 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0E4D329DF7256000CA339 /* TabBarCoordinator.swift */; };
-		30A11FF929FB29920062A019 /* ButtonWithCheckMarkButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A11FF829FB29920062A019 /* ButtonWithCheckMarkButtonStyle.swift */; };
 		30A11FFB29FB2D070062A019 /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A11FFA29FB2D070062A019 /* FontsEnum.swift */; };
 		30A1200029FB338C0062A019 /* ManualMoodClassifierModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A11FFF29FB338C0062A019 /* ManualMoodClassifierModuleViewModel.swift */; };
 		30A1200429FB45D70062A019 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1200329FB45D70062A019 /* CustomTextField.swift */; };
@@ -200,7 +199,6 @@
 		30A0E4CE29DEF35B000CA339 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		30A0E4D129DF71AF000CA339 /* TabBarPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPages.swift; sourceTree = "<group>"; };
 		30A0E4D329DF7256000CA339 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
-		30A11FF829FB29920062A019 /* ButtonWithCheckMarkButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithCheckMarkButtonStyle.swift; sourceTree = "<group>"; };
 		30A11FFA29FB2D070062A019 /* FontsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsEnum.swift; sourceTree = "<group>"; };
 		30A11FFF29FB338C0062A019 /* ManualMoodClassifierModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualMoodClassifierModuleViewModel.swift; sourceTree = "<group>"; };
 		30A1200329FB45D70062A019 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -565,7 +563,6 @@
 			isa = PBXGroup;
 			children = (
 				30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */,
-				30A11FF829FB29920062A019 /* ButtonWithCheckMarkButtonStyle.swift */,
 			);
 			path = "SwiftUI ButtonStyles";
 			sourceTree = "<group>";
@@ -908,7 +905,6 @@
 				302EEE3129EB683F005732E3 /* MoodClassifierModulePresenter.swift in Sources */,
 				3020317A2A2EB14D0001716F /* StatiscticsViewModel.swift in Sources */,
 				30E9CB4429F6D40800E1F0C2 /* StatsView.swift in Sources */,
-				30A11FF929FB29920062A019 /* ButtonWithCheckMarkButtonStyle.swift in Sources */,
 				30CA3A3029B0F04600181539 /* ReasonsToStopCollectionViewCell.swift in Sources */,
 				3057162029C7E292002C20A0 /* ReasonsToStopModulePresenter.swift in Sources */,
 				3025FF3E2A118AA6002D71A8 /* ManualMoodCoordinator.swift in Sources */,

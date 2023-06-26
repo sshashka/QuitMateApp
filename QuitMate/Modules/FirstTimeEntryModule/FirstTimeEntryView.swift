@@ -48,15 +48,18 @@ struct FirstTimeEntryView: View {
                         }
                     }
                 
-                TextFieldWithUnderlineView(headerText: "How much money do you spend on cigarets daily?", text: $viewModel.moneySpendOnSmoking, placeHolderText: "Amount")
-                    .keyboardType(.numberPad)
-                    .focused($focusedField, equals: .money)
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                            focusedField = selectedField
+                HStack(alignment: .center) {
+                    // Add support for changing currency
+                    TextFieldWithUnderlineView(headerText: "How much money do you spend on cigarets daily?", text: $viewModel.moneySpendOnSmoking, placeHolderText: "Amount")
+                        .keyboardType(.numberPad)
+                        .focused($focusedField, equals: .money)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                focusedField = selectedField
+                            }
                         }
-                    }
                     .tag(Field.money)
+                }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .animation(.easeOut(duration: 0.4), value: selectedField)

@@ -19,6 +19,7 @@ enum ClassifiedMood: String, Codable, CaseIterable {
     var classifiedMood: ClassifiedMood? {
         return ClassifiedMood(rawValue: self.rawValue)
     }
+    
 }
 
 struct ClassificationResultModel {

@@ -61,7 +61,7 @@ final class TabBarCoordinator: NSObject, Coordinator {
             let chartsVC = ProgressChartsModuleHostingViewController()
             navVC.pushViewController(chartsVC, animated: true)
         case .home:
-            let vm = MainScreenViewModel()
+            let vm = MainScreenViewModel(storageService: FirebaseStorageService())
             let mainView = MainScreenView(viewModel: vm)
             vm.didSendEventClosure = { [weak self] event in
                 self?.showReasonsToStop()
