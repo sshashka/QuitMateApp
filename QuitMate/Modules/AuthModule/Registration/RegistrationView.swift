@@ -80,6 +80,6 @@ struct RegistrationView: View {
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView(viewModel: RegistrationViewModel(authentificationService: AuthentificationService()))
+        RegistrationView(viewModel: RegistrationViewModel(authentificationService: FirebaseAuthentificationService()))
     }
 }

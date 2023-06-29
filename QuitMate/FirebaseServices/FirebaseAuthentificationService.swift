@@ -33,21 +33,21 @@ protocol AuthentificationServiceProtocol: AnyObject {
     func resetPassword()
 }
 
-final class AuthentificationService: AuthentificationServiceProtocol {
+final class FirebaseAuthentificationService: AuthentificationServiceProtocol {
     
     func didSelectLoginWithEmailLogin(email: String, password: String, completion: @escaping(ResultOfAuthentification) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if error != nil, let error = error as NSError? {
                 if let errorCode = AuthErrorCode.Code(rawValue: error.code) {
                     switch errorCode {
+                    case .userNotFound:
+                        completion(.failure("Oops... Looks like user with this email does not exist. Try again"))
                     case .invalidEmail:
                         completion(.failure("OOPS... your email looks wrong, try again"))
                     case .userDisabled:
                         completion(.failure("OOPS... user's account is disabled. Try creating a new one"))
                     case .wrongPassword:
                         completion(.failure("OOPS... looks like you have attempted to sign in with a wrong password."))
-                    case .invalidRecipientEmail:
-                        completion(.failure("Oops... Looks like email is wrong. Try again"))
                     default:
                         completion(.failure("OOPS... looks like unknow error. Try again later"))
                     }

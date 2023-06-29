@@ -11,7 +11,7 @@ struct StatsView: View {
     let image: String
     let titleText: String
     let secondaryText: String
-    let tintColor: Color
+    let tintColor: Color?
     var body: some View {
         
         HStack(alignment: .center) {

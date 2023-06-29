@@ -15,6 +15,7 @@ enum ClassificationResults {
 }
 
 protocol UserMoodClassifierServiceProtocol: AnyObject {
+    var classificationPublisher: PassthroughSubject<String, Never> { get set}
     func classifyImage(image: Data)
     func checkIfFacePresent(image: Data, completion: @escaping(ClassificationResults) -> Void)
     func cropImage(image: Data) -> UIImage?
@@ -64,10 +65,6 @@ final class UserMoodClassifierService: UserMoodClassifierServiceProtocol {
                 print("Failed to perform classification.\n\(error.localizedDescription)")
             }
         }
-    }
-    
-    func classifierResultsHandler(_ request: VNRequest, error: Error?) {
-        
     }
     
     func checkIfFacePresent(image: Data, completion: @escaping(ClassificationResults) -> Void) {

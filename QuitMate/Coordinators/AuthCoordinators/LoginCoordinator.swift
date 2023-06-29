@@ -14,7 +14,7 @@ protocol LoginCoordinatorProtocol: Coordinator {
 
 
 final class LoginCoordinator: LoginCoordinatorProtocol {
-    private let authService = AuthentificationService()
+    private let authService = FirebaseAuthentificationService()
     internal func showAuthentificationViewController() {
         let vm = AuthentificationViewModel(authentificationService: authService)
         let authentificationVC = UIHostingController(rootView: AuthentificationView(viewModel: vm))

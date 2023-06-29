@@ -86,7 +86,7 @@ struct AuthentificationView: View {
 //
 struct AuthentificationView_Previews: PreviewProvider {
     static var previews: some View {
-        let service = AuthentificationService()
+        let service = FirebaseAuthentificationService()
         @State var mock = AuthentificationViewModel(authentificationService: service)
         AuthentificationView(viewModel: mock)
     }

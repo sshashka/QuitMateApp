@@ -20,7 +20,7 @@ struct ProgressChartsModuleMainScreen: View {
                         .fontStyle(.header)
                         .frame(height: frame.size.height * 2/10)
                 } else {
-                    MoodChartView(dataForCharts: $viewModel.weekDataForCharts)
+                    MoodChartView(dataForCharts: viewModel.weekDataForCharts)
                         .frame(height: frame.size.height * 2/10)
                 }
                 Group {
@@ -30,13 +30,13 @@ struct ProgressChartsModuleMainScreen: View {
                         .frame(height: frame.size.height * 1/20)
                 }.padding(.horizontal, Spacings.spacing20)
                 // Add a delay
-                if $viewModel.dataForCharts.count == 0 {
+                if viewModel.dataForCharts.count == 0 {
                     Text("No data")
                         .fontStyle(.header)
                         .padding(.top, Spacings.spacing10)
                     
                 } else {
-                    MoodChartView(dataForCharts: $viewModel.dataForCharts)
+                    MoodChartView(dataForCharts: viewModel.dataForCharts)
                         .padding(.top, Spacings.spacing10)
                 }
                 //                        .frame(height: frame.size.height * 4/10)

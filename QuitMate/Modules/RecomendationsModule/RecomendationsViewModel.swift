@@ -69,7 +69,7 @@ final class RecomendationsViewModel: ObservableObject {
         }
         let daysWithoutSmoking = userData.daysWithoutSmoking
         // Please put your own token here because OpenAI doesnt allow to publish them
-        let openAi = OpenAI(apiToken: "")
+        let openAi = OpenAI(apiToken: "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")
         // Fix regenerating response
         let query: CompletionsQuery
         

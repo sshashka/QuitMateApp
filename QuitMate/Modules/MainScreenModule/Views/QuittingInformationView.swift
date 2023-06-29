@@ -26,7 +26,7 @@ struct QuittingInformationView: View {
             
             HStack(alignment: .center, spacing: Spacings.spacing10) {
                 StatsView(image: IconConstants.earth, titleText: "\(enviromentalChanges)", secondaryText: "Enviromental changes", tintColor: .green)
-                StatsView(image: IconConstants.finish,titleText: daysToFinish, secondaryText: "Days to finish", tintColor: .mint)
+                StatsView(image: IconConstants.finish,titleText: daysToFinish, secondaryText: "Days to finish", tintColor: nil)
             }
             
         }

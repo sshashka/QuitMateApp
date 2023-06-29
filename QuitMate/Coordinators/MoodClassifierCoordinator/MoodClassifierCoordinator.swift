@@ -32,6 +32,7 @@ final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol {
     
     private func showCoreMLClassifierViewController() {
         let coordinator = CoreMLClassifierCoordinator(navigationController)
+        coordinator.finishDelegate = finishDelegate
         coordinator.start()
         childCoordinators.append(coordinator)
     }

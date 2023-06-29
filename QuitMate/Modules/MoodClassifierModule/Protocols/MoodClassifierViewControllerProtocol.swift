@@ -9,5 +9,5 @@ import Foundation
 
 protocol MoodClassifierViewControllerProtocol: AnyObject {
     func showValidationFailureAlert(message: String)
-    func classifierServiceSentSuccess()
+    func classifierServiceDidSendResult(result: String)
 }

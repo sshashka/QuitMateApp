@@ -14,7 +14,7 @@ final class MainScreenViewModel: ObservableObject {
     @Published private var userStatistics: User? {
         didSet {
             setupPiplines()
-            print(userStatistics)
+//            print(userStatistics)
         }
     }
     
@@ -103,7 +103,7 @@ private extension MainScreenViewModel {
     func getDaysLeft() {
         guard let userStatistics = userStatistics else { return }
         daysToFinish = String(userStatistics.daysToFinish)
-        print(daysToFinish + "DAYS LEFT")
+//        print(daysToFinish + "DAYS LEFT")
     }
 }
 

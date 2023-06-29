@@ -25,4 +25,18 @@ extension Publisher where Output == Bool, Failure == Never {
         }
         .eraseToAnyPublisher()
     }
+    
+    
 }
+
+//extension Publisher where Output == String, Failure == Never {
+//    func validateEmail() -> AnyPublisher<Bool, Never> {
+//        let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+//        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+////            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+//            return map { email -> Bool in
+//                emailPredicate.evaluate(with: email)
+//            }
+//            .eraseToAnyPublisher()
+//    }
+//}

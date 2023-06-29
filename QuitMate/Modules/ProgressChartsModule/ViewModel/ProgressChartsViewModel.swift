@@ -15,9 +15,24 @@ enum ProgressChartsPeriods: String {
     case threeMonth = "3 Month"
     case sixMonth = "6 Month"
     
+    var valueOfPeriod: Int {
+        switch self {
+        case .oneWeek:
+            return 7
+        case .twoWeeks:
+            return 14
+        case .oneMonth:
+            return 1
+        case .threeMonth:
+            return 3
+        case .sixMonth:
+            return 6
+        }
+    }
 }
 
 final class ProgressChartsViewModel: ObservableObject {
+    
     private var cancellables = Set<AnyCancellable>()
 
     private var chartModelData: [ChartModel] = [] {
@@ -25,7 +40,6 @@ final class ProgressChartsViewModel: ObservableObject {
             self.dataForCharts = chartModelData
             filterChartsData(for: selectedSotringMethod)
             filterChartsData(for: .oneWeek)
-            print("Latest day: \(chartModelData.last?.dateOfClassification)")
         }
     }
     
@@ -36,7 +50,7 @@ final class ProgressChartsViewModel: ObservableObject {
     }
     
     
-    @Published var dataForCharts: [ChartModel] = [] {
+    @Published private (set) var dataForCharts: [ChartModel] = [] {
         didSet {
             getStatistics()
         }
@@ -53,6 +67,13 @@ final class ProgressChartsViewModel: ObservableObject {
     init() {
         getChartsData()
     }
+    
+    private lazy var currentDate: Date = {
+        return Date.now
+    }()
+    private lazy var calendar: Calendar = {
+        return Calendar.current
+    }()
 }
 
 extension ProgressChartsViewModel {
@@ -68,37 +89,37 @@ extension ProgressChartsViewModel {
             }.store(in: &cancellables)
     }
     
-    
+    // check for availability for longer periods
     private func filterChartsData(for period: ProgressChartsPeriods) {
-        let currentDate = Date.now
-        let calendar = Calendar.current
-        let oneWeekAgo = calendar.date(byAdding: .weekday, value: -7, to: currentDate)!
-        let twoWeeksAgo = calendar.date(byAdding: .weekday, value: -14,to: currentDate)!
-        let oneMonthAgo = calendar.date(byAdding: .month, value: -1, to: currentDate)!
-        let threeMonthAgo = calendar.date(byAdding: .month, value: -3, to: currentDate)!
-        let sixMonthAgo = calendar.date(byAdding: .month, value: -6, to: currentDate)!
         switch period {
         case .oneMonth:
-            dataForCharts = chartModelData.filter {
-                $0.dateOfClassification > oneMonthAgo && $0.dateOfClassification < currentDate
+            dataForCharts = filterForMonths(months: period.valueOfPeriod)
+        case .threeMonth, .sixMonth:
+            dataForCharts = filterForMonths(months: period.valueOfPeriod).enumerated().filter{
+                $0.offset % 2 == 1
             }
-        case .threeMonth:
-            dataForCharts = chartModelData.filter {
-                $0.dateOfClassification > threeMonthAgo && $0.dateOfClassification < currentDate
+            .map {
+                $0.element
             }
-        case .sixMonth:
-            dataForCharts = chartModelData.filter {
-                $0.dateOfClassification > sixMonthAgo && $0.dateOfClassification < currentDate
-            }
-        case .oneWeek:
-            weekDataForCharts = chartModelData.filter({
-                $0.dateOfClassification > oneWeekAgo && $0.dateOfClassification < currentDate
-            })
-            
         case .twoWeeks:
-            dataForCharts = chartModelData.filter({
-                $0.dateOfClassification > twoWeeksAgo && $0.dateOfClassification < currentDate
-            })
+            dataForCharts = filterForWeeks(days: period.valueOfPeriod)
+        case .oneWeek:
+            weekDataForCharts = filterForWeeks(days: period.valueOfPeriod)
+        }
+    }
+    
+    private func filterForWeeks(days: Int) -> [ChartModel] {
+        //    private let oneWeekAgo = calendar.date(byAdding: .weekday, value: -7, to: currentDate)!
+        let period = calendar.date(byAdding: .weekday, value: -days,to: currentDate)!
+        return chartModelData.filter({
+            $0.dateOfClassification > period && $0.dateOfClassification < currentDate
+        })
+    }
+    
+    private func filterForMonths(months: Int) -> [ChartModel] {
+        let period = calendar.date(byAdding: .month, value: -months, to: currentDate)!
+        return chartModelData.filter {
+            $0.dateOfClassification > period && $0.dateOfClassification < currentDate
         }
     }
     

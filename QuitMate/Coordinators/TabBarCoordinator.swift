@@ -70,7 +70,7 @@ final class TabBarCoordinator: NSObject, Coordinator {
             navVC.pushViewController(hostingVC, animated: true)
         case .setup:
             let storageService = FirebaseStorageService()
-            let vm = SettingsViewModel(storageService: storageService, authService: AuthentificationService())
+            let vm = SettingsViewModel(storageService: storageService, authService: FirebaseAuthentificationService())
             let settingsVC = SettingsViewController(viewModel: vm)
             vm.didSendEventClosure = { [weak self] event in
                 self?.showMoodClassifier(navVC: navVC)

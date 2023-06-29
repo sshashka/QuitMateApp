@@ -6,18 +6,20 @@
 //
 
 import Foundation
+import Combine
 
-final class MoodClassifierModulePresenter: MoodClassifierModulePresenterProtocol {
-    func userDidTakePicture(image: Data) {
-        validateImage(image: image)
-    }
-    
+final class AutomaticMoodClassifierModulePresenter: MoodClassifierModulePresenterProtocol {
+    private var disposeBag: Set<AnyCancellable> = Set<AnyCancellable>()
     weak var view: MoodClassifierViewControllerProtocol?
     let classifierService: UserMoodClassifierServiceProtocol
     
     init(view: MoodClassifierViewControllerProtocol, classifierService: UserMoodClassifierServiceProtocol) {
         self.view = view
         self.classifierService = classifierService
+    }
+    
+    func userDidTakePicture(image: Data) {
+        validateImage(image: image)
     }
     
     private func validateImage(image: Data) {
@@ -32,5 +34,11 @@ final class MoodClassifierModulePresenter: MoodClassifierModulePresenterProtocol
     }
     private func detectMood(image: Data) {
         classifierService.classifyImage(image: image)
+        classifierService.classificationPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] result in
+            self?.view?.classifierServiceDidSendResult(result: result)
+        }
+        .store(in: &disposeBag)
     }
 }
