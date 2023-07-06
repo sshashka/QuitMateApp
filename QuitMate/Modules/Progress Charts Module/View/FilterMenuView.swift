@@ -39,7 +39,7 @@ struct FilterMenuView: View {
                 }
         }
         .foregroundColor(Color(ColorConstants.labelColor))
-        .padding(.leading)
+        .padding(.horizontal)
     }
 }
 //
