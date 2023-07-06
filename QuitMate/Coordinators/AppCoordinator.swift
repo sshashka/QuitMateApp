@@ -48,6 +48,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func showLogin() {
+        self.navigationController.setNavigationBarHidden(false, animated: false)
         let authCoordinator = LoginCoordinator(navigationController)
         authCoordinator.finishDelegate = self
         authCoordinator.start()
@@ -88,19 +89,24 @@ final class AppCoordinator: AppCoordinatorProtocol {
     
     // Fix starting main flow right after user registers
     func start() {
-        FirebaseAuthStateHandler().userState.sink { [weak self] result in
+        
+        FirebaseAuthStateHandler().checkIfUserIsAuthentificated { [weak self] result in
             switch result {
             case .userIsAuthentificated:
-                self?.childCoordinators = []
-                self?.navigationController.viewControllers.removeAll()
                 self?.showMainFlow()
             case .userIsNotAuthentificated:
-                self?.childCoordinators = []
-                self?.navigationController.viewControllers.removeAll()
                 self?.showLogin()
             }
-        }.store(in: &disposeBag)
+        }
     }
+    //        FirebaseAuthStateHandler().userState.sink { [weak self] result in
+    //            switch result {
+    //            case .userIsAuthentificated:
+    //                self?.showMainFlow()
+    //            case .userIsNotAuthentificated:
+    //                self?.showLogin()
+    //            }
+    //        }.store(in: &disposeBag)
 }
 
 extension AppCoordinator: CoordinatorFinishDelegate {
@@ -108,7 +114,6 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         switch coordinator {
         case .reasonsToStop:
             showReasonsToStop()
-            
         default:
             break
         }
@@ -119,7 +124,7 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         case .tabbar:
             navigationController.viewControllers.removeAll()
             childCoordinators = []
-//            showLogin()
+            //            showLogin()
         case .auth:
             navigationController.viewControllers.removeAll()
             childCoordinators = []

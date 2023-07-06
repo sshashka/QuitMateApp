@@ -13,20 +13,14 @@ enum FirebaseAuthStateHandlerResult {
     case userIsNotAuthentificated
 }
 // Add an saving of userId if user logged in
+// Handle auth state change in realtime
 class FirebaseAuthStateHandler {
-    
-    var userState = PassthroughSubject<FirebaseAuthStateHandlerResult, Never>()
-    
-    init() {
-        checkIfUserIsAuthentificated()
-    }
-    
-    func checkIfUserIsAuthentificated() {
+    func checkIfUserIsAuthentificated(completion: @escaping(FirebaseAuthStateHandlerResult) -> Void) {
         Auth.auth().addStateDidChangeListener {auth, user in
             if user == nil {
-                self.userState.send(.userIsNotAuthentificated)
+                completion(.userIsNotAuthentificated)
             } else {
-                self.userState.send(.userIsAuthentificated)
+                completion(.userIsAuthentificated)
             }
         }
     }

@@ -71,7 +71,7 @@ final class UserMoodClassifierService: UserMoodClassifierServiceProtocol {
         let image = UIImage(data: image)!
         let imageCG = image.cgImage!
         let request = VNDetectFaceRectanglesRequest { (req, err) in
-            if let err = err {
+            if err != nil {
                 completion(.failure)
                 return
             }

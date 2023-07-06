@@ -29,7 +29,7 @@ struct TextFieldWithUnderlineView: View {
 
 struct TextFieldWithUnderlineView_Previews: PreviewProvider {
     static var previews: some View {
-        let color = Color(ColorConstants.buttonsColor)
+//        let color = Color(ColorConstants.buttonsColor)
         let header = "What should we call you"
         let placeholderText = "Your name"
         @State var text: String = ""

@@ -188,7 +188,7 @@
 		3057161F29C7E292002C20A0 /* ReasonsToStopModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopModulePresenter.swift; sourceTree = "<group>"; };
 		3057162129C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopPresenterProtocol.swift; sourceTree = "<group>"; };
 		3057162329C7E77D002C20A0 /* ReasonsTopStopView+Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReasonsTopStopView+Module.swift"; sourceTree = "<group>"; };
-		3058D3512A3910DB00D01781 /* QuitMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3058D3512A3910DB00D01781 /* QuitMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = QuitMate.app; path = "/Users/sashavasylenko/Documents/Mine/QuitMate/QuitMateApp/build/Debug-iphoneos/QuitMate.app"; sourceTree = "<absolute>"; };
 		3058D3522A39116A00D01781 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
 		306531F529E4B20500E0544F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewFooterView.swift; sourceTree = "<group>"; };
@@ -719,7 +719,6 @@
 			isa = PBXGroup;
 			children = (
 				30CA1B3F299AE191001E5BF3 /* QuitMate */,
-				3058D3512A3910DB00D01781 /* QuitMate.app */,
 			);
 			sourceTree = "<group>";
 		};
