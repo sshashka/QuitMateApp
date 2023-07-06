@@ -99,6 +99,8 @@
 		30BFF1B22A26C4A5003B7E06 /* MoodClassifierSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */; };
 		30C1CB2029F1396500F7A044 /* MoodClassifierCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */; };
 		30C23CAF2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C23CAE2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift */; };
+		30C338EB2A538BA40000E6CC /* FirebaseAuthStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C338EA2A538BA40000E6CC /* FirebaseAuthStateHandler.swift */; };
+		30C338ED2A538C810000E6CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C338EC2A538C810000E6CC /* SceneDelegate.swift */; };
 		30CA1B41299AE191001E5BF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CA1B40299AE191001E5BF3 /* AppDelegate.swift */; };
 		30CA1B4A299AE192001E5BF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30CA1B49299AE192001E5BF3 /* Assets.xcassets */; };
 		30CA1B4D299AE192001E5BF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CA1B4B299AE192001E5BF3 /* LaunchScreen.storyboard */; };
@@ -135,6 +137,7 @@
 		30E9CB4229F6D13800E1F0C2 /* QuittingInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4129F6D13800E1F0C2 /* QuittingInformationView.swift */; };
 		30E9CB4429F6D40800E1F0C2 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4329F6D40800E1F0C2 /* StatsView.swift */; };
 		30E9CB4629F6D9B400E1F0C2 /* StandartButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */; };
+		30F527EE2A5626580031D0F4 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527ED2A5626580031D0F4 /* UINavigationController+Extension.swift */; };
 		30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */; };
 		30F7E58F2A2EBAA200EAE058 /* AuthentificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7E58E2A2EBAA200EAE058 /* AuthentificationView.swift */; };
 		30F7E5912A2EBC7000EAE058 /* TextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */; };
@@ -229,6 +232,8 @@
 		30BFF1AF2A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierSelectionViewModel.swift; sourceTree = "<group>"; };
 		30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierCoordinator.swift; sourceTree = "<group>"; };
 		30C23CAE2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher<Bool,Never>+Extension.swift"; sourceTree = "<group>"; };
+		30C338EA2A538BA40000E6CC /* FirebaseAuthStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthStateHandler.swift; sourceTree = "<group>"; };
+		30C338EC2A538C810000E6CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		30CA1B40299AE191001E5BF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30CA1B49299AE192001E5BF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30CA1B4C299AE192001E5BF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -266,6 +271,7 @@
 		30E9CB4129F6D13800E1F0C2 /* QuittingInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuittingInformationView.swift; sourceTree = "<group>"; };
 		30E9CB4329F6D40800E1F0C2 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartButtonStyle.swift; sourceTree = "<group>"; };
+		30F527ED2A5626580031D0F4 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowEffectSwiftUI.swift; sourceTree = "<group>"; };
 		30F7E58E2A2EBAA200EAE058 /* AuthentificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationView.swift; sourceTree = "<group>"; };
 		30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModifier.swift; sourceTree = "<group>"; };
@@ -308,24 +314,24 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
-		300ACB172A40A6C300DA76D5 /* RecomendationsModule */ = {
+		300ACB172A40A6C300DA76D5 /* Recomendations Module */ = {
 			isa = PBXGroup;
 			children = (
 				300ACB182A40ABF000DA76D5 /* RecomendationsView.swift */,
 				30A245372A40F40900AA0093 /* RecomendationsViewModel.swift */,
 				30A245392A40FAE000AA0093 /* RecomendationPrompts.swift */,
 			);
-			path = RecomendationsModule;
+			path = "Recomendations Module";
 			sourceTree = "<group>";
 		};
-		301821CC299D22AF0088863C /* AuthModule */ = {
+		301821CC299D22AF0088863C /* Auth Module */ = {
 			isa = PBXGroup;
 			children = (
 				30064B2C2A1574A400C70664 /* Authentification */,
 				30064B2D2A1574B700C70664 /* Registration */,
 				3040D9BD2A4E3D9A0089F83E /* UserInfoValidation.swift */,
 			);
-			path = AuthModule;
+			path = "Auth Module";
 			sourceTree = "<group>";
 		};
 		301821CD299D22BD0088863C /* Extensions */ = {
@@ -339,7 +345,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		301D900D2A1D714F00043F37 /* FirstTimeEntryModule */ = {
+		301D900D2A1D714F00043F37 /* FirstTimeEntry Module */ = {
 			isa = PBXGroup;
 			children = (
 				301D90122A1D751000043F37 /* PeriodOfTimeToQuitView.swift */,
@@ -349,7 +355,7 @@
 				3058D3522A39116A00D01781 /* CurrencyPicker.swift */,
 				30549F162A3A7E7600872DAD /* FirstTimeEntryViewModel.swift */,
 			);
-			path = FirstTimeEntryModule;
+			path = "FirstTimeEntry Module";
 			sourceTree = "<group>";
 		};
 		3025FF392A1181F3002D71A8 /* ManualClassificationView */ = {
@@ -395,13 +401,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		302C494829FB268B00D43421 /* ManualMoodClassifier View */ = {
+		302C494829FB268B00D43421 /* Manual Mood Classifier */ = {
 			isa = PBXGroup;
 			children = (
+				30BFF1AC2A26C148003B7E06 /* ViewModels */,
 				3025FF392A1181F3002D71A8 /* ManualClassificationView */,
-				3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */,
 			);
-			path = "ManualMoodClassifier View";
+			path = "Manual Mood Classifier";
 			sourceTree = "<group>";
 		};
 		303B9EB329C1C3C0008D2C64 /* Views */ = {
@@ -439,13 +445,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		304EC1A72A03BC65001667FC /* CoreViews */ = {
+		304EC1A72A03BC65001667FC /* Core Views */ = {
 			isa = PBXGroup;
 			children = (
 				30549F102A3A7A2A00872DAD /* SwiftUI */,
 				30549F0F2A3A7A2300872DAD /* UIKit */,
 			);
-			path = CoreViews;
+			path = "Core Views";
 			sourceTree = "<group>";
 		};
 		304EC1AA2A03C00C001667FC /* ProgressStats */ = {
@@ -455,6 +461,24 @@
 				304EC1A82A03BEE0001667FC /* ProgressStatsView.swift */,
 			);
 			path = ProgressStats;
+			sourceTree = "<group>";
+		};
+		3052757E2A518FD5005A4CE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3037166829F2074400846D65 /* MoodClassifierViewController+Module.swift */,
+				307E7DFD29EF312200DFCEE3 /* MoodClassifierViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3052757F2A519044005A4CE5 /* Mood Classifier Selection */ = {
+			isa = PBXGroup;
+			children = (
+				3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */,
+				30BFF1AF2A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift */,
+			);
+			path = "Mood Classifier Selection";
 			sourceTree = "<group>";
 		};
 		30549F0F2A3A7A2300872DAD /* UIKit */ = {
@@ -476,12 +500,12 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
-		30549F132A3A7B2000872DAD /* SwiftUIViewModifiers */ = {
+		30549F132A3A7B2000872DAD /* SwiftUI View Modifiers */ = {
 			isa = PBXGroup;
 			children = (
 				30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */,
 			);
-			path = SwiftUIViewModifiers;
+			path = "SwiftUI View Modifiers";
 			sourceTree = "<group>";
 		};
 		3057162529C7E902002C20A0 /* Protocols */ = {
@@ -493,23 +517,23 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		306531F429E4B1EB00E0544F /* SettingsModule */ = {
+		306531F429E4B1EB00E0544F /* Settings Module */ = {
 			isa = PBXGroup;
 			children = (
 				30AAD9192A0E4BA3000FF93D /* ViewModel */,
 				30AAD91F2A0E6A8D000FF93D /* SettingsView */,
 			);
-			path = SettingsModule;
+			path = "Settings Module";
 			sourceTree = "<group>";
 		};
-		30783013299DA4D4003FAA10 /* MainScreenModule */ = {
+		30783013299DA4D4003FAA10 /* Main Screen Module */ = {
 			isa = PBXGroup;
 			children = (
 				302B48C829F967E20031CFE6 /* ViewModel */,
 				30E9CB3429F6AFCB00E1F0C2 /* Views */,
 				3048CD3129AD71B90016308B /* Models */,
 			);
-			path = MainScreenModule;
+			path = "Main Screen Module";
 			sourceTree = "<group>";
 		};
 		307E7DFF29EF485200DFCEE3 /* Protocols */ = {
@@ -524,30 +548,28 @@
 		3093432A29DC5E4B00D9C1AA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				300ACB172A40A6C300DA76D5 /* RecomendationsModule */,
-				301D900D2A1D714F00043F37 /* FirstTimeEntryModule */,
-				306531F429E4B1EB00E0544F /* SettingsModule */,
-				3093432B29DC5E8C00D9C1AA /* MoodClassifierModule */,
-				30CA3A3129B0F1ED00181539 /* ReasonsToStopModule */,
-				30A8A1B729A553EC00EC4232 /* ProgressChartsModule */,
-				30783013299DA4D4003FAA10 /* MainScreenModule */,
-				301821CC299D22AF0088863C /* AuthModule */,
+				300ACB172A40A6C300DA76D5 /* Recomendations Module */,
+				301D900D2A1D714F00043F37 /* FirstTimeEntry Module */,
+				306531F429E4B1EB00E0544F /* Settings Module */,
+				3093432B29DC5E8C00D9C1AA /* Mood Classifier Module */,
+				30CA3A3129B0F1ED00181539 /* Reasons To Stop Module */,
+				30A8A1B729A553EC00EC4232 /* Progress Charts Module */,
+				30783013299DA4D4003FAA10 /* Main Screen Module */,
+				301821CC299D22AF0088863C /* Auth Module */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		3093432B29DC5E8C00D9C1AA /* MoodClassifierModule */ = {
+		3093432B29DC5E8C00D9C1AA /* Mood Classifier Module */ = {
 			isa = PBXGroup;
 			children = (
-				30BFF1AC2A26C148003B7E06 /* ViewModels */,
-				307E7DFF29EF485200DFCEE3 /* Protocols */,
+				3052757F2A519044005A4CE5 /* Mood Classifier Selection */,
 				30A64CFA29EA1F09000E3E90 /* Model */,
-				30A11FFC29FB322B0062A019 /* Presenter */,
 				30A11FFD29FB323C0062A019 /* ClassifierService */,
-				30A11FFE29FB32500062A019 /* Automatic Mood Classifier View */,
-				302C494829FB268B00D43421 /* ManualMoodClassifier View */,
+				30A11FFE29FB32500062A019 /* CoreML Mood Classifier */,
+				302C494829FB268B00D43421 /* Manual Mood Classifier */,
 			);
-			path = MoodClassifierModule;
+			path = "Mood Classifier Module";
 			sourceTree = "<group>";
 		};
 		3098C25D2A028C92008B4114 /* View */ = {
@@ -599,13 +621,14 @@
 			path = ClassifierService;
 			sourceTree = "<group>";
 		};
-		30A11FFE29FB32500062A019 /* Automatic Mood Classifier View */ = {
+		30A11FFE29FB32500062A019 /* CoreML Mood Classifier */ = {
 			isa = PBXGroup;
 			children = (
-				3037166829F2074400846D65 /* MoodClassifierViewController+Module.swift */,
-				307E7DFD29EF312200DFCEE3 /* MoodClassifierViewController.swift */,
+				307E7DFF29EF485200DFCEE3 /* Protocols */,
+				30A11FFC29FB322B0062A019 /* Presenter */,
+				3052757E2A518FD5005A4CE5 /* View */,
 			);
-			path = "Automatic Mood Classifier View";
+			path = "CoreML Mood Classifier";
 			sourceTree = "<group>";
 		};
 		30A64CFA29EA1F09000E3E90 /* Model */ = {
@@ -618,7 +641,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		30A8A1B729A553EC00EC4232 /* ProgressChartsModule */ = {
+		30A8A1B729A553EC00EC4232 /* Progress Charts Module */ = {
 			isa = PBXGroup;
 			children = (
 				3040D9BC2A4E3D140089F83E /* ViewModel */,
@@ -627,7 +650,7 @@
 				30A7636C2A01BC1E00C91C6A /* ProgressChartsModuleHostingViewController.swift */,
 				3030D7BD2A49E2ED006BFEA1 /* ChartViewModel.swift */,
 			);
-			path = ProgressChartsModule;
+			path = "Progress Charts Module";
 			sourceTree = "<group>";
 		};
 		30AAD9192A0E4BA3000FF93D /* ViewModel */ = {
@@ -639,13 +662,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		30AAD91C2A0E6702000FF93D /* FirebaseServices */ = {
+		30AAD91C2A0E6702000FF93D /* Firebase Services */ = {
 			isa = PBXGroup;
 			children = (
 				30A1200529FBE7AF0062A019 /* FirebaseStorageService.swift */,
 				301821CE299D79C10088863C /* FirebaseAuthentificationService.swift */,
+				30C338EA2A538BA40000E6CC /* FirebaseAuthStateHandler.swift */,
 			);
-			path = FirebaseServices;
+			path = "Firebase Services";
 			sourceTree = "<group>";
 		};
 		30AAD91F2A0E6A8D000FF93D /* SettingsView */ = {
@@ -673,7 +697,6 @@
 			isa = PBXGroup;
 			children = (
 				30A11FFF29FB338C0062A019 /* ManualMoodClassifierModuleViewModel.swift */,
-				30BFF1AF2A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -687,6 +710,7 @@
 				3078300D299D82B8003FAA10 /* UIButton+Extension.swift */,
 				3078302329A2DD9A003FAA10 /* UILabel+Extension.swift */,
 				30A69C8A2A43B3D2008D847B /* View+Extension.swift */,
+				30F527ED2A5626580031D0F4 /* UINavigationController+Extension.swift */,
 			);
 			path = "UI Extensions";
 			sourceTree = "<group>";
@@ -703,9 +727,9 @@
 			isa = PBXGroup;
 			children = (
 				3093432A29DC5E4B00D9C1AA /* Modules */,
-				30549F132A3A7B2000872DAD /* SwiftUIViewModifiers */,
-				30AAD91C2A0E6702000FF93D /* FirebaseServices */,
-				304EC1A72A03BC65001667FC /* CoreViews */,
+				30549F132A3A7B2000872DAD /* SwiftUI View Modifiers */,
+				30AAD91C2A0E6702000FF93D /* Firebase Services */,
+				304EC1A72A03BC65001667FC /* Core Views */,
 				30A1204329FC0D350062A019 /* GoogleService-Info.plist */,
 				30A11FF729FB29160062A019 /* SwiftUI ButtonStyles */,
 				30CA1B4E299AE192001E5BF3 /* Info.plist */,
@@ -732,14 +756,14 @@
 			path = TapBar;
 			sourceTree = "<group>";
 		};
-		30CA3A3129B0F1ED00181539 /* ReasonsToStopModule */ = {
+		30CA3A3129B0F1ED00181539 /* Reasons To Stop Module */ = {
 			isa = PBXGroup;
 			children = (
 				3057162529C7E902002C20A0 /* Protocols */,
 				303B9EB429C1C3D5008D2C64 /* Presenters */,
 				303B9EB329C1C3C0008D2C64 /* Views */,
 			);
-			path = ReasonsToStopModule;
+			path = "Reasons To Stop Module";
 			sourceTree = "<group>";
 		};
 		30E0C83B29F1D6FA0011F736 /* Poppins */ = {
@@ -785,6 +809,7 @@
 			isa = PBXGroup;
 			children = (
 				30CA1B40299AE191001E5BF3 /* AppDelegate.swift */,
+				30C338EC2A538C810000E6CC /* SceneDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -942,6 +967,7 @@
 				302FD2032A373ADA00E7BE70 /* FirstTimeEntryView.swift in Sources */,
 				30CA3A2E29B0EF7000181539 /* ReasonsToStopViewController.swift in Sources */,
 				3021339E29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift in Sources */,
+				30C338ED2A538C810000E6CC /* SceneDelegate.swift in Sources */,
 				30064B2F2A1574C600C70664 /* RegistrationViewModel.swift in Sources */,
 				301D90132A1D751000043F37 /* PeriodOfTimeToQuitView.swift in Sources */,
 				30D308FB2A33F52100994371 /* FirstTimeEntryHeaderView.swift in Sources */,
@@ -958,6 +984,7 @@
 				3037166929F2074400846D65 /* MoodClassifierViewController+Module.swift in Sources */,
 				30E9CB3829F6B1CA00E1F0C2 /* ProgressPercentageView.swift in Sources */,
 				30A69C8B2A43B3D2008D847B /* View+Extension.swift in Sources */,
+				30C338EB2A538BA40000E6CC /* FirebaseAuthStateHandler.swift in Sources */,
 				30B2DA6F2A32342B00AC4B2E /* FirstTimeEntryCoordinator.swift in Sources */,
 				302C494A29FB26DB00D43421 /* MoodClassifierMainScreenView.swift in Sources */,
 				3044405D29F741B500AD40F2 /* HeaderView.swift in Sources */,
@@ -969,6 +996,7 @@
 				30BFF1B02A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift in Sources */,
 				302C494C29FB26FC00D43421 /* MoodSelectionView.swift in Sources */,
 				30727A182A33E0D9004A29B6 /* TextFieldWithUnderlineView.swift in Sources */,
+				30F527EE2A5626580031D0F4 /* UINavigationController+Extension.swift in Sources */,
 				30A1200429FB45D70062A019 /* CustomTextField.swift in Sources */,
 				307E7E0129EF486300DFCEE3 /* MoodClassifierModulePresenterProtocol.swift in Sources */,
 				303B9EB829C1C415008D2C64 /* ReasonsToStopViewProtocol.swift in Sources */,
@@ -1155,7 +1183,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1191,7 +1219,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

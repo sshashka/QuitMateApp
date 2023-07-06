@@ -12,13 +12,33 @@ protocol ReasonsToStopCoordinatorProtocol: Coordinator {
 }
 
 final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
+    var finishDelegate: CoordinatorFinishDelegate?
+    
+    var navigationController: UINavigationController
+    
+    var childCoordinators: [Coordinator] = []
+    
+    var type: CoordinatorType { .reasonsToStop }
+    
+    func start() {
+        navigationController.setNavigationBarHidden(false, animated: true)
+        showReasonsToStop()
+    }
+    
+    init(_ navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    deinit {
+        print("\(self) is deinited")
+    }
+    
     func showReasonsToStop() {
-        self.navigationController.tabBarController?.tabBar.isHidden = true
         let vc = ReasonsToStopViewController.module
         vc.presenter?.didSendEventClosure = { [weak self] event in
             self?.showFinishingDate()
         }
-        navigationController.pushViewController(vc, animated: true)
+        navigationController.pushWithCustomAnination(vc)
     }
     
     func showFinishingDate() {
@@ -38,22 +58,4 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
         childCoordinators.append(recomendationsCoordinator)
         recomendationsCoordinator.start()
     }
-    
-    var finishDelegate: CoordinatorFinishDelegate?
-    
-    var navigationController: UINavigationController
-    
-    var childCoordinators: [Coordinator] = []
-    
-    var type: CoordinatorType { .reasonsToStop }
-    
-    func start() {
-        showReasonsToStop()
-    }
-    
-    init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
-    
 }

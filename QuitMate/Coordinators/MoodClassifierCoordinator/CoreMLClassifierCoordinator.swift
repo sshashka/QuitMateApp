@@ -14,6 +14,15 @@ protocol CoreMLClassifierCoordinatorProtocol: Coordinator {
 final class CoreMLClassifierCoordinator: CoreMLClassifierCoordinatorProtocol {
     internal func showCoreMLClassifier() {
         let vc = MoodClassifierViewController.module
+        vc.presenter?.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .done:
+                fatalError("\(#function) is not implemented")
+            case .switchToManualClassifier:
+                self?.navigationController.popToRootViewController(animated: true)
+            }
+            
+        }
         navigationController.pushViewController(vc, animated: true)
     }
     

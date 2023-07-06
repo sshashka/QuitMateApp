@@ -13,7 +13,6 @@ protocol FirstTimeEntryCoordinatorProtocol: Coordinator {
 
 final class FirstTimeEntryCoordinator: FirstTimeEntryCoordinatorProtocol {
     internal func showRegisterScreen() {
-        navigationController.viewControllers = []
         let storageService = FirebaseStorageService()
         let vm = FirstTimeEntryViewModel(authService: storageService)
         let vc = UIHostingController(rootView: FirstTimeEntryView(viewModel: vm))

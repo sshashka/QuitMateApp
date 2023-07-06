@@ -7,15 +7,17 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 protocol AppCoordinatorProtocol: Coordinator {
     func showLogin()
     func showMainFlow()
     func showReasonsToStop()
-//    func showRegistration()
+    //    func showRegistration()
 }
 
 final class AppCoordinator: AppCoordinatorProtocol {
+    
     func showReasonsToStop() {
         let vc = ReasonsToStopCoordinator(navigationController)
         vc.finishDelegate = self
@@ -23,14 +25,23 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinators.append(vc)
     }
     
-    
     weak var finishDelegate: CoordinatorFinishDelegate? = nil
     
-    var navigationController: UINavigationController
+    var navigationController: UINavigationController {
+        didSet {
+            print(navigationController.viewControllers)
+        }
+    }
     
-    var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator] = [] {
+        didSet {
+            print(childCoordinators)
+        }
+    }
     
     var type: CoordinatorType {.app}
+    
+    private var disposeBag = Set<AnyCancellable>()
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -66,27 +77,49 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinators.append(registrationCoordinator)
     }
     
-//    func showRecomendations() {
-//        UserDefaults.standard.set("Q6flCIpCmyfmifYHvyYcRGfkfPz1", forKey: "UserID")
-//        let storageService = FirebaseStorageService()
-//        let vm = RecomendationsViewModel(storageService: storageService)
-//        let vc = UIHostingController(rootView: RecomendationsView(viewModel: vm))
-//        navigationController.pushViewController(vc, animated: true)
-//    }
+    //    func showRecomendations() {
+    //        UserDefaults.standard.set("Q6flCIpCmyfmifYHvyYcRGfkfPz1", forKey: "UserID")
+    //        let storageService = FirebaseStorageService()
+    //        let vm = RecomendationsViewModel(storageService: storageService)
+    //        let vc = UIHostingController(rootView: RecomendationsView(viewModel: vm))
+    //        navigationController.pushViewController(vc, animated: true)
+    //    }
     
+    
+    // Fix starting main flow right after user registers
     func start() {
-        //Add logics to determine if user is loggined
-        showLogin()
+        FirebaseAuthStateHandler().userState.sink { [weak self] result in
+            switch result {
+            case .userIsAuthentificated:
+                self?.childCoordinators = []
+                self?.navigationController.viewControllers.removeAll()
+                self?.showMainFlow()
+            case .userIsNotAuthentificated:
+                self?.childCoordinators = []
+                self?.navigationController.viewControllers.removeAll()
+                self?.showLogin()
+            }
+        }.store(in: &disposeBag)
     }
 }
 
 extension AppCoordinator: CoordinatorFinishDelegate {
+    func instantiateNewCoordinator(coordinator: CoordinatorType) {
+        switch coordinator {
+        case .reasonsToStop:
+            showReasonsToStop()
+            
+        default:
+            break
+        }
+    }
+    
     func coordinatorDidFinish(childCoordinator: Coordinator) {
         switch childCoordinator.type {
         case .tabbar:
             navigationController.viewControllers.removeAll()
             childCoordinators = []
-            showLogin()
+//            showLogin()
         case .auth:
             navigationController.viewControllers.removeAll()
             childCoordinators = []

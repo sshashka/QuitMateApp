@@ -7,14 +7,20 @@
 
 import UIKit
 import FirebaseCore
-import UserNotifications
+//import Combine
+//import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var appCoordinator: AppCoordinator?
     
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        return true
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         window = UIWindow()
         
         let navVC = UINavigationController()
@@ -22,14 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         appCoordinator = AppCoordinator(navVC)
         appCoordinator?.start()
-        window?.makeKeyAndVisible()
+//        FirebaseAuthStateHandler().userState.sink {[weak self] result in
+//            self?.appCoordinator?.startStategy = result
+//            self?.appCoordinator?.start()
+//        }.store(in: &disposeBag)
         
-        FirebaseApp.configure()
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .systemBackground
+        
         return true
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        UserDefaults.standard.set(nil, forKey: "UserID")
+//        UserDefaults.standard.set(nil, forKey: "UserID")
     }
 }
 

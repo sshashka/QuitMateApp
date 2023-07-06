@@ -28,8 +28,13 @@ final class TabBarCoordinator: NSObject, Coordinator {
         self.tabBarController = .init()
     }
     
+    deinit {
+        print("\(self) is deinited")
+    }
+    
     func start() {
         let pages: [TabBarPages] = [.charts, .home, .setup]
+        navigationController.setNavigationBarHidden(true, animated: true)
         
         let controllers: [UINavigationController] = pages.map {getTabControllers(page: $0)}
         
@@ -46,10 +51,11 @@ final class TabBarCoordinator: NSObject, Coordinator {
     }
     
     private func showReasonsToStop() {
-        let coordinator = ReasonsToStopCoordinator(navigationController)
-        coordinator.finishDelegate = finishDelegate
-        childCoordinators.append(coordinator)
-        coordinator.start()
+        self.replaceWithNewCoordinator(coordinator: .reasonsToStop)
+//        let coordinator = ReasonsToStopCoordinator(navigationController)
+//        coordinator.finishDelegate = finishDelegate
+//        self.replaceWithNewCoordinator(coordinator: coordinator)
+//        coordinator.start()
     }
     
     private func getTabControllers(page: TabBarPages) -> UINavigationController {

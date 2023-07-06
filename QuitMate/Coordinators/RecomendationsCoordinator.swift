@@ -30,7 +30,7 @@ final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
     var navigationController: UINavigationController
     
     var childCoordinators: [Coordinator] = []
-    // looks like this doesnt work
+    
     var recomendationType: Types = .moods
     
     var type: CoordinatorType { .recomendations }
@@ -41,6 +41,10 @@ final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
     
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+    }
+    
+    deinit {
+        print("\(self) is deinited")
     }
 }
 

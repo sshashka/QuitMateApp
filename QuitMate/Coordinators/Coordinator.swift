@@ -28,10 +28,16 @@ extension Coordinator {
         childCoordinators.removeAll(keepingCapacity: false)
         finishDelegate?.coordinatorDidFinish(childCoordinator: self)
     }
+    
+    func replaceWithNewCoordinator(coordinator: CoordinatorType) {
+        finish()
+        finishDelegate?.instantiateNewCoordinator(coordinator: coordinator)
+    }
 }
 
 protocol CoordinatorFinishDelegate: AnyObject {
     func coordinatorDidFinish(childCoordinator: Coordinator)
+    func instantiateNewCoordinator(coordinator: CoordinatorType)
 }
 
 enum CoordinatorType {

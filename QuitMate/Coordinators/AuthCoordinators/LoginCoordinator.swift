@@ -49,6 +49,7 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
     
     private func showFirstTimeEntryFlow() {
         let coordinator = FirstTimeEntryCoordinator(navigationController)
+//        finishDelegate?.replaceWithNewCoordinator(coordinator: coordinator)
         coordinator.finishDelegate = finishDelegate
         childCoordinators.append(coordinator)
         coordinator.start()
