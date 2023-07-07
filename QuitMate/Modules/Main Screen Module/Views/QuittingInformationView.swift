@@ -21,12 +21,16 @@ struct QuittingInformationView: View {
                 .fontStyle(.poppinsSemibold16)
             HStack(alignment: .center, spacing: Spacings.spacing10) {
                 StatsView(image: IconConstants.noSmoking, titleText: "\(daysWithoutSmoking)", secondaryText: "Days without smoking", tintColor: .blue)
+//                    .frame(maxWidth: .infinity)
                 StatsView(image: IconConstants.money, titleText: String(moneySpentOnCigarets) + "$", secondaryText: "Money saved", tintColor: .green)
+//                    .frame(maxWidth: .infinity)
             }
             
             HStack(alignment: .center, spacing: Spacings.spacing10) {
                 StatsView(image: IconConstants.earth, titleText: "\(enviromentalChanges)", secondaryText: "Enviromental changes", tintColor: .green)
+//                    .frame(maxWidth: .infinity)
                 StatsView(image: IconConstants.finish,titleText: daysToFinish, secondaryText: "Days to finish", tintColor: nil)
+//                    .frame(maxWidth: .infinity)
             }
             
         }

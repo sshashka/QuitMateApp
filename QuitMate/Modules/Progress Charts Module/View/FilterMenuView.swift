@@ -35,6 +35,8 @@ struct FilterMenuView: View {
                         }
                     } label: {
                         Text(selectedFilteringMethod.rawValue)
+                        // Fixes text being trunkated when changes occur
+                            .fixedSize()
                     }
                 }
         }

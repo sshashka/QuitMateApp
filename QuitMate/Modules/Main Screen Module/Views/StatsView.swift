@@ -28,6 +28,8 @@ struct StatsView: View {
                     .lineLimit(2)
             }
         }
+        .minimumScaleFactor(0.7)
+        .frame(maxWidth: .infinity)
     }
 }
 

@@ -24,7 +24,7 @@
 		302B48C729F957690031CFE6 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B48C629F957690031CFE6 /* RegistrationViewController.swift */; };
 		302B48CA29F967F30031CFE6 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B48C929F967F30031CFE6 /* MainScreenViewModel.swift */; };
 		302C494529FB116500D43421 /* MoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C494429FB116500D43421 /* MoodModel.swift */; };
-		302C494A29FB26DB00D43421 /* MoodClassifierMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C494929FB26DB00D43421 /* MoodClassifierMainScreenView.swift */; };
+		302C494A29FB26DB00D43421 /* ManualMoodClassifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C494929FB26DB00D43421 /* ManualMoodClassifierView.swift */; };
 		302C494C29FB26FC00D43421 /* MoodSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C494B29FB26FC00D43421 /* MoodSelectionView.swift */; };
 		302C494E29FB276300D43421 /* MoodClassifierButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C494D29FB276300D43421 /* MoodClassifierButton.swift */; };
 		302EEE3129EB683F005732E3 /* AutomaticMoodClassifierModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302EEE3029EB683F005732E3 /* AutomaticMoodClassifierModulePresenter.swift */; };
@@ -138,6 +138,8 @@
 		30E9CB4429F6D40800E1F0C2 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4329F6D40800E1F0C2 /* StatsView.swift */; };
 		30E9CB4629F6D9B400E1F0C2 /* StandartButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */; };
 		30F527EE2A5626580031D0F4 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527ED2A5626580031D0F4 /* UINavigationController+Extension.swift */; };
+		30F527F12A5788E00031D0F4 /* VideoSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */; };
+		30F527F32A5789140031D0F4 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527F22A5789140031D0F4 /* VideoCell.swift */; };
 		30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */; };
 		30F7E58F2A2EBAA200EAE058 /* AuthentificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7E58E2A2EBAA200EAE058 /* AuthentificationView.swift */; };
 		30F7E5912A2EBC7000EAE058 /* TextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */; };
@@ -164,7 +166,7 @@
 		302B48C629F957690031CFE6 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		302B48C929F967F30031CFE6 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		302C494429FB116500D43421 /* MoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodModel.swift; sourceTree = "<group>"; };
-		302C494929FB26DB00D43421 /* MoodClassifierMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierMainScreenView.swift; sourceTree = "<group>"; };
+		302C494929FB26DB00D43421 /* ManualMoodClassifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualMoodClassifierView.swift; sourceTree = "<group>"; };
 		302C494B29FB26FC00D43421 /* MoodSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectionView.swift; sourceTree = "<group>"; };
 		302C494D29FB276300D43421 /* MoodClassifierButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierButton.swift; sourceTree = "<group>"; };
 		302EEE3029EB683F005732E3 /* AutomaticMoodClassifierModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticMoodClassifierModulePresenter.swift; sourceTree = "<group>"; };
@@ -272,6 +274,8 @@
 		30E9CB4329F6D40800E1F0C2 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartButtonStyle.swift; sourceTree = "<group>"; };
 		30F527ED2A5626580031D0F4 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionView.swift; sourceTree = "<group>"; };
+		30F527F22A5789140031D0F4 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowEffectSwiftUI.swift; sourceTree = "<group>"; };
 		30F7E58E2A2EBAA200EAE058 /* AuthentificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationView.swift; sourceTree = "<group>"; };
 		30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModifier.swift; sourceTree = "<group>"; };
@@ -363,7 +367,7 @@
 			children = (
 				302C494D29FB276300D43421 /* MoodClassifierButton.swift */,
 				302C494B29FB26FC00D43421 /* MoodSelectionView.swift */,
-				302C494929FB26DB00D43421 /* MoodClassifierMainScreenView.swift */,
+				302C494929FB26DB00D43421 /* ManualMoodClassifierView.swift */,
 			);
 			path = ManualClassificationView;
 			sourceTree = "<group>";
@@ -548,6 +552,7 @@
 		3093432A29DC5E4B00D9C1AA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				30F527EF2A5788CA0031D0F4 /* Videos Module */,
 				300ACB172A40A6C300DA76D5 /* Recomendations Module */,
 				301D900D2A1D714F00043F37 /* FirstTimeEntry Module */,
 				306531F429E4B1EB00E0544F /* Settings Module */,
@@ -813,6 +818,15 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		30F527EF2A5788CA0031D0F4 /* Videos Module */ = {
+			isa = PBXGroup;
+			children = (
+				30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */,
+				30F527F22A5789140031D0F4 /* VideoCell.swift */,
+			);
+			path = "Videos Module";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -926,6 +940,7 @@
 				30ABA7B429E8C7660048C97E /* DateComponents+Extension.swift in Sources */,
 				30B7513629F345FD00295A7E /* ClassificationResultModel.swift in Sources */,
 				3019DEE72A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift in Sources */,
+				30F527F12A5788E00031D0F4 /* VideoSelectionView.swift in Sources */,
 				30AAD9252A106553000FF93D /* ReasonsToStopCoordinator.swift in Sources */,
 				30E9CB4029F6D0B700E1F0C2 /* TextView.swift in Sources */,
 				3040D9BE2A4E3D9A0089F83E /* UserInfoValidation.swift in Sources */,
@@ -944,6 +959,7 @@
 				3030D7C02A4A3395006BFEA1 /* StandartButton.swift in Sources */,
 				30A0E4D229DF71AF000CA339 /* TabBarPages.swift in Sources */,
 				3098C2652A03065C008B4114 /* ProgressChartsModuleMainScreen.swift in Sources */,
+				30F527F32A5789140031D0F4 /* VideoCell.swift in Sources */,
 				3030D7BE2A49E2ED006BFEA1 /* ChartViewModel.swift in Sources */,
 				30CA1B41299AE191001E5BF3 /* AppDelegate.swift in Sources */,
 				302EEE3129EB683F005732E3 /* AutomaticMoodClassifierModulePresenter.swift in Sources */,
@@ -985,7 +1001,7 @@
 				30A69C8B2A43B3D2008D847B /* View+Extension.swift in Sources */,
 				30C338EB2A538BA40000E6CC /* FirebaseAuthStateHandler.swift in Sources */,
 				30B2DA6F2A32342B00AC4B2E /* FirstTimeEntryCoordinator.swift in Sources */,
-				302C494A29FB26DB00D43421 /* MoodClassifierMainScreenView.swift in Sources */,
+				302C494A29FB26DB00D43421 /* ManualMoodClassifierView.swift in Sources */,
 				3044405D29F741B500AD40F2 /* HeaderView.swift in Sources */,
 				30A11FFB29FB2D070062A019 /* FontsEnum.swift in Sources */,
 				302B48C729F957690031CFE6 /* RegistrationViewController.swift in Sources */,

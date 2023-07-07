@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MoodClassifierMainScreenView: View {
+struct ManualMoodClassifierView: View {
     @StateObject var viewModel: ManualMoodClassifierModuleViewModel
     
     var body: some View {
@@ -19,6 +19,7 @@ struct MoodClassifierMainScreenView: View {
             Text("I feel...")
                 .modifier(TextViewModifier(font: .poppinsLight, size: 14))
             MoodSelectionView(moods: viewModel.moodsArray, selectedMood: $viewModel.selectedMood)
+            Spacer(minLength: Spacings.spacing20)
             Button {
                 viewModel.didTapOnDoneButton()
             } label: {
@@ -38,6 +39,6 @@ struct MoodClassifierMainScreenView: View {
 
 struct MoodClassifierMainScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        MoodClassifierMainScreenView(viewModel: ManualMoodClassifierModuleViewModel(storageService: FirebaseStorageService()))
+        ManualMoodClassifierView(viewModel: ManualMoodClassifierModuleViewModel(storageService: FirebaseStorageService()))
     }
 }

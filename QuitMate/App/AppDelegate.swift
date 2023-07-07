@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-//        UserDefaults.standard.set(nil, forKey: "UserID")
+        UserDefaults.standard.set(nil, forKey: "UserID")
     }
 }
 
