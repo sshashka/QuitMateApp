@@ -42,7 +42,7 @@ final class SettingsViewModel: ObservableObject {
             .sink {
                 print($0)
             } receiveValue: {[weak self] in
-                self?.userModel = $0.last
+                self?.userModel = $0
             }.store(in: &disposeBag)
     }
     

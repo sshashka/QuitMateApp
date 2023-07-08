@@ -50,11 +50,11 @@ final class MainScreenViewModel: ObservableObject {
     }
     
     func getUserModel() {
-        storageService.getUserStatistics()
+        storageService.getUserModel()
             .sink {
                 print($0)
             } receiveValue: { stats in
-                self.userStatistics = stats.first
+                self.userStatistics = stats
             }.store(in: &disposeBag)
     }
     // Rename this func

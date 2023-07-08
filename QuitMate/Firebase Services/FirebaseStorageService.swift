@@ -20,8 +20,8 @@ protocol FirebaseStorageServiceProtocol: AnyObject {
     func getChartsData() -> AnyPublisher<[ChartModel], Error>
     func uploadNewUserMood(mood: ClassifiedMood)
 //    func createUserStatistics()
-    func getUserStatistics() -> AnyPublisher<[User], Error>
-    func getUserModel() -> AnyPublisher<[User], Error>
+//    func getUserStatistics() -> AnyPublisher<[User], Error>
+    func getUserModel() -> AnyPublisher<User, Error>
     func updateUserFinishingDate(with date: Date)
 }
 
@@ -72,25 +72,31 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
 //        try? reference.setValue(from: model)
 //    }
     
-    func getUserStatistics() -> AnyPublisher<[User], Error> {
+    func getUserStatistics() -> AnyPublisher<User, Error> {
         let reference = getChildReference(for: .user).child(userId!)
-        let subject = PassthroughSubject<[User], Error>()
+        let subject = PassthroughSubject<User, Error>()
         
         reference.observe(.value) { snapshot, error in
             if let error = error {
                 subject.send(completion: .failure(error as! Error))
-            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
-                let dataForCharts = children.compactMap { snapshot in
-                    try? snapshot.data(as: User.self)
+            } else if let data = snapshot.value as? DataSnapshot {
+                let user = try? data.data(as: User.self)
+                if let user = user {
+                    subject.send(user)
                 }
-                subject.send(dataForCharts)
             }
+//            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
+//                let dataForCharts = children.compactMap { snapshot in
+//                    try? snapshot.data(as: User.self)
+//                }
+//                subject.send(dataForCharts)
+//            }
         }
         return subject.eraseToAnyPublisher()
     }
     
     func createNewUser(userModel: User) {
-        let reference = getChildReference(for: .user).child(userId!).childByAutoId()
+        let reference = getChildReference(for: .user).child(userId!)
         print(userId)
         let key = reference.key!
         try? reference.setValue(from: userModel)
@@ -104,20 +110,25 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         reference.updateChildValues(["finishingDate" : Int(dateFormatted)])
     }
     
-    func getUserModel() -> AnyPublisher<[User], Error> {
-        // Костыль
-        
+    func getUserModel() -> AnyPublisher<User, Error> {
         let reference = getChildReference(for: .user).child(userId!)
-        let subject = PassthroughSubject<[User], Error>()
+        let subject = PassthroughSubject<User, Error>()
+        
         reference.observe(.value) { snapshot, error in
             if let error = error {
                 subject.send(completion: .failure(error as! Error))
-            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
-                let data = children.compactMap { snapshot in
-                    try? snapshot.data(as: User.self)
+            } else if let data = snapshot.value as Any? {
+                let user = try? snapshot.data(as: User.self)
+                if let user = user {
+                    subject.send(user)
                 }
-                subject.send(data)
             }
+//            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
+//                let dataForCharts = children.compactMap { snapshot in
+//                    try? snapshot.data(as: User.self)
+//                }
+//                subject.send(dataForCharts)
+//            }
         }
         return subject.eraseToAnyPublisher()
     }

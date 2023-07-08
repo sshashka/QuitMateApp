@@ -43,6 +43,7 @@
 		304A29662A30BBFB00AC2458 /* AuthentificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A29652A30BBFB00AC2458 /* AuthentificationViewModel.swift */; };
 		304EC1A62A03BBE7001667FC /* ProgressStatsViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EC1A52A03BBE7001667FC /* ProgressStatsViewContainer.swift */; };
 		304EC1A92A03BEE0001667FC /* ProgressStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EC1A82A03BEE0001667FC /* ProgressStatsView.swift */; };
+		305041532A58D605000370CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 305041522A58D605000370CC /* GoogleService-Info.plist */; };
 		30549F122A3A7A4000872DAD /* ButtonWithUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30549F112A3A7A4000872DAD /* ButtonWithUnderline.swift */; };
 		30549F172A3A7E7600872DAD /* FirstTimeEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30549F162A3A7E7600872DAD /* FirstTimeEntryViewModel.swift */; };
 		3057162029C7E292002C20A0 /* ReasonsToStopModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057161F29C7E292002C20A0 /* ReasonsToStopModulePresenter.swift */; };
@@ -72,7 +73,6 @@
 		30A1200029FB338C0062A019 /* ManualMoodClassifierModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A11FFF29FB338C0062A019 /* ManualMoodClassifierModuleViewModel.swift */; };
 		30A1200429FB45D70062A019 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1200329FB45D70062A019 /* CustomTextField.swift */; };
 		30A1200629FBE7B00062A019 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1200529FBE7AF0062A019 /* FirebaseStorageService.swift */; };
-		30A1204429FC0D350062A019 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30A1204329FC0D350062A019 /* GoogleService-Info.plist */; };
 		30A1204629FC138A0062A019 /* SettingModuleViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1204529FC138A0062A019 /* SettingModuleViewModule.swift */; };
 		30A1204829FC13A70062A019 /* ProgressChartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1204729FC13A70062A019 /* ProgressChartsViewModel.swift */; };
 		30A1204E29FC1A0A0062A019 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 30A1204D29FC1A0A0062A019 /* FirebaseAuth */; };
@@ -185,12 +185,14 @@
 		304A29652A30BBFB00AC2458 /* AuthentificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewModel.swift; sourceTree = "<group>"; };
 		304EC1A52A03BBE7001667FC /* ProgressStatsViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStatsViewContainer.swift; sourceTree = "<group>"; };
 		304EC1A82A03BEE0001667FC /* ProgressStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStatsView.swift; sourceTree = "<group>"; };
+		3050414D2A585ED2000370CC /* QuitMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3050414F2A58C26A000370CC /* QuitMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitMate.entitlements; sourceTree = "<group>"; };
+		305041522A58D605000370CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30549F112A3A7A4000872DAD /* ButtonWithUnderline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithUnderline.swift; sourceTree = "<group>"; };
 		30549F162A3A7E7600872DAD /* FirstTimeEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeEntryViewModel.swift; sourceTree = "<group>"; };
 		3057161F29C7E292002C20A0 /* ReasonsToStopModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopModulePresenter.swift; sourceTree = "<group>"; };
 		3057162129C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopPresenterProtocol.swift; sourceTree = "<group>"; };
 		3057162329C7E77D002C20A0 /* ReasonsTopStopView+Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReasonsTopStopView+Module.swift"; sourceTree = "<group>"; };
-		3058D3512A3910DB00D01781 /* QuitMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = QuitMate.app; path = "/Users/sashavasylenko/Documents/Mine/QuitMate/QuitMateApp/build/Debug-iphoneos/QuitMate.app"; sourceTree = "<absolute>"; };
 		3058D3522A39116A00D01781 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
 		306531F529E4B20500E0544F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewFooterView.swift; sourceTree = "<group>"; };
@@ -214,7 +216,6 @@
 		30A11FFF29FB338C0062A019 /* ManualMoodClassifierModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualMoodClassifierModuleViewModel.swift; sourceTree = "<group>"; };
 		30A1200329FB45D70062A019 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		30A1200529FBE7AF0062A019 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
-		30A1204329FC0D350062A019 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30A1204529FC138A0062A019 /* SettingModuleViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModuleViewModule.swift; sourceTree = "<group>"; };
 		30A1204729FC13A70062A019 /* ProgressChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartsViewModel.swift; sourceTree = "<group>"; };
 		30A1205929FD22A10062A019 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
@@ -724,17 +725,19 @@
 			isa = PBXGroup;
 			children = (
 				30CA1B3F299AE191001E5BF3 /* QuitMate */,
+				3050414D2A585ED2000370CC /* QuitMate.app */,
 			);
 			sourceTree = "<group>";
 		};
 		30CA1B3F299AE191001E5BF3 /* QuitMate */ = {
 			isa = PBXGroup;
 			children = (
+				305041522A58D605000370CC /* GoogleService-Info.plist */,
+				3050414F2A58C26A000370CC /* QuitMate.entitlements */,
 				3093432A29DC5E4B00D9C1AA /* Modules */,
 				30549F132A3A7B2000872DAD /* SwiftUI View Modifiers */,
 				30AAD91C2A0E6702000FF93D /* Firebase Services */,
 				304EC1A72A03BC65001667FC /* Core Views */,
-				30A1204329FC0D350062A019 /* GoogleService-Info.plist */,
 				30A11FF729FB29160062A019 /* SwiftUI ButtonStyles */,
 				30CA1B4E299AE192001E5BF3 /* Info.plist */,
 				30E0C83B29F1D6FA0011F736 /* Poppins */,
@@ -853,7 +856,7 @@
 				305B65512A1C0B20006215E6 /* OpenAI */,
 			);
 			productName = QuitMate;
-			productReference = 3058D3512A3910DB00D01781 /* QuitMate.app */;
+			productReference = 3050414D2A585ED2000370CC /* QuitMate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -916,10 +919,10 @@
 				30E0C87F29F1DA670011F736 /* Poppins-BlackItalic.ttf in Resources */,
 				30E0C87829F1DA670011F736 /* Poppins-LightItalic.ttf in Resources */,
 				30E0C87729F1DA670011F736 /* Poppins-BoldItalic.ttf in Resources */,
-				30A1204429FC0D350062A019 /* GoogleService-Info.plist in Resources */,
 				30E0C87C29F1DA670011F736 /* Poppins-ExtraLight.ttf in Resources */,
 				30E0C88229F1DA670011F736 /* Poppins-Regular.ttf in Resources */,
 				30E0C88029F1DA670011F736 /* Poppins-SemiBold.ttf in Resources */,
+				305041532A58D605000370CC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1186,12 +1189,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = QuitMate/QuitMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuitMate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StopMate;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Use camera to determine your mood";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1205,7 +1211,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sshashka.QuitMate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1222,12 +1228,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = QuitMate/QuitMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuitMate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StopMate;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Use camera to determine your mood";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1241,7 +1250,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sshashka.QuitMate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
