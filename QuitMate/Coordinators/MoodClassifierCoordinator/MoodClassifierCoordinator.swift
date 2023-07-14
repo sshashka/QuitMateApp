@@ -14,8 +14,6 @@ protocol MoodClassifierCoordinatorProtocol: Coordinator {
 
 final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol {
     internal func showMoodClassifierChoiceViewController() {
-        // Remove this when push notififcation support added
-//        self.navigationController.tabBarController?.tabBar.isHidden = true
         let viewModel = MoodClassifierSelectionViewModel()
         let view = MoodClassifierSelectionView(viewModel: viewModel)
         let vc = UIHostingController(rootView: view)
@@ -27,7 +25,7 @@ final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol {
                 self?.showManualClassifierViewController()
             }
         }
-        navigationController.pushViewController(vc, animated: true)
+        navigationController.pushWithCustomAnination(vc)
     }
     
     private func showCoreMLClassifierViewController() {
@@ -53,6 +51,7 @@ final class MoodClassifierCoordinator: MoodClassifierCoordinatorProtocol {
     var type: CoordinatorType {.moodClassifier}
     
     func start() {
+        navigationController.setNavigationBarHidden(false, animated: true)
         showMoodClassifierChoiceViewController()
     }
     

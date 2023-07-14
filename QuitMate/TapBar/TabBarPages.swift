@@ -9,7 +9,7 @@
 import UIKit
 
 enum TabBarPages {
-    case charts, home, setup
+    case charts, home, videos
     
     init?(index: Int) {
         switch index {
@@ -18,7 +18,7 @@ enum TabBarPages {
         case 1:
             self = .home
         case 2:
-            self = .setup
+            self = .videos
         default:
             return nil
         }
@@ -30,8 +30,8 @@ enum TabBarPages {
             return UIImage(systemName: "chart.xyaxis.line")!
         case .home:
             return UIImage(systemName: "house")!
-        case .setup:
-            return UIImage(systemName: "gear")!
+        case .videos:
+            return UIImage(systemName: "video")!
         }
     }
 }

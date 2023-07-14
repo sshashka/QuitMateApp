@@ -114,6 +114,8 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         switch coordinator {
         case .reasonsToStop:
             showReasonsToStop()
+        case .moodClassifier:
+            showMoodClassificationVC()
         default:
             break
         }

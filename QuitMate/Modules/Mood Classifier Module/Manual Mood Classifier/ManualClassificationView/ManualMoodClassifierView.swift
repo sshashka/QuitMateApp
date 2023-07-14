@@ -28,7 +28,7 @@ struct ManualMoodClassifierView: View {
             }
             .buttonStyle(StandartButtonStyle())
         }
-        .padding(LayoutConstants.spacing16)
+        .padding(Spacings.spacing15)
         .onChange(of: viewModel.selectedMood) { selectedMood in
             if let selectedMood = selectedMood {
                 viewModel.handleMoodSelection(selectedMood: selectedMood)

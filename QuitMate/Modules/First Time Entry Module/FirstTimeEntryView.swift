@@ -35,31 +35,30 @@ struct FirstTimeEntryView: View {
                             focusedField = selectedField
                         }
                     }
-                PeriodOfTimeToQuitView(headerText: "When did u start quitting process?", datePickerText: "Starting date", date: $viewModel.startingDate)
+                PeriodOfTimeToQuitView(period: .startingDate, headerText: "When did u start quitting process?", datePickerText: "Starting date", date: $viewModel.startingDate)
                     .tag(Field.startingDate)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { focusedField = nil
                         }
                     }
-                PeriodOfTimeToQuitView(headerText: "When do you want to finish?", datePickerText: "Finishing date", date: $viewModel.finishingDate)
+                PeriodOfTimeToQuitView(period: .finishingDate, headerText: "When do you want to finish?", datePickerText: "Finishing date", date: $viewModel.finishingDate)
                     .tag(Field.finishingDate)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { focusedField = nil
                         }
                     }
                 
-                HStack(alignment: .center) {
                     // Add support for changing currency
                     TextFieldWithUnderlineView(headerText: "How much money do you spend on cigarets daily?", text: $viewModel.moneySpendOnSmoking, placeHolderText: "Amount")
                         .keyboardType(.numberPad)
                         .focused($focusedField, equals: .money)
+                        .tag(Field.money)
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                                 focusedField = selectedField
                             }
                         }
-                    .tag(Field.money)
-                }
+                
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .animation(.easeOut(duration: 0.4), value: selectedField)

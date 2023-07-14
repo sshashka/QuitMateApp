@@ -64,7 +64,6 @@ private extension ReasonsToStopCollectionViewCell {
     
     func setupContentView() {
         contentView.addSubview(label)
-        contentView.makeGlassEffectOnView(style: .extraLight)
         contentView.layer.masksToBounds = true
         contentView.layer.cornerRadius = 7
 //        contentView.layer.borderWidth = 3

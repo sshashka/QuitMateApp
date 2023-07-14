@@ -11,7 +11,7 @@ struct ReasonsToStopNewFinishingDateView: View {
     @StateObject var viewModel: ReasonsToStopNewFinishingDateViewModel
     var body: some View {
         VStack {
-            PeriodOfTimeToQuitView(headerText: "Set new finishing date", datePickerText: "Finishing date", date: $viewModel.newDate)
+            PeriodOfTimeToQuitView(period: .finishingDate, headerText: "Set new finishing date", datePickerText: "Finishing date", date: $viewModel.newDate)
             Button {
                 viewModel.updateValue()
             } label: {

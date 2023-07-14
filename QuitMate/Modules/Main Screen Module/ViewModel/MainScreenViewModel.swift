@@ -61,6 +61,10 @@ final class MainScreenViewModel: ObservableObject {
     func didTapOnReset() {
         self.didSendEventClosure?(.didTapResetButton)
     }
+    
+    func didTapOnSettings() {
+        didSendEventClosure?(.didTapOnSettings)
+    }
 }
 
 private extension MainScreenViewModel {
@@ -109,6 +113,6 @@ private extension MainScreenViewModel {
 
 extension MainScreenViewModel {
     enum EventType {
-        case didTapResetButton
+        case didTapResetButton, didTapOnSettings
     }
 }

@@ -34,7 +34,7 @@ final class ReasonsToStopViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.setBackgroundColor()
+        view.backgroundColor = .systemBackground
         setupCollectionView()
         view.addSubview(rootStackView)
         setupConstraints()
@@ -58,7 +58,7 @@ private extension ReasonsToStopViewController {
         group.interItemSpacing = NSCollectionLayoutSpacing.fixed(10)
                 
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: LayoutConstants.spacing16, leading: 0, bottom: 0, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: Spacings.spacing15, leading: 0, bottom: 0, trailing: 0)
         let layout = UICollectionViewCompositionalLayout(section: section)
         
         return layout
@@ -82,9 +82,10 @@ private extension ReasonsToStopViewController {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             rootStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            rootStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: LayoutConstants.spacing16),
-            rootStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -LayoutConstants.spacing16),
-            rootStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -LayoutConstants.spacing16)
+            rootStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Spacings.spacing15),
+            rootStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Spacings.spacing15),
+            rootStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Spacings.spacing15),
+            doneButton.heightAnchor.constraint(equalToConstant: LayoutConstants.uiButtonHeight)
         ])
     }
 }

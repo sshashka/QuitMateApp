@@ -117,7 +117,7 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         reference.observe(.value) { snapshot, error in
             if let error = error {
                 subject.send(completion: .failure(error as! Error))
-            } else if let data = snapshot.value as Any? {
+            } else if (snapshot.value as Any?) != nil {
                 let user = try? snapshot.data(as: User.self)
                 if let user = user {
                     subject.send(user)

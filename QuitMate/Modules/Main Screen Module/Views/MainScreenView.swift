@@ -11,23 +11,22 @@ struct MainScreenView: View {
     @State private var resetButtonPressed: Bool = false
     @StateObject var viewModel: MainScreenViewModel
     var body: some View {
-        
         VStack {
             Group {
-                HeaderView(dateInString: $viewModel.todayDate.wrappedValue)
+                HStack {
+                    HeaderView(dateInString: viewModel.todayDate)
+                    
+                    SettingsButton().environmentObject(viewModel)
+                }
                 UserProgressView(percentage: $viewModel.percentsToFinish)
                     .foregroundColor(Color(ColorConstants.labelColor))
-                //                        .frame(height: frame.size.height * (4/5) + Spacings.spacing40)
-            }
-            .padding([.horizontal], 20)
+            }.padding([.horizontal], 20)
             Group {
                 TimeAndScoreView(quittingDuration: $viewModel.dateComponentsWithoutSmoking)
                     .foregroundColor(Color(ColorConstants.labelColor))
                     .padding(.top, Spacings.spacing5)
                 QuittingInformationView(moneySpentOnCigarets: viewModel.moneySaved, daysWithoutSmoking: viewModel.daysWithoutSmoking, enviromentalChanges: viewModel.enviromentalChanges, daysToFinish: viewModel.daysToFinish)
                     .cornerRadius(35, corners: [.topLeft, .topRight])
-                //                        .frame(minHeight: frame.size.height / 4, idealHeight: frame.size.height / 3)
-                //                        .frame(height: frame.size.height / 3)
             }.padding(.horizontal, Spacings.spacing30)
             Spacer(minLength: Spacings.spacing15)
             Button {
@@ -46,7 +45,6 @@ struct MainScreenView: View {
                         viewModel.confirmedReset = true
                     }
                 }
-            
         }
     }
 }

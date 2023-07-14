@@ -64,7 +64,8 @@ private extension MoodClassifierViewController {
     }
     
     @objc func doneButtonDidTap() {
-        
+        present(imagePicker, animated: true)
+        presenter?.switchToManualClassifierDidTap()
     }
     
     @objc func manualSelectionButtonDidTap() {
@@ -104,8 +105,15 @@ extension MoodClassifierViewController: MoodClassifierViewControllerProtocol {
     func classifierServiceDidSendResult(result: String) {
         resultsLabel.text = "Your mood has been classified as \(result.lowercased())"
     }
-    
+    // Add actions handling
     func showValidationFailureAlert(message: String) {
-        print(message)
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let retryAction = UIAlertAction(title: "Retry", style: .default)
+        let dismissAction = UIAlertAction(title: "Go back", style: .destructive)
+        
+        alert.addAction(retryAction)
+        alert.addAction(dismissAction)
+        
+        present(alert, animated: true)
     }
 }
