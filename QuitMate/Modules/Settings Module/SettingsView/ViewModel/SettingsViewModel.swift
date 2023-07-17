@@ -14,6 +14,8 @@ final class SettingsViewModel: ObservableObject {
     private let authService: AuthentificationServiceProtocol
     var didSendEventClosure: ((SettingsViewModel.EventType) -> Void)?
     private var disposeBag = Set<AnyCancellable>()
+    @Published var isShowingError: Bool = false
+    private (set) var errorText: String = ""
     @Published var userModel: User? {
         didSet {
             getViewModels()
@@ -22,10 +24,17 @@ final class SettingsViewModel: ObservableObject {
     @Published var headerViewModel: HeaderViewViewModel
     
     func didTapLogout() {
+        // Fix
         try? Auth.auth().signOut()
     }
     
     func didTapOnAddingMood() {
+        let todayDate = Date.now.toDateComponents(neededComponents: [.year, .month, .day])
+        guard let latestDayOfClassification = UserDefaults.standard.object(forKey: UserDefaultsConstants.latestDayOfClassification) as? Date, latestDayOfClassification.toDateComponents(neededComponents: [.year, .month, .day]) != todayDate else {
+            isShowingError.toggle()
+            errorText = "Bruh"
+            return
+        }
         didSendEventClosure?(.didTapOnNewMood)
     }
     
@@ -54,10 +63,14 @@ final class SettingsViewModel: ObservableObject {
     func resetPassword() {
         authService.resetPassword()
     }
+    
+    func didTapOnHistory() {
+        didSendEventClosure?(.didTapOnHistory)
+    }
 }
 
 extension SettingsViewModel {
     enum EventType {
-        case didTapOnNewMood
+        case didTapOnNewMood, didTapOnHistory
     }
 }

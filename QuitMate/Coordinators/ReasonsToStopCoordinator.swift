@@ -22,6 +22,7 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     
     func start() {
         navigationController.setNavigationBarHidden(false, animated: true)
+        
         showReasonsToStop()
     }
     
@@ -38,6 +39,7 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
         vc.presenter?.didSendEventClosure = { [weak self] event in
             self?.showFinishingDate()
         }
+        vc.title = "Timer reset"
         navigationController.pushWithCustomAnination(vc)
     }
     

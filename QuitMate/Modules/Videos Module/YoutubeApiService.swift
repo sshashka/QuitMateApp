@@ -12,13 +12,14 @@ import Combine
 protocol YoutubeApiServiceProtocol: AnyObject {
     func getVideos() -> AnyPublisher<YoutubeAPIResponce, Never>
     func getVideoInformation(for id: String) -> AnyPublisher<YoutubeAPIVideoDetailsResponce, Never>
+    func loadMoreVideos(nextPageToken: String) -> AnyPublisher<YoutubeAPIResponce, Never>
 }
 
 class YoutubeApiService: YoutubeApiServiceProtocol {
     private var disposeBag = Set<AnyCancellable>()
         func getVideos() -> AnyPublisher<YoutubeAPIResponce, Never> {
             let subject = PassthroughSubject<YoutubeAPIResponce, Never>()
-            let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=AIzaSyATwYlfg9LKaXmJRhScZxfpD8OoW71OOS4"
+            let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=AIzaSyATwYlfg9LKaXmJRhScZxfpD8OoW71OOS4&maxResults=10"
             let url = URL(string: urlString)
     //        guard let url = url else { return }
             let session = URLSession.shared
@@ -35,6 +36,26 @@ class YoutubeApiService: YoutubeApiServiceProtocol {
                 .store(in: &disposeBag)
             return subject.eraseToAnyPublisher()
         }
+    
+    
+    func loadMoreVideos(nextPageToken: String) -> AnyPublisher<YoutubeAPIResponce, Never> {
+        let subject = PassthroughSubject<YoutubeAPIResponce, Never>()
+        let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=AIzaSyATwYlfg9LKaXmJRhScZxfpD8OoW71OOS4&maxResults=10&pageToken=\(nextPageToken)"
+        let url = URL(string: urlString)
+        let session = URLSession.shared
+        session
+            .dataTaskPublisher(for: url!)
+            .map {$0.data}
+            .decode(type: YoutubeAPIResponce.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+            .sink(receiveCompletion: { completion in
+                    print("\(completion)")
+            }, receiveValue: { data in
+                subject.send(data)
+            })
+            .store(in: &disposeBag)
+        return subject.eraseToAnyPublisher()
+    }
     
 //    func getVideos(completion: @escaping(YoutubeAPIResponce) -> Void) {
 //        let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=AIzaSyATwYlfg9LKaXmJRhScZxfpD8OoW71OOS4"

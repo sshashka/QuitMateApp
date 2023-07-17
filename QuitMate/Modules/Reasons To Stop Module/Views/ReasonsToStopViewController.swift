@@ -9,6 +9,15 @@ import UIKit
 
 final class ReasonsToStopViewController: UIViewController {
     private var reasonsToStopCollectionView: UICollectionView!
+    private let label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Please select up to 10 reasons why did u start smoking again"
+        label.textColor = .systemGray
+        label.numberOfLines = 2
+        label.font = UIFont(name: FontsEnum.poppinsLight.rawValue, size: 14)
+        return label
+    }()
     var presenter: ReasonsToStopPresenterProtocol?
     private var doneButton: UIButton = {
         let button = UIButton()
@@ -22,7 +31,7 @@ final class ReasonsToStopViewController: UIViewController {
     }()
     
     private lazy var rootStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [reasonsToStopCollectionView, doneButton])
+        let stackView = UIStackView(arrangedSubviews: [label, reasonsToStopCollectionView, doneButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         return stackView
@@ -34,7 +43,7 @@ final class ReasonsToStopViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+//        view.backgroundColor = .systemBackground
         setupCollectionView()
         view.addSubview(rootStackView)
         setupConstraints()
@@ -74,6 +83,7 @@ private extension ReasonsToStopViewController {
         reasonsToStopCollectionView.backgroundColor = .clear
         reasonsToStopCollectionView.allowsMultipleSelection = true
         reasonsToStopCollectionView.delegate = self
+        reasonsToStopCollectionView.backgroundColor = .systemBackground
         
         presenter?.showArrayOfReasons()
 //        view.addSubview(reasonsToStopCollectionView)

@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct UserHistoryView: View {
+    enum TypesOfUserHistory: Hashable {
+        case timerResets, moods
+    }
+    @State var selectedHistory: TypesOfUserHistory = .moods
     var body: some View {
-        Text("Hello, World!")
+        Picker("", selection: $selectedHistory) {
+            Text("Moods")
+                .tag(TypesOfUserHistory.moods)
+            Text("Timer resets")
+                .tag(TypesOfUserHistory.timerResets)
+        }.pickerStyle(.segmented)
     }
 }
 

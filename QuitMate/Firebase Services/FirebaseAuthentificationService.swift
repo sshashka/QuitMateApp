@@ -89,7 +89,8 @@ final class FirebaseAuthentificationService: AuthentificationServiceProtocol {
     func resetPassword() {
         // Add a completion and error handling
         let email = Auth.auth().currentUser?.email
-        Auth.auth().sendPasswordReset(withEmail: email!)
+        guard let email else { return }
+        Auth.auth().sendPasswordReset(withEmail: email)
     }
     
     deinit {

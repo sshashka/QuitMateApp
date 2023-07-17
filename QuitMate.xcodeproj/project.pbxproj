@@ -157,6 +157,9 @@
 		30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */; };
 		30F7E58F2A2EBAA200EAE058 /* AuthentificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7E58E2A2EBAA200EAE058 /* AuthentificationView.swift */; };
 		30F7E5912A2EBC7000EAE058 /* TextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */; };
+		30FE9CDA2A62E7C900FC5858 /* UserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CD92A62E7C900FC5858 /* UserHistoryViewController.swift */; };
+		30FE9CDC2A64B35F00FC5858 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CDB2A64B35F00FC5858 /* LoaderView.swift */; };
+		30FE9CDE2A64B94600FC5858 /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CDD2A64B94600FC5858 /* UserDefaultsConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -306,6 +309,9 @@
 		30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowEffectSwiftUI.swift; sourceTree = "<group>"; };
 		30F7E58E2A2EBAA200EAE058 /* AuthentificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationView.swift; sourceTree = "<group>"; };
 		30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModifier.swift; sourceTree = "<group>"; };
+		30FE9CD92A62E7C900FC5858 /* UserHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryViewController.swift; sourceTree = "<group>"; };
+		30FE9CDB2A64B35F00FC5858 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		30FE9CDD2A64B94600FC5858 /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +437,7 @@
 				3098C2602A030209008B4114 /* TextStringConstants.swift */,
 				303A3F3B2A2E8E510006B903 /* IconConstants.swift */,
 				30727A1B2A33E56C004A29B6 /* PoppinsTextStyles.swift */,
+				30FE9CDD2A64B94600FC5858 /* UserDefaultsConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -648,6 +655,8 @@
 				30783013299DA4D4003FAA10 /* Main Screen Module */,
 				301821CC299D22AF0088863C /* Auth Module */,
 				30400F6A2A62069C006D46C9 /* UserHistoryView.swift */,
+				30FE9CD92A62E7C900FC5858 /* UserHistoryViewController.swift */,
+				30FE9CDB2A64B35F00FC5858 /* LoaderView.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1039,6 +1048,7 @@
 				30F527F12A5788E00031D0F4 /* VideoSelectionView.swift in Sources */,
 				30AAD9252A106553000FF93D /* ReasonsToStopCoordinator.swift in Sources */,
 				30E9CB4029F6D0B700E1F0C2 /* TextView.swift in Sources */,
+				30FE9CDA2A62E7C900FC5858 /* UserHistoryViewController.swift in Sources */,
 				3040D9BE2A4E3D9A0089F83E /* UserInfoValidation.swift in Sources */,
 				306531F629E4B20500E0544F /* SettingsViewController.swift in Sources */,
 				30C1CB2029F1396500F7A044 /* MoodClassifierCoordinator.swift in Sources */,
@@ -1060,6 +1070,7 @@
 				3098C2652A03065C008B4114 /* ProgressChartsModuleMainScreen.swift in Sources */,
 				30F527F32A5789140031D0F4 /* VideoCell.swift in Sources */,
 				3030D7BE2A49E2ED006BFEA1 /* ChartViewModel.swift in Sources */,
+				30FE9CDE2A64B94600FC5858 /* UserDefaultsConstants.swift in Sources */,
 				30400F5E2A5F5F56006D46C9 /* VideoInfoViewModel.swift in Sources */,
 				30CA1B41299AE191001E5BF3 /* AppDelegate.swift in Sources */,
 				30400F522A5E0302006D46C9 /* YoutubeApiService.swift in Sources */,
@@ -1095,6 +1106,7 @@
 				304EC1A92A03BEE0001667FC /* ProgressStatsView.swift in Sources */,
 				30A1200629FBE7B00062A019 /* FirebaseStorageService.swift in Sources */,
 				3057162229C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift in Sources */,
+				30FE9CDC2A64B35F00FC5858 /* LoaderView.swift in Sources */,
 				302C494E29FB276300D43421 /* MoodClassifierButton.swift in Sources */,
 				30549F122A3A7A4000872DAD /* ButtonWithUnderline.swift in Sources */,
 				30AAD9232A0F0A40000FF93D /* HeaderViewViewModel.swift in Sources */,
@@ -1223,7 +1235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1278,7 +1290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1297,12 +1309,12 @@
 				CODE_SIGN_ENTITLEMENTS = QuitMate/QuitMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuitMate/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = StopMate;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Use camera to determine your mood";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1314,7 +1326,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.11;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1336,12 +1348,12 @@
 				CODE_SIGN_ENTITLEMENTS = QuitMate/QuitMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuitMate/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = StopMate;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Use camera to determine your mood";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1353,7 +1365,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.11;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

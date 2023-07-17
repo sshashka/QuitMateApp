@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol SettingsCoordinatorProtocol: Coordinator {
     func showSettings()
@@ -38,9 +39,16 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
             switch event {
             case .didTapOnNewMood:
                 self?.replaceWithNewCoordinator(coordinator: .moodClassifier)
+            case .didTapOnHistory:
+                self?.showHistory()
             }
         }
         let vc = SettingsViewController(viewModel: vm)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showHistory() {
+        let vc = UIHostingController(rootView: UserHistoryView())
         navigationController.pushViewController(vc, animated: true)
     }
     

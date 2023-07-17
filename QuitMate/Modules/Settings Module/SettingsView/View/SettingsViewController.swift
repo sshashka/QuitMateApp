@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 final class SettingsViewController: UIViewController {
-    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood (Debug)"]
+    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood (Debug)", "Watch your history"]
     private let gradientLayer = CAGradientLayer()
     private var viewModel: SettingsViewModel?
     private var disposeBag = Set<AnyCancellable>()
@@ -124,6 +124,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             print()
         case 3:
             viewModel?.didTapOnAddingMood()
+        case 4:
+            viewModel?.didTapOnHistory()
         default:
             break
         }

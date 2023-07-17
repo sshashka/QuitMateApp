@@ -55,6 +55,7 @@ final class MoodClassifierViewController: UIViewController, UINavigationControll
         
         doneButton.addTarget(self, action: #selector(doneButtonDidTap), for: .touchUpInside)
         manualMoodSelectionButton.addTarget(self, action: #selector(manualSelectionButtonDidTap), for: .touchUpInside)
+        tryAgainButton.addTarget(self, action: #selector(tryAgainButtonDidTap), for: .touchUpInside)
     }
 }
 
@@ -64,12 +65,15 @@ private extension MoodClassifierViewController {
     }
     
     @objc func doneButtonDidTap() {
-        present(imagePicker, animated: true)
         presenter?.switchToManualClassifierDidTap()
     }
     
     @objc func manualSelectionButtonDidTap() {
         presenter?.switchToManualClassifierDidTap()
+    }
+    
+    @objc func tryAgainButtonDidTap() {
+        present(imagePicker, animated: true)
     }
     
     func setupConstraints() {
@@ -79,9 +83,9 @@ private extension MoodClassifierViewController {
             rootStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Spacings.spacing30),
             rootStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Spacings.spacing30),
             // Fix this
-            doneButton.heightAnchor.constraint(equalToConstant: 51.6),
-            tryAgainButton.heightAnchor.constraint(equalToConstant: 51.6),
-            manualMoodSelectionButton.heightAnchor.constraint(equalToConstant: 51.6)
+            doneButton.heightAnchor.constraint(equalToConstant: LayoutConstants.uiButtonHeight),
+            tryAgainButton.heightAnchor.constraint(equalToConstant: LayoutConstants.uiButtonHeight),
+            manualMoodSelectionButton.heightAnchor.constraint(equalToConstant: LayoutConstants.uiButtonHeight)
         ])
     }
 }
@@ -98,6 +102,7 @@ extension MoodClassifierViewController: UIImagePickerControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePicker.dismiss(animated: true)
+        presenter?.switchToManualClassifierDidTap()
     }
 }
 

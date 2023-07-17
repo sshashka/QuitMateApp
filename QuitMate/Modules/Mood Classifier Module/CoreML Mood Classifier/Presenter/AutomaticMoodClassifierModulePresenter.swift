@@ -12,11 +12,14 @@ final class AutomaticMoodClassifierModulePresenter: MoodClassifierModulePresente
     var didSendEventClosure: ((AutomaticMoodClassifierModulePresenter.EventTypes) -> Void)?
     private var disposeBag: Set<AnyCancellable> = Set<AnyCancellable>()
     weak var view: MoodClassifierViewControllerProtocol?
-    let classifierService: UserMoodClassifierServiceProtocol
+    private let classifierService: UserMoodClassifierServiceProtocol
+    private let storageService: FirebaseStorageServiceProtocol
+    private var classifiedMood: String = ""
     
-    init(view: MoodClassifierViewControllerProtocol, classifierService: UserMoodClassifierServiceProtocol) {
+    init(view: MoodClassifierViewControllerProtocol, classifierService: UserMoodClassifierServiceProtocol, storageService: FirebaseStorageServiceProtocol) {
         self.view = view
         self.classifierService = classifierService
+        self.storageService = storageService
     }
     
     func userDidTakePicture(image: Data) {
@@ -38,12 +41,15 @@ final class AutomaticMoodClassifierModulePresenter: MoodClassifierModulePresente
         classifierService.classificationPublisher
             .receive(on: RunLoop.main)
             .sink { [weak self] result in
+                self?.classifiedMood = result
             self?.view?.classifierServiceDidSendResult(result: result)
         }
         .store(in: &disposeBag)
     }
     
     func doneButtonDidTap() {
+        guard let mood = ClassifiedMood(rawValue: classifiedMood) else { return }
+        storageService.uploadNewUserMood(mood: mood)
         didSendEventClosure?(.done)
     }
     

@@ -14,7 +14,7 @@ final class ReasonsToStopCollectionViewCell: UICollectionViewCell {
     private let label: UILabel = {
         let label = UILabel()
         label.setPoppinsFont(size: 18, style: .bold)
-        label.textColor = .black
+//        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -63,6 +63,7 @@ private extension ReasonsToStopCollectionViewCell {
     }
     
     func setupContentView() {
+        contentView.backgroundColor = .systemGray
         contentView.addSubview(label)
         contentView.layer.masksToBounds = true
         contentView.layer.cornerRadius = 7

@@ -11,7 +11,7 @@ class StandartButton: UIButton {
     private var text: String
     init(text: String) {
         self.text = text
-        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 51.6))
         setupButton()
     }
     
@@ -26,6 +26,7 @@ class StandartButton: UIButton {
         self.titleLabel?.font = UIFont(name: FontsEnum.poppinsSemiBold.rawValue, size: 14)
         self.layer.masksToBounds = true
         self.layer.cornerRadius = LayoutConstants.cornerRadius
+//        self.heightAnchor.constraint(equalToConstant: LayoutConstants.uiButtonHeight)
         self.translatesAutoresizingMaskIntoConstraints = false
         
     }

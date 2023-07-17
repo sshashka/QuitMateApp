@@ -12,15 +12,21 @@ struct VideoSelectionView: View {
     var body: some View {
         switch viewModel.state {
         case .loading:
-            ProgressView()
+            GroupBox {
+                ProgressView()
+                    .padding()
+            }
         case .loaded(let result):
             ScrollView {
                 LazyVStack(spacing: Spacings.spacing15) {
-                    ForEach(0..<result.items.count, id: \.self) {i in
-                        VideoCell(url: result.items[i].snippet.thumbnails.standard.url, title: result.items[i].snippet.title, descriplion: result.items[i].snippet.description, duration: "\(result.items[i].snippet.publishedAt)")
+                    ForEach(0..<result.count, id: \.self) {i in
+                        VideoCell(url: result[i].snippet.thumbnails.medium.url, title: result[i].snippet.title, descriplion: result[i].snippet.description, duration: "\(result[i].snippet.publishedAt)")
                             .onTapGesture {
                                 viewModel.didSelectVideo(at: i)
                             }
+//                            .onAppear{
+//                                viewModel.loadMoreVideos()
+//                            }
                     }
                 }.padding(Spacings.spacing10)
             }

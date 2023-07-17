@@ -15,7 +15,6 @@ struct MainScreenView: View {
             Group {
                 HStack {
                     HeaderView(dateInString: viewModel.todayDate)
-                    
                     SettingsButton().environmentObject(viewModel)
                 }
                 UserProgressView(percentage: $viewModel.percentsToFinish)

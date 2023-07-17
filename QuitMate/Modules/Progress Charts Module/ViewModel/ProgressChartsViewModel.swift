@@ -148,5 +148,6 @@ extension ProgressChartsViewModel {
         worstDayScore = "\(minScoreDay.scoreForUser)"
         
         print("latest day of classifications \(String(describing: dataForCharts.last?.dateOfClassification))")
+        UserDefaults.standard.setValue(dataForCharts.last?.dateOfClassification, forKey: UserDefaultsConstants.latestDayOfClassification)
     }
 }

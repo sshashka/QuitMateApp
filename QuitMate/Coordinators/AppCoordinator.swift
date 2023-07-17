@@ -115,9 +115,11 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         case .reasonsToStop:
             showReasonsToStop()
         case .moodClassifier:
+            navigationController.viewControllers.removeAll()
+            childCoordinators.removeAll()
             showMoodClassificationVC()
         default:
-            break
+            fatalError("\(coordinator) instantiateNewCoordinator is not implemented")
         }
     }
     

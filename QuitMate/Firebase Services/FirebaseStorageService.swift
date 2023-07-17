@@ -63,15 +63,6 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         return subject.eraseToAnyPublisher()
     }
     
-//    func createUserStatistics() {
-//        // Костыль
-//        var userId = UserDefaults.standard.string(forKey: "UserID")
-//        let reference = getChildReference(for: .user).child(userId!).childByAutoId()
-//        let key = reference.key!
-//        let model = UserStatisticsModel(id: key, moneySpentOnSigs: 25.0, enviromentalChanges: 4)
-//        try? reference.setValue(from: model)
-//    }
-    
     func getUserStatistics() -> AnyPublisher<User, Error> {
         let reference = getChildReference(for: .user).child(userId!)
         let subject = PassthroughSubject<User, Error>()
@@ -85,20 +76,12 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
                     subject.send(user)
                 }
             }
-//            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
-//                let dataForCharts = children.compactMap { snapshot in
-//                    try? snapshot.data(as: User.self)
-//                }
-//                subject.send(dataForCharts)
-//            }
         }
         return subject.eraseToAnyPublisher()
     }
     
     func createNewUser(userModel: User) {
         let reference = getChildReference(for: .user).child(userId!)
-        print(userId)
-        let key = reference.key!
         try? reference.setValue(from: userModel)
     }
     
@@ -106,7 +89,7 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         // Interestingly enough either firebase or apple uses 2001 timeinterval in codable rather than 1970
         let dateFormatted = date.timeIntervalSinceReferenceDate
         
-        let reference = getChildReference(for: .user).child(userId!).child("-NYIR-FZGB2BXQTO5vP-")
+        let reference = getChildReference(for: .user).child(userId!)
         reference.updateChildValues(["finishingDate" : Int(dateFormatted)])
     }
     
@@ -123,12 +106,6 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
                     subject.send(user)
                 }
             }
-//            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
-//                let dataForCharts = children.compactMap { snapshot in
-//                    try? snapshot.data(as: User.self)
-//                }
-//                subject.send(dataForCharts)
-//            }
         }
         return subject.eraseToAnyPublisher()
     }

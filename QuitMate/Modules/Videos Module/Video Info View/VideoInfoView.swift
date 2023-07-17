@@ -66,9 +66,13 @@ struct VideoInfoView: View {
                 Button {
                     vm.didTapPlay()
                 } label: {
-                    Text("Play")
+                    HStack {
+                        Image(systemName: "play.fill")
+                        Text("Start watching")
+                            .fontStyle(.buttonsText)
+                    }
                 }.buttonStyle(StandartButtonStyle())
-                    .padding(.horizontal, Spacings.spacing30)
+                    .padding([.horizontal, .bottom], Spacings.spacing30)
             }
         }
     }

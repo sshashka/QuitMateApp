@@ -15,13 +15,21 @@ class VideoSelectionViewModel: ObservableObject {
     private var videosList: YoutubeAPIResponce? {
         didSet {
             guard let videosList = videosList else { return }
-            self.state = .loaded(videosList)
+            self.videoInfo.append(contentsOf: videosList.items)
+        }
+    }
+    
+    var videoInfo: [Item] = [Item]() {
+        didSet {
+            guard !videoInfo.isEmpty else { return }
+            state = .loaded(videoInfo)
+            print("count of videos \(videoInfo.count)")
         }
     }
     @Published var state: VideoSelectionViewModelStates
     
     enum VideoSelectionViewModelStates {
-        case loading, loaded(YoutubeAPIResponce)
+        case loading, loaded([Item])
     }
     
     init(youtubeService: YoutubeApiService) {
@@ -41,9 +49,20 @@ class VideoSelectionViewModel: ObservableObject {
     }
     
     func didSelectVideo(at index: Int) {
-        guard let videosList else { return }
-        let selectedVideoId = videosList.items[index].contentDetails.videoID
+//        guard let videosList else { return }
+        let selectedVideoId = videoInfo[index].contentDetails.videoID
         didSendEvetClosure?(.didSelectVideo(selectedVideoId))
+    }
+    
+    func loadMoreVideos() {
+        guard let videosList else { return }
+        let token = videosList.nextPageToken
+        guard let token else { return }
+        youtubeService.loadMoreVideos(nextPageToken: token)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] videos in
+                self?.videosList = videos
+            }.store(in: &disposeBag)
     }
 }
 

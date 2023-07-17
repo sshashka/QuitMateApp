@@ -9,7 +9,8 @@ import Foundation
 
 // MARK: - YoutubeAPIResponce
 struct YoutubeAPIResponce: Codable {
-    let kind, etag, nextPageToken: String
+    let kind, etag: String
+    let prevPageToken, nextPageToken: String?
     let items: [Item]
     let pageInfo: PageInfo
 }

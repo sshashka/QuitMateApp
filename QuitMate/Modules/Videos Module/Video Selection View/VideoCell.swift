@@ -20,10 +20,10 @@ struct VideoCell: View {
                     case .empty:
                         ProgressView()
                     case .success(let image):
+                        // Add an image crop
                         image.resizable()
-                            .aspectRatio(4/3, contentMode: .fit)
-//                            .frame(maxHeight: 200)
-//                            .fixedSize()
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius))
                     case .failure:
                         EmptyView()
                     @unknown default:
@@ -43,7 +43,7 @@ struct VideoCell: View {
             }.padding()
             RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
                 .stroke(style: StrokeStyle(lineWidth: 2))
-                .opacity(0.1)
+                .opacity(0.2)
         }
     }
 }

@@ -9,7 +9,8 @@ extension MoodClassifierViewController {
     static var module: MoodClassifierViewController {
         let service = UserMoodClassifierService()
         let view = MoodClassifierViewController()
-        let presenter = AutomaticMoodClassifierModulePresenter(view: view, classifierService: service)
+        let storage = FirebaseStorageService()
+        let presenter = AutomaticMoodClassifierModulePresenter(view: view, classifierService: service, storageService: storage)
         view.presenter = presenter
         return view
     }
