@@ -15,8 +15,7 @@ struct LoaderView: View {
     var body: some View {
         ZStack(alignment: .center) {
             Text(text)
-                .font(.largeTitle)
-                .foregroundColor(.white)
+                .fontStyle(.header)
                 .opacity(isAnimating ? 1.0 : 0.0)
                 .scaleEffect(isAnimating ? 1.0 : 0.5)
                 .animation(.easeInOut(duration: 1.5), value: isAnimating)
@@ -39,7 +38,6 @@ struct LoaderView: View {
                 }
         }
         .padding(30)
-        .background(Color.black)
         .ignoresSafeArea()
     }
 }

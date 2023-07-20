@@ -44,7 +44,7 @@ struct YoutubeAPIVideoDetailsResponceSnippet: Codable {
     let tags: [String]
     let categoryID, liveBroadcastContent: String
     let localized: YoutubeAPIVideoDetailsResponceLocalized
-    let defaultAudioLanguage: String
+    let defaultAudioLanguage: String?
 
     enum CodingKeys: String, CodingKey {
         case publishedAt

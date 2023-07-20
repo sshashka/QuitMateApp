@@ -12,14 +12,17 @@ struct User: Codable {
     var age: String
     var email: String?
     var id: String
-    var profileImage: Data?
+    var profileImage: String?
     let currentDate = Date.now
     var startingDate: Date
     var finishingDate: Date
     var moneyUserSpendsOnSmoking: Double
         // Add currency support in future
 //    var userCurrency: Currency
-    
+    func profileImageInData() -> Data? {
+        guard let profileImage else { return nil }
+        return Data(base64Encoded: profileImage)
+    }
 }
 
 extension User {

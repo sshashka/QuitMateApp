@@ -71,10 +71,14 @@ final class SettingsViewModel: ObservableObject {
     func didTapOnHistory() {
         didSendEventClosure?(.didTapOnHistory)
     }
+    
+    func didTapOnEdit() {
+        didSendEventClosure?(.didTapOnEdit)
+    }
 }
 
 extension SettingsViewModel {
     enum EventType {
-        case didTapOnNewMood, didTapOnHistory
+        case didTapOnNewMood, didTapOnHistory, didTapOnEdit
     }
 }

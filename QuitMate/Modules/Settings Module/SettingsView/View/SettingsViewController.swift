@@ -36,7 +36,7 @@ final class SettingsViewController: UIViewController {
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
 //        setupHeaderProfileView()
-//        setupEditButton()
+        setupEditButton()
         setupConstraints()
         guard let viewModel = viewModel else { return }
         setupHeaderProfileView(viewModel: viewModel.headerViewModel)
@@ -98,7 +98,7 @@ private extension SettingsViewController {
     }
     
     @objc func editButtonDidTap() {
-        
+        viewModel?.didTapOnEdit()
     }
 }
 

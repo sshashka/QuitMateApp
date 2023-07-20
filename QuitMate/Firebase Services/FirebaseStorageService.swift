@@ -23,6 +23,7 @@ protocol FirebaseStorageServiceProtocol: AnyObject {
 //    func getUserStatistics() -> AnyPublisher<[User], Error>
     func getUserModel() -> AnyPublisher<User, Error>
     func updateUserFinishingDate(with date: Date)
+    func updateUserProfilePic(with: Data)
 }
 
 final class FirebaseStorageService: FirebaseStorageServiceProtocol {
@@ -110,6 +111,12 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
             }
         }
         return subject.eraseToAnyPublisher()
+    }
+    
+    func updateUserProfilePic(with image: Data) {
+        let reference = getChildReference(for: .user).child(userId!)
+        let imageInString = image.base64EncodedString()
+        reference.updateChildValues(["profileImage": imageInString])
     }
     
     deinit {

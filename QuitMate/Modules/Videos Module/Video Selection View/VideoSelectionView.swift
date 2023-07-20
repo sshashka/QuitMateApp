@@ -12,24 +12,29 @@ struct VideoSelectionView: View {
     var body: some View {
         switch viewModel.state {
         case .loading:
-            GroupBox {
-                ProgressView()
-                    .padding()
-            }
+            CustomProgressView()
         case .loaded(let result):
-            ScrollView {
-                LazyVStack(spacing: Spacings.spacing15) {
-                    ForEach(0..<result.count, id: \.self) {i in
-                        VideoCell(url: result[i].snippet.thumbnails.medium.url, title: result[i].snippet.title, descriplion: result[i].snippet.description, duration: "\(result[i].snippet.publishedAt)")
-                            .onTapGesture {
-                                viewModel.didSelectVideo(at: i)
-                            }
-                            .onAppear{
-                                viewModel.loadMoreVideos(latestItem: i)
-                            }
+            NavigationStack {
+                ScrollView {
+                    LazyVStack(spacing: Spacings.spacing15) {
+                        ForEach(0..<result.count, id: \.self) {i in
+                            VideoCell(url: result[i].snippet.thumbnails.medium.url, title: result[i].snippet.title, descriplion: result[i].snippet.description, duration: "\(result[i].snippet.publishedAt)")
+                                .onTapGesture {
+                                    viewModel.didSelectVideo(at: i)
+                                }
+                                .onAppear{
+                                    viewModel.loadMoreVideos(latestItem: i)
+                                }
+                        }
                     }
-                }.padding(Spacings.spacing10)
+                    .padding(.top, Spacings.spacing40)
+                    .padding(.horizontal, Spacings.spacing10)
+                        
+                }
             }
+            .toolbarBackground(.visible, for: .navigationBar)
+            .navigationTitle("Videos")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }

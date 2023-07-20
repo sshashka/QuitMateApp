@@ -14,6 +14,14 @@ protocol SettingsCoordinatorProtocol: Coordinator {
 
 class SettingsCoordinator: SettingsCoordinatorProtocol {
     
+    lazy var storageService: FirebaseStorageServiceProtocol = {
+        return FirebaseStorageService()
+    }()
+    
+    lazy var authService: AuthentificationServiceProtocol = {
+        return FirebaseAuthentificationService()
+    }()
+    
     var finishDelegate: CoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
@@ -31,8 +39,6 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
     }
     
     func showSettings() {
-        let storageService = FirebaseStorageService()
-        let authService = FirebaseAuthentificationService()
         let vm = SettingsViewModel(storageService: storageService, authService: authService)
         
         vm.didSendEventClosure = { [weak self] event in
@@ -41,14 +47,22 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
                 self?.replaceWithNewCoordinator(coordinator: .moodClassifier)
             case .didTapOnHistory:
                 self?.showHistory()
+            case .didTapOnEdit:
+                self?.didTapOnEdit()
             }
         }
         let vc = SettingsViewController(viewModel: vm)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showHistory() {
+    private func showHistory() {
         let vc = UIHostingController(rootView: UserHistoryView())
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    private func didTapOnEdit() {
+        let vm = EditProfileViewModel(storageService: storageService)
+        let vc = UIHostingController(rootView: EditProfileView(viewModel: vm))
         navigationController.pushViewController(vc, animated: true)
     }
     
