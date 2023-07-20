@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProgressPercentageView: View {
-    @Binding var percentage: Float
+    var percentage: Float
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: Spacings.spacing10) {

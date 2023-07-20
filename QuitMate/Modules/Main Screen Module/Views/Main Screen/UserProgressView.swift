@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct UserProgressView: View {
-    @Binding var percentage: Float
+    var percentage: Float
     var body: some View {
-        
             Circle()
                 .trim(from: 0, to: CGFloat(percentage))
                 .stroke(Color(ColorConstants.buttonsColor), style: StrokeStyle(lineWidth: 10, lineCap: .round))
@@ -19,7 +18,7 @@ struct UserProgressView: View {
                 .animation(.easeIn(duration: 2), value: percentage)
         
         .overlay {
-            ProgressPercentageView(percentage: $percentage)
+            ProgressPercentageView(percentage: percentage)
                 .padding([.vertical], Spacings.spacing30)
         }
         
@@ -29,7 +28,7 @@ struct UserProgressView: View {
 
 struct ProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        @State var percentage: Float = 25.0
-        UserProgressView(percentage: $percentage)
+        var percentage: Float = 25.0
+        UserProgressView(percentage: percentage)
     }
 }

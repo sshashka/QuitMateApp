@@ -65,7 +65,8 @@ final class AppCoordinator: AppCoordinatorProtocol {
     }
     // This should be called from push notification not tabbar
     func showMoodClassificationVC() {
-        let moodClassifierCoordinator = MoodClassifierCoordinator(navigationController)
+//        let moodClassifierCoordinator = MoodClassifierCoordinator(navigationController)
+        let moodClassifierCoordinator = ManualMoodCoordinator(navigationController)
         moodClassifierCoordinator.finishDelegate = self
         moodClassifierCoordinator.start()
         childCoordinators.append(moodClassifierCoordinator)
@@ -90,15 +91,23 @@ final class AppCoordinator: AppCoordinatorProtocol {
     // Fix starting main flow right after user registers
     func start() {
         
-        FirebaseAuthStateHandler().checkIfUserIsAuthentificated { [weak self] result in
-            switch result {
-            case .userIsAuthentificated:
-                self?.showMainFlow()
-            case .userIsNotAuthentificated:
-                self?.showLogin()
+        let loaderVC = UIHostingController(rootView: LoaderView())
+        navigationController.pushWithCustomAnination(loaderVC)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.navigationController.popWithCustomAnimation(loaderVC)
+            self.navigationController.viewControllers = []
+            FirebaseAuthStateHandler().checkIfUserIsAuthentificated { [weak self] result in
+                switch result {
+                case .userIsAuthentificated:
+                    self?.showMainFlow()
+                case .userIsNotAuthentificated:
+                    self?.showLogin()
+                }
             }
         }
     }
+    
     //        FirebaseAuthStateHandler().userState.sink { [weak self] result in
     //            switch result {
     //            case .userIsAuthentificated:

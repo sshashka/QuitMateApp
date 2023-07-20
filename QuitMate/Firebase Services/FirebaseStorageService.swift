@@ -30,12 +30,14 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
     var cancellables = Set<AnyCancellable>()
     
     private lazy var userId: String? = {
-        let id = UserDefaults.standard.string(forKey: "UserID")
+        let id = UserDefaults.standard.string(forKey: UserDefaultsConstants.userId)
         return id
     }()
     
     func uploadNewUserMood(mood: ClassifiedMood) {
-        let reference = getChildReference(for: .moods).child(userId!).childByAutoId()
+        UserDefaults.standard.setValue(Date.now, forKey: UserDefaultsConstants.latestDayOfClassification)
+        guard let userId else { return }
+        let reference = getChildReference(for: .moods).child(userId).childByAutoId()
         let key = reference.key!
         let mood = ChartModel(id: key, classification: mood)
         try? reference.setValue(from: mood)

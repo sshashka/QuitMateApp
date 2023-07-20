@@ -67,6 +67,11 @@ final class RecomendationsViewModel: ObservableObject {
         let moods = statsData.map {
             $0.classification.classifiedMood!.rawValue
         }
+        
+        var tokens = 450
+#if DEBUG
+        tokens = 10
+#endif
         let daysWithoutSmoking = userData.daysWithoutSmoking
         // Please put your own token here because OpenAI doesnt allow to publish them
         let openAi = OpenAI(apiToken: "")
@@ -75,11 +80,11 @@ final class RecomendationsViewModel: ObservableObject {
         
         switch typeOfGeneration {
         case .moods:
-            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods) can u do an small analysis of my moods for me, provide me some help how not to start smoking again, and afer it add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: 450)
+            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods) can u do an small analysis of my moods for me, provide me some help how not to start smoking again, and afer it add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
 
         case .smoking:
             let reasons = UserDefaults.standard.object(forKey: "UserSmoked")
-            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods) can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling \(reasons ?? "Bad") and dont want to this happen again add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: 450)
+            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods) can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling \(reasons ?? "Bad") and dont want to this happen again add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
         }
         
         openAi.completions(query: query)

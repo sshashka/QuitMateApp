@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-enum Field: Hashable {
-    case name, age, startingDate, finishingDate, money
-}
 struct FirstTimeEntryView: View {
+    enum Field: Hashable {
+        case name, age, startingDate, finishingDate, money
+    }
     @StateObject var viewModel: FirstTimeEntryViewModel
     @State private var isShowingCurrencyPicker: Bool = false
     @State private var selectedField: Field = .name

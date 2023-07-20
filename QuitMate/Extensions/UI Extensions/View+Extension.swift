@@ -12,4 +12,10 @@ extension View {
         // Looks weird 
         modifier(TextViewModifier(style.getTextStyle(style: style)))
     }
+    
+    func isDisabled(_ isEnabled: Bool) -> some View {
+        modifier(DisabledStateModifier(enabled: isEnabled))
+    }
 }
+
+

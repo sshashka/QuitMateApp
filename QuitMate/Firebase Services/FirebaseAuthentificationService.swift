@@ -33,6 +33,7 @@ protocol AuthentificationServiceProtocol: AnyObject {
     func didSelectLoginWithEmailLogin(email: String, password: String, completion: @escaping(ResultOfAuthentification) -> Void)
     func didSelectRegisterWithEmailLogin(email: String, password: String, completion: @escaping(ResultOfAuthentification) -> Void)
     func resetPassword()
+    func resetPasswordForNotAuthentoficatedUser(email: String)
 }
 
 final class FirebaseAuthentificationService: AuthentificationServiceProtocol {
@@ -90,6 +91,10 @@ final class FirebaseAuthentificationService: AuthentificationServiceProtocol {
         // Add a completion and error handling
         let email = Auth.auth().currentUser?.email
         guard let email else { return }
+        Auth.auth().sendPasswordReset(withEmail: email)
+    }
+    
+    func resetPasswordForNotAuthentoficatedUser(email: String) {
         Auth.auth().sendPasswordReset(withEmail: email)
     }
     

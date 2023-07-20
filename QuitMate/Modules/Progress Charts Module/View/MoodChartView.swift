@@ -14,25 +14,25 @@ struct MoodChartView: View {
     
     var body: some View {
 //        VStack {
-        switch state {
-        case .idle:
-            ProgressView()
-                .progressViewStyle(.circular)
-        case .loading:
-            ProgressView()
-                .progressViewStyle(.circular)
-        case .loaded:
-            Chart(dataForCharts) { day in
-                LineMark(x: .value("Day", day.dateOfClassification), y: .value("Score", day.scoreForUser))
-                    .foregroundStyle(Color(ColorConstants.labelColor))
-                    .interpolationMethod(.cardinal)
-                PointMark(x: .value("Day", day.dateOfClassification), y: .value("Score", day.scoreForUser))
-                    .foregroundStyle(Color(ColorConstants.labelColor))
-                    .interpolationMethod(.cardinal)
-            }
-            .animation(.linear, value: dataForCharts.count)
-        }
+//        switch state {
+//        case .idle:
+//            CustomProgressView()
+//        case .loading:
+//            CustomProgressView()
+//        case .loaded:
+//                    }
 //        }
+        
+        Chart(dataForCharts) { day in
+            LineMark(x: .value("Day", day.dateOfClassification), y: .value("Score", day.scoreForUser))
+                .foregroundStyle(Color(ColorConstants.labelColor))
+                .interpolationMethod(.cardinal)
+            PointMark(x: .value("Day", day.dateOfClassification), y: .value("Score", day.scoreForUser))
+                .foregroundStyle(Color(ColorConstants.labelColor))
+                .interpolationMethod(.cardinal)
+        }
+        .animation(.linear, value: dataForCharts.count)
+
     }
 }
 

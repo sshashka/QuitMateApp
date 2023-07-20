@@ -8,35 +8,61 @@
 import SwiftUI
 
 struct AuthentificationView: View {
+    enum AuthentificationViewFocusFields: Hashable {
+        case email
+        case password
+    }
     @StateObject var viewModel: AuthentificationViewModel
+    @FocusState private var focused: AuthentificationViewFocusFields?
     var body: some View {
         VStack {
             Spacer()
-            
             HStack {
                 Text("Log In")
                     .fontStyle(.header)
                 Spacer()
             }
             Group {
-                TextField("", text: $viewModel.email, prompt: Text("Email").foregroundColor(Color.black))
-                    .padding(.horizontal, Spacings.spacing25)
-                    .frame(height: 47)
-                    .keyboardType(.emailAddress)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
-                    }
-                
-                SecureField("", text: $viewModel.password, prompt: Text("Password, at least 8 characters").foregroundColor(.black))
-                    .padding(.horizontal, Spacings.spacing25)
-                    .frame(height: 47)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
-                    }
+                ZStack {
+                    TextField("", text: $viewModel.email, prompt: Text("Email").foregroundColor(Color.black))
+                        .padding(.horizontal, Spacings.spacing25)
+                        .frame(height: 47)
+                        .keyboardType(.emailAddress)
+                        .submitLabel(.next)
+                        .focused($focused, equals: .email)
+                    RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+                        .stroke(lineWidth: 1)
+                        .foregroundColor($viewModel.emailTextFieldColor.wrappedValue)
+                        .frame(height: 47)
+                }
+                .onTapGesture {
+                    // Because of paddings tap area on texfield is much smaller than a view itself
+                    focused = .email
+                }
+                ZStack {
+                    SecureField("", text: $viewModel.password, prompt: Text("Password, at least 8 characters").foregroundColor(.black))
+                        .padding(.horizontal, Spacings.spacing25)
+                        .frame(height: 47)
+                        .focused($focused, equals: .password)
+                        .submitLabel(.done)
+                    RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+                        .stroke(lineWidth: 1)
+                        .frame(height: 47)
+                        .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
+                }
+                .onTapGesture {
+                    // Because of paddings tap area on texfield is much smaller than a view itself
+                    focused = .password
+                }
+            }
+            .onSubmit {
+                if viewModel.email.isEmpty {
+                    focused = .email
+                } else if viewModel.password.isEmpty {
+                    focused = .password
+                } else {
+                    viewModel.didTapOnLogin()
+                }
             }
             .fontStyle(.textFieldText)
             .background(Color(ColorConstants.gray))
@@ -53,7 +79,7 @@ struct AuthentificationView: View {
                     Text("Forgot password?")
                         .fontStyle(.clearButtonsText)
                 }
-            }
+            }.disabled($viewModel.passwordResetIsEnabled.wrappedValue ? false : true)
             
             Button {
                 viewModel.didTapOnLogin()
@@ -61,9 +87,8 @@ struct AuthentificationView: View {
                 TextView(text: "Log In", font: .poppinsSemiBold, size: 14)
             }
             .buttonStyle(StandartButtonStyle())
-            //            .modifier(ButtonOpacityViewModifier(isDisabled: $viewModel.loginButtonDisabled.wrappedValue))
             .padding(.top, Spacings.spacing25)
-            .disabled($viewModel.loginButtonDisabled.wrappedValue ? false : true)
+            .isDisabled(viewModel.loginButtonDisabled)
             
             Spacer()
             
@@ -74,16 +99,17 @@ struct AuthentificationView: View {
                     .fontStyle(.clearButtonsText)
             }
         }.padding(Spacings.spacing30)
+            .overlay{
+                if viewModel.state == .loading {
+                    CustomProgressView()
+                }
+            }
             .alert($viewModel.error.wrappedValue, isPresented: $viewModel.isShowingAlert) {
                 Button("OK") {}
             }
     }
-    
-    private var buttonOpacity: Color {
-        $viewModel.loginButtonDisabled.wrappedValue ? Color(ColorConstants.buttonsColor).opacity(0.5) : Color(ColorConstants.buttonsColor).opacity(1.0)
-    }
 }
-//
+
 struct AuthentificationView_Previews: PreviewProvider {
     static var previews: some View {
         let service = FirebaseAuthentificationService()

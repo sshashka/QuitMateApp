@@ -65,7 +65,7 @@ private extension MoodClassifierViewController {
     }
     
     @objc func doneButtonDidTap() {
-        presenter?.switchToManualClassifierDidTap()
+        presenter?.doneButtonDidTap()
     }
     
     @objc func manualSelectionButtonDidTap() {

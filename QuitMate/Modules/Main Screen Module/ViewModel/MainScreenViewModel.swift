@@ -36,13 +36,13 @@ final class MainScreenViewModel: ObservableObject {
     
     @Published var dateComponentsWithoutSmoking: String = ""
     
-    @Published var confirmedReset = false {
-        // ITs a wrong way of doing this
-        didSet {
-            guard confirmedReset != false else { return }
-            didTapOnReset()
-        }
-    }
+//    @Published var confirmedReset = false {
+//        // ITs a wrong way of doing this
+//        didSet {
+//            guard confirmedReset != false else { return }
+//            didTapOnReset()
+//        }
+//    }”
     
     init(storageService: FirebaseStorageServiceProtocol) {
         self.storageService = storageService
@@ -53,8 +53,8 @@ final class MainScreenViewModel: ObservableObject {
         storageService.getUserModel()
             .sink {
                 print($0)
-            } receiveValue: { stats in
-                self.userStatistics = stats
+            } receiveValue: { [weak self] stats in
+                self?.userStatistics = stats
             }.store(in: &disposeBag)
     }
     // Rename this func

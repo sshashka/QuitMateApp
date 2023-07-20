@@ -15,7 +15,9 @@ extension UINavigationController {
         transition.type = CATransitionType.moveIn
         transition.subtype = CATransitionSubtype.fromTop
         self.view.layer.add(transition, forKey: nil)
+        self.setNavigationBarHidden(true, animated: false)
         self.pushViewController(viewController, animated: false)
+        self.setNavigationBarHidden(false, animated: false)
     }
     
     func popWithCustomAnimation(_ viewController: UIViewController) {
@@ -25,7 +27,9 @@ extension UINavigationController {
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromBottom
         self.view.layer.add(transition, forKey: nil)
-        self.pushViewController(viewController, animated: false)
+        self.setNavigationBarHidden(true, animated: false)
+        self.popViewController(animated: false)
+        self.setNavigationBarHidden(false, animated: false)
     }
 }
 

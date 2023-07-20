@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 final class SettingsViewController: UIViewController {
-    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood (Debug)", "Watch your history"]
+    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood", "Watch your history"]
     private let gradientLayer = CAGradientLayer()
     private var viewModel: SettingsViewModel?
     private var disposeBag = Set<AnyCancellable>()
@@ -129,6 +129,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             break
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

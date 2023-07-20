@@ -13,6 +13,14 @@ protocol TabBarCoordinatorProtocol: Coordinator {
 }
 
 final class TabBarCoordinator: NSObject, Coordinator {
+    private lazy var storageService: FirebaseStorageServiceProtocol = {
+        return FirebaseStorageService()
+    }()
+    
+    private lazy var authService: AuthentificationServiceProtocol = {
+        return FirebaseAuthentificationService()
+    }()
+    
     var finishDelegate: CoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
@@ -39,16 +47,15 @@ final class TabBarCoordinator: NSObject, Coordinator {
         let controllers: [UINavigationController] = pages.map {getTabControllers(page: $0)}
         
         setupTabBar(controllers: controllers)
-        
     }
     
-    private func showMoodClassifier(navVC: UINavigationController) {
-        let moodCoordinator = MoodClassifierCoordinator(navVC)
-        moodCoordinator.finishDelegate = finishDelegate
-        childCoordinators.append(moodCoordinator)
-        moodCoordinator.start()
+//    private func showMoodClassifier(navVC: UINavigationController) {
+//        let moodCoordinator = MoodClassifierCoordinator(navVC)
+//        moodCoordinator.finishDelegate = finishDelegate
+//        childCoordinators.append(moodCoordinator)
+//        moodCoordinator.start()
 //        self.finish()
-    }
+//    }
     
     private func showReasonsToStop() {
         self.replaceWithNewCoordinator(coordinator: .reasonsToStop)
@@ -64,8 +71,12 @@ final class TabBarCoordinator: NSObject, Coordinator {
         navVC.setNavigationBarHidden(false, animated: false)
         switch page {
         case .charts:
-            let chartsVC = ProgressChartsModuleHostingViewController()
-            navVC.pushViewController(chartsVC, animated: true)
+            let chartsVM = ProgressChartsViewModel(storageService: storageService)
+//            let chartsVC = ProgressChartsModuleHostingViewController()
+            let vc = UIHostingController(rootView: ProgressChartsModuleMainScreen(viewModel: chartsVM))
+            vc.title = "Chart for this week"
+            vc.tabBarItem.title = nil
+            navVC.pushViewController(vc, animated: true)
         case .home:
             let vm = MainScreenViewModel(storageService: FirebaseStorageService())
             let mainView = MainScreenView(viewModel: vm)
@@ -78,7 +89,7 @@ final class TabBarCoordinator: NSObject, Coordinator {
                 }
             }
             let hostingVC = UIHostingController(rootView: mainView)
-            navVC.pushViewController(hostingVC, animated: true)
+            navVC.pushWithCustomAnination(hostingVC)
         case .videos:
             let youtubeService = YoutubeApiService()
             let viewModel = VideoSelectionViewModel(youtubeService: youtubeService)
@@ -128,6 +139,7 @@ final class TabBarCoordinator: NSObject, Coordinator {
         tabBarController.tabBar.tintColor = UIColor(named: ColorConstants.buttonsColor)
         tabBarController.tabBar.backgroundColor = .systemBackground
         tabBarController.setViewControllers(tabController, animated: true)
+        tabBarController.selectedIndex = 0
         navigationController.viewControllers = [tabBarController]
     }
 }

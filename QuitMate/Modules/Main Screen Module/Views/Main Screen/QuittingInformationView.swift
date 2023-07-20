@@ -17,8 +17,16 @@ struct QuittingInformationView: View {
         
         VStack(alignment: .leading, spacing: Spacings.spacing10) {
             Spacer()
-            Text("Quitting information")
-                .fontStyle(.poppinsSemibold16)
+            HStack(spacing: 0) {
+                Text("Quitting information")
+                    .fontStyle(.poppinsSemibold16)
+                Image(systemName: "info.circle.fill")
+                    .frame(maxWidth: 55, maxHeight: 55)
+                    .foregroundColor(Color(ColorConstants.labelColor))
+                    .onTapGesture {
+                        print("Tap on info")
+                    }
+            }
             HStack(alignment: .center, spacing: Spacings.spacing10) {
                 StatsView(image: IconConstants.noSmoking, titleText: "\(daysWithoutSmoking)", secondaryText: "Days without smoking", tintColor: .blue)
 //                    .frame(maxWidth: .infinity)

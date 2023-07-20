@@ -21,6 +21,7 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
         vm.didSendEventClosure = { [weak self] event in
             switch event {
             case .login:
+                self?.navigationController.popWithCustomAnimation(authentificationVC)
                 self?.finish()
             case .passwordReset:
                 print("reset")
@@ -28,7 +29,7 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
                 self?.showRegistrationView()
             }
         }
-        navigationController.pushViewController(authentificationVC, animated: true)
+        navigationController.pushWithCustomAnination(authentificationVC)
     }
     
     

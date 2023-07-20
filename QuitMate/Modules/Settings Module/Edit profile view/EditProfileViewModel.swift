@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class EditProfileViewModel: ObservableObject {
-    private var user: User?
+    @Published private (set) var user: User?
     private var disposeBag = Set<AnyCancellable>()
     private let storageService: FirebaseStorageServiceProtocol
     

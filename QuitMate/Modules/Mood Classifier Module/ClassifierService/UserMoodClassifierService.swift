@@ -23,27 +23,27 @@ protocol UserMoodClassifierServiceProtocol: AnyObject {
 
 final class UserMoodClassifierService: UserMoodClassifierServiceProtocol {
     var classificationPublisher = PassthroughSubject<String, Never>()
-    private lazy var classificationRequest: VNCoreMLRequest = {
-        do {
-            let model = try VNCoreMLModel(for: CNNEmotions().model)
-            let request = VNCoreMLRequest(model: model) { request, _ in
-                if let classifications = request.results as? [VNClassificationObservation] {
-                    print("Classification results: \(classifications)")
-                    let topClassification = classifications.first.map {
-                        (confidence: $0.confidence, identifier: $0.identifier)
-                    }
-                    print("Top classifications: \(topClassification)")
-                    if let topClassification {
-                        self.classificationPublisher.send(topClassification.identifier)
-                    }
-                }
-            }
-            request.imageCropAndScaleOption = .centerCrop
-            return request
-        } catch {
-            fatalError("Classification Error")
-        }
-    }()
+//    private lazy var classificationRequest: VNCoreMLRequest = {
+//        do {
+//            let model = try VNCoreMLModel(for: CNNEmotions().model)
+//            let request = VNCoreMLRequest(model: model) { request, _ in
+//                if let classifications = request.results as? [VNClassificationObservation] {
+//                    print("Classification results: \(classifications)")
+//                    let topClassification = classifications.first.map {
+//                        (confidence: $0.confidence, identifier: $0.identifier)
+//                    }
+//                    print("Top classifications: \(topClassification)")
+//                    if let topClassification {
+//                        self.classificationPublisher.send(topClassification.identifier)
+//                    }
+//                }
+//            }
+//            request.imageCropAndScaleOption = .centerCrop
+//            return request
+//        } catch {
+//            fatalError("Classification Error")
+//        }
+//    }()
     
     func classifyImage(image: Data) {
         guard let imageFromData = UIImage(data: image) else { return }
@@ -55,16 +55,16 @@ final class UserMoodClassifierService: UserMoodClassifierServiceProtocol {
         guard let ciImage = CIImage(image: croppedImage!) else {
             fatalError("Unable to create \(CIImage.self) from \(image).")
         }
-        DispatchQueue.global(qos: .userInitiated).async {
-            let handler =
-            VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
-            do {
-                let classificationRequest = self.classificationRequest
-                try handler.perform([classificationRequest])
-            } catch {
-                print("Failed to perform classification.\n\(error.localizedDescription)")
-            }
-        }
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            let handler =
+//            VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
+//            do {
+//                let classificationRequest = self.classificationRequest
+//                try handler.perform([classificationRequest])
+//            } catch {
+//                print("Failed to perform classification.\n\(error.localizedDescription)")
+//            }
+//        }
     }
     
     func checkIfFacePresent(image: Data, completion: @escaping(ClassificationResults) -> Void) {

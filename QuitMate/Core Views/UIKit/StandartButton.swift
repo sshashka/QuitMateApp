@@ -11,7 +11,7 @@ class StandartButton: UIButton {
     private var text: String
     init(text: String) {
         self.text = text
-        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 51.6))
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         setupButton()
     }
     

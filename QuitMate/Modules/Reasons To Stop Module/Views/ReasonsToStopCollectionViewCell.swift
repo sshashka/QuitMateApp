@@ -10,7 +10,6 @@ import UIKit
 final class ReasonsToStopCollectionViewCell: UICollectionViewCell {
     static let identifier = "ReasonsToStopCollectionViewCell"
     
-    
     private let label: UILabel = {
         let label = UILabel()
         label.setPoppinsFont(size: 18, style: .bold)
@@ -38,7 +37,7 @@ final class ReasonsToStopCollectionViewCell: UICollectionViewCell {
     }
     
     func handleCellDeselectedState() {
-        contentView.backgroundColor = .systemGray
+        contentView.backgroundColor = .lightGray
     }
     
 //    override func layoutSubviews() {

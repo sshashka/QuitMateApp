@@ -19,7 +19,7 @@ final class FirstTimeEntryCoordinator: FirstTimeEntryCoordinatorProtocol {
         vm.didSendEventClosure = { [weak self] event in
             self?.finish()
         }
-        navigationController.pushViewController(vc, animated: true)
+        navigationController.pushWithCustomAnination(vc)
     }
     
     var finishDelegate: CoordinatorFinishDelegate?

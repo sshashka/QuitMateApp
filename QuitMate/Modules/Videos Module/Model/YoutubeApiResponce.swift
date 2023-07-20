@@ -21,13 +21,22 @@ struct Item: Codable {
     let snippet: Snippet
     let contentDetails: ContentDetails
     let status: Status
+    
+//    static func ==(lhs: Item, rhs: Item) -> Bool {
+//        return lhs.kind == rhs.kind &&
+//        lhs.etag == rhs.etag &&
+//        lhs.id == rhs.id &&
+//        lhs.snippet == rhs.snippet &&
+//        lhs.contentDetails == rhs.contentDetails &&
+//        lhs.status == rhs.status
+//    }
 }
 
 // MARK: - ContentDetails
 struct ContentDetails: Codable {
     let videoID: String
     let videoPublishedAt: String
-
+    
     enum CodingKeys: String, CodingKey {
         case videoID = "videoId"
         case videoPublishedAt
@@ -43,7 +52,7 @@ struct Snippet: Codable {
     let position: Int
     let resourceID: ResourceID
     let videoOwnerChannelTitle, videoOwnerChannelID: String
-
+    
     enum CodingKeys: String, CodingKey {
         case publishedAt
         case channelID = "channelId"
@@ -59,7 +68,7 @@ struct Snippet: Codable {
 // MARK: - ResourceID
 struct ResourceID: Codable {
     let kind, videoID: String
-
+    
     enum CodingKeys: String, CodingKey {
         case kind
         case videoID = "videoId"
@@ -69,7 +78,7 @@ struct ResourceID: Codable {
 // MARK: - Thumbnails
 struct Thumbnails: Codable {
     let thumbnailsDefault, medium, high, standard: Default
-
+    
     enum CodingKeys: String, CodingKey {
         case thumbnailsDefault = "default"
         case medium, high, standard

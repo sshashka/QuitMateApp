@@ -17,11 +17,11 @@ struct MainScreenView: View {
                     HeaderView(dateInString: viewModel.todayDate)
                     SettingsButton().environmentObject(viewModel)
                 }
-                UserProgressView(percentage: $viewModel.percentsToFinish)
+                UserProgressView(percentage: viewModel.percentsToFinish)
                     .foregroundColor(Color(ColorConstants.labelColor))
             }.padding([.horizontal], 20)
             Group {
-                TimeAndScoreView(quittingDuration: $viewModel.dateComponentsWithoutSmoking)
+                TimeAndScoreView(quittingDuration: viewModel.dateComponentsWithoutSmoking)
                     .foregroundColor(Color(ColorConstants.labelColor))
                     .padding(.top, Spacings.spacing5)
                 QuittingInformationView(moneySpentOnCigarets: viewModel.moneySaved, daysWithoutSmoking: viewModel.daysWithoutSmoking, enviromentalChanges: viewModel.enviromentalChanges, daysToFinish: viewModel.daysToFinish)
@@ -41,7 +41,7 @@ struct MainScreenView: View {
                         resetButtonPressed.toggle()
                     }
                     Button("Yes", role: .destructive) {
-                        viewModel.confirmedReset = true
+                        viewModel.didTapOnReset()
                     }
                 }
         }

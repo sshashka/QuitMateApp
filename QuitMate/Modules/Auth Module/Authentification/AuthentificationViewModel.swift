@@ -9,12 +9,17 @@ import SwiftUI
 import Combine
 
 final class AuthentificationViewModel: ObservableObject {
+    enum AuthentificationViewModelStates {
+        case idle, loading
+    }
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var emailTextFieldColor: Color? = Color(ColorConstants.gray)
     @Published var passwordTextFieldColor: Color? = Color(ColorConstants.gray)
     @Published var loginButtonDisabled: Bool = true
     @Published var isShowingAlert: Bool = false
+    @Published var passwordResetIsEnabled = false
+    @Published var state: AuthentificationViewModelStates = .idle
     
     var error: String = ""
     
@@ -27,13 +32,16 @@ final class AuthentificationViewModel: ObservableObject {
     }
     
     private func setupPiplines() {
-        // Add a check if fields are not empty + Make a static class that just combines chacks
+        // Add a check if fields are not empty + Make a static class that just combines checks
         formIsValid.assign(to: &$loginButtonDisabled)
+        
         emailIsValid.mapToFieldInputColor()
             .assign(to: &$emailTextFieldColor)
         
         passwordIsValid.mapToFieldInputColor()
             .assign(to: &$passwordTextFieldColor)
+        
+        emailIsValid.assign(to: &$passwordResetIsEnabled)
     }
     // Create statics in class called validation
     private var emailIsValid: AnyPublisher<Bool, Never> {
@@ -72,11 +80,13 @@ final class AuthentificationViewModel: ObservableObject {
     }
     
     func didTapOnLogin() {
+        state = .loading
         authentificationService.didSelectLoginWithEmailLogin(email: email, password: password) {[weak self] result in
             switch result {
             case .success:
                 self?.didSendEventClosure?(.login)
             case .failure(let string):
+                self?.state = .idle
                 self?.isShowingAlert = true
                 self?.error = string
             }
@@ -84,7 +94,8 @@ final class AuthentificationViewModel: ObservableObject {
     }
     
     func didTapOnForgotPassword() {
-        authentificationService.resetPassword()
+        guard !email.isEmpty else { return }
+        authentificationService.resetPasswordForNotAuthentoficatedUser(email: email)
         isShowingAlert = true
         error = "Email with instructions has been sent"
     }

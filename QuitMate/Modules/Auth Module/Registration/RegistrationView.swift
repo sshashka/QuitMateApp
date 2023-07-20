@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    enum RegistrationViewFocusFields: Hashable {
+        case email, password, passwordConfirm
+    }
     @StateObject var viewModel: RegistrationViewModel
+    @FocusState private var focused: RegistrationViewFocusFields?
     var body: some View {
         VStack {
             Spacer()
-            
             HStack {
                 TextView(text: "Register", font: .poppinsSemiBold, size: 36)
                 Spacer()
@@ -22,6 +25,7 @@ struct RegistrationView: View {
                 TextField("", text: $viewModel.email, prompt: Text("Email").foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
                     .frame(height: 47)
+                    .focused($focused, equals: .email)
                     .overlay {
                         RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
                             .stroke(lineWidth: 1)
@@ -31,6 +35,7 @@ struct RegistrationView: View {
                 SecureField("", text: $viewModel.password, prompt: Text("Password, at least 8 characters").foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
                     .frame(height: 47)
+                    .focused($focused, equals: .password)
                     .overlay {
                         RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
                             .stroke(lineWidth: 1)
@@ -40,11 +45,22 @@ struct RegistrationView: View {
                 SecureField("", text: $viewModel.confirmationPassword, prompt: Text("Password confirmation").foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
                     .frame(height: 47)
+                    .focused($focused, equals: .passwordConfirm)
                     .overlay {
                         RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
                             .stroke(lineWidth: 1)
                             .foregroundColor($viewModel.passwordTextFieldColor.wrappedValue)
                     }
+            }.onSubmit {
+                if viewModel.email.isEmpty {
+                    focused = .email
+                } else if viewModel.password.isEmpty {
+                    focused = .password
+                } else if viewModel.confirmationPassword.isEmpty{
+                    focused = .passwordConfirm
+                } else {
+                    viewModel.didTapDoneButton()
+                }
             }
             .fontStyle(.textFieldText)
             .background(Color(ColorConstants.gray))
@@ -52,18 +68,14 @@ struct RegistrationView: View {
             .autocorrectionDisabled(true)
             .textInputAutocapitalization(.never)
             .cornerRadius(LayoutConstants.cornerRadius, corners: .allCorners)
-            
-            
             Button {
                 viewModel.didTapDoneButton()
             } label: {
                 TextView(text: "Register", font: .poppinsSemiBold, size: 14)
             }
             .buttonStyle(StandartButtonStyle())
-            //            .modifier(ButtonOpacityViewModifier(isDisabled: $viewModel.loginButtonDisabled.wrappedValue))
             .padding(.top, Spacings.spacing25)
-            //            .disabled($viewModel.loginButtonDisabled.wrappedValue ? false : true)
-            
+            .isDisabled(viewModel.registerButtonEnabled)
             Spacer()
             
             Button {
@@ -71,7 +83,14 @@ struct RegistrationView: View {
             } label: {
                 TextView(text: "Already have an accout? Log In", font: .poppinsSemiBold, size: 14)
             }
-        }.padding(Spacings.spacing30)
+        }
+        .overlay {
+            if viewModel.state == .loading {
+                CustomProgressView()
+            }
+        }
+    
+            .padding(Spacings.spacing30)
             .alert($viewModel.error.wrappedValue, isPresented: $viewModel.isShowingAlert) {
                 Button("OK") {}
             }

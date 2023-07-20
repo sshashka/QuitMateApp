@@ -11,7 +11,11 @@ import UIKit
 import SwiftUI
 
 final class RegistrationViewModel: ObservableObject {
+    enum RegistrationViewModelStates {
+        case idle, loading
+    }
     private let authentificationService: AuthentificationServiceProtocol
+    @Published var state: RegistrationViewModelStates = .idle
     var didSendEventClosure: ((RegistrationViewModel.EventType) -> Void)?
     @Published var email: String = ""
     @Published var password: String = ""
@@ -86,6 +90,7 @@ final class RegistrationViewModel: ObservableObject {
     }
     
     func didTapDoneButton() {
+        
         authentificationService.didSelectRegisterWithEmailLogin(email: email, password: password) { [weak self] result in
             switch result {
             case .success:
@@ -93,6 +98,7 @@ final class RegistrationViewModel: ObservableObject {
             case .failure(let error):
                 self?.isShowingAlert = true
                 self?.error = error
+                self?.state = .idle
             }
         }
     }

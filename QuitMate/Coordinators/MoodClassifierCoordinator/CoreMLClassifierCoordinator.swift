@@ -17,7 +17,7 @@ final class CoreMLClassifierCoordinator: CoreMLClassifierCoordinatorProtocol {
         vc.presenter?.didSendEventClosure = { [weak self] event in
             switch event {
             case .done:
-                fatalError("\(#function) is not implemented")
+                self?.showRecomendations()
             case .switchToManualClassifier:
                 self?.navigationController.popToRootViewController(animated: true)
             }
@@ -36,6 +36,13 @@ final class CoreMLClassifierCoordinator: CoreMLClassifierCoordinatorProtocol {
     
     func start() {
         showCoreMLClassifier()
+    }
+    
+    private func showRecomendations() {
+        let coordinator = RecomendationsCoordinator(navigationController)
+        coordinator.finishDelegate = finishDelegate
+        childCoordinators.append(coordinator)
+        coordinator.start()
     }
     
     required init(_ navigationController: UINavigationController) {

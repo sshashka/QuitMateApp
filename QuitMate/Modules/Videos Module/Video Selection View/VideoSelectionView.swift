@@ -24,9 +24,9 @@ struct VideoSelectionView: View {
                             .onTapGesture {
                                 viewModel.didSelectVideo(at: i)
                             }
-//                            .onAppear{
-//                                viewModel.loadMoreVideos()
-//                            }
+                            .onAppear{
+                                viewModel.loadMoreVideos(latestItem: i)
+                            }
                     }
                 }.padding(Spacings.spacing10)
             }

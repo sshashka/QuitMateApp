@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TimeAndScoreView: View {
-    @Binding var quittingDuration: String
+    var quittingDuration: String
     var body: some View {
         VStack {
             Text(quittingDuration)
@@ -27,7 +27,7 @@ struct TimeAndScoreView: View {
 
 struct TimeAndScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        @State var quitiingDuration = "3m 28d"
-        TimeAndScoreView(quittingDuration: $quitiingDuration)
+        var quitiingDuration = "3m 28d"
+        TimeAndScoreView(quittingDuration: quitiingDuration)
     }
 }

@@ -40,6 +40,7 @@ enum ProgressChartsPeriods: String {
 final class ProgressChartsViewModel: ObservableObject {
     // Divide state handling for both charts
     @Published var state: ProgressChartsState = .idle
+    private let storageService: FirebaseStorageServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     private var chartModelData: [ChartModel] = [] {
         didSet {
@@ -71,7 +72,8 @@ final class ProgressChartsViewModel: ObservableObject {
     @Published var worstDayScore = ""
     @Published var savedOnSigs = ""
     
-    init() {
+    init(storageService: FirebaseStorageServiceProtocol) {
+        self.storageService = storageService
         getChartsData()
     }
     

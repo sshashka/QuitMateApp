@@ -49,7 +49,7 @@ final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
 }
 
 extension RecomendationsCoordinator {
-    // remane
+    // rename
     enum Types {
         case moods
         case smoking

@@ -54,8 +54,13 @@ class VideoSelectionViewModel: ObservableObject {
         didSendEvetClosure?(.didSelectVideo(selectedVideoId))
     }
     
-    func loadMoreVideos() {
+    func loadMoreVideos(latestItem: Int) {
         guard let videosList else { return }
+//        guard videoInfo.last == latestItem else { return }
+        print(videoInfo.count)
+        print(latestItem)
+        // Might be more elegant solution
+        guard videoInfo.count == latestItem + 1 else { return }
         let token = videosList.nextPageToken
         guard let token else { return }
         youtubeService.loadMoreVideos(nextPageToken: token)

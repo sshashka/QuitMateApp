@@ -23,20 +23,6 @@ final class SettingsViewModel: ObservableObject {
     }
     @Published var headerViewModel: HeaderViewViewModel
     
-    func didTapLogout() {
-        // Fix
-        try? Auth.auth().signOut()
-    }
-    
-    func didTapOnAddingMood() {
-        let todayDate = Date.now.toDateComponents(neededComponents: [.year, .month, .day])
-        guard let latestDayOfClassification = UserDefaults.standard.object(forKey: UserDefaultsConstants.latestDayOfClassification) as? Date, latestDayOfClassification.toDateComponents(neededComponents: [.year, .month, .day]) != todayDate else {
-            isShowingError.toggle()
-            errorText = "Bruh"
-            return
-        }
-        didSendEventClosure?(.didTapOnNewMood)
-    }
     
     init(storageService: FirebaseStorageServiceProtocol, authService: AuthentificationServiceProtocol) {
         self.storageService = storageService
@@ -53,6 +39,24 @@ final class SettingsViewModel: ObservableObject {
             } receiveValue: {[weak self] in
                 self?.userModel = $0
             }.store(in: &disposeBag)
+    }
+    
+    func didTapLogout() {
+        // Fix
+        try? Auth.auth().signOut()
+    }
+    
+    func didTapOnAddingMood() {
+        let todayDate = Date.now.toDateComponents(neededComponents: [.year, .month, .day])
+        
+        
+        guard let latestDayOfClassification = UserDefaults.standard.object(forKey: UserDefaultsConstants.latestDayOfClassification) as? Date, latestDayOfClassification.toDateComponents(neededComponents: [.year, .month, .day]) != todayDate else {
+            isShowingError.toggle()
+            errorText = "Bruh"
+            return
+        }
+        print(latestDayOfClassification)
+        didSendEventClosure?(.didTapOnNewMood)
     }
     
     func getViewModels() {
