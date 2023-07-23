@@ -90,7 +90,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
     
     // Fix starting main flow right after user registers
     func start() {
-        
+        UINavigationBar.appearance().tintColor = UIColor(named: ColorConstants.buttonsColor)
         let loaderVC = UIHostingController(rootView: LoaderView())
         navigationController.pushWithCustomAnination(loaderVC)
         

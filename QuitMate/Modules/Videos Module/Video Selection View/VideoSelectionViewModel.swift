@@ -56,10 +56,8 @@ class VideoSelectionViewModel: ObservableObject {
     
     func loadMoreVideos(latestItem: Int) {
         guard let videosList else { return }
-//        guard videoInfo.last == latestItem else { return }
-        print(videoInfo.count)
-        print(latestItem)
         // Might be more elegant solution
+        //Should have been a check if items are the same, but that needs model to be equtable
         guard videoInfo.count == latestItem + 1 else { return }
         let token = videosList.nextPageToken
         guard let token else { return }

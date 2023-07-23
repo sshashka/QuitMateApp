@@ -109,6 +109,7 @@
 		30ABA7B429E8C7660048C97E /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABA7B329E8C7660048C97E /* DateComponents+Extension.swift */; };
 		30B2DA6F2A32342B00AC4B2E /* FirstTimeEntryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2DA6E2A32342B00AC4B2E /* FirstTimeEntryCoordinator.swift */; };
 		30B7513629F345FD00295A7E /* ClassificationResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B7513529F345FD00295A7E /* ClassificationResultModel.swift */; };
+		30B8E2102A6B4CA6002870F2 /* ProfileImagePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B8E20F2A6B4CA6002870F2 /* ProfileImagePic.swift */; };
 		30BFF1B02A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BFF1AF2A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift */; };
 		30BFF1B22A26C4A5003B7E06 /* MoodClassifierSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */; };
 		30C1CB2029F1396500F7A044 /* MoodClassifierCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */; };
@@ -153,11 +154,10 @@
 		30E9CB4629F6D9B400E1F0C2 /* StandartButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */; };
 		30F527EE2A5626580031D0F4 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527ED2A5626580031D0F4 /* UINavigationController+Extension.swift */; };
 		30F527F12A5788E00031D0F4 /* VideoSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */; };
-		30F527F32A5789140031D0F4 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527F22A5789140031D0F4 /* VideoCell.swift */; };
+		30F527F32A5789140031D0F4 /* VideoSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527F22A5789140031D0F4 /* VideoSelectionCell.swift */; };
 		30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */; };
 		30F7E58F2A2EBAA200EAE058 /* AuthentificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7E58E2A2EBAA200EAE058 /* AuthentificationView.swift */; };
 		30F7E5912A2EBC7000EAE058 /* TextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */; };
-		30FE9CDA2A62E7C900FC5858 /* UserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CD92A62E7C900FC5858 /* UserHistoryViewController.swift */; };
 		30FE9CDC2A64B35F00FC5858 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CDB2A64B35F00FC5858 /* LoaderView.swift */; };
 		30FE9CDE2A64B94600FC5858 /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CDD2A64B94600FC5858 /* UserDefaultsConstants.swift */; };
 		30FE9CE12A6611A700FC5858 /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CE02A6611A700FC5858 /* AdditionalInfoView.swift */; };
@@ -263,6 +263,7 @@
 		30ABA7B329E8C7660048C97E /* DateComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+Extension.swift"; sourceTree = "<group>"; };
 		30B2DA6E2A32342B00AC4B2E /* FirstTimeEntryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeEntryCoordinator.swift; sourceTree = "<group>"; };
 		30B7513529F345FD00295A7E /* ClassificationResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationResultModel.swift; sourceTree = "<group>"; };
+		30B8E20F2A6B4CA6002870F2 /* ProfileImagePic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePic.swift; sourceTree = "<group>"; };
 		30BFF1AF2A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierSelectionViewModel.swift; sourceTree = "<group>"; };
 		30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierCoordinator.swift; sourceTree = "<group>"; };
 		30C23CAE2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher<Bool,Never>+Extension.swift"; sourceTree = "<group>"; };
@@ -307,11 +308,10 @@
 		30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartButtonStyle.swift; sourceTree = "<group>"; };
 		30F527ED2A5626580031D0F4 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionView.swift; sourceTree = "<group>"; };
-		30F527F22A5789140031D0F4 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		30F527F22A5789140031D0F4 /* VideoSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionCell.swift; sourceTree = "<group>"; };
 		30F53D3B29A3DF2E005063D4 /* GlowEffectSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowEffectSwiftUI.swift; sourceTree = "<group>"; };
 		30F7E58E2A2EBAA200EAE058 /* AuthentificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationView.swift; sourceTree = "<group>"; };
 		30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModifier.swift; sourceTree = "<group>"; };
-		30FE9CD92A62E7C900FC5858 /* UserHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryViewController.swift; sourceTree = "<group>"; };
 		30FE9CDB2A64B35F00FC5858 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		30FE9CDD2A64B94600FC5858 /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
 		30FE9CE02A6611A700FC5858 /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */,
-				30F527F22A5789140031D0F4 /* VideoCell.swift */,
+				30F527F22A5789140031D0F4 /* VideoSelectionCell.swift */,
 				30400F532A5E12ED006D46C9 /* VideoSelectionViewModel.swift */,
 			);
 			path = "Video Selection View";
@@ -496,10 +496,8 @@
 		30400F482A5DB1BB006D46C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				306531F529E4B20500E0544F /* SettingsViewController.swift */,
-				306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */,
-				306531F929E4BB5100E0544F /* SettingsTableViewCell.swift */,
-				30A1204529FC138A0062A019 /* SettingModuleViewModule.swift */,
+				30B8E20D2A6B4A26002870F2 /* Main */,
+				30B8E20E2A6B4A30002870F2 /* Footer */,
 				3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */,
 			);
 			path = View;
@@ -598,6 +596,7 @@
 				3044405A29F7125D00AD40F2 /* RoundedCorner.swift */,
 				30549F112A3A7A4000872DAD /* ButtonWithUnderline.swift */,
 				306CB12E2A684B3800893295 /* CustomProgressView.swift */,
+				30B8E20F2A6B4CA6002870F2 /* ProfileImagePic.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -661,7 +660,6 @@
 				30783013299DA4D4003FAA10 /* Main Screen Module */,
 				301821CC299D22AF0088863C /* Auth Module */,
 				30400F6A2A62069C006D46C9 /* UserHistoryView.swift */,
-				30FE9CD92A62E7C900FC5858 /* UserHistoryViewController.swift */,
 				30FE9CDB2A64B35F00FC5858 /* LoaderView.swift */,
 			);
 			path = Modules;
@@ -795,6 +793,24 @@
 				30A0E4CE29DEF35B000CA339 /* LoginCoordinator.swift */,
 			);
 			path = AuthCoordinators;
+			sourceTree = "<group>";
+		};
+		30B8E20D2A6B4A26002870F2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				306531F529E4B20500E0544F /* SettingsViewController.swift */,
+				306531F929E4BB5100E0544F /* SettingsTableViewCell.swift */,
+				30A1204529FC138A0062A019 /* SettingModuleViewModule.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		30B8E20E2A6B4A30002870F2 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */,
+			);
+			path = Footer;
 			sourceTree = "<group>";
 		};
 		30BFF1AC2A26C148003B7E06 /* ViewModels */ = {
@@ -1061,7 +1077,6 @@
 				30F527F12A5788E00031D0F4 /* VideoSelectionView.swift in Sources */,
 				30AAD9252A106553000FF93D /* ReasonsToStopCoordinator.swift in Sources */,
 				30E9CB4029F6D0B700E1F0C2 /* TextView.swift in Sources */,
-				30FE9CDA2A62E7C900FC5858 /* UserHistoryViewController.swift in Sources */,
 				3040D9BE2A4E3D9A0089F83E /* UserInfoValidation.swift in Sources */,
 				306531F629E4B20500E0544F /* SettingsViewController.swift in Sources */,
 				30C1CB2029F1396500F7A044 /* MoodClassifierCoordinator.swift in Sources */,
@@ -1081,7 +1096,8 @@
 				30400F4D2A5DFC9E006D46C9 /* EditProfileViewModel.swift in Sources */,
 				30A0E4D229DF71AF000CA339 /* TabBarPages.swift in Sources */,
 				3098C2652A03065C008B4114 /* ProgressChartsModuleMainScreen.swift in Sources */,
-				30F527F32A5789140031D0F4 /* VideoCell.swift in Sources */,
+				30F527F32A5789140031D0F4 /* VideoSelectionCell.swift in Sources */,
+				30B8E2102A6B4CA6002870F2 /* ProfileImagePic.swift in Sources */,
 				3030D7BE2A49E2ED006BFEA1 /* ChartViewModel.swift in Sources */,
 				30FE9CDE2A64B94600FC5858 /* UserDefaultsConstants.swift in Sources */,
 				30400F5E2A5F5F56006D46C9 /* VideoInfoViewModel.swift in Sources */,

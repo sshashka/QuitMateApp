@@ -11,7 +11,7 @@ import Combine
 
 final class SettingsViewController: UIViewController {
     private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood", "Watch your history"]
-    private let gradientLayer = CAGradientLayer()
+//    private let gradientLayer = CAGradientLayer()
     private var viewModel: SettingsViewModel?
     private var disposeBag = Set<AnyCancellable>()
     private let settingsTableView: UITableView = {
@@ -60,7 +60,7 @@ private extension SettingsViewController {
         profileHeaderView.view.translatesAutoresizingMaskIntoConstraints = false
         rootStackView.insertArrangedSubview(profileHeaderView.view, at: 0)
         NSLayoutConstraint.activate([
-            profileHeaderView.view.heightAnchor.constraint(equalToConstant: view.frame.height / 3)
+            profileHeaderView.view.heightAnchor.constraint(equalToConstant: view.frame.height / 2.5)
         ])
     }
     

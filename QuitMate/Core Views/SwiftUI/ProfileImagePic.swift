@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct ProfileImagePic: View {
+    var image: Data?
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        createImage()
+            .resizable()
+            .clipped()
+            .clipShape(Circle())
+            .aspectRatio(contentMode: .fit)
+            .frame(idealWidth: 150, maxWidth: 200, idealHeight: 150, maxHeight: 200)
+//            .fixedSize()
+    }
+    
+    private func createImage() -> Image {
+        guard let image else { return Image(IconConstants.noProfilePic)}
+        let UIKitImage = UIImage(data: image)
+        guard let UIKitImage else { return Image(IconConstants.noProfilePic)}
+        return Image(uiImage: UIKitImage)
     }
 }
 

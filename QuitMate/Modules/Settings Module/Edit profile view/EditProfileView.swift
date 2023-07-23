@@ -16,66 +16,59 @@ enum EditProfileFocusFields: Hashable {
 struct EditProfileView: View {
     @State var info: String = "Info"
     @State var selectedItem: PhotosPickerItem? = nil
-//    @State private var selectedImageData: Data? = nil
+    //    @State private var selectedImageData: Data? = nil
     @StateObject var viewModel: EditProfileViewModel
     @FocusState var focus: EditProfileFocusFields?
     var body: some View {
         VStack(spacing: Spacings.spacing25) {
-            if let image = viewModel.userImage,
-               let uiImage = UIImage(data: image) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .clipShape(Circle())
-                .frame(width: 100, height: 100)
+            ProfileImagePic(image: viewModel.userImage)
+            PhotosPicker(selection: $selectedItem, matching: .images,
+                         photoLibrary: .shared()) {
+                Text("Set new photo")
+                    .fontStyle(.buttonsText)
+                    .frame(maxWidth: .infinity)
+            }.onChange(of: selectedItem) { newValue in
+                Task {
+                    // Retrive selected asset in the form of Data
+                    if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                        viewModel.udateImage(with: data)
+                    }
+                }
             }
-                PhotosPicker(selection: $selectedItem, matching: .images,
-                             photoLibrary: .shared()) {
-                    Text("Set new photo")
-                        .fontStyle(.buttonsText)
-//                        .background(Color.gray)
-                        .frame(maxWidth: .infinity)
-                }.onChange(of: selectedItem) { newValue in
-                    Task {
-                        // Retrive selected asset in the form of Data
-                        if let data = try? await newValue?.loadTransferable(type: Data.self) {
-                            viewModel.udateImage(with: data)
-                        }
-                    }
+            .onTapGesture {
+                focus = nil
+            }
+            Form {
+                Section("Personal information") {
+                    TextField("Name", text: $viewModel.userName)
+                        .focused($focus, equals: .name)
+                    TextField("Age", text: $viewModel.userAge)
+                        .focused($focus, equals: .age)
+                        .keyboardType(.numberPad)
                 }
-                .onTapGesture {
-                    focus = nil
+                
+                Section("Contact information") {
+                    TextField("Email", text: $viewModel.userEmail)
+                        .focused($focus, equals: .email)
+                        .keyboardType(.emailAddress)
                 }
-                Form {
-                    Section("Personal information") {
-                        TextField("Name", text: $viewModel.userName)
-                            .focused($focus, equals: .name)
-                        TextField("Age", text: $viewModel.userAge)
-                            .focused($focus, equals: .age)
-                            .keyboardType(.numberPad)
-                    }
-                    
-                    Section("Contact information") {
-                        TextField("Email", text: $viewModel.userEmail)
-                            .focused($focus, equals: .email)
-                            .keyboardType(.emailAddress)
-                    }
-                }.onSubmit {
-                    if focus == .name {
-                        focus = .age
-                    } else if focus == .age {
-                        focus = .email
-                    } else if focus == .email {
-                        focus = .name
-                    }
+            }.onSubmit {
+                if focus == .name {
+                    focus = .age
+                } else if focus == .age {
+                    focus = .email
+                } else if focus == .email {
+                    focus = .name
                 }
-                .fontStyle(.textFieldText)
-            }.padding()
-        }
+            }
+            .fontStyle(.textFieldText)
+        }.padding()
     }
-    
-    struct EditProfileView_Previews: PreviewProvider {
-        static var previews: some View {
-            @State var mock: String = "Info"
-            EditProfileView(info: mock, viewModel: EditProfileViewModel(storageService: FirebaseStorageService()))
-        }
+}
+
+struct EditProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        @State var mock: String = "Info"
+        EditProfileView(info: mock, viewModel: EditProfileViewModel(storageService: FirebaseStorageService()))
     }
+}

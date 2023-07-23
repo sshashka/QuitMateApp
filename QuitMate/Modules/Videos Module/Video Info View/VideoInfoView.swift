@@ -60,7 +60,7 @@ struct VideoInfoView: View {
                             Text("0:30")
                                 .fontStyle(.poppinsSemibold16)
                         }
-                        Spacer()
+                        
                     }.padding([.bottom, .horizontal], Spacings.spacing30)
                 }
                 Button {
@@ -72,7 +72,8 @@ struct VideoInfoView: View {
                             .fontStyle(.buttonsText)
                     }
                 }.buttonStyle(StandartButtonStyle())
-                    .padding([.horizontal, .bottom], Spacings.spacing30)
+                    .padding(.horizontal, Spacings.spacing30)
+                Spacer(minLength: Spacings.spacing15)
             }
         }
     }

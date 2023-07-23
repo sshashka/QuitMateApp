@@ -13,12 +13,21 @@ struct UserHistoryView: View {
     }
     @State var selectedHistory: TypesOfUserHistory = .moods
     var body: some View {
-        Picker("", selection: $selectedHistory) {
-            Text("Moods")
-                .tag(TypesOfUserHistory.moods)
-            Text("Timer resets")
-                .tag(TypesOfUserHistory.timerResets)
-        }.pickerStyle(.segmented)
+        VStack {
+            Picker("Select a type of history:", selection: $selectedHistory) {
+                Text("Moods")
+                    .tag(TypesOfUserHistory.moods)
+                Text("Timer resets")
+                    .tag(TypesOfUserHistory.timerResets)
+            }.pickerStyle(.segmented)
+            ScrollView {
+                LazyVStack {
+                    ForEach(0..<100) { id in
+                        Text("Sas + \(id)")
+                    }
+                }.padding(Spacings.spacing30)
+            }
+        }
     }
 }
 
