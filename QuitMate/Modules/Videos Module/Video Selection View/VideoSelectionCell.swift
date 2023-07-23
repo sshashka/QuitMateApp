@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct VideoCell: View {
+struct VideoSelectionCell: View {
     let url: String
     let title: String
     let descriplion: String
@@ -50,6 +50,6 @@ struct VideoCell: View {
 
 struct VideoCell_Previews: PreviewProvider {
     static var previews: some View {
-        VideoCell(url: "https://img.youtube.com/vi/ZDoCpWJ-Y28/mqdefault.jpg", title: "DAFDSFSDFFDSFDSF", descriplion: "SAdfsfsfsd", duration: "232423")
+        VideoSelectionCell(url: "https://img.youtube.com/vi/ZDoCpWJ-Y28/mqdefault.jpg", title: "DAFDSFSDFFDSFDSF", descriplion: "SAdfsfsfsd", duration: "232423")
     }
 }
