@@ -537,13 +537,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		3048CD3129AD71B90016308B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		304EC1A72A03BC65001667FC /* Core Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,7 +626,6 @@
 			children = (
 				302B48C829F967E20031CFE6 /* ViewModel */,
 				30E9CB3429F6AFCB00E1F0C2 /* Views */,
-				3048CD3129AD71B90016308B /* Models */,
 			);
 			path = "Main Screen Module";
 			sourceTree = "<group>";
