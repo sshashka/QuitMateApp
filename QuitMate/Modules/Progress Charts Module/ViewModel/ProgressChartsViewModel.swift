@@ -74,7 +74,7 @@ final class ProgressChartsViewModel: ObservableObject {
     
     init(storageService: FirebaseStorageServiceProtocol) {
         self.storageService = storageService
-        getChartsData()
+//        getChartsData()
     }
     
     private lazy var currentDate: Date = {
@@ -83,11 +83,14 @@ final class ProgressChartsViewModel: ObservableObject {
     private lazy var calendar: Calendar = {
         return Calendar.current
     }()
+    
+    func start() {
+        getChartsData()
+    }
 }
 
-extension ProgressChartsViewModel {
-    
-    private func getChartsData() {
+private extension ProgressChartsViewModel {
+    func getChartsData() {
         state = .loading
         FirebaseStorageService().getChartsData()
             .sink { finish in
@@ -100,8 +103,8 @@ extension ProgressChartsViewModel {
             }.store(in: &cancellables)
     }
     
-    // check for availability for longer periods
-    private func filterChartsData(for period: ProgressChartsPeriods) {
+    //TODO: check for availability for longer periods
+    func filterChartsData(for period: ProgressChartsPeriods) {
         switch period {
         case .oneMonth:
             dataForCharts = filterForMonths(months: period.valueOfPeriod)
@@ -119,7 +122,7 @@ extension ProgressChartsViewModel {
         }
     }
     
-    private func filterForWeeks(days: Int) -> [ChartModel] {
+    func filterForWeeks(days: Int) -> [ChartModel] {
         //    private let oneWeekAgo = calendar.date(byAdding: .weekday, value: -7, to: currentDate)!
         let period = calendar.date(byAdding: .weekday, value: -days,to: currentDate)!
         return chartModelData.filter({
@@ -127,14 +130,14 @@ extension ProgressChartsViewModel {
         })
     }
     
-    private func filterForMonths(months: Int) -> [ChartModel] {
+    func filterForMonths(months: Int) -> [ChartModel] {
         let period = calendar.date(byAdding: .month, value: -months, to: currentDate)!
         return chartModelData.filter {
             $0.dateOfClassification > period && $0.dateOfClassification < currentDate
         }
     }
     
-    private func getStatistics() {
+    func getStatistics() {
         let maxScoreDay = dataForCharts.max(by: {
             $0.scoreForUser < $1.scoreForUser
         })

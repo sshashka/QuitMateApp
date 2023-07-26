@@ -33,6 +33,7 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(rootStackView)
         view.backgroundColor = .systemBackground
+//        self.title = "Settings"
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
 //        setupHeaderProfileView()

@@ -53,10 +53,12 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         let vc = SettingsViewController(viewModel: vm)
         navigationController.pushViewController(vc, animated: true)
+//        navigationController.title = "Settings"
     }
     
     private func showHistory() {
-        let vc = UIHostingController(rootView: UserHistoryView())
+        let vm = UserHistoryViewModel(storageService: storageService)
+        let vc = UIHostingController(rootView: UserHistoryView(viewModel: vm))
         navigationController.pushViewController(vc, animated: true)
     }
     

@@ -19,7 +19,7 @@ final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
         let recomendationsVC = UIHostingController(rootView: RecomendationsView(viewModel: viewModel))
         viewModel.didSendEventClosure = { [weak self] event in
             // Remove this when push notififcation support added
-            self?.navigationController.tabBarController?.tabBar.isHidden = false
+//            self?.navigationController.tabBarController?.tabBar.isHidden = false
             self?.finish()
         }
         navigationController.pushViewController(recomendationsVC, animated: true)
@@ -29,9 +29,9 @@ final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
     
     var navigationController: UINavigationController
     
-    var childCoordinators: [Coordinator] = []
+    var recomendationType: RecomendationsViewModel.TypeOfRecomendation = .moodRecomendation
     
-    var recomendationType: Types = .moods
+    var childCoordinators: [Coordinator] = []
     
     var type: CoordinatorType { .recomendations }
     
@@ -45,13 +45,5 @@ final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
     
     deinit {
         print("\(self) is deinited")
-    }
-}
-
-extension RecomendationsCoordinator {
-    // rename
-    enum Types {
-        case moods
-        case smoking
     }
 }

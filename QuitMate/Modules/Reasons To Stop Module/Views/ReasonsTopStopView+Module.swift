@@ -9,8 +9,9 @@ import Foundation
 
 extension ReasonsToStopViewController {
     static var module: ReasonsToStopViewController {
+        let storageService = FirebaseStorageService()
         let view = ReasonsToStopViewController()
-        let presenter = ReasonsToStopModulePresenter(view: view)
+        let presenter = ReasonsToStopModulePresenter(storageService: storageService, view: view)
         view.presenter = presenter
         return view
     }

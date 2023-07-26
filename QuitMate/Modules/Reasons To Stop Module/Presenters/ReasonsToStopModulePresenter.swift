@@ -8,14 +8,14 @@
 import Foundation
 
 final class ReasonsToStopModulePresenter: ReasonsToStopPresenterProtocol {
-    
+    private let storageService: FirebaseStorageServiceProtocol
     var didSendEventClosure: ((ReasonsToStopModulePresenter.EventType) -> Void)?
     let array = ["Nicotine addiction", "Stress", "Social situations", "Habits and routines", "Weight gain", "Boredom", "Lack of support", "Alcohol consumption", "Advertising", "Low mood", "Peer pressure", "Mental health conditions", "Lack of information", "Feeling overwhelmed", "Lack of alternatives", "The belief that smoking is enjoyable", "Access to cigarettes", "Lack of commitment", "Lack of self-efficacy", "Fear of failure"]
     weak var view: ReasonsToStopViewProtocol?
     
-    init(view: ReasonsToStopViewProtocol) {
+    init(storageService: FirebaseStorageServiceProtocol, view: ReasonsToStopViewProtocol) {
+        self.storageService = storageService
         self.view = view
-        
     }
     
     func showArrayOfReasons() {
@@ -28,13 +28,12 @@ final class ReasonsToStopModulePresenter: ReasonsToStopPresenterProtocol {
             return array[index]
         }
         // Remove, make it something like assosiated value
-        UserDefaults.standard.set(selectedReasons, forKey: "UserSmoked")
-        didSendEventClosure?(.done)
+        didSendEventClosure?(.done(selectedReasons))
     }
 }
 
 extension ReasonsToStopModulePresenter {
     enum EventType {
-        case done
+        case done([String])
     }
 }

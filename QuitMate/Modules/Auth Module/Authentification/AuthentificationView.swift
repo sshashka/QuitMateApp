@@ -99,7 +99,7 @@ struct AuthentificationView: View {
                     .fontStyle(.clearButtonsText)
             }
         }.padding(Spacings.spacing30)
-            .overlay{
+            .overlay {
                 if viewModel.state == .loading {
                     CustomProgressView()
                 }

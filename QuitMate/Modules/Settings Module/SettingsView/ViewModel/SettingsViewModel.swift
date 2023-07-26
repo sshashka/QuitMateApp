@@ -14,7 +14,7 @@ final class SettingsViewModel: ObservableObject {
     private let authService: AuthentificationServiceProtocol
     var didSendEventClosure: ((SettingsViewModel.EventType) -> Void)?
     private var disposeBag = Set<AnyCancellable>()
-    @Published var isShowingError: Bool = false
+    @Published var isShowingAlert: Bool = false
     private (set) var errorText: String = ""
     @Published var userModel: User? {
         didSet {
@@ -33,6 +33,7 @@ final class SettingsViewModel: ObservableObject {
     }
     
     func getUserModel() {
+//        storageService.userPublisher
         storageService.getUserModel()
             .sink {
                 print($0)
@@ -49,9 +50,8 @@ final class SettingsViewModel: ObservableObject {
     func didTapOnAddingMood() {
         let todayDate = Date.now.toDateComponents(neededComponents: [.year, .month, .day])
         
-        
         guard let latestDayOfClassification = UserDefaults.standard.object(forKey: UserDefaultsConstants.latestDayOfClassification) as? Date, latestDayOfClassification.toDateComponents(neededComponents: [.year, .month, .day]) != todayDate else {
-            isShowingError.toggle()
+            isShowingAlert.toggle()
             errorText = "Bruh"
             return
         }

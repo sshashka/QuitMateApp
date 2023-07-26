@@ -100,7 +100,6 @@
 		30A2453A2A40FAE000AA0093 /* RecomendationPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A245392A40FAE000AA0093 /* RecomendationPrompts.swift */; };
 		30A2453C2A41151500AA0093 /* RecomendationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2453B2A41151500AA0093 /* RecomendationsCoordinator.swift */; };
 		30A69C8B2A43B3D2008D847B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A69C8A2A43B3D2008D847B /* View+Extension.swift */; };
-		30A7636D2A01BC1E00C91C6A /* ProgressChartsModuleHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7636C2A01BC1E00C91C6A /* ProgressChartsModuleHostingViewController.swift */; };
 		30A7636F2A01BE9300C91C6A /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7636E2A01BE9300C91C6A /* Binding+Extension.swift */; };
 		30AAD91B2A0E4BB7000FF93D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD91A2A0E4BB7000FF93D /* SettingsViewModel.swift */; };
 		30AAD9212A0EFB72000FF93D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD9202A0EFB72000FF93D /* User.swift */; };
@@ -145,6 +144,9 @@
 		30E0C88329F1DA670011F736 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E0C87229F1DA670011F736 /* Poppins-MediumItalic.ttf */; };
 		30E69D852A41C85F00213F9D /* ReasonsToStopNewFinishingDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E69D842A41C85F00213F9D /* ReasonsToStopNewFinishingDateView.swift */; };
 		30E69D872A41C95500213F9D /* ReasonsToStopNewFinishingDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E69D862A41C95500213F9D /* ReasonsToStopNewFinishingDateViewModel.swift */; };
+		30E8A3382A6DF32F00334693 /* AdditionalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8A3372A6DF32F00334693 /* AdditionalInfoCell.swift */; };
+		30E8A3402A6E034300334693 /* AdditionalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8A33F2A6E034300334693 /* AdditionalInfoViewModel.swift */; };
+		30E8A3422A6E05BF00334693 /* AdditionalInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8A3412A6E05BF00334693 /* AdditionalInfoModel.swift */; };
 		30E9CB3629F6AFF000E1F0C2 /* UserProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB3529F6AFF000E1F0C2 /* UserProgressView.swift */; };
 		30E9CB3829F6B1CA00E1F0C2 /* ProgressPercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB3729F6B1CA00E1F0C2 /* ProgressPercentageView.swift */; };
 		30E9CB3E29F6D02C00E1F0C2 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB3D29F6D02C00E1F0C2 /* MainScreenView.swift */; };
@@ -152,6 +154,8 @@
 		30E9CB4229F6D13800E1F0C2 /* QuittingInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4129F6D13800E1F0C2 /* QuittingInformationView.swift */; };
 		30E9CB4429F6D40800E1F0C2 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4329F6D40800E1F0C2 /* StatsView.swift */; };
 		30E9CB4629F6D9B400E1F0C2 /* StandartButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */; };
+		30E9FE162A7028060061BCBE /* UserHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9FE152A7028060061BCBE /* UserHistoryModel.swift */; };
+		30E9FE182A707B1B0061BCBE /* UserHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9FE172A707B1B0061BCBE /* UserHistoryViewModel.swift */; };
 		30F527EE2A5626580031D0F4 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527ED2A5626580031D0F4 /* UINavigationController+Extension.swift */; };
 		30F527F12A5788E00031D0F4 /* VideoSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */; };
 		30F527F32A5789140031D0F4 /* VideoSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F527F22A5789140031D0F4 /* VideoSelectionCell.swift */; };
@@ -196,7 +200,6 @@
 		3037166829F2074400846D65 /* MoodClassifierViewController+Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodClassifierViewController+Module.swift"; sourceTree = "<group>"; };
 		303A3F3B2A2E8E510006B903 /* IconConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconConstants.swift; sourceTree = "<group>"; };
 		303B9EB729C1C415008D2C64 /* ReasonsToStopViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopViewProtocol.swift; sourceTree = "<group>"; };
-		30400F422A5D7718006D46C9 /* QuitMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30400F432A5D77B3006D46C9 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		30400F462A5D8250006D46C9 /* VideoInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoView.swift; sourceTree = "<group>"; };
 		30400F4A2A5DB1D6006D46C9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -254,7 +257,6 @@
 		30A245392A40FAE000AA0093 /* RecomendationPrompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationPrompts.swift; sourceTree = "<group>"; };
 		30A2453B2A41151500AA0093 /* RecomendationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsCoordinator.swift; sourceTree = "<group>"; };
 		30A69C8A2A43B3D2008D847B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		30A7636C2A01BC1E00C91C6A /* ProgressChartsModuleHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartsModuleHostingViewController.swift; sourceTree = "<group>"; };
 		30A7636E2A01BE9300C91C6A /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		30AAD91A2A0E4BB7000FF93D /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		30AAD9202A0EFB72000FF93D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -299,6 +301,9 @@
 		30E0C87229F1DA670011F736 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		30E69D842A41C85F00213F9D /* ReasonsToStopNewFinishingDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopNewFinishingDateView.swift; sourceTree = "<group>"; };
 		30E69D862A41C95500213F9D /* ReasonsToStopNewFinishingDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopNewFinishingDateViewModel.swift; sourceTree = "<group>"; };
+		30E8A3372A6DF32F00334693 /* AdditionalInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoCell.swift; sourceTree = "<group>"; };
+		30E8A33F2A6E034300334693 /* AdditionalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewModel.swift; sourceTree = "<group>"; };
+		30E8A3412A6E05BF00334693 /* AdditionalInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoModel.swift; sourceTree = "<group>"; };
 		30E9CB3529F6AFF000E1F0C2 /* UserProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgressView.swift; sourceTree = "<group>"; };
 		30E9CB3729F6B1CA00E1F0C2 /* ProgressPercentageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressPercentageView.swift; sourceTree = "<group>"; };
 		30E9CB3D29F6D02C00E1F0C2 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -306,6 +311,9 @@
 		30E9CB4129F6D13800E1F0C2 /* QuittingInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuittingInformationView.swift; sourceTree = "<group>"; };
 		30E9CB4329F6D40800E1F0C2 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		30E9CB4529F6D9B400E1F0C2 /* StandartButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartButtonStyle.swift; sourceTree = "<group>"; };
+		30E9FE092A6F14730061BCBE /* QuitMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30E9FE152A7028060061BCBE /* UserHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryModel.swift; sourceTree = "<group>"; };
+		30E9FE172A707B1B0061BCBE /* UserHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryViewModel.swift; sourceTree = "<group>"; };
 		30F527ED2A5626580031D0F4 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionView.swift; sourceTree = "<group>"; };
 		30F527F22A5789140031D0F4 /* VideoSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionCell.swift; sourceTree = "<group>"; };
@@ -424,9 +432,8 @@
 		30296FC02A5C216600DEC32B /* Video Selection View */ = {
 			isa = PBXGroup;
 			children = (
-				30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */,
-				30F527F22A5789140031D0F4 /* VideoSelectionCell.swift */,
-				30400F532A5E12ED006D46C9 /* VideoSelectionViewModel.swift */,
+				30E9FE132A6F1C620061BCBE /* ViewModel */,
+				30E9FE142A6F1C6A0061BCBE /* View */,
 			);
 			path = "Video Selection View";
 			sourceTree = "<group>";
@@ -444,15 +451,6 @@
 				30FE9CDD2A64B94600FC5858 /* UserDefaultsConstants.swift */,
 			);
 			path = Constants;
-			sourceTree = "<group>";
-		};
-		302B48C829F967E20031CFE6 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				302B48C929F967F30031CFE6 /* MainScreenViewModel.swift */,
-				302031792A2EB14D0001716F /* StatiscticsViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		302C494829FB268B00D43421 /* Manual Mood Classifier */ = {
@@ -498,7 +496,7 @@
 			children = (
 				30B8E20D2A6B4A26002870F2 /* Main */,
 				30B8E20E2A6B4A30002870F2 /* Footer */,
-				3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */,
+				30E9FE122A6F1C4C0061BCBE /* Header */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -624,8 +622,8 @@
 		30783013299DA4D4003FAA10 /* Main Screen Module */ = {
 			isa = PBXGroup;
 			children = (
-				302B48C829F967E20031CFE6 /* ViewModel */,
-				30E9CB3429F6AFCB00E1F0C2 /* Views */,
+				30E8A33A2A6DF80D00334693 /* Additional Info */,
+				30FE9CDF2A66118400FC5858 /* Main Screen */,
 			);
 			path = "Main Screen Module";
 			sourceTree = "<group>";
@@ -651,7 +649,7 @@
 				30A8A1B729A553EC00EC4232 /* Progress Charts Module */,
 				30783013299DA4D4003FAA10 /* Main Screen Module */,
 				301821CC299D22AF0088863C /* Auth Module */,
-				30400F6A2A62069C006D46C9 /* UserHistoryView.swift */,
+				30E9FE192A707DA60061BCBE /* User History Module */,
 				30FE9CDB2A64B35F00FC5858 /* LoaderView.swift */,
 			);
 			path = Modules;
@@ -745,7 +743,6 @@
 				3040D9BC2A4E3D140089F83E /* ViewModel */,
 				3098C25D2A028C92008B4114 /* View */,
 				30A1205929FD22A10062A019 /* ChartModel.swift */,
-				30A7636C2A01BC1E00C91C6A /* ProgressChartsModuleHostingViewController.swift */,
 				3030D7BD2A49E2ED006BFEA1 /* ChartViewModel.swift */,
 			);
 			path = "Progress Charts Module";
@@ -763,9 +760,8 @@
 		30AAD91C2A0E6702000FF93D /* Firebase Services */ = {
 			isa = PBXGroup;
 			children = (
-				30A1200529FBE7AF0062A019 /* FirebaseStorageService.swift */,
-				301821CE299D79C10088863C /* FirebaseAuthentificationService.swift */,
-				30C338EA2A538BA40000E6CC /* FirebaseAuthStateHandler.swift */,
+				30E9FE1A2A71C4130061BCBE /* Storage Service */,
+				30E9FE1B2A71C41C0061BCBE /* Auth Services */,
 			);
 			path = "Firebase Services";
 			sourceTree = "<group>";
@@ -831,7 +827,7 @@
 			isa = PBXGroup;
 			children = (
 				30CA1B3F299AE191001E5BF3 /* QuitMate */,
-				30400F422A5D7718006D46C9 /* QuitMate.app */,
+				30E9FE092A6F14730061BCBE /* QuitMate.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -904,13 +900,25 @@
 			path = Poppins;
 			sourceTree = "<group>";
 		};
-		30E9CB3429F6AFCB00E1F0C2 /* Views */ = {
+		30E8A3392A6DF7E500334693 /* Supplementary Views */ = {
 			isa = PBXGroup;
 			children = (
-				30FE9CDF2A66118400FC5858 /* Main Screen */,
-				30FE9CE02A6611A700FC5858 /* AdditionalInfoView.swift */,
+				30E9FE0C2A6F19960061BCBE /* Header */,
+				30E9FE0B2A6F19780061BCBE /* Quitting Information */,
+				30E9FE0A2A6F195D0061BCBE /* Progress In Percentage */,
+				3044405E29F7438700AD40F2 /* TimeAndScoreView.swift */,
 			);
-			path = Views;
+			path = "Supplementary Views";
+			sourceTree = "<group>";
+		};
+		30E8A33A2A6DF80D00334693 /* Additional Info */ = {
+			isa = PBXGroup;
+			children = (
+				30E9FE0F2A6F1BA90061BCBE /* View */,
+				30E9FE102A6F1BAF0061BCBE /* ViewModel */,
+				30E9FE112A6F1BB50061BCBE /* Model */,
+			);
+			path = "Additional Info";
 			sourceTree = "<group>";
 		};
 		30E9CB4D29F6E6D400E1F0C2 /* App */ = {
@@ -920,6 +928,128 @@
 				30C338EC2A538C810000E6CC /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		30E9FE0A2A6F195D0061BCBE /* Progress In Percentage */ = {
+			isa = PBXGroup;
+			children = (
+				30E9CB3729F6B1CA00E1F0C2 /* ProgressPercentageView.swift */,
+				30E9CB3529F6AFF000E1F0C2 /* UserProgressView.swift */,
+			);
+			path = "Progress In Percentage";
+			sourceTree = "<group>";
+		};
+		30E9FE0B2A6F19780061BCBE /* Quitting Information */ = {
+			isa = PBXGroup;
+			children = (
+				30E9CB4329F6D40800E1F0C2 /* StatsView.swift */,
+				30E9CB4129F6D13800E1F0C2 /* QuittingInformationView.swift */,
+			);
+			path = "Quitting Information";
+			sourceTree = "<group>";
+		};
+		30E9FE0C2A6F19960061BCBE /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				3044405C29F741B500AD40F2 /* HeaderView.swift */,
+				30400F432A5D77B3006D46C9 /* SettingsButton.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		30E9FE0D2A6F1B0B0061BCBE /* Main Screen ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				302B48C929F967F30031CFE6 /* MainScreenViewModel.swift */,
+				302031792A2EB14D0001716F /* StatiscticsViewModel.swift */,
+			);
+			path = "Main Screen ViewModels";
+			sourceTree = "<group>";
+		};
+		30E9FE0E2A6F1B770061BCBE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30E9CB3D29F6D02C00E1F0C2 /* MainScreenView.swift */,
+				30E8A3392A6DF7E500334693 /* Supplementary Views */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		30E9FE0F2A6F1BA90061BCBE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30FE9CE02A6611A700FC5858 /* AdditionalInfoView.swift */,
+				30E8A3372A6DF32F00334693 /* AdditionalInfoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		30E9FE102A6F1BAF0061BCBE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30E8A33F2A6E034300334693 /* AdditionalInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		30E9FE112A6F1BB50061BCBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30E8A3412A6E05BF00334693 /* AdditionalInfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30E9FE122A6F1C4C0061BCBE /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		30E9FE132A6F1C620061BCBE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30400F532A5E12ED006D46C9 /* VideoSelectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		30E9FE142A6F1C6A0061BCBE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30F527F02A5788E00031D0F4 /* VideoSelectionView.swift */,
+				30F527F22A5789140031D0F4 /* VideoSelectionCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		30E9FE192A707DA60061BCBE /* User History Module */ = {
+			isa = PBXGroup;
+			children = (
+				30E9FE152A7028060061BCBE /* UserHistoryModel.swift */,
+				30400F6A2A62069C006D46C9 /* UserHistoryView.swift */,
+				30E9FE172A707B1B0061BCBE /* UserHistoryViewModel.swift */,
+			);
+			path = "User History Module";
+			sourceTree = "<group>";
+		};
+		30E9FE1A2A71C4130061BCBE /* Storage Service */ = {
+			isa = PBXGroup;
+			children = (
+				30A1200529FBE7AF0062A019 /* FirebaseStorageService.swift */,
+			);
+			path = "Storage Service";
+			sourceTree = "<group>";
+		};
+		30E9FE1B2A71C41C0061BCBE /* Auth Services */ = {
+			isa = PBXGroup;
+			children = (
+				301821CE299D79C10088863C /* FirebaseAuthentificationService.swift */,
+				30C338EA2A538BA40000E6CC /* FirebaseAuthStateHandler.swift */,
+			);
+			path = "Auth Services";
 			sourceTree = "<group>";
 		};
 		30F527EF2A5788CA0031D0F4 /* Videos Module */ = {
@@ -937,14 +1067,8 @@
 		30FE9CDF2A66118400FC5858 /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
-				30E9CB4329F6D40800E1F0C2 /* StatsView.swift */,
-				30E9CB3D29F6D02C00E1F0C2 /* MainScreenView.swift */,
-				3044405C29F741B500AD40F2 /* HeaderView.swift */,
-				30E9CB3729F6B1CA00E1F0C2 /* ProgressPercentageView.swift */,
-				30E9CB3529F6AFF000E1F0C2 /* UserProgressView.swift */,
-				30E9CB4129F6D13800E1F0C2 /* QuittingInformationView.swift */,
-				3044405E29F7438700AD40F2 /* TimeAndScoreView.swift */,
-				30400F432A5D77B3006D46C9 /* SettingsButton.swift */,
+				30E9FE0E2A6F1B770061BCBE /* View */,
+				30E9FE0D2A6F1B0B0061BCBE /* Main Screen ViewModels */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";
@@ -977,7 +1101,7 @@
 				30400F682A61686E006D46C9 /* YoutubeKit */,
 			);
 			productName = QuitMate;
-			productReference = 30400F422A5D7718006D46C9 /* QuitMate.app */;
+			productReference = 30E9FE092A6F14730061BCBE /* QuitMate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1073,6 +1197,7 @@
 				306531F629E4B20500E0544F /* SettingsViewController.swift in Sources */,
 				30C1CB2029F1396500F7A044 /* MoodClassifierCoordinator.swift in Sources */,
 				3078302229A2DD25003FAA10 /* ColorConstants.swift in Sources */,
+				30E9FE182A707B1B0061BCBE /* UserHistoryViewModel.swift in Sources */,
 				30AAD91B2A0E4BB7000FF93D /* SettingsViewModel.swift in Sources */,
 				30AAD9212A0EFB72000FF93D /* User.swift in Sources */,
 				30F7E5912A2EBC7000EAE058 /* TextViewModifier.swift in Sources */,
@@ -1126,6 +1251,7 @@
 				30727A1C2A33E56C004A29B6 /* PoppinsTextStyles.swift in Sources */,
 				30E9CB3629F6AFF000E1F0C2 /* UserProgressView.swift in Sources */,
 				304EC1A92A03BEE0001667FC /* ProgressStatsView.swift in Sources */,
+				30E8A3382A6DF32F00334693 /* AdditionalInfoCell.swift in Sources */,
 				30A1200629FBE7B00062A019 /* FirebaseStorageService.swift in Sources */,
 				3057162229C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift in Sources */,
 				30FE9CDC2A64B35F00FC5858 /* LoaderView.swift in Sources */,
@@ -1147,6 +1273,7 @@
 				30400F4F2A5E027F006D46C9 /* YoutubeApiResponce.swift in Sources */,
 				30CA1B55299AE573001E5BF3 /* UIView+Extension.swift in Sources */,
 				30A1200029FB338C0062A019 /* ManualMoodClassifierModuleViewModel.swift in Sources */,
+				30E8A3402A6E034300334693 /* AdditionalInfoViewModel.swift in Sources */,
 				304A29662A30BBFB00AC2458 /* AuthentificationViewModel.swift in Sources */,
 				30BFF1B02A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift in Sources */,
 				302C494C29FB26FC00D43421 /* MoodSelectionView.swift in Sources */,
@@ -1160,6 +1287,7 @@
 				30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */,
 				30549F172A3A7E7600872DAD /* FirstTimeEntryViewModel.swift in Sources */,
 				306531F829E4B84800E0544F /* SettingsTableViewFooterView.swift in Sources */,
+				30E8A3422A6E05BF00334693 /* AdditionalInfoModel.swift in Sources */,
 				3044406129F7456E00AD40F2 /* Spacings.swift in Sources */,
 				30400F542A5E12ED006D46C9 /* VideoSelectionViewModel.swift in Sources */,
 				3025FF402A119881002D71A8 /* CoreMLClassifierCoordinator.swift in Sources */,
@@ -1168,6 +1296,7 @@
 				306CB12F2A684B3800893295 /* CustomProgressView.swift in Sources */,
 				3098C25F2A028CC6008B4114 /* FilterMenuView.swift in Sources */,
 				30400F4B2A5DB1D6006D46C9 /* EditProfileView.swift in Sources */,
+				30E9FE162A7028060061BCBE /* UserHistoryModel.swift in Sources */,
 				302B48C229F9442B0031CFE6 /* AuthentificationModuleConstants.swift in Sources */,
 				30E69D872A41C95500213F9D /* ReasonsToStopNewFinishingDateViewModel.swift in Sources */,
 				304EC1A62A03BBE7001667FC /* ProgressStatsViewContainer.swift in Sources */,
@@ -1178,7 +1307,6 @@
 				303A3F3C2A2E8E510006B903 /* IconConstants.swift in Sources */,
 				30A1204829FC13A70062A019 /* ProgressChartsViewModel.swift in Sources */,
 				306531FA29E4BB5100E0544F /* SettingsTableViewCell.swift in Sources */,
-				30A7636D2A01BC1E00C91C6A /* ProgressChartsModuleHostingViewController.swift in Sources */,
 				3078300E299D82B8003FAA10 /* UIButton+Extension.swift in Sources */,
 				302EEE3329EB686C005732E3 /* UserMoodClassifierService.swift in Sources */,
 			);
@@ -1333,7 +1461,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuitMate/QuitMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuitMate/Info.plist;
@@ -1372,7 +1500,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuitMate/QuitMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuitMate/Info.plist;

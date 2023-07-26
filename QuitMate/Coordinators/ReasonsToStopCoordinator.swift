@@ -20,9 +20,10 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     
     var type: CoordinatorType { .reasonsToStop }
     
+    var selectedReasons = [String]()
+    
     func start() {
         navigationController.setNavigationBarHidden(false, animated: true)
-        
         showReasonsToStop()
     }
     
@@ -37,7 +38,11 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     func showReasonsToStop() {
         let vc = ReasonsToStopViewController.module
         vc.presenter?.didSendEventClosure = { [weak self] event in
-            self?.showFinishingDate()
+            switch event {
+            case .done(let reasons):
+                self?.showFinishingDate()
+                self?.selectedReasons = reasons
+            }
         }
         vc.title = "Timer reset"
         navigationController.pushWithCustomAnination(vc)
@@ -55,7 +60,8 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     
     func showRecomendations() {
         let recomendationsCoordinator = RecomendationsCoordinator(navigationController)
-        recomendationsCoordinator.recomendationType = .smoking
+        recomendationsCoordinator.recomendationType = .timerResetRecomendation(selectedReasons)
+//        recomendationsCoordinator.recomendationType = .smoking
         recomendationsCoordinator.finishDelegate = finishDelegate
         childCoordinators.append(recomendationsCoordinator)
         recomendationsCoordinator.start()

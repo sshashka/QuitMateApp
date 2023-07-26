@@ -41,6 +41,9 @@ struct ProgressChartsModuleMainScreen: View {
                     //                        .frame(height: frame.size.height * 4/10)
                 }
             }.padding(Spacings.spacing20)
+                .onAppear {
+                    viewModel.start()
+                }
         }.navigationTitle("Chart for this week")
     }
 }
