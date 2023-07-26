@@ -30,14 +30,16 @@ class EditProfileViewModel: ObservableObject {
     }
     
     private func downloadUser() {
-        storageService.getUserModel().sink {
+//        storageService.userPublisher
+        storageService.getUserModel()
+            .sink {
             print($0)
         } receiveValue: { [weak self] user in
             self?.user = user
         }.store(in: &disposeBag)
     }
     
-    func udateImage(with image: Data) {
+    func updateImage(with image: Data) {
         userImage = image
         storageService.updateUserProfilePic(with: image)
     }

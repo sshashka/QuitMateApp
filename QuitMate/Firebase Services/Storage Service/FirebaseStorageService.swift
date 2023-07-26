@@ -13,6 +13,7 @@ import UIKit
 enum FirebaseStorageServiceReferences: String {
     case moods = "User-Moods"
     case user = "User"
+    case history = "History"
 }
 
 protocol FirebaseStorageServiceProtocol: AnyObject {
@@ -23,12 +24,17 @@ protocol FirebaseStorageServiceProtocol: AnyObject {
 //    func getUserStatistics() -> AnyPublisher<[User], Error>
     func getUserModel() -> AnyPublisher<User, Error>
     func updateUserFinishingDate(with date: Date)
+    func addRecordToUserHistory(record: UserHistoryModel)
     func updateUserProfilePic(with: Data)
+    func getUserHistory() -> AnyPublisher<[UserHistoryModel], Error>
+//    var userPublisher: CurrentValueSubject<User?, Error> {get}
 }
 
 final class FirebaseStorageService: FirebaseStorageServiceProtocol {
     
     var cancellables = Set<AnyCancellable>()
+    
+    var userPublisher = CurrentValueSubject<User?, Error>(nil)
     
     private lazy var userId: String? = {
         let id = UserDefaults.standard.string(forKey: UserDefaultsConstants.userId)
@@ -106,11 +112,36 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
             } else if (snapshot.value as Any?) != nil {
                 let user = try? snapshot.data(as: User.self)
                 if let user = user {
+//                    self?.userPublisher.send(user)
                     subject.send(user)
                 }
             }
         }
         return subject.eraseToAnyPublisher()
+    }
+    
+    func getUserHistory() -> AnyPublisher<[UserHistoryModel], Error> {
+        let reference = getChildReference(for: .history).child(userId!)
+        let subject = PassthroughSubject<[UserHistoryModel], Error>()
+        
+        reference.observe(.value) { snapshot, error in
+            if let error = error {
+                subject.send(completion: .failure(error as! Error))
+            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
+                let dataForCharts = children.compactMap { snapshot in
+                    try? snapshot.data(as: UserHistoryModel.self)
+                }
+//                print("Data for charts \(dataForCharts)")
+                subject.send(dataForCharts)
+            }
+            
+        }
+        return subject.eraseToAnyPublisher()
+    }
+    
+    func addRecordToUserHistory(record: UserHistoryModel) {
+        let reference = getChildReference(for: .history).child(userId!).childByAutoId()
+       try? reference.setValue(from: record)
     }
     
     func updateUserProfilePic(with image: Data) {

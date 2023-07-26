@@ -35,29 +35,32 @@ struct FirstTimeEntryView: View {
                             focusedField = selectedField
                         }
                     }
+                
+                // Add support for changing currency
+                TextFieldWithUnderlineView(headerText: "How much money do you spend on cigarets daily?", text: $viewModel.moneySpendOnSmoking, placeHolderText: "Amount")
+                    .keyboardType(.numberPad)
+                    .focused($focusedField, equals: .money)
+                    .tag(Field.money)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                            focusedField = selectedField
+                        }
+                    }
+    
                 PeriodOfTimeToQuitView(period: .startingDate, headerText: "When did u start quitting process?", datePickerText: "Starting date", date: $viewModel.startingDate)
                     .tag(Field.startingDate)
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { focusedField = nil
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                            focusedField = nil
                         }
                     }
                 PeriodOfTimeToQuitView(period: .finishingDate, headerText: "When do you want to finish?", datePickerText: "Finishing date", date: $viewModel.finishingDate)
                     .tag(Field.finishingDate)
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { focusedField = nil
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                            focusedField = nil
                         }
                     }
-                
-                    // Add support for changing currency
-                    TextFieldWithUnderlineView(headerText: "How much money do you spend on cigarets daily?", text: $viewModel.moneySpendOnSmoking, placeHolderText: "Amount")
-                        .keyboardType(.numberPad)
-                        .focused($focusedField, equals: .money)
-                        .tag(Field.money)
-                        .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                                focusedField = selectedField
-                            }
-                        }
                 
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -67,12 +70,12 @@ struct FirstTimeEntryView: View {
                 case .name:
                     selectedField = .age
                 case .age:
+                    selectedField = .money
+                case .money:
                     selectedField = .startingDate
                 case .startingDate:
                     selectedField = .finishingDate
                 case .finishingDate:
-                    selectedField = .money
-                case .money:
                     viewModel.didTapOnFinish()
                 }
             } label: {

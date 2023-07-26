@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainScreenView: View {
     @State private var resetButtonPressed: Bool = false
+    @State private var showingAdditionalInfo = false
     @StateObject var viewModel: MainScreenViewModel
     var body: some View {
         VStack {
@@ -19,13 +20,12 @@ struct MainScreenView: View {
                 }
                 UserProgressView(percentage: viewModel.percentsToFinish)
                     .foregroundColor(Color(ColorConstants.labelColor))
-            }.padding([.horizontal], 20)
+            }.padding(.horizontal, Spacings.spacing20)
             Group {
                 TimeAndScoreView(quittingDuration: viewModel.dateComponentsWithoutSmoking)
                     .foregroundColor(Color(ColorConstants.labelColor))
                     .padding(.top, Spacings.spacing5)
-                QuittingInformationView(moneySpentOnCigarets: viewModel.moneySaved, daysWithoutSmoking: viewModel.daysWithoutSmoking, enviromentalChanges: viewModel.enviromentalChanges, daysToFinish: viewModel.daysToFinish)
-                    .cornerRadius(35, corners: [.topLeft, .topRight])
+                QuittingInformationView().environmentObject(viewModel)
             }.padding(.horizontal, Spacings.spacing30)
             Spacer(minLength: Spacings.spacing15)
             Button {

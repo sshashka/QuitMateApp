@@ -65,6 +65,30 @@ extension User {
     var daysToFinish: Int {
         substractTwoDatesInDay(from: currentDate, to: finishingDate)
     }
+    
+    private var weeksWithoutSmoking: Int {
+        daysWithoutSmoking / 7
+    }
+    
+    private var monthsWithoutSmoking: Int {
+        daysWithoutSmoking / 30
+    }
+    
+    private var yearsWithoutSmoking: Int {
+        daysWithoutSmoking / 365
+    }
+    
+    private var moneySavedPerWeek: Double {
+        moneySpentOnSigarets * 7
+    }
+    
+    private var moneySavedPerMonth: Double {
+        moneySpentOnSigarets * 30
+    }
+    
+    private var moneySavedPerYear: Double {
+        moneySpentOnSigarets * 365
+    }
 }
 
 //extension User {

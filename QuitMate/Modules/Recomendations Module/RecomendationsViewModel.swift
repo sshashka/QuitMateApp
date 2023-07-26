@@ -10,14 +10,19 @@ import OpenAI
 import Foundation
 
 final class RecomendationsViewModel: ObservableObject {
+    enum TypeOfRecomendation {
+        case moodRecomendation
+        case timerResetRecomendation([String])
+    }
     enum State {
         case loading
-        case loaded(String)
+        case loaded
     }
     var didSendEventClosure: ((RecomendationsViewModel.EventType) -> Void)?
     // rename
-    var typeOfGeneration: RecomendationsCoordinator.Types = .moods
+    private var typeOfGenerationEvent: TypeOfRecomendation
     @Published var state: State = .loading
+    @Published var recomendation: String = ""
     private var disposeBag: Set<AnyCancellable> = Set<AnyCancellable>()
     private let storageService: FirebaseStorageServiceProtocol
     private var userData: User? {
@@ -33,14 +38,18 @@ final class RecomendationsViewModel: ObservableObject {
         }
     }
     
-    init(storageService: FirebaseStorageServiceProtocol, type: RecomendationsCoordinator.Types = .moods) {
+    init(storageService: FirebaseStorageServiceProtocol, type: TypeOfRecomendation) {
         self.storageService = storageService
-        self.typeOfGeneration = type
+        self.typeOfGenerationEvent = type
+    }
+    
+    func start() {
         getUserData()
     }
     
     private func getUserData() {
         state = .loading
+//        storageService.userPublisher
         storageService.getUserModel()
             .sink { _ in
                 // Add completion handling
@@ -70,22 +79,23 @@ final class RecomendationsViewModel: ObservableObject {
         
         var tokens = 450
 #if DEBUG
-        tokens = 10
+        tokens = 150
 #endif
         let daysWithoutSmoking = userData.daysWithoutSmoking
         // Please put your own token here because OpenAI doesnt allow to publish them
-        let openAi = OpenAI(apiToken: "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")
+        let openAi = OpenAI(apiToken: "")
         // Fix regenerating response
         let query: CompletionsQuery
         
-        switch typeOfGeneration {
-        case .moods:
+        switch typeOfGenerationEvent {
+        case .moodRecomendation:
             query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods) can u do an small analysis of my moods for me, provide me some help how not to start smoking again, and afer it add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
 
-        case .smoking:
-            let reasons = UserDefaults.standard.object(forKey: "UserSmoked")
-            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods) can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling \(reasons ?? "Bad") and dont want to this happen again add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
+        case .timerResetRecomendation(let reasons):
+            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods) can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling \(reasons) and dont want to this happen again add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
         }
+        
+//        print(query)
         
         openAi.completions(query: query)
             .receive(on: RunLoop.main)
@@ -96,11 +106,24 @@ final class RecomendationsViewModel: ObservableObject {
                     $0.text
                 }
                 guard let firstResponse = results.first else { return }
-                self?.state = .loaded(firstResponse)
+                self?.state = .loaded
+                self?.recomendation = firstResponse
             }.store(in: &disposeBag)
     }
     
     func didTapDone() {
+        guard let statsData else { return }
+        guard let lastMood = statsData.last?.classification else { return }
+//        let type: UserHistoryRecordsType
+        let record: UserHistoryModel
+        switch typeOfGenerationEvent {
+        case .moodRecomendation:
+            record = UserHistoryModel(dateOfClassification: Date.now, selectedMoood: lastMood, selectedReasons: nil, recomendation: recomendation, typeOfHistory: .moodRecords)
+        case .timerResetRecomendation(let array):
+            record = UserHistoryModel(dateOfClassification: Date.now, selectedMoood: nil, selectedReasons: array, recomendation: recomendation, typeOfHistory: .timerResetsRecords)
+        }
+        
+        storageService.addRecordToUserHistory(record: record)
         didSendEventClosure?(.finish)
     }
 }

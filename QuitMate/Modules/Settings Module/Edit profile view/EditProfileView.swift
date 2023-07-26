@@ -21,7 +21,11 @@ struct EditProfileView: View {
     @FocusState var focus: EditProfileFocusFields?
     var body: some View {
         VStack(spacing: Spacings.spacing25) {
-            ProfileImagePic(image: viewModel.userImage)
+            Image("").fromData(from: viewModel.userImage)
+                .resizable()
+                .scaledToFill()
+                .clipShape(Circle())
+                .frame(width: 150, height: 150)
             PhotosPicker(selection: $selectedItem, matching: .images,
                          photoLibrary: .shared()) {
                 Text("Set new photo")
@@ -31,7 +35,7 @@ struct EditProfileView: View {
                 Task {
                     // Retrive selected asset in the form of Data
                     if let data = try? await newValue?.loadTransferable(type: Data.self) {
-                        viewModel.udateImage(with: data)
+                        viewModel.updateImage(with: data)
                     }
                 }
             }
@@ -70,5 +74,14 @@ struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
         @State var mock: String = "Info"
         EditProfileView(info: mock, viewModel: EditProfileViewModel(storageService: FirebaseStorageService()))
+    }
+}
+
+extension Image {
+    func fromData(from data: Data?) -> Image {
+        guard let data else { return Image(IconConstants.noProfilePic)}
+        let UIKitImage = UIImage(data: data)
+        guard let UIKitImage else { return Image(IconConstants.noProfilePic)}
+        return Image(uiImage: UIKitImage)
     }
 }

@@ -20,6 +20,9 @@ struct CustomProgressView: View {
         .onAppear {
             offset = 0
         }
+        .onDisappear {
+            offset = UIScreen.main.bounds.height
+        }
     }
 }
 

@@ -12,7 +12,11 @@ struct SettingsViewProfileHeaderView: View {
     @StateObject var viewModel: HeaderViewViewModel
     var body: some View {
         VStack(spacing: Spacings.spacing10) {
-            ProfileImagePic(image: viewModel.image)
+            Image("").fromData(from: viewModel.image)
+                .resizable()
+                .scaledToFill()
+                .clipShape(Circle())
+                .frame(width: 150, height: 150)
             Text(viewModel.name)
                 .modifier(TextViewModifier(font: .poppinsMedium, size: 16))
             Text(viewModel.email)

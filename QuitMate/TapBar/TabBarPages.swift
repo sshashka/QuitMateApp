@@ -4,8 +4,6 @@
 //
 //  Created by Саша Василенко on 07.04.2023.
 //
-
-// Remove later
 import UIKit
 
 enum TabBarPages {

@@ -11,9 +11,11 @@ import Combine
 final class MainScreenViewModel: ObservableObject {
     private let storageService: FirebaseStorageServiceProtocol
     private var disposeBag = Set<AnyCancellable>()
+//    @Published var isLoading = true
     @Published private var userStatistics: User? {
         didSet {
             setupPiplines()
+//            isLoading = false
 //            print(userStatistics)
         }
     }
@@ -50,6 +52,7 @@ final class MainScreenViewModel: ObservableObject {
     }
     
     func getUserModel() {
+//        storageService.userPublisher
         storageService.getUserModel()
             .sink {
                 print($0)
