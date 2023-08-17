@@ -8,11 +8,16 @@
 import Foundation
 import Combine
 
+protocol UserHistoryViewModelProtocol: AnyObject, ObservableObject {
+    var filteredRecords: [UserHistoryModel] { get }
+    var selectedHistoryType: UserHistoryRecordsType { get }
+}
+
 enum TypesOfUserHistory: Hashable {
     case timerResets, moods
 }
 
-class UserHistoryViewModel: ObservableObject {
+class UserHistoryViewModel: UserHistoryViewModelProtocol {
     private var disposeBag = Set<AnyCancellable>()
     private let storageService: FirebaseStorageServiceProtocol
     private var allRecords: [UserHistoryModel]? {

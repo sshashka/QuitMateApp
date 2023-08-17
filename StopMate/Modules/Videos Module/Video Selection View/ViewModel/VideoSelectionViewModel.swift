@@ -8,7 +8,20 @@
 import Foundation
 import Combine
 
-class VideoSelectionViewModel: ObservableObject {
+enum VideoSelectionViewModelStates {
+    case loading, loaded([Item])
+}
+
+protocol VideoSelectionViewModelProtocol: AnyObject, ObservableObject {
+    var videoInfo: [Item] { get }
+    var state: VideoSelectionViewModelStates { get }
+    var isLoadingMoreVideos: Bool { get }
+    func start()
+    func didSelectVideo(at index: Int)
+    func loadMoreVideos(latestItem: Int)
+}
+
+final class VideoSelectionViewModel: VideoSelectionViewModelProtocol {
     private let youtubeService: YoutubeApiService
     private var disposeBag = Set<AnyCancellable>()
     var didSendEvetClosure: ((VideoSelectionViewModel.EventTypes) -> Void)?
@@ -23,24 +36,24 @@ class VideoSelectionViewModel: ObservableObject {
         didSet {
             guard !videoInfo.isEmpty else { return }
             state = .loaded(videoInfo)
-            print("count of videos \(videoInfo.count)")
         }
     }
-    @Published var state: VideoSelectionViewModelStates
-    @Published var isLoadingMoreVideos: Bool = false
-    
-    enum VideoSelectionViewModelStates {
-        case loading, loaded([Item])
-    }
+    @Published private (set) var state: VideoSelectionViewModelStates
+    @Published private (set) var isLoadingMoreVideos: Bool = false
     
     init(youtubeService: YoutubeApiService) {
         self.youtubeService = youtubeService
         self.state = .loading
+        start()
+    }
+    
+    func start() {
         getVideosList()
     }
     
-    func getVideosList() {
+    private func getVideosList() {
         youtubeService.getVideos()
+            .receive(on: RunLoop.main)
             .sink(receiveCompletion: {
                 print($0)
             }, receiveValue: { [weak self] response in

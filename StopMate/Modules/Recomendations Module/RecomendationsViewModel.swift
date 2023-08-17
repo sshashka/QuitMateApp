@@ -9,18 +9,28 @@ import Combine
 import OpenAI
 import Foundation
 
-final class RecomendationsViewModel: ObservableObject {
+enum RecomendationsViewModelState {
+    case loading
+    case loaded
+}
+
+protocol RecomendationsViewModelProtocol: AnyObject, ObservableObject {
+    var state: RecomendationsViewModelState { get }
+    var recomendation: String { get }
+    var doneAndRegenerateButtonsEnabled: Bool { get set }
+    func didTapDone()
+    func generateResponse()
+    func start()
+}
+
+final class RecomendationsViewModel: RecomendationsViewModelProtocol {
     enum TypeOfRecomendation {
         case moodRecomendation
         case timerResetRecomendation([String])
     }
-    enum State {
-        case loading
-        case loaded
-    }
     var didSendEventClosure: ((RecomendationsViewModel.EventType) -> Void)?
     private var typeOfGenerationEvent: TypeOfRecomendation
-    @Published var state: State = .loading {
+    @Published var state: RecomendationsViewModelState = .loading {
         didSet {
             guard state == .loaded else { doneAndRegenerateButtonsEnabled = false; return }
             doneAndRegenerateButtonsEnabled = true
@@ -80,7 +90,7 @@ final class RecomendationsViewModel: ObservableObject {
         guard let userData = userData else { return }
         guard let statsData = statsData else { return }
         let name = userData.name
-        // Remove force unwrap
+        //TODO: Remove force unwrap
         let moods = statsData.map {
             $0.classification.classifiedMood!.rawValue
         }
@@ -91,9 +101,8 @@ final class RecomendationsViewModel: ObservableObject {
 #endif
         let daysWithoutSmoking = userData.daysWithoutSmoking
 
-        // Please put your own token here because OpenAI doesnt allow to publish them
-        let openAi = OpenAI(apiToken: "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")
-        // Fix regenerating response
+        // Please put your own token here
+        let openAi = OpenAI(apiToken: "")
         let query: CompletionsQuery
         
         switch typeOfGenerationEvent {

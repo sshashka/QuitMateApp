@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct FirstTimeEntryView: View {
+struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewModelProtocol {
     enum Field: Hashable {
-        case name, age, startingDate, finishingDate, money
+        case name, age, startingDate, finishingDate, money, privacyPolicy
     }
-    @StateObject var viewModel: FirstTimeEntryViewModel
+    @StateObject var viewModel: ViewModel
     @State private var isShowingCurrencyPicker: Bool = false
     @State private var selectedField: Field = .name
     @FocusState private var focusedField: Field?
     var body: some View {
         VStack {
             TabView(selection: $selectedField) {
-                TextFieldWithUnderlineView(headerText: "What should we call you?", text: $viewModel.name, placeHolderText: "Your name")
+                TextFieldWithUnderlineViewAndHeader(headerText: AuthModuleStrings.whatIsYourName, text: $viewModel.name, placeHolderText: AuthModuleStrings.yourName)
                     .focused($focusedField, equals: .name)
                     .tag(Field.name)
                     .onAppear {
@@ -26,7 +26,8 @@ struct FirstTimeEntryView: View {
                             focusedField = selectedField
                         }
                     }
-                TextFieldWithUnderlineView(headerText: "How old are you?", text: $viewModel.age ,placeHolderText: "Your age")
+                TextFieldWithUnderlineViewAndHeader(headerText: AuthModuleStrings
+                    .howOldAreYou, text: $viewModel.age ,placeHolderText: AuthModuleStrings.yourAge)
                     .keyboardType(.numberPad)
                     .focused($focusedField, equals: .age)
                     .tag(Field.age)
@@ -37,7 +38,7 @@ struct FirstTimeEntryView: View {
                     }
                 
                 //TODO: Add support for changing currency
-                TextFieldWithUnderlineView(headerText: "How much money do you spend on cigarets daily?", text: $viewModel.moneySpendOnSmoking, placeHolderText: "Amount")
+                CurrencyPicker(selection: $viewModel.currency, text: $viewModel.moneySpendOnSmoking, placeHolderText: AuthModuleStrings.amount, headerText: AuthModuleStrings.amountOfMoney)
                     .keyboardType(.numberPad)
                     .focused($focusedField, equals: .money)
                     .tag(Field.money)
@@ -47,14 +48,14 @@ struct FirstTimeEntryView: View {
                         }
                     }
     
-                PeriodOfTimeToQuitView(period: .startingDate, headerText: "When did u start quitting process?", datePickerText: "Starting date", date: $viewModel.startingDate)
+                PeriodOfTimeToQuitView(period: .startingDate, headerText: AuthModuleStrings.startedSmoking, datePickerText: AuthModuleStrings.startingDate, date: $viewModel.startingDate)
                     .tag(Field.startingDate)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                             focusedField = nil
                         }
                     }
-                PeriodOfTimeToQuitView(period: .finishingDate, headerText: "When do you want to finish?", datePickerText: "Finishing date", date: $viewModel.finishingDate)
+                PeriodOfTimeToQuitView(period: .finishingDate, headerText: AuthModuleStrings.finishSmoking, datePickerText: AuthModuleStrings.finishingDate, date: $viewModel.finishingDate)
                     .tag(Field.finishingDate)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
@@ -62,6 +63,8 @@ struct FirstTimeEntryView: View {
                         }
                     }
                 
+                BenefitsOfQuittingAndPrivacyPolicyView()
+                    .tag(Field.privacyPolicy)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .animation(.easeOut(duration: 0.4), value: selectedField)
@@ -76,25 +79,21 @@ struct FirstTimeEntryView: View {
                 case .startingDate:
                     selectedField = .finishingDate
                 case .finishingDate:
+                    selectedField = .privacyPolicy
+                case .privacyPolicy:
                     viewModel.didTapOnFinish()
                 }
             } label: {
-                Text(selectedField == .finishingDate ? "Finish" : "Next")
+                Text(selectedField == .privacyPolicy ? "Finish" : "Next")
             }
             .buttonStyle(StandartButtonStyle())
             .padding(Spacings.spacing30)
-            
-            if isShowingCurrencyPicker {
-                CurrencyPicker()
-                    .transition(.move(edge: .bottom))
-                    .animation(.spring(), value: isShowingCurrencyPicker)
-            }
         }
     }
 }
 
 struct RegistrationUserView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstTimeEntryView(viewModel: FirstTimeEntryViewModel(authService: FirebaseStorageService()))
+        FirstTimeEntryView(viewModel: FirstTimeEntryViewModel(storageService: FirebaseStorageService()))
     }
 }

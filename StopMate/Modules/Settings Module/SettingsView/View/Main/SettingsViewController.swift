@@ -10,9 +10,9 @@ import SwiftUI
 import Combine
 
 final class SettingsViewController: UIViewController {
-    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood", "Watch your history"]
+    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood", "Watch your history", "Onboarding"]
 //    private let gradientLayer = CAGradientLayer()
-    private var viewModel: SettingsViewModel?
+    private var viewModel: SettingsViewModelProtocol?
     private var disposeBag = Set<AnyCancellable>()
     private let settingsTableView: UITableView = {
         let tv = UITableView()
@@ -33,22 +33,21 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(rootStackView)
         view.backgroundColor = .systemBackground
-//        self.title = "Settings"
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
-//        setupHeaderProfileView()
         setupEditButton()
         setupConstraints()
         guard let viewModel = viewModel else { return }
         setupHeaderProfileView(viewModel: viewModel.headerViewModel)
-        
-        viewModel.$isShowingAlert.sink {[weak self] bool in
+        viewModel.isShowingAlertPublisher
+            .receive(on: RunLoop.main)
+            .sink {[weak self] bool in
             guard bool == true else { return }
             self?.showAlert()
         }.store(in: &disposeBag)
     }
     
-    init(viewModel: SettingsViewModel) {
+    init(viewModel: SettingsViewModelProtocol) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
     }
@@ -101,8 +100,8 @@ private extension SettingsViewController {
     
     func showAlert() {
         let alert = UIAlertController(title: nil, message: viewModel?.errorText, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self]_ in
-            self?.viewModel?.isShowingAlert.toggle()
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+//            self?.viewModel?.isShowingAlert.
         })
         
         present(alert, animated: true)
@@ -142,8 +141,14 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             print()
         case 3:
             viewModel?.didTapOnAddingMood()
+            // Need to pop it manualy so SettingsViewController deinits
+            navigationController?.popViewController(animated: false)
         case 4:
             viewModel?.didTapOnHistory()
+        case 5:
+            viewModel?.didTapOnOnboarding()
+            // Need to pop it manualy so SettingsViewController deinits
+            navigationController?.popViewController(animated: false)
         default:
             break
         }

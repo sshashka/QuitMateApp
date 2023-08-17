@@ -34,7 +34,7 @@ struct UserProgressView: View {
 
 struct ProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        var percentage: Double = 25.0
+        let percentage: Double = 25.0
         UserProgressView(percentage: percentage)
     }
 }

@@ -1,15 +1,18 @@
-/*
-  Localizable.strings
-  QuitMate
-
-  Created by Саша Василенко on 19.06.2023.
-  
-*/
 "Log In" = "Log In";
 "Email" = "Email";
 "Password, at least 8 characters" = "Password, at least 8 characters";
-"Forgot password?";
+"Forgot password?" = "Forgot password?";
 "Don`t have an account? Create new" = "Don`t have an account? Create new";
 "Register" = "Register";
 "Password confirmation" = "Password confirmation";
 "Already have an accout? Log In" = "Already have an accout? Log In";
+"What should we call you?" = "What should we call you?";
+"Your name" = "Your name";
+"How old are you?" = "How old are you?";
+"Your age" = "Your age";
+"How much money do you spend on cigarets daily?" = "How much money do you spend on cigarets daily?";
+"Amount" = "Amount";
+"When did you start quitting process?" = "When did you start quitting process?";
+"Starting date:" = "Starting date:";
+"When do you want to finish?" = "When do you want to finish?";
+"Finishing date:" = "Finishing date:";

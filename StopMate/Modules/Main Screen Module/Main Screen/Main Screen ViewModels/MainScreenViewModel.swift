@@ -8,10 +8,33 @@
 import Foundation
 import Combine
 
-final class MainScreenViewModel: ObservableObject {
+protocol MainScreenViewModelProtocolVariables {
+    var state: MainScreenViewModelStates { get }
+    var showingAdditionalInfo: Bool { get set }
+    var percentsToFinish: Double { get }
+    var daysWithoutSmoking: String { get }
+    var moneySaved: String { get }
+    var todayDate: String { get }
+    var enviromentalChanges: String { get }
+    var daysToFinish: String { get }
+    var dateComponentsWithoutSmoking: String { get }
+}
+
+protocol MainScreenViewModelProtocolMethods {
+    func didTapOnReset()
+    func didTapOnSettings()
+}
+
+protocol MainScreenViewModelProtocol: AnyObject, ObservableObject, MainScreenViewModelProtocolVariables, MainScreenViewModelProtocolMethods  { }
+
+enum MainScreenViewModelStates {
+    case loading, loaded
+}
+
+final class MainScreenViewModel: MainScreenViewModelProtocol {
     private let storageService: FirebaseStorageServiceProtocol
     private var disposeBag = Set<AnyCancellable>()
-    //    @Published var isLoading = true
+
     @Published private var userStatistics: User? {
         didSet {
             setupPiplines()
@@ -20,46 +43,36 @@ final class MainScreenViewModel: ObservableObject {
     
     var didSendEventClosure: ((MainScreenViewModel.EventType) -> Void)?
     
+    @Published var state: MainScreenViewModelStates = .loading
+    
     @Published var showingAdditionalInfo = false
     
     @Published var percentsToFinish: Double = 0.0
     
-    @Published var daysWithoutSmoking: Int = 0
+    @Published var daysWithoutSmoking: String = ""
     
-    @Published var percentageOfScore: Int = 0
-    
-    @Published var moneySaved: Double = 0.0
+    @Published var moneySaved: String = ""
     
     @Published var todayDate: String = ""
     
-    @Published var enviromentalChanges = 6
+    @Published var enviromentalChanges = ""
     
     @Published var daysToFinish = ""
     
     @Published var dateComponentsWithoutSmoking: String = ""
-    
-    @Published var additionalInfoViewModel: AdditionalInfoViewModel = AdditionalInfoViewModel(model: [AdditionalInfoModel]())
-    
-    //    @Published var confirmedReset = false {
-    //        // ITs a wrong way of doing this
-    //        didSet {
-    //            guard confirmedReset != false else { return }
-    //            didTapOnReset()
-    //        }
-    //    }”
     
     init(storageService: FirebaseStorageServiceProtocol) {
         self.storageService = storageService
         getUserModel()
     }
     
-    func getUserModel() {
-        //        storageService.userPublisher
+    private func getUserModel() {
         storageService.userDataPublisher
             .sink {
                 print($0)
             } receiveValue: { [weak self] stats in
                 self?.userStatistics = stats
+                self?.state = .loaded
             }.store(in: &disposeBag)
     }
     // Rename this func
@@ -80,17 +93,18 @@ private extension MainScreenViewModel {
         getDaysWithoutSmoking()
         getDateComponentsWithoutSmoking()
         getDaysLeft()
-        setupAdditionalInfoViewModel()
     }
     
     func getDaysWithoutSmoking() {
         guard let model = userStatistics else { return }
-        daysWithoutSmoking = model.daysWithoutSmoking
+        daysWithoutSmoking = String(model.daysWithoutSmoking)
     }
     
     func getMoneySavedOnSigarets() {
         guard let model = userStatistics else { return }
-        moneySaved = model.moneySpentOnSigarets
+        let moneyValue = model.moneySpentOnSigarets
+        guard let moneyCurrency = model.userCurrency?.rawValue else { return }
+        moneySaved = String(moneyValue) + String(moneyCurrency)
     }
     
     func getPercentsToFinish() {
@@ -118,13 +132,6 @@ private extension MainScreenViewModel {
     func getDaysLeft() {
         guard let userStatistics = userStatistics else { return }
         daysToFinish = String(userStatistics.daysToFinish)
-    }
-    
-    func setupAdditionalInfoViewModel() {
-        guard let userStatistics = userStatistics else { return }
-        
-        let additionalInfoModels = [AdditionalInfoModel(icon: IconConstants.danger, text: "You don`t smoke for:", value: String(userStatistics.daysWithoutSmoking), bottomText: "days"), AdditionalInfoModel(icon: IconConstants.danger, text: "That is:", value: String(userStatistics.weeksWithoutSmoking), bottomText: "weeks"), AdditionalInfoModel(icon: IconConstants.danger, text: "Or", value: String(userStatistics.monthsWithoutSmoking), bottomText: "months"), AdditionalInfoModel(icon: "", text: "", value: String(userStatistics.moneySavedPerWeek), bottomText: "dollars per week"), AdditionalInfoModel(icon: "", text: "Or", value: String(userStatistics.moneySavedPerMonth), bottomText: "dollars per month"), AdditionalInfoModel(icon: IconConstants.money, text: "And" , value: String(userStatistics.moneySavedPerYear), bottomText: "dollars each year")]
-        additionalInfoViewModel = AdditionalInfoViewModel(model: additionalInfoModels)
     }
 }
 

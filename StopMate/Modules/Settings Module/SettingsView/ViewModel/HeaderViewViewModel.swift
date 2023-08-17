@@ -12,12 +12,12 @@ final class HeaderViewViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var email: String = ""
     
-    init(user: User, userPic: Data?) {
-        updateWith(user: user, userPic: userPic)
+    init(user: User) {
+        updateWith(user: user)
+        
     }
     
-    func updateWith(user: User, userPic: Data?) {
-        self.image = userPic
+    func updateWith(user: User) {
         self.name = user.name
         // Decode if present
         self.email = user.email ?? ""

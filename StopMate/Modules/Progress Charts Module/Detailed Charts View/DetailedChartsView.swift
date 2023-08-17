@@ -15,7 +15,9 @@ struct DetailedChartsView<ViewModel>: View where ViewModel: DetailedChartsViewMo
             VStack(spacing: Spacings.spacing20) {
                 Chart(viewModel.progressChartStats) { data in
                     BarMark(x: .value("", data.count), y: .value("", data.mood.rawValue))
+                        
                 }.frame(height: 200)
+
                 Text(viewModel.moodsCountText)
                     .fontStyle(.poppinsSemibold16)
                 Divider()

@@ -29,14 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         appCoordinator = AppCoordinator(navVC)
         appCoordinator?.start()
-        //        FirebaseAuthStateHandler().userState.sink {[weak self] result in
-        //            self?.appCoordinator?.startStategy = result
-        //            self?.appCoordinator?.start()
-        //        }.store(in: &disposeBag)
         
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        registerForPushNotifications()
+//        registerForPushNotifications()
         return true
     }
     
@@ -45,41 +41,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func registerForPushNotifications() {
-        UNUserNotificationCenter.current()
-            .requestAuthorization(
-                options: [.alert, .sound, .badge]) { [weak self] granted, _ in
-                    print("Permission granted: \(granted)")
-                    guard granted else { return }
-                    self?.getNotificationSettings()
-                }
-    }
+//    func registerForPushNotifications() {
+//        UNUserNotificationCenter.current()
+//            .requestAuthorization(
+//                options: [.alert, .sound, .badge]) { [weak self] granted, _ in
+//                    print("Permission granted: \(granted)")
+//                    guard granted else { return }
+//                    self?.getNotificationSettings()
+//                }
+//    }
+//
+//    func getNotificationSettings() {
+//        UNUserNotificationCenter.current().getNotificationSettings { settings in
+//            guard settings.authorizationStatus == .authorized else { return }
+//            DispatchQueue.main.async {
+//                UIApplication.shared.registerForRemoteNotifications()
+//            }
+//            print("Notification settings: \(settings)")
+//        }
+//    }
     
-    func getNotificationSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            guard settings.authorizationStatus == .authorized else { return }
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-            }
-            print("Notification settings: \(settings)")
-        }
-    }
-    
-    func application(
-        _ application: UIApplication,
-        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
-    ) {
-        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-        let token = tokenParts.joined()
-        print("Device Token: \(token)")
-    }
-    
-    func application(
-        _ application: UIApplication,
-        didFailToRegisterForRemoteNotificationsWithError error: Error
-    ) {
-        print("Failed to register: \(error)")
-    }
+//    func application(
+//        _ application: UIApplication,
+//        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+//    ) {
+//        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+//        let token = tokenParts.joined()
+//        print("Device Token: \(token)")
+//    }
+//
+//    func application(
+//        _ application: UIApplication,
+//        didFailToRegisterForRemoteNotificationsWithError error: Error
+//    ) {
+//        print("Failed to register: \(error)")
+//    }
     
 }
 

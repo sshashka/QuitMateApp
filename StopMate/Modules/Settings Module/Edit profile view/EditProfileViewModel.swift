@@ -8,7 +8,9 @@
 import Foundation
 import Combine
 
+
 class EditProfileViewModel: ObservableObject {
+    
     var didSendEventClosure: ((EditProfileViewModel.EventTypes) -> Void)?
     @Published private (set) var user: User? {
         didSet {
@@ -23,6 +25,7 @@ class EditProfileViewModel: ObservableObject {
     @Published var userEmail: String = ""
     @Published var spendMoney: String = ""
     @Published var userImage: Data?
+    @Published var imageLoadState: ImageProfileLoadingStates = .loading
 //     
     
     init(storageService: FirebaseStorageServiceProtocol) {
@@ -52,6 +55,7 @@ class EditProfileViewModel: ObservableObject {
     
     func updateImage(with image: Data) {
         userImage = image
+        imageLoadState = .loading
         storageService.updateUserProfilePic(with: image)
     }
     
@@ -62,6 +66,7 @@ class EditProfileViewModel: ObservableObject {
             print(error)
         } receiveValue: { [weak self] data in
             self?.userImage = data
+            self?.imageLoadState = .loaded
         }.store(in: &disposeBag)
     }
     

@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct RecomendationsView: View {
-    @StateObject var viewModel: RecomendationsViewModel
-    
+struct RecomendationsView<ViewModel>: View where ViewModel: RecomendationsViewModelProtocol {
+    @StateObject var viewModel: ViewModel
     var body: some View {
         VStack {
             ScrollView(showsIndicators: false) {

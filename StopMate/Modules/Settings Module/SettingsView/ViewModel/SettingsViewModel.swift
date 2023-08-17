@@ -9,41 +9,63 @@ import Foundation
 import Combine
 import FirebaseAuth
 
-final class SettingsViewModel: ObservableObject {
+protocol SettingsViewModelProtocol: AnyObject {
+//    var isShowingAlertPublisher: Published<Bool>.Publisher { get set }
+    var errorText: String { get }
+    var userModel: User? { get }
+    // TODO: replace HeaderViewViewModel with HeaderViewViewModelProtocol
+    var headerViewModel: HeaderViewViewModel { get }
+    var isShowingAlertPublisher: Published<Bool>.Publisher { get }
+    func didTapOnOnboarding()
+    func didTapLogout()
+    func didTapOnAddingMood()
+    func updateUserProfilePic()
+    func resetPassword()
+    func didTapOnHistory()
+    func didTapOnEdit()
+}
+
+final class SettingsViewModel: ObservableObject, SettingsViewModelProtocol {
+    @Published var isShowingAlert: Bool = false
+    var isShowingAlertPublisher: Published<Bool>.Publisher { $isShowingAlert }
+    
+    private var disposeBag = Set<AnyCancellable>()
+
     private let storageService: FirebaseStorageServiceProtocol
     private let authService: AuthentificationServiceProtocol
-    var didSendEventClosure: ((SettingsViewModel.EventType) -> Void)?
-    private var disposeBag = Set<AnyCancellable>()
-    @Published var isShowingAlert: Bool = false
+    
     private (set) var errorText: String = ""
     @Published private var userMoods: [ChartModel] = [ChartModel]()
+    
+    var didSendEventClosure: ((SettingsViewModel.EventType) -> Void)?
+    
+    
     @Published var userModel: User? {
         didSet {
             getViewModels()
         }
     }
     
-    @Published var userProfilePic: Data? {
+    @Published private var userProfilePic: Data? {
         didSet {
-            guard let userModel else { return }
             updateUserProfilePic()
         }
     }
     
-    
-    
     @Published var headerViewModel: HeaderViewViewModel
+    
     init(storageService: FirebaseStorageServiceProtocol, authService: AuthentificationServiceProtocol) {
         self.storageService = storageService
         self.authService = authService
         let user = User(name: "", age: "", id: "", startingDate: Date(), finishingDate: Date(), moneyUserSpendsOnSmoking: 0.0)
-        self.headerViewModel = HeaderViewViewModel(user: user, userPic: nil)
+        self.headerViewModel = HeaderViewViewModel(user: user)
         getUserModel()
         getUserProfilePic()
         getUserMoods()
+        
     }
     
-    func getUserModel() {
+    private func getUserModel() {
 //        storageService.userPublisher
         storageService.userDataPublisher
             .sink {
@@ -53,7 +75,7 @@ final class SettingsViewModel: ObservableObject {
             }.store(in: &disposeBag)
     }
     
-    func getUserMoods() {
+    private func getUserMoods() {
         storageService.getChartsData().sink { _ in
             print()
         } receiveValue: { [weak self] data in
@@ -62,12 +84,16 @@ final class SettingsViewModel: ObservableObject {
 
     }
     
-    func getUserProfilePic() {
+    private func getUserProfilePic() {
         storageService.userProfilePicturePublisher.sink { completion in
             print("\(#function) \(completion)")
         } receiveValue: { [weak self] data in
             self?.userProfilePic = data
         }.store(in: &disposeBag)
+    }
+    
+    func didTapOnOnboarding() {
+        didSendEventClosure?(.didTapOnOnboarding)
     }
     
     func didTapLogout() {
@@ -86,7 +112,7 @@ final class SettingsViewModel: ObservableObject {
     
     func getViewModels() {
         guard let user = userModel else { return }
-        headerViewModel.updateWith(user: user, userPic: nil)
+        headerViewModel.updateWith(user: user)
     }
     
     func updateUserProfilePic() {
@@ -109,16 +135,12 @@ final class SettingsViewModel: ObservableObject {
         let dates = userMoods.map {
             $0.dateOfClassificationByDate
         }
-        let currentDate = Date.now
-        let containsToday = dates.contains { date in
-            Calendar.current.isDate(date, inSameDayAs: currentDate)
-        }
-        return !containsToday
+        return Date.checkIfArrayContainsToday(array: dates)
     }
 }
 
 extension SettingsViewModel {
     enum EventType {
-        case didTapOnNewMood, didTapOnHistory, didTapOnEdit
+        case didTapOnNewMood, didTapOnHistory, didTapOnEdit, didTapOnOnboarding
     }
 }

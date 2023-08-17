@@ -23,6 +23,7 @@ extension Data {
             compression -= 0.1
             imageData = image.jpegData(compressionQuality: compression)!
         }
+        
         return imageData
     }
 }

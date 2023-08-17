@@ -22,4 +22,12 @@ extension Date {
         let calendar = Calendar.current
         return calendar.dateComponents(neededComponents, from: self)
     }
+    
+    static func checkIfArrayContainsToday(array: [Date]) -> Bool {
+        let currentDate = Date.now
+        let containsToday = array.contains { date in
+            Calendar.current.isDate(date, inSameDayAs: currentDate)
+        }
+        return !containsToday
+    }
 }

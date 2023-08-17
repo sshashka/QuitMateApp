@@ -22,6 +22,8 @@ final class SettingsTableViewCell: UITableViewCell {
         self.backgroundColor = .clear
         self.accessoryType = .disclosureIndicator
         settingsTextLabel.frame = contentView.frame
+        
+        
     }
     
     func setText(text: String) {

@@ -13,14 +13,6 @@ struct UserHistoryView: View {
     private static let topViewId = "viewIdValue"
     var body: some View {
         VStack {
-            Picker("Select a type of history:", selection: $viewModel.selectedHistoryType) {
-                Text("Moods")
-                    .tag(UserHistoryRecordsType.moodRecords)
-                Text("Timer resets")
-                    .tag(UserHistoryRecordsType.timerResetsRecords)
-            }.pickerStyle(.segmented)
-                .padding(.horizontal, Spacings.spacing30)
-                .padding(.vertical, Spacings.spacing15)
             ScrollViewReader { reader in
                 ScrollView {
                     LazyVStack(spacing: Spacings.spacing10) {
@@ -40,7 +32,6 @@ struct UserHistoryView: View {
                                         Text("Your recomendation on that day was: \(record.recomendation)")
                                     }.fontStyle(.poppinsSemibold16)
                                 }
-//                                .frame(maxWidth: .infinity)
                                 .padding(.horizontal, Spacings.spacing30)
                             }
                         } else {
@@ -50,16 +41,30 @@ struct UserHistoryView: View {
                             }
                         }
                     }
-                }.onChange(of: viewModel.selectedHistoryType) { _ in
+                }
+                .onChange(of: viewModel.selectedHistoryType) { _ in
                     withAnimation {
                         reader.scrollTo(Self.topViewId, anchor: .top)
                     }
                 }
             }
-        }.navigationTitle("Your history")
-            .onAppear {
-                viewModel.start()
+        }
+        .navigationTitle("Your history")
+        .onAppear {
+            viewModel.start()
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Picker("Select a type of history:", selection: $viewModel.selectedHistoryType) {
+                    Text("Moods")
+                        .tag(UserHistoryRecordsType.moodRecords)
+                    Text("Timer resets")
+                        .tag(UserHistoryRecordsType.timerResetsRecords)
+                }
+                .pickerStyle(.menu)
+                .foregroundColor(Color(ColorConstants.buttonsColor))
             }
+        }
     }
 }
 

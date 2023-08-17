@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct AuthentificationView: View {
+struct AuthentificationView<ViewModel>: View where ViewModel: AuthentificationViewModelProtocol {
     enum AuthentificationViewFocusFields: Hashable {
         case email
         case password
     }
-    @StateObject var viewModel: AuthentificationViewModel
+    @StateObject var viewModel: ViewModel
     @FocusState private var focused: AuthentificationViewFocusFields?
     var body: some View {
         VStack {
@@ -79,7 +79,7 @@ struct AuthentificationView: View {
                     Text("Forgot password?")
                         .fontStyle(.clearButtonsText)
                 }
-            }.disabled($viewModel.passwordResetIsEnabled.wrappedValue ? false : true)
+            }.disabled(viewModel.passwordResetIsEnabled ? false : true)
             
             Button {
                 viewModel.didTapOnLogin()
@@ -98,7 +98,8 @@ struct AuthentificationView: View {
                 Text("Don`t have an account? Create new")
                     .fontStyle(.clearButtonsText)
             }
-        }.padding(Spacings.spacing30)
+        }
+        .padding(Spacings.spacing30)
             .overlay {
                 if viewModel.state == .loading {
                     CustomProgressView()

@@ -11,7 +11,8 @@ struct LoaderView: View {
     @State private var value = 0.0
     @State private var text = ""
     @State private var isAnimating = false
-
+    @State private var angle: Angle = .degrees(-90)
+    private let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     var body: some View {
         ZStack(alignment: .center) {
             Text(text)
@@ -29,12 +30,16 @@ struct LoaderView: View {
             Circle()
                 .trim(from: 0, to: value)
                 .stroke(Color(ColorConstants.buttonsColor), style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                .rotationEffect(Angle(degrees: -90))
+                .rotationEffect(angle)
+                .animation(.linear, value: angle)
                 .glow(color: Color(ColorConstants.buttonsColor), radius: 10)
-                .animation(.easeIn(duration: 1.0), value: value)
+                .animation(.easeIn, value: value)
                 .padding(40)
-                .onAppear {
-                    value = 1.0
+                .onReceive(timer) { _ in
+                    if value <= 0.7 {
+                        value += 0.1
+                    }
+                    angle += .degrees(15)
                 }
         }
         .padding(30)

@@ -40,7 +40,9 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
         registrationViewModel.didSendEventClosure = { [weak self] event in
             switch event {
             case .done:
-                self?.showFirstTimeEntryFlow()
+                // Since i already observe state I dont need to finish and instanciate new coordinator manualy
+                
+                assert(true)
             case .backToLogin:
                 self?.navigationController.popToRootViewController(animated: true)
             }

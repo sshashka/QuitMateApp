@@ -12,6 +12,7 @@ enum FirebaseAuthStateHandlerResult {
     case userIsAuthentificated
     case userIsNotAuthentificated
     case userNeedsToCompleteRegistration
+    case userDidNotCompleteOnboarding
 }
 
 // Handle auth state change in realtime
@@ -28,7 +29,15 @@ final class FirebaseAuthStateHandler {
                 UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: UserDefaultsConstants.userId)
                 self?.storageService.checkIfUserExists { status in
                     if status == true {
-                        publisher.send(.userIsAuthentificated)
+//                        publisher.send(.userIsAuthentificated)
+                        self?.storageService.checkIfUserCompletedOnboarding { result in
+                            switch result {
+                            case true:
+                                publisher.send(.userIsAuthentificated)
+                            case false:
+                                publisher.send(.userDidNotCompleteOnboarding)
+                            }
+                        }
                     } else {
                         publisher.send(.userNeedsToCompleteRegistration)
                     }
@@ -37,6 +46,8 @@ final class FirebaseAuthStateHandler {
         }
         return publisher.eraseToAnyPublisher()
     }
+    
+    
     
     deinit {
         print("\(self) deinited")

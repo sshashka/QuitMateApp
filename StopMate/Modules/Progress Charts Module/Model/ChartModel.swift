@@ -16,6 +16,8 @@ struct ChartModel: Codable, Identifiable {
     }
 //    var animate = false
     var dateOfClassificationByDate: Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
         let components = dateOfClassification.toDateComponents(neededComponents: [.year, .month, .day])
         let date = NSCalendar.current.date(from: components)
         return date ?? Date()

@@ -106,7 +106,7 @@ final class DetailedChartsViewModel: ObservableObject, DetailedChartsViewModelPr
 
         // Step 2: Convert the grouped data into an array of MonthsMoodStatisticsModel
         var monthsMoodStatistics: [ProgressChartStatisticsModel] = []
-        for (month, models) in groupedByMonthAndYear {
+        for (_, models) in groupedByMonthAndYear {
             // Step 3: Calculate the count for each mood within the group
             var moodCounts: [ClassifiedMood: Int] = [:]
             for model in models {

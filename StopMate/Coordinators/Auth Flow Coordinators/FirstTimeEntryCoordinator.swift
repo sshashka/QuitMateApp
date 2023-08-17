@@ -14,7 +14,7 @@ protocol FirstTimeEntryCoordinatorProtocol: Coordinator {
 final class FirstTimeEntryCoordinator: FirstTimeEntryCoordinatorProtocol {
     internal func showRegisterScreen() {
         let storageService = FirebaseStorageService()
-        let vm = FirstTimeEntryViewModel(authService: storageService)
+        let vm = FirstTimeEntryViewModel(storageService: storageService)
         let vc = UIHostingController(rootView: FirstTimeEntryView(viewModel: vm))
         vm.didSendEventClosure = { [weak self] event in
             self?.finish()

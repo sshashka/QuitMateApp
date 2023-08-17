@@ -29,6 +29,8 @@ final class SettingsTableViewFooterView: UIView {
         setupView()
         print("\(self) inited")
         print(logoutButton.frame)
+        
+        
     }
     
     required init?(coder: NSCoder) {

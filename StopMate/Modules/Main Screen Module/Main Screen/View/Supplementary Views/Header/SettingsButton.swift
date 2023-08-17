@@ -13,7 +13,7 @@ struct SettingsButton: View {
         Button {
             viewModel.didTapOnSettings()
         } label: {
-            Image(systemName: "gearshape.circle.fill")
+            Image(systemName: SystemIconConstants.gearShape)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: 35, maxHeight: 35)

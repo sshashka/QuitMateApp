@@ -98,6 +98,8 @@ final class FirebaseAuthentificationService: AuthentificationServiceProtocol {
         Auth.auth().sendPasswordReset(withEmail: email)
     }
     
+    
+    
     deinit {
         print("Auth service deinit")
     }

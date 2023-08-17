@@ -16,6 +16,7 @@ struct ProgressPercentageView: View {
                     Text("Progress")
                         .modifier(TextViewModifier(font: .poppinsMedium, size: 18))
                     Text("\(Int(percentage * 100))")
+//                    Text(String(percentage.formatted(.percent)))
                         .modifier(TextViewModifier(font: .poppinsBlack, size: 48))
                     Text("%")
                         .modifier(TextViewModifier(font: .poppinsMedium, size: 18))

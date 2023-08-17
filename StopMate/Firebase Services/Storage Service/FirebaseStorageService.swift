@@ -7,8 +7,8 @@
 import Combine
 import FirebaseDatabase
 import FirebaseDatabaseSwift
-import FirebaseFirestore
 import FirebaseStorage
+
 //import UIKit
 
 enum FirebaseStorageServiceReferences: String {
@@ -22,11 +22,10 @@ protocol FirebaseStorageServicePublishersProtocol: AnyObject {
     var userDataPublisher: CurrentValueSubject<User?, Error> { get }
     var userProfilePicturePublisher: CurrentValueSubject<Data?, Error> { get }
     var userMoodDates: CurrentValueSubject<Date?, Error> { get }
+    
 }
 
 protocol FirebaseStorageServiceProtocol: FirebaseStorageServicePublishersProtocol {
-//    var userRegisterCompletionStatus: PassthroughSubject<Bool, Never> { get }
-    
     func createNewUser(userModel: User)
     func getChartsData() -> AnyPublisher<[ChartModel], Error>
     func uploadNewUserMood(mood: ClassifiedMood)
@@ -38,6 +37,7 @@ protocol FirebaseStorageServiceProtocol: FirebaseStorageServicePublishersProtoco
     func updateUserProfileData(user: User)
     func checkIfUserExists(completion: @escaping(Bool) -> Void)
     func retrieveUserProfilePic()
+    func updateUserOnboardingStatus()
 }
 
 final class FirebaseStorageService: FirebaseStorageServiceProtocol {
@@ -127,12 +127,15 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         }
     }
     
+    
     func updateUserProfilePic(with image: Data) {
         let reference = getReferenceForUserProfilePicture()
         guard let reference else { return }
         let imageCompressed = image.compressImage(maxSizeMB: 3)
-        reference.putData(imageCompressed ?? Data())
-        retrieveUserProfilePic()
+        let uploadTask = reference.putData(imageCompressed ?? Data())
+        uploadTask.observe(.success) { [weak self] _ in
+            self?.retrieveUserProfilePic()
+        }
     }
     
     func retrieveUserProfilePic() {
@@ -145,6 +148,7 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
                 self?.userProfilePicturePublisher.send(data)
             }
         }
+        
     }
     
     func updateUserProfileData(user: User) {
@@ -152,6 +156,12 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         reference.updateChildValues(user.toDictionary())
         
     }
+    
+    func updateUserOnboardingStatus() {
+        let reference = getChildReferenceWithUserId(for: .user)
+        reference.updateChildValues(["didCompleteTutorial" : true])
+    }
+    
     // MARK: Working with user history of recomendations
     func getUserHistory() -> AnyPublisher<[UserHistoryModel], Error> {
         let reference = getChildReferenceWithUserId(for: .history)
@@ -184,6 +194,16 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
                 return
             }
             completion(true)
+        }
+    }
+    
+    func checkIfUserCompletedOnboarding(completion: @escaping(Bool) -> Void) {
+        let reference = getChildReferenceWithUserId(for: .user)
+        reference.observeSingleEvent(of: .value) { snapshot in
+            let user = try? snapshot.data(as: User.self)
+            if let user {
+                completion(user.didCompleteTutorial)
+            }
         }
     }
     

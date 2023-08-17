@@ -21,7 +21,7 @@ struct TimeAndScoreView: View {
 
 struct TimeAndScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        var quitiingDuration = "3m 28d"
+        let quitiingDuration = "3m 28d"
         TimeAndScoreView(quittingDuration: quitiingDuration)
     }
 }

@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct ManualMoodClassifierView: View {
-    @StateObject var viewModel: ManualMoodClassifierModuleViewModel
+struct ManualMoodClassifierView<ViewModel>: View where ViewModel: ManualMoodClassifierModuleViewModelProtocol {
+    @StateObject var viewModel: ViewModel
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("Hey Sasha")
+            Text("Hey")
                 .modifier(TextViewModifier(font: .poppinsRegular, size: 18))
             Text("What`s in your mind")
                 .modifier(TextViewModifier(font: .poppinsRegular, size: 18))

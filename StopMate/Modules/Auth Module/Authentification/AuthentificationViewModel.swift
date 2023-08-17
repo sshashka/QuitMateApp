@@ -8,10 +8,27 @@
 import SwiftUI
 import Combine
 
-final class AuthentificationViewModel: ObservableObject {
-    enum AuthentificationViewModelStates {
-        case idle, loading
-    }
+enum AuthentificationViewModelStates {
+    case idle, loading
+}
+
+protocol AuthentificationViewModelProtocol: AnyObject, ObservableObject {
+    var email: String { get set }
+    var password: String { get set }
+    var emailTextFieldColor: Color? { get }
+    var passwordTextFieldColor: Color? { get }
+    var loginButtonDisabled: Bool { get }
+    var isShowingAlert: Bool { get set }
+    var passwordResetIsEnabled: Bool { get }
+    var state: AuthentificationViewModelStates { get }
+    var error: String { get }
+    
+    func didTapOnRegister()
+    func didTapOnLogin()
+    func didTapOnForgotPassword()
+}
+
+final class AuthentificationViewModel: AuthentificationViewModelProtocol {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var emailTextFieldColor: Color? = Color(ColorConstants.gray)

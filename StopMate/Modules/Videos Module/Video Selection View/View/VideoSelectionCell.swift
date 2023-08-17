@@ -23,7 +23,7 @@ struct VideoSelectionCell: View {
                         // Add an image crop
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
-                            .clipShape(RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius))
+                            .mask(RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius).padding(.horizontal, 10))
                     case .failure:
                         EmptyView()
                     @unknown default:

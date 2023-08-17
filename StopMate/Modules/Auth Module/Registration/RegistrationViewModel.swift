@@ -5,21 +5,38 @@
 //  Created by Саша Василенко on 17.05.2023.
 //
 
-import Foundation
+
 import Combine
-import UIKit
 import SwiftUI
 
-final class RegistrationViewModel: ObservableObject {
-    enum RegistrationViewModelStates {
-        case idle, loading
-    }
+enum RegistrationViewModelStates {
+    case idle, loading
+}
+
+protocol RegistrationViewModelProtocol: AnyObject, ObservableObject {
+    var state: RegistrationViewModelStates { get }
+    var email: String { get set }
+    var password: String { get set }
+    var passwordConfirmation: String { get set }
+    var registerButtonEnabled: Bool { get }
+    var emailTextFieldColor: Color? { get }
+    var passwordTextFieldColor: Color? { get }
+    var passwordConfirmationTextFieldColor: Color? { get }
+    var isShowingAlert: Bool { get set }
+    var error: String { get }
+    
+    func didTapLoginButton()
+    func didTapDoneButton()
+}
+
+final class RegistrationViewModel: ObservableObject, RegistrationViewModelProtocol {
     private let authentificationService: AuthentificationServiceProtocol
-    @Published var state: RegistrationViewModelStates = .idle
     var didSendEventClosure: ((RegistrationViewModel.EventType) -> Void)?
+    
+    @Published var state: RegistrationViewModelStates = .idle
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var confirmationPassword: String = ""
+    @Published var passwordConfirmation: String = ""
     
     @Published var registerButtonEnabled: Bool = false
     @Published var emailTextFieldColor: Color?
@@ -58,14 +75,16 @@ final class RegistrationViewModel: ObservableObject {
         $password.map {
             $0.count >= 8
         }
-        .removeDuplicates()
         .eraseToAnyPublisher()
     }
     
     var passwordMatchesConfirmation: AnyPublisher<Bool, Never> {
-        $password.combineLatest($confirmationPassword)
-            .map {
-                $0 == $1
+        return $password.combineLatest($passwordConfirmation)
+            .map { password, confirmation in
+                if confirmation.isEmpty {
+                    return false // Return false if confirmation is empty
+                }
+                return password == confirmation
             }.eraseToAnyPublisher()
     }
     
@@ -90,7 +109,7 @@ final class RegistrationViewModel: ObservableObject {
     }
     
     func didTapDoneButton() {
-        
+        state = .loading
         authentificationService.didSelectRegisterWithEmailLogin(email: email, password: password) { [weak self] result in
             switch result {
             case .success:

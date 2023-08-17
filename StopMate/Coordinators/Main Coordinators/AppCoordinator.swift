@@ -37,7 +37,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
     
     private let firebaseStorageService = FirebaseStorageService()
     
-    private var firebaseAuthStateHandler = FirebaseAuthStateHandler()
+    private let firebaseAuthStateHandler = FirebaseAuthStateHandler()
     
     var type: CoordinatorType {.app}
     
@@ -69,7 +69,6 @@ final class AppCoordinator: AppCoordinatorProtocol {
     }
     // This should be called from push notification not tabbar
     private func showMoodClassificationVC() {
-        //        let moodClassifierCoordinator = MoodClassifierCoordinator(navigationController)
         let moodClassifierCoordinator = ManualMoodCoordinator(navigationController)
         moodClassifierCoordinator.finishDelegate = self
         moodClassifierCoordinator.start()
@@ -80,7 +79,6 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinators = []
         navigationController.viewControllers.removeAll()
         let coordinator = FirstTimeEntryCoordinator(navigationController)
-        //        finishDelegate?.replaceWithNewCoordinator(coordinator: coordinator)
         coordinator.finishDelegate = self
         childCoordinators.append(coordinator)
         coordinator.start()
@@ -91,6 +89,15 @@ final class AppCoordinator: AppCoordinatorProtocol {
         registrationCoordinator.finishDelegate = self
         registrationCoordinator.start()
         childCoordinators.append(registrationCoordinator)
+    }
+    
+    private func showOnboarding() {
+        navigationController.viewControllers = []
+        childCoordinators = []
+        let onboardingCoordinator = OnboardingCoordinator(navigationController)
+        onboardingCoordinator.finishDelegate = self
+        childCoordinators.append(onboardingCoordinator)
+        onboardingCoordinator.start()
     }
     
     func start() {
@@ -106,18 +113,11 @@ final class AppCoordinator: AppCoordinatorProtocol {
                 self?.showLogin()
             case .userNeedsToCompleteRegistration:
                 self?.showFirstTimeEntryFlow()
+            case .userDidNotCompleteOnboarding:
+                self?.showOnboarding()
             }
         }.store(in: &disposeBag)
     }
-    
-    //    private func showLoaderView(completion: @escaping() -> Void) {
-    //        let loaderVC = UIHostingController(rootView: LoaderView())
-    //        navigationController.pushWithCustomAnination(loaderVC)
-    //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-    //            self.navigationController.popWithCustomAnimation(loaderVC)
-    //            completion()
-    //        }
-    //    }
 }
 
 extension AppCoordinator: CoordinatorFinishDelegate {
@@ -133,6 +133,10 @@ extension AppCoordinator: CoordinatorFinishDelegate {
             navigationController.viewControllers.removeAll()
             childCoordinators.removeAll()
             showFirstTimeEntryFlow()
+        case .onboarding:
+            navigationController.viewControllers = []
+            childCoordinators = []
+            showOnboarding()
         default:
             fatalError("\(coordinator) instantiateNewCoordinator is not implemented")
         }
@@ -158,6 +162,14 @@ extension AppCoordinator: CoordinatorFinishDelegate {
             childCoordinators = []
             showMainFlow()
         case .reasonsToStop:
+            navigationController.viewControllers = []
+            childCoordinators = []
+            showMainFlow()
+        case .firstTimeEntry:
+            navigationController.viewControllers = []
+            childCoordinators = []
+            showOnboarding()
+        case .onboarding:
             navigationController.viewControllers = []
             childCoordinators = []
             showMainFlow()

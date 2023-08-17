@@ -7,7 +7,14 @@
 
 import Foundation
 
-final class ManualMoodClassifierModuleViewModel: ObservableObject {
+protocol ManualMoodClassifierModuleViewModelProtocol: AnyObject, ObservableObject {
+    var moodsArray: [ClassifiedMood] { get }
+    var selectedMood: ClassifiedMood? { get set }
+    func handleMoodSelection(selectedMood: ClassifiedMood?)
+    func didTapOnDoneButton()
+}
+
+final class ManualMoodClassifierModuleViewModel: ManualMoodClassifierModuleViewModelProtocol {
     private let storageService: FirebaseStorageServiceProtocol
     @Published var moodsArray: [ClassifiedMood] = []
     @Published var selectedMood: ClassifiedMood? = nil

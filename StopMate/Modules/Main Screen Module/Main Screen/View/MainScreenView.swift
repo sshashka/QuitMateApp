@@ -7,20 +7,27 @@
 
 import SwiftUI
 
-struct MainScreenView: View {
+struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProtocol {
     @State private var resetButtonPressed: Bool = false
-    @StateObject var viewModel: MainScreenViewModel
+    @StateObject var viewModel: ViewModel
     var body: some View {
         VStack {
             Group {
                 HStack {
                     HeaderView(dateInString: viewModel.todayDate)
-                    SettingsButton().environmentObject(viewModel)
+                    Button {
+                        viewModel.didTapOnSettings()
+                    } label: {
+                        Image(systemName: SystemIconConstants.gearShape)
+                            .font(.system(size: 35))
+                            .foregroundColor(Color(ColorConstants.labelColor))
+                    }
                 }
                 UserProgressView(percentage: viewModel.percentsToFinish)
                     .foregroundColor(Color(ColorConstants.labelColor))
             }.padding(.horizontal, Spacings.spacing20)
-            Group {
+            Spacer(minLength: Spacings.spacing20)
+            VStack (spacing: Spacings.spacing20){
                 // TODO: Rename TimeAndScoreView
                 TimeAndScoreView(quittingDuration: viewModel.dateComponentsWithoutSmoking)
                     .foregroundColor(Color(ColorConstants.labelColor))
@@ -31,12 +38,12 @@ struct MainScreenView: View {
             Button {
                 resetButtonPressed.toggle()
             } label: {
-                Text("Reset Progress")
+                Text("Update timer")
             }
             .buttonStyle(StandartButtonStyle())
             .padding(.horizontal, Spacings.spacing30)
             Spacer(minLength: Spacings.spacing15)
-                .alert("Do you want to reset timer? (note: this operation cannot be undone)", isPresented: $resetButtonPressed) {
+                .alert("Do you want to update timer? (note: this operation cannot be undone)", isPresented: $resetButtonPressed) {
                     Button("Cancel", role: .cancel) {
                         resetButtonPressed.toggle()
                     }
@@ -45,9 +52,6 @@ struct MainScreenView: View {
                     }
                 }
         }
-        //.sheet(isPresented: $viewModel.showingAdditionalInfo) {
-        //            AdditionalInfoView().environmentObject(viewModel.additionalInfoViewModel).presentationDragIndicator(.visible)
-        //        }
     }
 }
 struct MainScreenView_Previews: PreviewProvider {

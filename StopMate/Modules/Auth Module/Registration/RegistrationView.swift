@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct RegistrationView: View {
+struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelProtocol {
     enum RegistrationViewFocusFields: Hashable {
         case email, password, passwordConfirm
     }
-    @StateObject var viewModel: RegistrationViewModel
+    @StateObject var viewModel: ViewModel
     @FocusState private var focused: RegistrationViewFocusFields?
     var body: some View {
         VStack {
@@ -42,7 +42,7 @@ struct RegistrationView: View {
                             .foregroundColor(viewModel.passwordTextFieldColor)
                     }
                 
-                SecureField("", text: $viewModel.confirmationPassword, prompt: Text(AuthModuleStrings.passwordConfirm).foregroundColor(.black))
+                SecureField("", text: $viewModel.passwordConfirmation, prompt: Text(AuthModuleStrings.passwordConfirm).foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
                     .frame(height: 47)
                     .focused($focused, equals: .passwordConfirm)
@@ -56,7 +56,7 @@ struct RegistrationView: View {
                     focused = .email
                 } else if viewModel.password.isEmpty {
                     focused = .password
-                } else if viewModel.confirmationPassword.isEmpty{
+                } else if viewModel.passwordConfirmation.isEmpty{
                     focused = .passwordConfirm
                 } else {
                     viewModel.didTapDoneButton()
@@ -92,7 +92,7 @@ struct RegistrationView: View {
             }
         }
         .padding(Spacings.spacing30)
-        .alert($viewModel.error.wrappedValue, isPresented: $viewModel.isShowingAlert) {
+        .alert(viewModel.error, isPresented: $viewModel.isShowingAlert) {
             Button("OK") {}
         }
     }

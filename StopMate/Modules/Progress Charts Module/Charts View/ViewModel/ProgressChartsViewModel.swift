@@ -14,6 +14,7 @@ enum ProgressChartsState {
     case loading
     case loaded
 }
+
 enum ProgressChartsPeriods: String {
     case oneWeek = "1 Week"
     case twoWeeks = "2 Weeks"
@@ -37,14 +38,26 @@ enum ProgressChartsPeriods: String {
     }
 }
 
-final class ProgressChartsViewModel: ObservableObject {
-    // Divide state handling for both charts
+protocol ProgressChartsViewModelProtocol: AnyObject, ObservableObject {
+    var state: ProgressChartsState { get }
+    var selectedSotringMethod: ProgressChartsPeriods { get set }
+    var filteredDataForCharts: [ChartModel] { get }
+    var weekDataForCharts: [ChartModel] { get }
+    var alertText: String { get }
+    var isShowingAlert: Bool { get set }
+    var isDetailedChartsEnabled: Bool { get }
+    func didTapOnAddingMood()
+    func getDetailedInfoViewModel() -> DetailedChartsViewModel
+}
+
+final class ProgressChartsViewModel: ProgressChartsViewModelProtocol {
     @Published var state: ProgressChartsState = .idle
     private let storageService: FirebaseStorageServiceProtocol
     private var cancellables = Set<AnyCancellable>()
-    private var chartModelData: [ChartModel] = [] {
+    var didSendEventClosure: ((ProgressChartsViewModel.EventTypes) -> Void)?
+    @Published private var chartModelData: [ChartModel] = [] {
         didSet {
-            self.dataForCharts = chartModelData
+            self.filteredDataForCharts = chartModelData
             filterChartsData(for: selectedSotringMethod)
             filterChartsData(for: .oneWeek)
         }
@@ -57,25 +70,21 @@ final class ProgressChartsViewModel: ObservableObject {
     }
     
     
-    @Published private (set) var dataForCharts: [ChartModel] = [] {
+    @Published private (set) var filteredDataForCharts: [ChartModel] = [] {
         didSet {
-            getStatistics()
             state = .loaded
         }
     }
     
     @Published var weekDataForCharts: [ChartModel] = []
-    
-    @Published var bestDay: String = ""
-    @Published var worstDay: String = ""
-    @Published var bestDayScore = ""
-    @Published var worstDayScore = ""
-    @Published var savedOnSigs = ""
-    
+    @Published var alertText = ""
+    @Published var isShowingAlert: Bool = false
+    @Published var isDetailedChartsEnabled: Bool = false
     
     init(storageService: FirebaseStorageServiceProtocol) {
         self.storageService = storageService
-//        getChartsData()
+        isDetailedChartsViewAvalible.assign(to: &$isDetailedChartsEnabled)
+        start()
     }
     
     private lazy var currentDate: Date = {
@@ -85,19 +94,41 @@ final class ProgressChartsViewModel: ObservableObject {
         return Calendar.current
     }()
     
-    func start() {
+    private func start() {
         getChartsData()
     }
     
     func getDetailedInfoViewModel() -> DetailedChartsViewModel {
         return DetailedChartsViewModel(data: chartModelData)
     }
+    
+    func didTapOnAddingMood() {
+        guard canAddNewMood else {
+            alertText = "You have already marked your mood today. So, come back tomorrow."
+            isShowingAlert.toggle()
+            return
+        }
+        didSendEventClosure?(.newMood)
+    }
 }
 
 private extension ProgressChartsViewModel {
+    var isDetailedChartsViewAvalible: AnyPublisher<Bool, Never> {
+        $chartModelData
+            .map { !$0.isEmpty }
+            .eraseToAnyPublisher()
+    }
+    
+    private var canAddNewMood: Bool {
+        let dates = chartModelData.map {
+            $0.dateOfClassificationByDate
+        }
+        return Date.checkIfArrayContainsToday(array: dates)
+    }
+    
     func getChartsData() {
         state = .loading
-        FirebaseStorageService().getChartsData()
+        storageService.getChartsData()
             .sink { finish in
                 print(finish)
             } receiveValue: { [weak self] data in
@@ -112,23 +143,22 @@ private extension ProgressChartsViewModel {
     func filterChartsData(for period: ProgressChartsPeriods) {
         switch period {
         case .oneMonth:
-            dataForCharts = filterForMonths(months: period.valueOfPeriod)
+            filteredDataForCharts = filterForMonths(months: period.valueOfPeriod)
         case .threeMonth, .sixMonth:
-            dataForCharts = filterForMonths(months: period.valueOfPeriod).enumerated().filter{
-                $0.offset % 2 == 1
+            filteredDataForCharts = filterForMonths(months: period.valueOfPeriod).enumerated().filter{
+                $0.offset % 3 == 1
             }
             .map {
                 $0.element
             }
         case .twoWeeks:
-            dataForCharts = filterForWeeks(days: period.valueOfPeriod)
+            filteredDataForCharts = filterForWeeks(days: period.valueOfPeriod)
         case .oneWeek:
             weekDataForCharts = filterForWeeks(days: period.valueOfPeriod)
         }
     }
     
     func filterForWeeks(days: Int) -> [ChartModel] {
-        //    private let oneWeekAgo = calendar.date(byAdding: .weekday, value: -7, to: currentDate)!
         let period = calendar.date(byAdding: .weekday, value: -days,to: currentDate)!
         return chartModelData.filter({
             $0.dateOfClassification > period && $0.dateOfClassification < currentDate
@@ -141,20 +171,10 @@ private extension ProgressChartsViewModel {
             $0.dateOfClassification > period && $0.dateOfClassification < currentDate
         }
     }
-    
-    func getStatistics() {
-        let maxScoreDay = dataForCharts.max(by: {
-            $0.scoreForUser < $1.scoreForUser
-        })
-        let minScoreDay = dataForCharts.min {
-            $0.scoreForUser < $1.scoreForUser
-        }
-        guard let maxScoreDay = maxScoreDay, let minScoreDay = minScoreDay else { bestDay = "No data"; worstDay = "No data"; return }
-        
-        bestDay = maxScoreDay.dateOfClassification.toDateComponents(neededComponents: [.year, .month, .day]).toSting()
-        worstDay = minScoreDay.dateOfClassification.toDateComponents(neededComponents: [.year, .month, .day]).toSting()
-        
-        bestDayScore = "\(maxScoreDay.scoreForUser)"
-        worstDayScore = "\(minScoreDay.scoreForUser)"
+}
+
+extension ProgressChartsViewModel {
+    enum EventTypes {
+        case newMood
     }
 }

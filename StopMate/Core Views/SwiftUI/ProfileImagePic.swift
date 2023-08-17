@@ -7,20 +7,28 @@
 
 import SwiftUI
 
-//struct ProfileImagePic: View {
-//    var image: Data?
-//    var body: some View {
-//        createImage()
-//            .resizable()
-//            .clipShape(Circle())
-//            .frame(width: 100, height: 100)
-//    }
-//    
-//    
-//}
-//
-//struct ProfileImagePic_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProfileImagePic()
-//    }
-//}
+struct ProfileImagePic: View {
+    var data: Data?
+    var body: some View {
+        switch data.flatMap(UIImage.init) {
+        case let .some(image):
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFill()
+                .clipShape(Circle())
+                .frame(width: 150, height: 150)
+        case .none:
+            Image(IconConstants.noProfilePic)
+                .resizable()
+                .scaledToFill()
+                .clipShape(Circle())
+                .frame(width: 150, height: 150)
+        }
+    }
+}
+
+struct ProfileImagePic_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileImagePic()
+    }
+}

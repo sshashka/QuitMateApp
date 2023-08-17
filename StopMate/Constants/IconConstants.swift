@@ -18,4 +18,9 @@ final class IconConstants {
     static var danger: String { "Danger" }
     static var sleep: String { "Sleep" }
     static var time: String { "Time" }
+    
+    static var moodIcon: String { "Mood" }
+    static var timerReset: String { "Reset" }
+    static var chartDetails: String { "chartDetails" }
+    static var onboarding: String { "Onboarding" }
 }
