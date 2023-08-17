@@ -185,8 +185,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		300396B92A83AA6C007B0039 /* StopMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = StopMate.app; path = "/Users/sashavasylenko/Documents/Mine/QuitMate/QuitMateApp/build/Debug-iphoneos/StopMate.app"; sourceTree = "<absolute>"; };
 		30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		30067F822A8DAE3200FD3459 /* StopMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StopMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		300ACB0A2A3FB8B500DA76D5 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		300ACB0C2A3FC28200DA76D5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		300ACB102A3FC3B100DA76D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -969,6 +969,7 @@
 			isa = PBXGroup;
 			children = (
 				30CA1B3F299AE191001E5BF3 /* StopMate */,
+				30067F822A8DAE3200FD3459 /* StopMate.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1260,7 +1261,7 @@
 				30F9D2FD2A7D964800986B97 /* SkeletonUI */,
 			);
 			productName = QuitMate;
-			productReference = 300396B92A83AA6C007B0039 /* StopMate.app */;
+			productReference = 30067F822A8DAE3200FD3459 /* StopMate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1636,7 +1637,7 @@
 				CODE_SIGN_ENTITLEMENTS = StopMate/StopMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StopMate/Info.plist;
@@ -1675,7 +1676,7 @@
 				CODE_SIGN_ENTITLEMENTS = StopMate/StopMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StopMate/Info.plist;

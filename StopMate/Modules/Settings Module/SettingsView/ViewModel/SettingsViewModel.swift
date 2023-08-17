@@ -10,7 +10,7 @@ import Combine
 import FirebaseAuth
 
 protocol SettingsViewModelProtocol: AnyObject {
-//    var isShowingAlertPublisher: Published<Bool>.Publisher { get set }
+    var isShowingAlert: Bool { get set }
     var errorText: String { get }
     var userModel: User? { get }
     // TODO: replace HeaderViewViewModel with HeaderViewViewModelProtocol

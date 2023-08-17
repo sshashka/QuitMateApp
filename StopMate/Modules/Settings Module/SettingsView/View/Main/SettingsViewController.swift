@@ -101,7 +101,7 @@ private extension SettingsViewController {
     func showAlert() {
         let alert = UIAlertController(title: nil, message: viewModel?.errorText, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-//            self?.viewModel?.isShowingAlert.
+            self?.viewModel?.isShowingAlert.toggle()
         })
         
         present(alert, animated: true)
