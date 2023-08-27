@@ -34,6 +34,7 @@ protocol AuthentificationServiceProtocol: AnyObject {
     func didSelectRegisterWithEmailLogin(email: String, password: String, completion: @escaping(ResultOfAuthentification) -> Void)
     func resetPassword()
     func resetPasswordForNotAuthentoficatedUser(email: String)
+    func deleteAccount()
 }
 
 final class FirebaseAuthentificationService: AuthentificationServiceProtocol {
@@ -98,7 +99,9 @@ final class FirebaseAuthentificationService: AuthentificationServiceProtocol {
         Auth.auth().sendPasswordReset(withEmail: email)
     }
     
-    
+    func deleteAccount() {
+        Auth.auth().currentUser?.delete()
+    }
     
     deinit {
         print("Auth service deinit")

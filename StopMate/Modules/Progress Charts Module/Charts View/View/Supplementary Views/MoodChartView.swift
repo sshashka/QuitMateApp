@@ -22,6 +22,7 @@ struct MoodChartView: View {
                 LineMark(x: .value("Day", day.dateOfClassification, unit: .day), y: .value("Mood", day.classificationString))
                     .foregroundStyle(Color(ColorConstants.labelColor))
                     .interpolationMethod(.cardinal)
+                    
                 PointMark(x: .value("Day", day.dateOfClassification, unit: .day), y: .value("Mood", day.classificationString))
                     .foregroundStyle(Color(ColorConstants.labelColor))
                     .interpolationMethod(.cardinal)

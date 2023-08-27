@@ -31,9 +31,6 @@ struct VideoSelectionView<ViewModel>: View where ViewModel: VideoSelectionViewMo
                             .padding()
                     }
                 }
-                .onAppear {
-                    viewModel.start()
-                }
                 .padding(.horizontal, Spacings.spacing15)
             }.navigationTitle("Videos")
         }

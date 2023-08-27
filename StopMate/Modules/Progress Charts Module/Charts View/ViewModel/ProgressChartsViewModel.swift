@@ -46,6 +46,7 @@ protocol ProgressChartsViewModelProtocol: AnyObject, ObservableObject {
     var alertText: String { get }
     var isShowingAlert: Bool { get set }
     var isDetailedChartsEnabled: Bool { get }
+    var vibrationType: VibrationEvent { get }
     func didTapOnAddingMood()
     func getDetailedInfoViewModel() -> DetailedChartsViewModel
 }
@@ -81,6 +82,8 @@ final class ProgressChartsViewModel: ProgressChartsViewModelProtocol {
     @Published var isShowingAlert: Bool = false
     @Published var isDetailedChartsEnabled: Bool = false
     
+    private (set) var vibrationType: VibrationEvent = .success
+    
     init(storageService: FirebaseStorageServiceProtocol) {
         self.storageService = storageService
         isDetailedChartsViewAvalible.assign(to: &$isDetailedChartsEnabled)
@@ -106,8 +109,10 @@ final class ProgressChartsViewModel: ProgressChartsViewModelProtocol {
         guard canAddNewMood else {
             alertText = "You have already marked your mood today. So, come back tomorrow."
             isShowingAlert.toggle()
+            vibrationType = .fail
             return
         }
+        vibrationType = .success
         didSendEventClosure?(.newMood)
     }
 }

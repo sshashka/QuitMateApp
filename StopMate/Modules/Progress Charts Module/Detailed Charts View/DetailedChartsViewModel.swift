@@ -62,7 +62,7 @@ final class DetailedChartsViewModel: ObservableObject, DetailedChartsViewModelPr
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM yyyy"
-        
+        dateFormatter.locale = NSLocale(localeIdentifier: "EN") as Locale
         // Sort the dictionary by keys (dates)
         let sortedMaxMoodCounts = maxMoodCountsByMonthAndYear.sorted { $0.key < $1.key }
 

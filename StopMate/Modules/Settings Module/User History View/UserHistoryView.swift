@@ -33,6 +33,7 @@ struct UserHistoryView: View {
                                     }.fontStyle(.poppinsSemibold16)
                                 }
                                 .padding(.horizontal, Spacings.spacing30)
+                                .padding(.top, Spacings.spacing15)
                             }
                         } else {
                             VStack(alignment: .center) {

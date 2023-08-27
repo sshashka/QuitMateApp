@@ -29,7 +29,8 @@ struct StatsView: View {
             }
         }
         .minimumScaleFactor(0.7)
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .vibrate(event: .success)
     }
 }
 

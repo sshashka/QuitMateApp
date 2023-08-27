@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ManualMoodClassifierView<ViewModel>: View where ViewModel: ManualMoodClassifierModuleViewModelProtocol {
     @StateObject var viewModel: ViewModel
-    
+    let vibrationGenerator = UINotificationFeedbackGenerator()
     var body: some View {
         VStack(alignment: .center) {
             Text("Hey")
@@ -22,6 +22,7 @@ struct ManualMoodClassifierView<ViewModel>: View where ViewModel: ManualMoodClas
             Spacer(minLength: Spacings.spacing20)
             Button {
                 viewModel.didTapOnDoneButton()
+                vibrationGenerator.notificationOccurred(.success)
             } label: {
                 Text("Done")
                     .modifier(TextViewModifier(font: .poppinsBold, size: 14))

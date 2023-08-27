@@ -23,6 +23,7 @@ protocol SettingsViewModelProtocol: AnyObject {
     func resetPassword()
     func didTapOnHistory()
     func didTapOnEdit()
+    func didTapOnAccountDelete()
 }
 
 final class SettingsViewModel: ObservableObject, SettingsViewModelProtocol {
@@ -129,6 +130,10 @@ final class SettingsViewModel: ObservableObject, SettingsViewModelProtocol {
     
     func didTapOnEdit() {
         didSendEventClosure?(.didTapOnEdit)
+    }
+    
+    func didTapOnAccountDelete() {
+        authService.deleteAccount()
     }
     
     private var canAddNewMood: Bool {

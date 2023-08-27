@@ -11,8 +11,8 @@ struct MoodClassifierButton: View {
     @State var buttonPressed: Bool = false
     // I do this to automaticly show/hide chechmark on selection, feel that this is wrong approach
     var labelText: ClassifiedMood
+    let vibrationGenerator = UINotificationFeedbackGenerator()
     @Binding var selectedMood: ClassifiedMood?
-    
     var body: some View {
         Button {
             buttonPressed.toggle()

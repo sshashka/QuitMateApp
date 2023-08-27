@@ -18,6 +18,7 @@ protocol MainScreenViewModelProtocolVariables {
     var enviromentalChanges: String { get }
     var daysToFinish: String { get }
     var dateComponentsWithoutSmoking: String { get }
+    var emissions: String { get }
 }
 
 protocol MainScreenViewModelProtocolMethods {
@@ -61,6 +62,8 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     
     @Published var dateComponentsWithoutSmoking: String = ""
     
+    @Published var emissions: String = ""
+    
     init(storageService: FirebaseStorageServiceProtocol) {
         self.storageService = storageService
         getUserModel()
@@ -93,6 +96,7 @@ private extension MainScreenViewModel {
         getDaysWithoutSmoking()
         getDateComponentsWithoutSmoking()
         getDaysLeft()
+        getEmissions()
     }
     
     func getDaysWithoutSmoking() {
@@ -104,7 +108,7 @@ private extension MainScreenViewModel {
         guard let model = userStatistics else { return }
         let moneyValue = model.moneySpentOnSigarets
         guard let moneyCurrency = model.userCurrency?.rawValue else { return }
-        moneySaved = String(moneyValue) + String(moneyCurrency)
+        moneySaved = String(moneyValue.rounded()) + String(moneyCurrency)
     }
     
     func getPercentsToFinish() {
@@ -121,6 +125,7 @@ private extension MainScreenViewModel {
         let date = Date.now
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy"
+        dateFormatter.locale = NSLocale(localeIdentifier: "EN") as Locale
         todayDate = dateFormatter.string(from: date)
     }
     
@@ -132,6 +137,11 @@ private extension MainScreenViewModel {
     func getDaysLeft() {
         guard let userStatistics = userStatistics else { return }
         daysToFinish = String(userStatistics.daysToFinish)
+    }
+    
+    func getEmissions() {
+        guard let userStatistics = userStatistics else { return }
+        emissions = String(Double(userStatistics.daysWithoutSmoking) * 2.5) + "g"
     }
 }
 

@@ -100,9 +100,13 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
         tokens = 150
 #endif
         let daysWithoutSmoking = userData.daysWithoutSmoking
+        
+        
 
         // Please put your own token here
-        let openAi = OpenAI(apiToken: "")
+        let apiKey = ""
+        
+        let openAi = OpenAI(apiToken: apiKey)
         let query: CompletionsQuery
         
         switch typeOfGenerationEvent {

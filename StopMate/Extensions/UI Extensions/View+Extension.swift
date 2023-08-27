@@ -16,6 +16,10 @@ extension View {
     func isEnabled(_ state: Bool) -> some View {
         modifier(DisabledStateModifier(state))
     }
+    
+    func vibrate(event: VibrationEvent) -> some View {
+        modifier(VibrationModifier(event: event))
+    }
 }
 
 struct WillDisappearHandler: UIViewControllerRepresentable {

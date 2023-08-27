@@ -9,7 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 //import Combine
-import UserNotifications
+//import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         UserDefaults.standard.set(nil, forKey: "UserID")
-        
     }
     
 //    func registerForPushNotifications() {

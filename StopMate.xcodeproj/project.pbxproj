@@ -33,6 +33,8 @@
 		3037166929F2074400846D65 /* MoodClassifierViewController+Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037166829F2074400846D65 /* MoodClassifierViewController+Module.swift */; };
 		303A3F3C2A2E8E510006B903 /* IconConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A3F3B2A2E8E510006B903 /* IconConstants.swift */; };
 		303B9EB829C1C415008D2C64 /* ReasonsToStopViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303B9EB729C1C415008D2C64 /* ReasonsToStopViewProtocol.swift */; };
+		303F16852A8FA694000AE1C1 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303F16842A8FA694000AE1C1 /* TermsAndConditionsView.swift */; };
+		303F16872A8FA712000AE1C1 /* PrivacyPolicyAndTermsAndConditionsURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303F16862A8FA712000AE1C1 /* PrivacyPolicyAndTermsAndConditionsURL.swift */; };
 		30400F442A5D77B3006D46C9 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30400F432A5D77B3006D46C9 /* SettingsButton.swift */; };
 		30400F472A5D8250006D46C9 /* VideoInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30400F462A5D8250006D46C9 /* VideoInfoView.swift */; };
 		30400F4B2A5DB1D6006D46C9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30400F4A2A5DB1D6006D46C9 /* EditProfileView.swift */; };
@@ -120,6 +122,7 @@
 		30B8E2102A6B4CA6002870F2 /* ProfileImagePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B8E20F2A6B4CA6002870F2 /* ProfileImagePic.swift */; };
 		30BFF1B02A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BFF1AF2A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift */; };
 		30BFF1B22A26C4A5003B7E06 /* MoodClassifierSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025FF3A2A11824A002D71A8 /* MoodClassifierSelectionView.swift */; };
+		30C13F542A94EFB30072910A /* VibrationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C13F532A94EFB30072910A /* VibrationModifier.swift */; };
 		30C1CB2029F1396500F7A044 /* MoodClassifierCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */; };
 		30C23CAF2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C23CAE2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift */; };
 		30C338EB2A538BA40000E6CC /* FirebaseAuthStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C338EA2A538BA40000E6CC /* FirebaseAuthStateHandler.swift */; };
@@ -186,11 +189,9 @@
 
 /* Begin PBXFileReference section */
 		30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
-		30067F822A8DAE3200FD3459 /* StopMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StopMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30067F822A8DAE3200FD3459 /* StopMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = StopMate.app; path = "/Users/sashavasylenko/Documents/Mine/QuitMate/QuitMateApp/build/Debug-iphoneos/StopMate.app"; sourceTree = "<absolute>"; };
 		300ACB0A2A3FB8B500DA76D5 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
-		300ACB0C2A3FC28200DA76D5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		300ACB102A3FC3B100DA76D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		300ACB122A3FC3B400DA76D5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		300ACB182A40ABF000DA76D5 /* RecomendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsView.swift; sourceTree = "<group>"; };
 		301821CE299D79C10088863C /* FirebaseAuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentificationService.swift; sourceTree = "<group>"; };
 		3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -215,6 +216,8 @@
 		3037166829F2074400846D65 /* MoodClassifierViewController+Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodClassifierViewController+Module.swift"; sourceTree = "<group>"; };
 		303A3F3B2A2E8E510006B903 /* IconConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconConstants.swift; sourceTree = "<group>"; };
 		303B9EB729C1C415008D2C64 /* ReasonsToStopViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopViewProtocol.swift; sourceTree = "<group>"; };
+		303F16842A8FA694000AE1C1 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		303F16862A8FA712000AE1C1 /* PrivacyPolicyAndTermsAndConditionsURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyAndTermsAndConditionsURL.swift; sourceTree = "<group>"; };
 		30400F432A5D77B3006D46C9 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		30400F462A5D8250006D46C9 /* VideoInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoView.swift; sourceTree = "<group>"; };
 		30400F4A2A5DB1D6006D46C9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -294,6 +297,7 @@
 		30B7513529F345FD00295A7E /* ClassificationResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationResultModel.swift; sourceTree = "<group>"; };
 		30B8E20F2A6B4CA6002870F2 /* ProfileImagePic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePic.swift; sourceTree = "<group>"; };
 		30BFF1AF2A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierSelectionViewModel.swift; sourceTree = "<group>"; };
+		30C13F532A94EFB30072910A /* VibrationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationModifier.swift; sourceTree = "<group>"; };
 		30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierCoordinator.swift; sourceTree = "<group>"; };
 		30C23CAE2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher<Bool,Never>+Extension.swift"; sourceTree = "<group>"; };
 		30C338EA2A538BA40000E6CC /* FirebaseAuthStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthStateHandler.swift; sourceTree = "<group>"; };
@@ -481,6 +485,7 @@
 				30727A1B2A33E56C004A29B6 /* PoppinsTextStyles.swift */,
 				30FE9CDD2A64B94600FC5858 /* UserDefaultsConstants.swift */,
 				30FEA7402A8AFE6700239912 /* SystemIconConstants.swift */,
+				303F16862A8FA712000AE1C1 /* PrivacyPolicyAndTermsAndConditionsURL.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 			children = (
 				30F7E5902A2EBC7000EAE058 /* TextViewModifier.swift */,
 				30FE9CE22A6654D500FC5858 /* DisabledStateModifier.swift */,
+				30C13F532A94EFB30072910A /* VibrationModifier.swift */,
 			);
 			path = "SwiftUI View Modifiers";
 			sourceTree = "<group>";
@@ -682,6 +688,7 @@
 				30400F492A5DB1C8006D46C9 /* Edit profile view */,
 				30AAD91F2A0E6A8D000FF93D /* SettingsView */,
 				30F9D3072A806FD900986B97 /* ImageProfileLoadingStates.swift */,
+				303F16842A8FA694000AE1C1 /* TermsAndConditionsView.swift */,
 			);
 			path = "Settings Module";
 			sourceTree = "<group>";
@@ -969,7 +976,6 @@
 			isa = PBXGroup;
 			children = (
 				30CA1B3F299AE191001E5BF3 /* StopMate */,
-				30067F822A8DAE3200FD3459 /* StopMate.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1286,7 +1292,6 @@
 			knownRegions = (
 				en,
 				Base,
-				uk,
 			);
 			mainGroup = 30CA1B34299AE191001E5BF3;
 			packageReferences = (
@@ -1424,6 +1429,7 @@
 				30E8A3382A6DF32F00334693 /* AdditionalInfoCell.swift in Sources */,
 				30A1200629FBE7B00062A019 /* FirebaseStorageService.swift in Sources */,
 				3057162229C7E374002C20A0 /* ReasonsToStopPresenterProtocol.swift in Sources */,
+				303F16852A8FA694000AE1C1 /* TermsAndConditionsView.swift in Sources */,
 				30FE9CDC2A64B35F00FC5858 /* LoaderView.swift in Sources */,
 				302C494E29FB276300D43421 /* MoodClassifierButton.swift in Sources */,
 				30549F122A3A7A4000872DAD /* ButtonWithUnderline.swift in Sources */,
@@ -1451,6 +1457,7 @@
 				30727A182A33E0D9004A29B6 /* TextFieldWithUnderlineViewAndHeader.swift in Sources */,
 				30F527EE2A5626580031D0F4 /* UINavigationController+Extension.swift in Sources */,
 				30A1200429FB45D70062A019 /* CustomTextField.swift in Sources */,
+				303F16872A8FA712000AE1C1 /* PrivacyPolicyAndTermsAndConditionsURL.swift in Sources */,
 				307E7E0129EF486300DFCEE3 /* MoodClassifierModulePresenterProtocol.swift in Sources */,
 				303B9EB829C1C415008D2C64 /* ReasonsToStopViewProtocol.swift in Sources */,
 				302C494529FB116500D43421 /* MoodModel.swift in Sources */,
@@ -1463,6 +1470,7 @@
 				30400F542A5E12ED006D46C9 /* VideoSelectionViewModel.swift in Sources */,
 				3025FF402A119881002D71A8 /* CoreMLClassifierCoordinator.swift in Sources */,
 				3058D3532A39116A00D01781 /* CurrencyPicker.swift in Sources */,
+				30C13F542A94EFB30072910A /* VibrationModifier.swift in Sources */,
 				30E9CB4229F6D13800E1F0C2 /* QuittingInformationView.swift in Sources */,
 				30F9D3002A7D967D00986B97 /* Image+Extension.swift in Sources */,
 				306CB12F2A684B3800893295 /* CustomProgressView.swift in Sources */,
@@ -1495,7 +1503,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				300ACB102A3FC3B100DA76D5 /* en */,
-				300ACB122A3FC3B400DA76D5 /* uk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1504,7 +1511,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				30CA1B4C299AE192001E5BF3 /* Base */,
-				300ACB0C2A3FC28200DA76D5 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1637,7 +1643,7 @@
 				CODE_SIGN_ENTITLEMENTS = StopMate/StopMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StopMate/Info.plist;
@@ -1654,7 +1660,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.13;
+				MARKETING_VERSION = 1.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1676,7 +1682,7 @@
 				CODE_SIGN_ENTITLEMENTS = StopMate/StopMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StopMate/Info.plist;
@@ -1693,7 +1699,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.13;
+				MARKETING_VERSION = 1.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

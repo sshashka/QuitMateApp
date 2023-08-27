@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 final class SettingsViewController: UIViewController {
-    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "About app", "Add new mood", "Watch your history", "Onboarding"]
+    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "Privacy policy", "Watch your history", "Onboarding", "Delete account"]
 //    private let gradientLayer = CAGradientLayer()
     private var viewModel: SettingsViewModelProtocol?
     private var disposeBag = Set<AnyCancellable>()
@@ -114,6 +114,15 @@ private extension SettingsViewController {
         present(alert, animated: true)
     }
     
+    func showDeleteAccountAlert() {
+        let alert = UIAlertController(title: nil, message: "Do you really want to delete your account?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive) {[weak self] _ in
+            self?.viewModel?.didTapOnAccountDelete()
+        })
+        alert.addAction(UIAlertAction(title: "No", style: .cancel))
+        present(alert, animated: true)
+    }
+    
     @objc func editButtonDidTap() {
         viewModel?.didTapOnEdit()
     }
@@ -136,19 +145,19 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             didSelectPasswordReset()
         case 1:
-            print()
+            let vc = TermsAndConditionsView()
+            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.termsAndConditions
+            navigationController?.pushViewController(vc, animated: true)
         case 2:
-            print()
+            let vc = TermsAndConditionsView()
+            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.privacyPolicy
+            navigationController?.pushViewController(vc, animated: true)
         case 3:
-            viewModel?.didTapOnAddingMood()
-            // Need to pop it manualy so SettingsViewController deinits
-            navigationController?.popViewController(animated: false)
-        case 4:
             viewModel?.didTapOnHistory()
-        case 5:
+        case 4:
             viewModel?.didTapOnOnboarding()
-            // Need to pop it manualy so SettingsViewController deinits
-            navigationController?.popViewController(animated: false)
+        case 5:
+            showDeleteAccountAlert()
         default:
             break
         }

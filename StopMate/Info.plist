@@ -25,6 +25,8 @@
 		<string>Poppins-BlackItalic.ttf</string>
 		<string>Poppins-Black.ttf</string>
 	</array>
+	<key>LSEnvironment</key>
+	<dict/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -19,7 +19,7 @@ struct BenefitsOfQuittingAndPrivacyPolicyView: View {
             BenefitsOfQuittingView(headerText: "Better Circulation", text: "Your blood circulation improves, leading to warmer hands and feet and a reduced risk of blood clots.")
             Spacer()
             // TODO: Set url to real provacy policy
-            Text("By clicking on finish you agree to the [Privacy policy](https://example.com)")
+            Text("By clicking on finish you agree to the [Privacy policy](\(PrivacyPolicyAndTermsAndConditionsURL.privacyPolicy)) and [Terms and Conditions](\(PrivacyPolicyAndTermsAndConditionsURL.termsAndConditions))")
                 .fontStyle(.greyHeaderText)
         }.padding(.horizontal, Spacings.spacing30)
     }

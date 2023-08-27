@@ -16,10 +16,16 @@ protocol YoutubeApiServiceProtocol: AnyObject {
 }
 
 class YoutubeApiService: YoutubeApiServiceProtocol {
+    private func getApiKey() -> String {
+        // Put your own key here
+        return ""
+    }
+    
     private var disposeBag = Set<AnyCancellable>()
         func getVideos() -> AnyPublisher<YoutubeAPIResponce, Never> {
             let subject = PassthroughSubject<YoutubeAPIResponce, Never>()
-            let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=AIzaSyATwYlfg9LKaXmJRhScZxfpD8OoW71OOS4&maxResults=10"
+            var key: String = getApiKey()
+            let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=\(key)&maxResults=10"
             let url = URL(string: urlString)
     //        guard let url = url else { return }
             let session = URLSession.shared
@@ -40,7 +46,8 @@ class YoutubeApiService: YoutubeApiServiceProtocol {
     
     func loadMoreVideos(nextPageToken: String) -> AnyPublisher<YoutubeAPIResponce, Never> {
         let subject = PassthroughSubject<YoutubeAPIResponce, Never>()
-        let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=AIzaSyATwYlfg9LKaXmJRhScZxfpD8OoW71OOS4&maxResults=10&pageToken=\(nextPageToken)"
+        let key = getApiKey()
+        let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=\(key)&maxResults=10&pageToken=\(nextPageToken)"
         let url = URL(string: urlString)
         let session = URLSession.shared
         session
@@ -57,25 +64,10 @@ class YoutubeApiService: YoutubeApiServiceProtocol {
         return subject.eraseToAnyPublisher()
     }
     
-//    func getVideos(completion: @escaping(YoutubeAPIResponce) -> Void) {
-//        let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=AIzaSyATwYlfg9LKaXmJRhScZxfpD8OoW71OOS4"
-//        let url = URL(string: urlString)
-//        guard let url = url else { return }
-//        let urlRequest = URLRequest(url: url)
-//        URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
-//            do {
-//                guard let data = data else { return }
-//                let datar = try JSONDecoder().decode(YoutubeAPIResponce.self, from: data)
-//                completion(datar)
-//            } catch {
-//                print("\(error)")
-//            }
-//        }.resume()
-//    }
-    
     func getVideoInformation(for id: String) -> AnyPublisher<YoutubeAPIVideoDetailsResponce, Never> {
         let subject = PassthroughSubject<YoutubeAPIVideoDetailsResponce, Never>()
-        let urlString = "https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails%2C%20id%2C%20snippet%2C%20statistics%2C%20topicDetails&id=\(id)&key=AIzaSyATwYlfg9LKaXmJRhScZxfpD8OoW71OOS4"
+        let key = getApiKey()
+        let urlString = "https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails%2C%20id%2C%20snippet%2C%20statistics%2C%20topicDetails&id=\(id)&key=\(key)"
         print(urlString)
         let url = URL(string: urlString)
         let session = URLSession.shared

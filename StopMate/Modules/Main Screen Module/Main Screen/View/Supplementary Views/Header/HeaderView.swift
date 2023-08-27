@@ -14,8 +14,10 @@ struct HeaderView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Quitting Analysis")
                     .modifier(TextViewModifier(font: .poppinsSemiBold, size: 18))
+                    .minimumScaleFactor(0.7)
                 Text(dateInString)
                     .modifier(TextViewModifier(font: .poppinsMedium, size: 14))
+                    .minimumScaleFactor(0.7)
             }
             Spacer()
         }

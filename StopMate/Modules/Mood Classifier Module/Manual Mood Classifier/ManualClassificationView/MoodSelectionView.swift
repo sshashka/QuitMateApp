@@ -24,10 +24,10 @@ struct MoodSelectionView: View {
                                 Image(systemName: "checkmark")
                             }
                         }
-                    }.buttonStyle(StandartButtonStyle())
-//                    MoodClassifierButton(labelText: mood, selectedMood: $selectedMood)
+                    }
+                    .buttonStyle(StandartButtonStyle())
                 }
-            }
+            }.animation(.easeIn(duration: 2), value: moods)
         }
     }
 }

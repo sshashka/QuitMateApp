@@ -11,6 +11,7 @@ import SkeletonUI
 struct ProgressChartsView<ViewModel>: View where ViewModel: ProgressChartsViewModelProtocol {
     @StateObject var viewModel: ViewModel
     @State var isPresentingSheet = false
+    private let generator = UINotificationFeedbackGenerator()
     var body: some View {
         NavigationStack {
             VStack {

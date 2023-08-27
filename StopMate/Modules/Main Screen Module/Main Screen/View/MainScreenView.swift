@@ -26,7 +26,7 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
                 UserProgressView(percentage: viewModel.percentsToFinish)
                     .foregroundColor(Color(ColorConstants.labelColor))
             }.padding(.horizontal, Spacings.spacing20)
-            Spacer(minLength: Spacings.spacing20)
+            Spacer(minLength: Spacings.spacing10)
             VStack (spacing: Spacings.spacing20){
                 // TODO: Rename TimeAndScoreView
                 TimeAndScoreView(quittingDuration: viewModel.dateComponentsWithoutSmoking)
