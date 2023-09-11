@@ -14,11 +14,11 @@ struct TextFieldWithUnderlineView: View {
         VStack {
             TextField(placeHolderText, text: $text)
                 .multilineTextAlignment(.center)
-                .foregroundColor(Color(ColorConstants.buttonsColor))
+                .foregroundColor(Color.buttonsPurpleColor)
                 .font(.custom(FontsEnum.poppinsMedium.rawValue, size: 24))
             Divider()
                 .frame(height: 2)
-            .background(Color(ColorConstants.buttonsColor))
+            .background(Color.buttonsPurpleColor)
         }
     }
 }

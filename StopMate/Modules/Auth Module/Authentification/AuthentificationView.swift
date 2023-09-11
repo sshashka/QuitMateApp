@@ -84,7 +84,7 @@ struct AuthentificationView<ViewModel>: View where ViewModel: AuthentificationVi
             Button {
                 viewModel.didTapOnLogin()
             } label: {
-                TextView(text: "Log In", font: .poppinsSemiBold, size: 14)
+                Text("Log In")
             }
             .buttonStyle(StandartButtonStyle())
             .padding(.top, Spacings.spacing25)

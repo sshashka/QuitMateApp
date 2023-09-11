@@ -26,6 +26,7 @@ struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewMo
                             focusedField = selectedField
                         }
                     }
+                
                 TextFieldWithUnderlineViewAndHeader(headerText: AuthModuleStrings
                     .howOldAreYou, text: $viewModel.age ,placeHolderText: AuthModuleStrings.yourAge)
                     .keyboardType(.numberPad)
@@ -55,6 +56,7 @@ struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewMo
                             focusedField = nil
                         }
                     }
+                
                 PeriodOfTimeToQuitView(period: .finishingDate, headerText: AuthModuleStrings.finishSmoking, datePickerText: AuthModuleStrings.finishingDate, date: $viewModel.finishingDate)
                     .tag(Field.finishingDate)
                     .onAppear {
@@ -66,6 +68,7 @@ struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewMo
                 BenefitsOfQuittingAndPrivacyPolicyView()
                     .tag(Field.privacyPolicy)
             }
+            
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .animation(.easeOut(duration: 0.4), value: selectedField)
             Button {

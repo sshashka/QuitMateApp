@@ -137,6 +137,10 @@ extension AppCoordinator: CoordinatorFinishDelegate {
             navigationController.viewControllers = []
             childCoordinators = []
             showOnboarding()
+        case .tabbar:
+            navigationController.viewControllers = []
+            childCoordinators = []
+            showMainFlow()
         default:
             fatalError("\(coordinator) instantiateNewCoordinator is not implemented")
         }

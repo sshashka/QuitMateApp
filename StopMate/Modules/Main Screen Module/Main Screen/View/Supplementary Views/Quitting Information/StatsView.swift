@@ -13,7 +13,6 @@ struct StatsView: View {
     let secondaryText: String
     let tintColor: Color?
     var body: some View {
-        
         HStack(alignment: .center) {
             Image(image)
                 .resizable()
@@ -30,7 +29,7 @@ struct StatsView: View {
         }
         .minimumScaleFactor(0.7)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .vibrate(event: .success)
+//        .vibrate(event: .success)
     }
 }
 

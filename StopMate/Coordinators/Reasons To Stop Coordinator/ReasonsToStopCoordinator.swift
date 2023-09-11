@@ -20,11 +20,15 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     
     var type: CoordinatorType { .reasonsToStop }
     
-    var selectedReasons = [String]()
+    private var selectedReasons = [String]()
+    
+    private var userStateMetrics: UserSmokingSessionMetrics?
+    
+    private let storageService = FirebaseStorageService()
     
     func start() {
         navigationController.setNavigationBarHidden(false, animated: true)
-        showReasonsToStop()
+        showUserStateView()
     }
     
     init(_ navigationController: UINavigationController) {
@@ -44,12 +48,25 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
                 self?.selectedReasons = reasons
             }
         }
-        vc.title = "Timer update"
-        navigationController.pushWithCustomAnination(vc)
+        navigationController.pushViewController(vc, animated: true)
     }
     
+    func showUserStateView() {
+        let viewModel = UserEmotionalStateViewModel(storageService: storageService)
+        let vc = UIHostingController(rootView: UserEmotionalStateView(viewModel: viewModel))
+        viewModel.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .done(let metrics):
+                self?.showReasonsToStop()
+                self?.userStateMetrics = metrics
+            case .finish:
+                self?.finishDelegate?.instantiateNewCoordinator(coordinator: .tabbar)
+            }
+        }
+        navigationController.pushWithCustomAnination(vc)
+    }
     func showFinishingDate() {
-        let vm = ReasonsToStopNewFinishingDateViewModel(storageService: FirebaseStorageService())
+        let vm = ReasonsToStopNewFinishingDateViewModel(storageService: storageService)
         let vc = UIHostingController(rootView: ReasonsToStopNewFinishingDateView(viewModel: vm))
         
         vm.didSendEventClosure = { [weak self] event in
@@ -60,8 +77,7 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     
     func showRecomendations() {
         let recomendationsCoordinator = RecomendationsCoordinator(navigationController)
-        recomendationsCoordinator.recomendationType = .timerResetRecomendation(selectedReasons)
-//        recomendationsCoordinator.recomendationType = .smoking
+        recomendationsCoordinator.recomendationType = .timerResetRecomendation(selectedReasons, userStateMetrics)
         recomendationsCoordinator.finishDelegate = finishDelegate
         childCoordinators.append(recomendationsCoordinator)
         recomendationsCoordinator.start()

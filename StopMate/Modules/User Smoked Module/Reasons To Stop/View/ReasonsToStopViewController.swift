@@ -43,7 +43,7 @@ final class ReasonsToStopViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBackground
         setupCollectionView()
         view.addSubview(rootStackView)
         setupConstraints()

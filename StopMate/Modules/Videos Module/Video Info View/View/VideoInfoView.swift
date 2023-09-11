@@ -44,7 +44,7 @@ struct VideoInfoView<ViewModel>: View where ViewModel: VideoInfoViewModelProtoco
         }
         .skeleton(with: vm.state == .loading)
         .shape(type: .rectangle)
-        .appearance(type: .solid(color: Color(ColorConstants.backgroundColor)))
+        .appearance(type: .solid(color: .backGroundColor))
         .onWillAppear {
             vm.willAppear()
         }

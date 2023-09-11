@@ -26,7 +26,7 @@ protocol RecomendationsViewModelProtocol: AnyObject, ObservableObject {
 final class RecomendationsViewModel: RecomendationsViewModelProtocol {
     enum TypeOfRecomendation {
         case moodRecomendation
-        case timerResetRecomendation([String])
+        case timerResetRecomendation([String], UserSmokingSessionMetrics?)
     }
     var didSendEventClosure: ((RecomendationsViewModel.EventType) -> Void)?
     private var typeOfGenerationEvent: TypeOfRecomendation
@@ -47,7 +47,7 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
             generateResponse()
         }
     }
-    private var statsData: [ChartModel]? {
+    private var statsData: [UserMoodModel]? {
         didSet {
             guard userData != nil else { return }
             generateResponse()
@@ -76,7 +76,7 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
                 self?.userData = user
             }.store(in: &disposeBag)
         
-        storageService.getChartsData()
+        storageService.getUserMoodsData()
             .sink { _ in
                 print("Error")
             } receiveValue: {[weak self] data in
@@ -113,8 +113,9 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
         case .moodRecomendation:
             query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods) can u do an small analysis of my moods for me, provide me some help how not to start smoking again, and afer it add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
 
-        case .timerResetRecomendation(let reasons):
-            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods.joined(separator: ",")) can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling \(reasons) and dont want to this happen again add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
+        case .timerResetRecomendation(let reasons, let metrics):
+            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods.joined(separator: ",")) can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling \(reasons.joined(separator: ",")). My urge to smoke was: \(metrics?.urgeToSmokeValue ?? 10) out of 10 and my mood was \(metrics?.classification.rawValue ?? "Bad") when i decided to smoke again. So the point is I dont want to this happen again add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
+            print(query)
         }
 
         openAi.completions(query: query)
@@ -139,7 +140,7 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
         switch typeOfGenerationEvent {
         case .moodRecomendation:
             record = UserHistoryModel(dateOfClassification: Date.now, selectedMoood: lastMood, selectedReasons: nil, recomendation: recomendation, typeOfHistory: .moodRecords)
-        case .timerResetRecomendation(let array):
+        case .timerResetRecomendation(let array, _):
             record = UserHistoryModel(dateOfClassification: Date.now, selectedMoood: nil, selectedReasons: array, recomendation: recomendation, typeOfHistory: .timerResetsRecords)
         }
         

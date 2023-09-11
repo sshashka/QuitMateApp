@@ -13,7 +13,7 @@ struct StandartButtonStyle: ButtonStyle {
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
             .foregroundColor(.white)
-            .background(Color(ColorConstants.buttonsColor))
+            .background(Color.buttonsPurpleColor)
             .cornerRadius(10)
             .font(.custom(FontsEnum.poppinsSemiBold.rawValue, size: 14))
     }

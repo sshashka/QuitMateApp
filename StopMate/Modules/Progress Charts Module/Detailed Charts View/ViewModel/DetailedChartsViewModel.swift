@@ -7,16 +7,17 @@
 
 import Foundation
 
-protocol DetailedChartsViewModelProtocol {
+protocol DetailedChartsViewModelProtocol: ObservableObject {
     var moodsCountData: [DetailedChartModel] { get }
     var progressChartStats: [ProgressChartStatisticsModel] { get }
     var moodsCountText: String { get }
     var monthsDetailsText: String { get }
+    var correlation: Double { get }
     func start()
 }
 
-final class DetailedChartsViewModel: ObservableObject, DetailedChartsViewModelProtocol {
-    @Published var data: [ChartModel]
+final class DetailedChartsViewModel: DetailedChartsViewModelProtocol {
+    @Published var data: [UserMoodModel]
     
     @Published var moodsCountData = [DetailedChartModel]()
     
@@ -26,8 +27,11 @@ final class DetailedChartsViewModel: ObservableObject, DetailedChartsViewModelPr
     
     @Published var monthsDetailsText: String = ""
     
-    init(data: [ChartModel]) {
+    @Published var correlation: Double
+    
+    init(data: [UserMoodModel], correlation: Double) {
         self.data = data
+        self.correlation = correlation
     }
     
     func start() {
@@ -77,7 +81,7 @@ final class DetailedChartsViewModel: ObservableObject, DetailedChartsViewModelPr
     }
         
     
-    private func convertToChartData(chartModels: [ChartModel]) -> [DetailedChartModel] {
+    private func convertToChartData(chartModels: [UserMoodModel]) -> [DetailedChartModel] {
         // Create an empty dictionary to store mood classifications and their counts and dates
         var moodDetails: [ClassifiedMood: (count: Int, dates: [Date])] = [:]
 

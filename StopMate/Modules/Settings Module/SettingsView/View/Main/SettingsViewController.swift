@@ -146,11 +146,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             didSelectPasswordReset()
         case 1:
             let vc = TermsAndConditionsView()
-            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.termsAndConditions
+//            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.termsAndConditions
             navigationController?.pushViewController(vc, animated: true)
         case 2:
             let vc = TermsAndConditionsView()
-            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.privacyPolicy
+//            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.privacyPolicy
             navigationController?.pushViewController(vc, animated: true)
         case 3:
             viewModel?.didTapOnHistory()

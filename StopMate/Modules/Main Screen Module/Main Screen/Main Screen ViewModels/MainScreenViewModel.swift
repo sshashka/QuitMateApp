@@ -8,7 +8,11 @@
 import Foundation
 import Combine
 
-protocol MainScreenViewModelProtocolVariables {
+enum AdditionalStatsTypes {
+    case money, enviroment
+}
+
+protocol MainScreenViewModelProtocolVariables: ObservableObject {
     var state: MainScreenViewModelStates { get }
     var showingAdditionalInfo: Bool { get set }
     var percentsToFinish: Double { get }
@@ -19,11 +23,14 @@ protocol MainScreenViewModelProtocolVariables {
     var daysToFinish: String { get }
     var dateComponentsWithoutSmoking: String { get }
     var emissions: String { get }
+    var isPresentingSheet: Bool { get set }
+    var additionalInfoViewModel: AdditionalInfoViewModel? { get }
 }
 
 protocol MainScreenViewModelProtocolMethods {
     func didTapOnReset()
     func didTapOnSettings()
+    func didTapOnAdditionalStats(type: AdditionalStatsTypes)
 }
 
 protocol MainScreenViewModelProtocol: AnyObject, ObservableObject, MainScreenViewModelProtocolVariables, MainScreenViewModelProtocolMethods  { }
@@ -64,6 +71,10 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     
     @Published var emissions: String = ""
     
+    @Published var isPresentingSheet: Bool = false
+    
+    @Published var additionalInfoViewModel: AdditionalInfoViewModel?
+    
     init(storageService: FirebaseStorageServiceProtocol) {
         self.storageService = storageService
         getUserModel()
@@ -86,6 +97,18 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     func didTapOnSettings() {
         didSendEventClosure?(.didTapOnSettings)
     }
+    
+    func didTapOnAdditionalStats(type: AdditionalStatsTypes) {
+        guard let userStatistics else { return }
+        switch type {
+        case .money:
+            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: userStatistics.moneyUserSpendsOnSmoking, valueType: .daily))
+        case .enviroment:
+            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: 2.5, valueType: .daily))
+        }
+        isPresentingSheet = true
+    }
+    
 }
 
 private extension MainScreenViewModel {

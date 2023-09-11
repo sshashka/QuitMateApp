@@ -13,4 +13,5 @@ final class ColorConstants {
     static let buttonsColor = "PurpleColor"
     static let gray = "ColorGray"
     static let red = "ColorRed"
+    static let labelReversed = "LabelColorReversed"
 }

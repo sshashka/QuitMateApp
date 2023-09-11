@@ -12,6 +12,13 @@ struct ReasonsToStopNewFinishingDateView: View {
     var body: some View {
         VStack {
             PeriodOfTimeToQuitView(period: .finishingDate, headerText: "Set new finishing date", datePickerText: "Finishing date", date: $viewModel.newDate)
+            Spacer()
+            Button {
+                viewModel.doNotChangeFinishingDate()
+            } label: {
+                Text("Don`t change the finishing date")
+                    .fontStyle(.clearButtonsText)
+            }
             Button {
                 viewModel.updateValue()
             } label: {
@@ -19,5 +26,11 @@ struct ReasonsToStopNewFinishingDateView: View {
             }.buttonStyle(StandartButtonStyle())
                 .padding(Spacings.spacing30)
         }
+    }
+}
+
+struct ReasonsToStopNewFinishingDateView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReasonsToStopNewFinishingDateView(viewModel: ReasonsToStopNewFinishingDateViewModel(storageService: FirebaseStorageService()))
     }
 }

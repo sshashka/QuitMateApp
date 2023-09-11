@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-
+import SigmaSwiftStatistics
 
 enum ProgressChartsState {
     case idle
@@ -40,55 +40,20 @@ enum ProgressChartsPeriods: String {
 
 protocol ProgressChartsViewModelProtocol: AnyObject, ObservableObject {
     var state: ProgressChartsState { get }
+    var weeklyChartData: [ChartModel] { get }
+    var chartData: [ChartModel] { get }
     var selectedSotringMethod: ProgressChartsPeriods { get set }
-    var filteredDataForCharts: [ChartModel] { get }
-    var weekDataForCharts: [ChartModel] { get }
     var alertText: String { get }
     var isShowingAlert: Bool { get set }
     var isDetailedChartsEnabled: Bool { get }
-    var vibrationType: VibrationEvent { get }
     func didTapOnAddingMood()
     func getDetailedInfoViewModel() -> DetailedChartsViewModel
 }
 
 final class ProgressChartsViewModel: ProgressChartsViewModelProtocol {
-    @Published var state: ProgressChartsState = .idle
     private let storageService: FirebaseStorageServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     var didSendEventClosure: ((ProgressChartsViewModel.EventTypes) -> Void)?
-    @Published private var chartModelData: [ChartModel] = [] {
-        didSet {
-            self.filteredDataForCharts = chartModelData
-            filterChartsData(for: selectedSotringMethod)
-            filterChartsData(for: .oneWeek)
-        }
-    }
-    
-    @Published var selectedSotringMethod: ProgressChartsPeriods = .twoWeeks {
-        didSet {
-            filterChartsData(for: selectedSotringMethod)
-        }
-    }
-    
-    
-    @Published private (set) var filteredDataForCharts: [ChartModel] = [] {
-        didSet {
-            state = .loaded
-        }
-    }
-    
-    @Published var weekDataForCharts: [ChartModel] = []
-    @Published var alertText = ""
-    @Published var isShowingAlert: Bool = false
-    @Published var isDetailedChartsEnabled: Bool = false
-    
-    private (set) var vibrationType: VibrationEvent = .success
-    
-    init(storageService: FirebaseStorageServiceProtocol) {
-        self.storageService = storageService
-        isDetailedChartsViewAvalible.assign(to: &$isDetailedChartsEnabled)
-        start()
-    }
     
     private lazy var currentDate: Date = {
         return Date.now
@@ -97,84 +62,206 @@ final class ProgressChartsViewModel: ProgressChartsViewModelProtocol {
         return Calendar.current
     }()
     
+    @Published var alertText = ""
+    @Published var isShowingAlert: Bool = false
+    @Published var isDetailedChartsEnabled: Bool = false
+    
+    @Published var state: ProgressChartsState = .idle
+    @Published var userMoodRecords: [UserMoodModel] = [] {
+        didSet {
+            guard !userSmokingRecords.isEmpty else { return }
+            chartData = getChartsData(for: selectedSotringMethod)
+            weeklyChartData = getChartsData(for: .oneWeek)
+        }
+    }
+    
+    @Published private(set) var weeklyChartData: [ChartModel] = []
+    @Published private(set) var userSmokingRecords: [UserSmokingSessionMetrics] = [] {
+        didSet {
+            guard !userMoodRecords.isEmpty else { return }
+            chartData = getChartsData(for: selectedSotringMethod)
+            weeklyChartData = getChartsData(for: .oneWeek)
+        }
+    }
+    
+    @Published private(set) var chartData: [ChartModel] = [] {
+        didSet {
+            state = .loaded
+            calculateCorrelation()
+        }
+    }
+    
+    @Published var selectedSotringMethod: ProgressChartsPeriods = .twoWeeks {
+        didSet {
+            chartData = getChartsData(for: selectedSotringMethod)
+        }
+    }
+    
+    init(storageService: FirebaseStorageServiceProtocol) {
+        self.storageService = storageService
+        isDetailedChartsViewAvalible.assign(to: &$isDetailedChartsEnabled)
+        start()
+    }
+    
     private func start() {
-        getChartsData()
+        getUserMoodsData()
+        getUserSmokingSessionMetrics()
     }
     
     func getDetailedInfoViewModel() -> DetailedChartsViewModel {
-        return DetailedChartsViewModel(data: chartModelData)
+        return DetailedChartsViewModel(data: userMoodRecords, correlation: calculateCorrelation())
     }
     
     func didTapOnAddingMood() {
         guard canAddNewMood else {
             alertText = "You have already marked your mood today. So, come back tomorrow."
             isShowingAlert.toggle()
-            vibrationType = .fail
             return
         }
-        vibrationType = .success
         didSendEventClosure?(.newMood)
     }
 }
 
 private extension ProgressChartsViewModel {
     var isDetailedChartsViewAvalible: AnyPublisher<Bool, Never> {
-        $chartModelData
+        $userMoodRecords
             .map { !$0.isEmpty }
             .eraseToAnyPublisher()
     }
     
     private var canAddNewMood: Bool {
-        let dates = chartModelData.map {
-            $0.dateOfClassificationByDate
+        let dates = userMoodRecords.map {
+            $0.dateOfClassification
         }
-        return Date.checkIfArrayContainsToday(array: dates)
+        return Date.checkIfArrayContainsToday(array: dates)  && !userMoodRecords.isEmpty
     }
-    
-    func getChartsData() {
+    // MARK: Downloading data
+    func getUserMoodsData() {
         state = .loading
-        storageService.getChartsData()
+        storageService.getUserMoodsData()
             .sink { finish in
                 print(finish)
             } receiveValue: { [weak self] data in
-                self?.chartModelData = data
-                    .sorted(by: {
-                        $0.dateOfClassification < $1.dateOfClassification
-                    })
+                self?.userMoodRecords = data.sorted(by: {
+                    $0.dateOfClassification < $1.dateOfClassification
+                })
             }.store(in: &cancellables)
     }
     
+    func getUserSmokingSessionMetrics() {
+        storageService.getUserSmokingSessionMetrics()
+        storageService.userSmokingSessionMetricsSubject
+            .receive(on: RunLoop.main)
+            .sink { error in
+                print(error)
+            } receiveValue: { [weak self] result in
+                guard let result = result else { return }
+                self?.userSmokingRecords = result.sorted(by: {
+                    $0.dateOfClassification < $1.dateOfClassification
+                })
+            }
+            .store(in: &cancellables)
+    }
+    
+    func getChartsData(for period: ProgressChartsPeriods) -> [ChartModel] {
+        let userMoods = filterChartsData(for: period).userMoodRecords.map { mood in
+            ChartModel(id: UUID(), type: .moods, mood: mood.classification, date: mood.dateOfClassification)
+        }
+        
+        let smokingSessions = filterChartsData(for: period).userSmokingSessions.map {
+            ChartModel(id: UUID(), type: .smoking, mood: $0.classification, date: $0.dateOfClassification)
+        }
+        return userMoods + smokingSessions
+    }
+    // MARK: Filtering userMoods
     //TODO: check for availability for longer periods
-    func filterChartsData(for period: ProgressChartsPeriods) {
+    func filterChartsData(for period: ProgressChartsPeriods) -> (userMoodRecords: [UserMoodModel], userSmokingSessions: [UserSmokingSessionMetrics]) {
+        var userMoodsFiltered: [UserMoodModel] = []
+        var smokingSessionsFiltered: [UserSmokingSessionMetrics] = []
         switch period {
         case .oneMonth:
-            filteredDataForCharts = filterForMonths(months: period.valueOfPeriod)
+            userMoodsFiltered = filterForMonths(data: userMoodRecords, months: period.valueOfPeriod)
+            smokingSessionsFiltered = filterForMonths(data: userSmokingRecords, months: period.valueOfPeriod)
+            break
         case .threeMonth, .sixMonth:
-            filteredDataForCharts = filterForMonths(months: period.valueOfPeriod).enumerated().filter{
+            userMoodsFiltered = filterForMonths(data: userMoodRecords, months: period.valueOfPeriod)
+            smokingSessionsFiltered = filterForMonths(data: userSmokingRecords, months: period.valueOfPeriod)
+        case .twoWeeks:
+            userMoodsFiltered = filterForWeeks(data: userMoodRecords, days: period.valueOfPeriod)
+            smokingSessionsFiltered = filterForWeeks(data: userSmokingRecords, days: period.valueOfPeriod)
+        case .oneWeek:
+            userMoodsFiltered = filterForWeeks(data: userMoodRecords, days: period.valueOfPeriod)
+            smokingSessionsFiltered = filterForWeeks(data: userSmokingRecords, days: period.valueOfPeriod)
+        }
+        
+        return (userMoodsFiltered, smokingSessionsFiltered)
+    }
+    
+    func filterForWeeks<T: ChartDataFilteringProtocol>(data: [T], days: Int) -> [T] {
+        let period = calendar.date(byAdding: .weekday, value: -days,to: currentDate)!
+        let data = data
+        return data.filter({
+            $0.dateOfClassification > period && $0.dateOfClassification < currentDate
+        })
+    }
+    
+    func filterForMonths<T: ChartDataFilteringProtocol>(data: [T], months: Int) -> [T] {
+        let period = calendar.date(byAdding: .month, value: -months, to: currentDate)!
+        let filteredData = data.filter {
+            $0.dateOfClassification > period && $0.dateOfClassification < currentDate
+        }
+        if filteredData.count > 5 {
+            return filteredData.enumerated().filter {
                 $0.offset % 3 == 1
             }
             .map {
                 $0.element
             }
-        case .twoWeeks:
-            filteredDataForCharts = filterForWeeks(days: period.valueOfPeriod)
-        case .oneWeek:
-            weekDataForCharts = filterForWeeks(days: period.valueOfPeriod)
         }
+        return filteredData
     }
     
-    func filterForWeeks(days: Int) -> [ChartModel] {
-        let period = calendar.date(byAdding: .weekday, value: -days,to: currentDate)!
-        return chartModelData.filter({
-            $0.dateOfClassification > period && $0.dateOfClassification < currentDate
-        })
-    }
-    
-    func filterForMonths(months: Int) -> [ChartModel] {
-        let period = calendar.date(byAdding: .month, value: -months, to: currentDate)!
-        return chartModelData.filter {
-            $0.dateOfClassification > period && $0.dateOfClassification < currentDate
+    func calculateCorrelation() -> Double {
+        // This one needs to be a Set so I don`t add a new value each time smoking session with corresponding date found
+        var moodsArr = Set<UserMoodModel>()
+        var smokingArr = [UserSmokingSessionMetrics]()
+        
+        // TODO: Remake it smarter way
+        // Finding records made on the same day in two arrays
+        for smokingRecord in userSmokingRecords {
+            for moodRecord in userMoodRecords {
+                if smokingRecord.dateOfClassification.toDateComponents(neededComponents: [.year, .month, .day]) == moodRecord.dateOfClassification.toDateComponents(neededComponents: [.year, .month, .day]) {
+                    moodsArr.insert(moodRecord)
+                    smokingArr.append(smokingRecord)
+                }
+            }
         }
+        
+        let moodArrValues = moodsArr.sorted{ $0.dateOfClassification < $1.dateOfClassification }.map {
+            Double($0.classification.getMoodNumberValue())
+        }
+        
+        let groupedValues = Dictionary(grouping: smokingArr, by: { $0.dateOfClassificationMonthAndYear })
+        let sortedGroupedValues = groupedValues.sorted { $0.key < $1.key }
+        
+        var meanMoodValues: [Double] = []
+        
+        for (_, values) in sortedGroupedValues {
+            if values.count > 1 {
+                let totalValue = values.reduce(0.0) { $0 + $1.classification.getMoodNumberValue() }
+                let meanValue = totalValue / Double(values.count)
+                meanMoodValues.append(meanValue)
+            } else {
+                meanMoodValues.append(values.first!.classification.getMoodNumberValue())
+            }
+        }
+        
+        print(moodArrValues, meanMoodValues)
+        
+        let result = Sigma.pearson(x: moodArrValues, y: meanMoodValues)
+        print("Pearson correlation coefficient: \(String(describing: result))")
+        guard let result else { return -1.0 }
+        return result
     }
 }
 

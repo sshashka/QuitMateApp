@@ -14,17 +14,19 @@ struct RecomendationsView<ViewModel>: View where ViewModel: RecomendationsViewMo
             ScrollView(showsIndicators: false) {
                 Text(viewModel.recomendation)
                     .fontStyle(.recomendationsText)
-            }.overlay(content: {
+            }
+            .isEnabled(viewModel.doneAndRegenerateButtonsEnabled)
+            .overlay(content: {
                 if viewModel.state == .loading {
                     CustomProgressView()
                 }
             })
             .padding(.bottom, Spacings.spacing15)
-            Button {
-                viewModel.generateResponse()
-            } label: {
-                Text("Regenerate response")
-            }
+//            Button {
+//                viewModel.generateResponse()
+//            } label: {
+//                Text("Regenerate response")
+//            }
             .buttonStyle(StandartButtonStyle())
             .isEnabled(viewModel.doneAndRegenerateButtonsEnabled)
             Button {

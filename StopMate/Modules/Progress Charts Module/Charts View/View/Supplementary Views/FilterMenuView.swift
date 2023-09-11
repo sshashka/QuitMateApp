@@ -41,7 +41,7 @@ struct FilterMenuView: View {
                     .stroke()
             }
         }
-        .foregroundColor(Color(ColorConstants.labelColor))
+        .foregroundColor(Color.labelColor)
 //        .padding(.horizontal)
     }
 }

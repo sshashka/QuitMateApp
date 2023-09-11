@@ -1,51 +1,21 @@
 //
 //  ChartModel.swift
-//  QuitMate
+//  StopMate
 //
-//  Created by Саша Василенко on 29.04.2023.
+//  Created by Саша Василенко on 04.09.2023.
 //
 
 import Foundation
+import Charts
 
-struct ChartModel: Codable, Identifiable {
-    let id: String
-    var dateOfClassification = Date()
-    let classification: ClassifiedMood
-    var classificationString: String {
-        self.classification.rawValue
+
+struct ChartModel: Identifiable, Equatable {
+    let id: UUID
+    enum ChartModelTypes: String, Plottable {
+        case smoking = "Smoking sessions"
+        case moods = "Marked moods"
     }
-//    var animate = false
-    var dateOfClassificationByDate: Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        dateFormatter.locale = NSLocale(localeIdentifier: "EN") as Locale
-        let components = dateOfClassification.toDateComponents(neededComponents: [.year, .month, .day])
-        let date = NSCalendar.current.date(from: components)
-        return date ?? Date()
-    }
-    
-    var dateOfClassificationMonthAndYear: Date {
-        let components = dateOfClassification.toDateComponents(neededComponents: [.month, .year])
-        let date = NSCalendar.current.date(from: components)
-        return date ?? Date()
-    }
-    
-    var scoreForUser: Int {
-        switch classification {
-        case .angry:
-            return 11
-        case .disgust:
-            return 12
-        case .fear:
-            return 10
-        case .happy:
-            return 20
-        case .neutral:
-            return 18
-        case .sad:
-            return 16
-        case .surprise:
-            return 22
-        }
-    }
+    let type: ChartModelTypes
+    let mood: ClassifiedMood
+    let date: Date
 }

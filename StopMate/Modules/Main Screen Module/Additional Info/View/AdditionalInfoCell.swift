@@ -8,28 +8,25 @@
 import SwiftUI
 
 struct AdditionalInfoCell: View {
-    let image: String
-    let upperText: String
-    let bottomText: String
+//    let image: String
+    let leadingText: String
+    let trailingText: String
     var body: some View {
-        GroupBox {
+        ZStack {
+            RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
+                .foregroundStyle(Color.buttonsPurpleColor)
             HStack {
-                Image(image)
-                    .resizable()
-                    .clipShape(Rectangle())
-                    .frame(width: 55, height: 55)
-                    .foregroundColor(Color(ColorConstants.labelColor))
-                VStack(alignment: .leading) {
-                    Text(upperText)
-                    Text(bottomText)
-                }.padding()
+                Text(leadingText)
+                Text(trailingText)
             }
-        }.frame(maxWidth: .infinity)
+            .fontStyle(.regularText)
+        }
+        .padding(.horizontal)
     }
 }
 
 struct AdditionalInfoCell_Previews: PreviewProvider {
     static var previews: some View {
-        AdditionalInfoCell(image: IconConstants.danger, upperText: "dfsds", bottomText: "fdssdfsfsdf")
+        AdditionalInfoCell(leadingText: "KEkekke", trailingText: "fdjiofsjodfjiodsfosd")
     }
 }

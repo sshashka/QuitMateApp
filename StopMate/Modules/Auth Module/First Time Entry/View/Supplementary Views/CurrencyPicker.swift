@@ -29,7 +29,7 @@ struct CurrencyPicker: View {
                     .foregroundColor(.green)
                     Divider()
                         .frame(height: 2)
-                        .background(Color(ColorConstants.buttonsColor))
+                        .background(Color.buttonsPurpleColor)
                 }
                 
             }

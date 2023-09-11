@@ -59,11 +59,11 @@ struct UserHistoryView: View {
                 Picker("Select a type of history:", selection: $viewModel.selectedHistoryType) {
                     Text("Moods")
                         .tag(UserHistoryRecordsType.moodRecords)
-                    Text("Timer resets")
+                    Text("Smoking")
                         .tag(UserHistoryRecordsType.timerResetsRecords)
                 }
                 .pickerStyle(.menu)
-                .foregroundColor(Color(ColorConstants.buttonsColor))
+                .foregroundColor(Color.buttonsPurpleColor)
             }
         }
     }

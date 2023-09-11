@@ -31,7 +31,7 @@ struct EditProfileView: View {
                 Text("Set new photo")
                     .fontStyle(.buttonsText)
                     .frame(maxWidth: .infinity)
-                    .foregroundColor(Color(ColorConstants.buttonsColor))
+                    .foregroundColor(Color.buttonsPurpleColor)
             }.onChange(of: selectedItem) { newValue in
                 Task {
                     // Retrive selected asset in the form of Data
@@ -60,7 +60,7 @@ struct EditProfileView: View {
                 Button("Done") {
                     viewModel.updateUserProfile()
                 }
-                .foregroundColor(Color(ColorConstants.buttonsColor))
+                .foregroundColor(Color.buttonsPurpleColor)
             }
         }
     }

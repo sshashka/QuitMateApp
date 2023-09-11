@@ -17,7 +17,8 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
         VStack {
             Spacer()
             HStack {
-                TextView(text: AuthModuleStrings.register, font: .poppinsSemiBold, size: 36)
+                Text(AuthModuleStrings.register)
+                    .fontStyle(.header)
                 Spacer()
             }
             

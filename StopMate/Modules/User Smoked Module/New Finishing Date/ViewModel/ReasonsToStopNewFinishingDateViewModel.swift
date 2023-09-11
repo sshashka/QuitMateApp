@@ -17,8 +17,11 @@ final class ReasonsToStopNewFinishingDateViewModel: ObservableObject {
         self.storageService = storageService
     }
     func updateValue() {
-        print(newDate)
         storageService.updateUserFinishingDate(with: newDate)
+        didSendEventClosure?(.done)
+    }
+    
+    func doNotChangeFinishingDate() {
         didSendEventClosure?(.done)
     }
 }

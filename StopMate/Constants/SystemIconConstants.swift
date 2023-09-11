@@ -15,4 +15,5 @@ final class SystemIconConstants {
     static var playFill: String { "play.fill" }
     static var handThumbs: String { "hand.thumbsup.fill" }
     static var close: String { "x.circle.fill" }
+    static var checkmark: String { "checkmark" }
 }

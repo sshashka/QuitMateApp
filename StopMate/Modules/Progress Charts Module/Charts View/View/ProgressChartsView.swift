@@ -16,14 +16,14 @@ struct ProgressChartsView<ViewModel>: View where ViewModel: ProgressChartsViewMo
         NavigationStack {
             VStack {
                 VStack(spacing: Spacings.spacing25) {
-                    MoodChartView(dataForCharts: viewModel.weekDataForCharts, state: viewModel.state)
+                    MoodChartView(dataForCharts: viewModel.weeklyChartData, state: viewModel.state)
                         .frame(maxHeight: .infinity)
                         .skeleton(with: viewModel.state == .loading)
                         .shape(type: .rectangle)
                     FilterMenuView(selectedFilteringMethod: $viewModel.selectedSotringMethod)
                         .padding(.top, Spacings.spacing15)
                         .fixedSize()
-                    MoodChartView(dataForCharts: viewModel.filteredDataForCharts, state: viewModel.state)
+                    MoodChartView(dataForCharts: viewModel.chartData, state: viewModel.state)
                         .padding(.top, Spacings.spacing10)
                         .frame(maxHeight: .infinity)
                         .skeleton(with: viewModel.state == .loading)
@@ -55,7 +55,7 @@ struct ProgressChartsView<ViewModel>: View where ViewModel: ProgressChartsViewMo
             }
         })
         .sheet(isPresented: $isPresentingSheet) {
-            DetailedChartsView().environmentObject(viewModel.getDetailedInfoViewModel())
+            DetailedChartsView(viewModel: viewModel.getDetailedInfoViewModel())
                 .presentationDragIndicator(.visible)
         }
         .alert(viewModel.alertText, isPresented: $viewModel.isShowingAlert) {

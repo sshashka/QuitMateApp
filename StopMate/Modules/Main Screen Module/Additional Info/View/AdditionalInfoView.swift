@@ -7,23 +7,22 @@
 
 import SwiftUI
 
-struct AdditionalInfoView: View {
-    @EnvironmentObject var viewModel: AdditionalInfoViewModel
+struct AdditionalInfoView<ViewModel>: View where ViewModel: AddAdditionalInfoViewModelProtocol {
+    @StateObject var viewModel: ViewModel
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(viewModel.model, id: \.self) { info in
-                    AdditionalInfoCell(image: info.icon, upperText: info.text, bottomText: info.bottomText)
-                        .cornerRadius(LayoutConstants.cornerRadius, corners: [.bottomLeft, .bottomRight])
-                }
-            }.padding(Spacings.spacing15)
-            // Because sheet has gray background by default
-        }.background(Color(ColorConstants.backgroundColor), ignoresSafeAreaEdges: .all)
+        VStack {
+            AdditionalInfoCell(leadingText: viewModel.dailyData, trailingText: "/ per day")
+            AdditionalInfoCell(leadingText: viewModel.weeklyData, trailingText: "/ per week")
+            AdditionalInfoCell(leadingText: viewModel.monthlyData, trailingText: "/ per month")
+            AdditionalInfoCell(leadingText: viewModel.yearlyData, trailingText: "/ per year")
+        }
+        .padding(.vertical)
+        .frame(maxWidth: .infinity)
     }
 }
 
 struct AdditionalInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        AdditionalInfoView()
+        AdditionalInfoView(viewModel: AdditionalInfoViewModel(value: AdditionalInfoModel(value: 7.0, valueType: .daily)))
     }
 }

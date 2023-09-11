@@ -20,37 +20,37 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
                     } label: {
                         Image(systemName: SystemIconConstants.gearShape)
                             .font(.system(size: 35))
-                            .foregroundColor(Color(ColorConstants.labelColor))
+                            .foregroundColor(Color.labelColor)
                     }
                 }
                 UserProgressView(percentage: viewModel.percentsToFinish)
-                    .foregroundColor(Color(ColorConstants.labelColor))
+                    .foregroundColor(Color.labelColor)
             }.padding(.horizontal, Spacings.spacing20)
             Spacer(minLength: Spacings.spacing10)
             VStack (spacing: Spacings.spacing20){
                 // TODO: Rename TimeAndScoreView
                 TimeAndScoreView(quittingDuration: viewModel.dateComponentsWithoutSmoking)
-                    .foregroundColor(Color(ColorConstants.labelColor))
+                    .foregroundColor(Color.labelColor)
                     .padding(.top, Spacings.spacing5)
                 QuittingInformationView().environmentObject(viewModel)
-            }.padding(.horizontal, Spacings.spacing30)
+            }
+            .padding(.horizontal, Spacings.spacing30)
             Spacer(minLength: Spacings.spacing15)
             Button {
-                resetButtonPressed.toggle()
+                viewModel.didTapOnReset()
             } label: {
-                Text("Update timer")
+                Text("I smoked")
             }
             .buttonStyle(StandartButtonStyle())
             .padding(.horizontal, Spacings.spacing30)
             Spacer(minLength: Spacings.spacing15)
-                .alert("Do you want to update timer? (note: this operation cannot be undone)", isPresented: $resetButtonPressed) {
-                    Button("Cancel", role: .cancel) {
-                        resetButtonPressed.toggle()
-                    }
-                    Button("Yes", role: .destructive) {
-                        viewModel.didTapOnReset()
-                    }
-                }
+        }
+        .sheet(isPresented: $viewModel.isPresentingSheet) {
+            if let viewModel = viewModel.additionalInfoViewModel {
+                AdditionalInfoView(viewModel: viewModel)
+                    .presentationDetents([.fraction(0.45)])
+                    .presentationDragIndicator(.visible)
+            }
         }
     }
 }

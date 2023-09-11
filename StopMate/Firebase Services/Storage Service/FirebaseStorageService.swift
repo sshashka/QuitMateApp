@@ -11,23 +11,24 @@ import FirebaseStorage
 
 //import UIKit
 
-enum FirebaseStorageServiceReferences: String {
+fileprivate enum FirebaseStorageServiceReferences: String {
     case moods = "User-Moods"
     case user = "User"
     case history = "History"
     case moodDates = "User-Moods-Dates"
+    case userSmoked = "User-Smoked"
 }
 
 protocol FirebaseStorageServicePublishersProtocol: AnyObject {
     var userDataPublisher: CurrentValueSubject<User?, Error> { get }
     var userProfilePicturePublisher: CurrentValueSubject<Data?, Error> { get }
     var userMoodDates: CurrentValueSubject<Date?, Error> { get }
-    
+    var userSmokingSessionMetricsSubject: CurrentValueSubject<[UserSmokingSessionMetrics]?, Error> { get }
 }
 
 protocol FirebaseStorageServiceProtocol: FirebaseStorageServicePublishersProtocol {
     func createNewUser(userModel: User)
-    func getChartsData() -> AnyPublisher<[ChartModel], Error>
+    func getUserMoodsData() -> AnyPublisher<[UserMoodModel], Error>
     func uploadNewUserMood(mood: ClassifiedMood)
     func getUserModel()
     func updateUserFinishingDate(with date: Date)
@@ -38,9 +39,14 @@ protocol FirebaseStorageServiceProtocol: FirebaseStorageServicePublishersProtoco
     func checkIfUserExists(completion: @escaping(Bool) -> Void)
     func retrieveUserProfilePic()
     func updateUserOnboardingStatus()
+    func addUserSmokingSessionMetrics(entry: UserSmokingSessionMetrics)
+    func getUserSmokingSessionMetrics()
 }
 
 final class FirebaseStorageService: FirebaseStorageServiceProtocol {
+    
+    var userSmokingSessionMetricsSubject = CurrentValueSubject<[UserSmokingSessionMetrics]?, Error>(nil)
+    
     var userProfilePicturePublisher = CurrentValueSubject<Data?, Error>(nil)
     
     var cancellables = Set<AnyCancellable>()
@@ -77,21 +83,21 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         guard let userId else { return }
         let reference = getChildReference(for: .moods).child(userId).childByAutoId()
         let key = reference.key!
-        let mood = ChartModel(id: key, classification: mood)
+        let mood = UserMoodModel(id: key, classification: mood)
         try? reference.setValue(from: mood)
     }
     
     
-    func getChartsData() -> AnyPublisher<[ChartModel], Error> {
+    func getUserMoodsData() -> AnyPublisher<[UserMoodModel], Error> {
         let reference = getChildReferenceWithUserId(for: .moods)
-        let subject = PassthroughSubject<[ChartModel], Error>()
+        let subject = PassthroughSubject<[UserMoodModel], Error>()
         
         reference.observe(.value) { snapshot, error in
             if let error = error {
                 subject.send(completion: .failure(error as! Error))
             } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
                 let dataForCharts = children.compactMap { snapshot in
-                    try? snapshot.data(as: ChartModel.self)
+                    try? snapshot.data(as: UserMoodModel.self)
                 }
                 subject.send(dataForCharts)
             }
@@ -154,12 +160,30 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
     func updateUserProfileData(user: User) {
         let reference = getChildReferenceWithUserId(for: .user)
         reference.updateChildValues(user.toDictionary())
-        
     }
     
     func updateUserOnboardingStatus() {
         let reference = getChildReferenceWithUserId(for: .user)
         reference.updateChildValues(["didCompleteTutorial" : true])
+    }
+    
+    func addUserSmokingSessionMetrics(entry: UserSmokingSessionMetrics) {
+        let reference = getChildReferenceWithUserId(for: .userSmoked).childByAutoId()
+        try? reference.setValue(from: entry)
+    }
+    
+    func getUserSmokingSessionMetrics() {
+        let reference = getChildReferenceWithUserId(for: .userSmoked)
+        reference.observe(.value) {[weak self] snapshot, error in
+            if let error = error {
+                self?.userSmokingSessionMetricsSubject.send(completion: .failure(error as! Error))
+            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
+                let data = children.compactMap { snapshot in
+                    try? snapshot.data(as: UserSmokingSessionMetrics.self)
+                }
+                self?.userSmokingSessionMetricsSubject.send(data)
+            }
+        }
     }
     
     // MARK: Working with user history of recomendations
@@ -209,5 +233,22 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
     
     deinit {
         print("\(self) deinited")
+    }
+}
+
+
+private extension FirebaseStorageService {
+    func observeSingleValue<T: Codable>(for reference: FirebaseStorageServiceReferences, for type: T, publisher: CurrentValueSubject<[T]?, Error>) {
+        let reference = getChildReference(for: reference)
+        reference.observe(.value) { snapshot, error in
+            if let error = error {
+                publisher.send(completion: .failure(error as! Error))
+            } else if let children = snapshot.children.allObjects as? [DataSnapshot] {
+                let data = children.compactMap { snapshot in
+                    try? snapshot.data(as: T.self)
+                }
+                publisher.send(data)
+            }
+        }
     }
 }

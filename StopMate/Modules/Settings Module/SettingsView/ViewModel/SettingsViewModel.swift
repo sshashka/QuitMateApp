@@ -36,7 +36,7 @@ final class SettingsViewModel: ObservableObject, SettingsViewModelProtocol {
     private let authService: AuthentificationServiceProtocol
     
     private (set) var errorText: String = ""
-    @Published private var userMoods: [ChartModel] = [ChartModel]()
+    @Published private var userMoods: [UserMoodModel] = [UserMoodModel]()
     
     var didSendEventClosure: ((SettingsViewModel.EventType) -> Void)?
     
@@ -77,7 +77,7 @@ final class SettingsViewModel: ObservableObject, SettingsViewModelProtocol {
     }
     
     private func getUserMoods() {
-        storageService.getChartsData().sink { _ in
+        storageService.getUserMoodsData().sink { _ in
             print()
         } receiveValue: { [weak self] data in
             self?.userMoods = data
@@ -138,7 +138,7 @@ final class SettingsViewModel: ObservableObject, SettingsViewModelProtocol {
     
     private var canAddNewMood: Bool {
         let dates = userMoods.map {
-            $0.dateOfClassificationByDate
+            $0.dateOfClassification
         }
         return Date.checkIfArrayContainsToday(array: dates)
     }
