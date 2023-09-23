@@ -48,7 +48,7 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
         .sheet(isPresented: $viewModel.isPresentingSheet) {
             if let viewModel = viewModel.additionalInfoViewModel {
                 AdditionalInfoView(viewModel: viewModel)
-                    .presentationDetents([.fraction(0.45)])
+                    .presentationDetents([.fraction(0.60)])
                     .presentationDragIndicator(.visible)
             }
         }

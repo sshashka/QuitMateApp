@@ -102,9 +102,9 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
         guard let userStatistics else { return }
         switch type {
         case .money:
-            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: userStatistics.moneyUserSpendsOnSmoking, valueType: .daily))
+            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: userStatistics.moneyUserSpendsOnSmoking, valueType: .daily, valueUnit: .money(userStatistics.userCurrency?.rawValue ?? "$")), headerText: "Savings", explanatoryText: "here you can see how much money you can save in a certain period of time")
         case .enviroment:
-            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: 2.5, valueType: .daily))
+            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: 2.5, valueType: .daily, valueUnit: .emissions("g")), headerText: "Pollutions", explanatoryText: "here you can see how many emissions will not be produced in a certain period of time")
         }
         isPresentingSheet = true
     }

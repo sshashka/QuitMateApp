@@ -9,27 +9,29 @@ import Foundation
 
 protocol AddAdditionalInfoViewModelProtocol: ObservableObject {
     var dailyData: String { get }
-    
     var weeklyData: String { get }
-    
     var monthlyData: String { get }
-    
     var yearlyData: String { get }
+    
+    var headerText: String { get }
+    var explanatoryText: String { get }
 }
 
 class AdditionalInfoViewModel: AddAdditionalInfoViewModelProtocol, ObservableObject {
     private let value: AdditionalInfoModel
+    var headerText: String
+    var explanatoryText: String
     
     private (set) var dailyData: String = ""
-    
     private (set) var weeklyData: String = ""
-    
     private (set) var monthlyData: String = ""
+    private (set) var yearlyData: String = ""
     
-    private(set) var yearlyData: String = ""
     
-    init(value: AdditionalInfoModel) {
+    init(value: AdditionalInfoModel, headerText: String, explanatoryText: String) {
         self.value = value
+        self.headerText = headerText
+        self.explanatoryText = explanatoryText
         getData()
     }
     

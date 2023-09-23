@@ -16,14 +16,14 @@ struct ProgressChartsView<ViewModel>: View where ViewModel: ProgressChartsViewMo
         NavigationStack {
             VStack {
                 VStack(spacing: Spacings.spacing25) {
-                    MoodChartView(dataForCharts: viewModel.weeklyChartData, state: viewModel.state)
+                    MoodChartView(dataForCharts: viewModel.weeklyChartData, domain: viewModel.weeklyChartYDomain, state: viewModel.state)
                         .frame(maxHeight: .infinity)
                         .skeleton(with: viewModel.state == .loading)
                         .shape(type: .rectangle)
                     FilterMenuView(selectedFilteringMethod: $viewModel.selectedSotringMethod)
                         .padding(.top, Spacings.spacing15)
                         .fixedSize()
-                    MoodChartView(dataForCharts: viewModel.chartData, state: viewModel.state)
+                    MoodChartView(dataForCharts: viewModel.chartData, domain: viewModel.chartYDomain, state: viewModel.state)
                         .padding(.top, Spacings.spacing10)
                         .frame(maxHeight: .infinity)
                         .skeleton(with: viewModel.state == .loading)

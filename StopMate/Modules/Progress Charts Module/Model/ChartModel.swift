@@ -19,3 +19,17 @@ struct ChartModel: Identifiable, Equatable {
     let mood: ClassifiedMood
     let date: Date
 }
+
+extension ChartModel: Comparable {
+    static func < (lhs: ChartModel, rhs: ChartModel) -> Bool {
+        return lhs.mood < rhs.mood
+    }
+    
+    static func == (lhs: ChartModel, rhs: ChartModel) -> Bool {
+        return lhs.mood == rhs.mood
+    }
+    
+    static func > (lhs: ChartModel, rhs: ChartModel) -> Bool {
+        return lhs.mood > rhs.mood
+    }
+}

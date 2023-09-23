@@ -569,8 +569,7 @@
 		30400F502A5E029B006D46C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				30400F4E2A5E027F006D46C9 /* YoutubeApiResponce.swift */,
-				30400F5B2A5F583F006D46C9 /* YoutubeApiVideoDetailsResponse.swift */,
+				3082365E2ABF14EA00E96D09 /* Responses */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -783,6 +782,23 @@
 				307E7E0029EF486300DFCEE3 /* MoodClassifierModulePresenterProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3082365E2ABF14EA00E96D09 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				30400F4E2A5E027F006D46C9 /* YoutubeApiResponce.swift */,
+				30400F5B2A5F583F006D46C9 /* YoutubeApiVideoDetailsResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		3082365F2ABF151B00E96D09 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				30400F512A5E0302006D46C9 /* YoutubeApiService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3084F52F2AAD062E006526A5 /* View */ = {
@@ -1292,7 +1308,7 @@
 				30400F452A5D823C006D46C9 /* Video Info View */,
 				30296FC02A5C216600DEC32B /* Video Selection View */,
 				30400F502A5E029B006D46C9 /* Model */,
-				30400F512A5E0302006D46C9 /* YoutubeApiService.swift */,
+				3082365F2ABF151B00E96D09 /* Services */,
 			);
 			path = "Videos Module";
 			sourceTree = "<group>";
@@ -1764,7 +1780,7 @@
 				CODE_SIGN_ENTITLEMENTS = StopMate/StopMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StopMate/Info.plist;
@@ -1781,7 +1797,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.14;
+				MARKETING_VERSION = 1.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1803,7 +1819,7 @@
 				CODE_SIGN_ENTITLEMENTS = StopMate/StopMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StopMate/Info.plist;
@@ -1820,7 +1836,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.14;
+				MARKETING_VERSION = 1.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

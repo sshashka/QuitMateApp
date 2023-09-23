@@ -100,9 +100,6 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
         tokens = 150
 #endif
         let daysWithoutSmoking = userData.daysWithoutSmoking
-        
-        
-
         // Please put your own token here
         let apiKey = ""
         

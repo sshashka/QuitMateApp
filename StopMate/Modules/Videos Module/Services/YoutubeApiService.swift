@@ -43,7 +43,6 @@ class YoutubeApiService: YoutubeApiServiceProtocol {
             return subject.eraseToAnyPublisher()
         }
     
-    
     func loadMoreVideos(nextPageToken: String) -> AnyPublisher<YoutubeAPIResponce, Never> {
         let subject = PassthroughSubject<YoutubeAPIResponce, Never>()
         let key = getApiKey()

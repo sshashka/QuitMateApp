@@ -4,10 +4,9 @@
 //
 //  Created by Саша Василенко on 22.04.2023.
 //
+import Charts
 
-import Foundation
-
-enum ClassifiedMood: String, Codable, CaseIterable {
+enum ClassifiedMood: String, Codable, CaseIterable, Plottable {
     case angry = "Angry"
     case disgust = "Disgusting"
     case fear = "Fear"
@@ -20,23 +19,59 @@ enum ClassifiedMood: String, Codable, CaseIterable {
         return ClassifiedMood(rawValue: self.rawValue)
     }
     
-    func getMoodNumberValue() -> Double {
+    var moodNumber: Int {
         switch self {
         case .angry:
-            return 0.2
+            return 1
         case .disgust:
-            return 0.1
+            return 0
         case .fear:
-            return 0.3
+            return 2
         case .happy:
-            return 0.6
+            return 5
         case .neutral:
-            return 0.5
+            return 4
         case .sad:
-            return 0.4
+            return 3
         case .surprise:
-            return 0.7
+            return 6
         }
+    }
+    
+    // MARK: This is a very bad code but it`s the only possible solution for charts to sort Y axis correctly
+    init?(moodNumber: Int) {
+        switch moodNumber {
+        case 0:
+            self = .disgust
+        case 1:
+            self = .angry
+        case 2:
+            self = .fear
+        case 3:
+            self = .sad
+        case 4:
+            self = .neutral
+        case 5:
+            self = .happy
+        case 6:
+            self = .surprise
+        default:
+            return nil
+        }
+    }
+}
+
+extension ClassifiedMood: Comparable {
+    static func < (lhs: ClassifiedMood, rhs: ClassifiedMood) -> Bool {
+        return lhs.moodNumber < rhs.moodNumber
+    }
+    
+    static func == (lhs: ClassifiedMood, rhs: ClassifiedMood) -> Bool {
+        return lhs.moodNumber == rhs.moodNumber
+    }
+    
+    static func > (lhs: ClassifiedMood, rhs: ClassifiedMood) -> Bool {
+        return lhs.moodNumber > rhs.moodNumber
     }
 }
 

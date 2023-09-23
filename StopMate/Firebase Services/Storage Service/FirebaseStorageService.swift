@@ -87,7 +87,6 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         try? reference.setValue(from: mood)
     }
     
-    
     func getUserMoodsData() -> AnyPublisher<[UserMoodModel], Error> {
         let reference = getChildReferenceWithUserId(for: .moods)
         let subject = PassthroughSubject<[UserMoodModel], Error>()
@@ -238,7 +237,8 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
 
 
 private extension FirebaseStorageService {
-    func observeSingleValue<T: Codable>(for reference: FirebaseStorageServiceReferences, for type: T, publisher: CurrentValueSubject<[T]?, Error>) {
+    // To reduce boilerplate code
+    func observeChild<T: Codable>(at reference: FirebaseStorageServiceReferences, for type: T, publisher: CurrentValueSubject<[T]?, Error>) {
         let reference = getChildReference(for: reference)
         reference.observe(.value) { snapshot, error in
             if let error = error {

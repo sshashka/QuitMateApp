@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseDatabase
+//import FirebaseStorage
 //import Combine
 //import UserNotifications
 
@@ -21,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
+        
         window = UIWindow()
         
         let navVC = UINavigationController()

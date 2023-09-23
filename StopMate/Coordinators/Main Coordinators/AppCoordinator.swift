@@ -104,7 +104,9 @@ final class AppCoordinator: AppCoordinatorProtocol {
         UINavigationBar.appearance().tintColor = UIColor(named: ColorConstants.buttonsColor)
         let loaderVC = UIHostingController(rootView: LoaderView())
         navigationController.pushWithCustomAnination(loaderVC)
-        firebaseAuthStateHandler.checkIfUserIsAuthentificated().sink {[weak self] result in
+        firebaseAuthStateHandler.checkIfUserIsAuthentificated()
+            .debounce(for: 2, scheduler: RunLoop.main)
+            .sink {[weak self] result in
             self?.navigationController.popWithCustomAnimation(loaderVC)
             switch result {
             case .userIsAuthentificated:

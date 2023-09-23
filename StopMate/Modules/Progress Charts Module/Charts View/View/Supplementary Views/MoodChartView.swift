@@ -10,31 +10,45 @@ import Charts
 
 struct MoodChartView: View {
     var dataForCharts: [ChartModel]
+    var domain: ClosedRange<Int>
     @State var state: ProgressChartsState
     
     var body: some View {
-        if dataForCharts.count == 0 {
+        if dataForCharts.isEmpty {
             VStack(alignment: .center) {
                 Text("No data, yet")
                     .fontStyle(.header)
             }
         } else {
             Chart(dataForCharts) { chart in
-                LineMark(x: .value("Day", chart.date), y: .value("Mood", chart.mood.rawValue))
+                PointMark(x: .value("Day", chart.date), y: .value("Mood", chart.mood.moodNumber))
                     .interpolationMethod(.linear)
                     .foregroundStyle(by: .value("Type", chart.type))
                 
-                PointMark(x: .value("Day", chart.date), y: .value("Mood", chart.mood.rawValue))
+                LineMark(x: .value("Day", chart.date), y: .value("Mood", chart.mood.moodNumber))
                     .interpolationMethod(.linear)
                     .foregroundStyle(by: .value("Type", chart.type))
-                
-//                RuleMark(y: .value("Value", -1))
+            }
+            .chartYAxis {
+                AxisMarks(preset: .automatic, position: .leading, values: .stride(by: 1)) {
+                    if let number = $0.as(Int.self) {
+                        AxisValueLabel {
+                            if let mood = ClassifiedMood(moodNumber: number) {
+                                VStack(alignment: .leading) {
+                                    Text(mood.rawValue)
+                                }
+                            }
+                        }
+                    }
+                    AxisGridLine()
+                    AxisTick()
+                }
             }
             .chartForegroundStyleScale([
                 "Smoking sessions": .purple, "Marked moods": .mint
             ])
             .chartXScale(range: .plotDimension(padding: Spacings.spacing20))
-            .chartYScale(range: .plotDimension(padding: .zero))
+            .chartYScale(domain: domain)
             .animation(.easeInOut(duration: 0.7), value: dataForCharts)
         }
         
@@ -44,6 +58,6 @@ struct MoodChartView: View {
 struct MoodChartView_Previews: PreviewProvider {
     static var previews: some View {
         let mockData = [ChartModel]()
-        MoodChartView(dataForCharts: mockData, state: .loading)
+        MoodChartView(dataForCharts: mockData, domain: 0...6, state: .loaded)
     }
 }

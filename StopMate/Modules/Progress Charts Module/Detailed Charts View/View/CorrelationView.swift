@@ -15,12 +15,13 @@ struct CorrelationView: View {
                 GeometryReader { proxy in
                     ZStack(alignment: .bottom) {
                         RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-                            .stroke(lineWidth: 5)
-                            .foregroundColor(.labelColor)
+                            .foregroundColor(.buttonsPurpleColor)
+                            .frame(width: proxy.size.width, height: CGFloat((correlation + 1) / 2) * proxy.size.height)
                         ZStack {
                             RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
-                                .foregroundColor(.buttonsPurpleColor)
-                                .frame(width: proxy.size.width - 5, height: CGFloat((correlation + 1) / 2) * proxy.size.height)
+                                .stroke(lineWidth: 5)
+                                .foregroundColor(.labelColor)
+                            
                         }
                     }
                 }
@@ -45,6 +46,6 @@ struct CorrelationView: View {
 
 struct CorrelationView_Previews: PreviewProvider {
     static var previews: some View {
-        CorrelationView(correlation: 0.2)
+        CorrelationView(correlation: -1.0)
     }
 }

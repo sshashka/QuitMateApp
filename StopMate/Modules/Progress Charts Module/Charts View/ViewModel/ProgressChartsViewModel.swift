@@ -46,6 +46,8 @@ protocol ProgressChartsViewModelProtocol: AnyObject, ObservableObject {
     var alertText: String { get }
     var isShowingAlert: Bool { get set }
     var isDetailedChartsEnabled: Bool { get }
+    var weeklyChartYDomain: ClosedRange<Int> { get }
+    var chartYDomain: ClosedRange<Int> { get }
     func didTapOnAddingMood()
     func getDetailedInfoViewModel() -> DetailedChartsViewModel
 }
@@ -66,6 +68,9 @@ final class ProgressChartsViewModel: ProgressChartsViewModelProtocol {
     @Published var isShowingAlert: Bool = false
     @Published var isDetailedChartsEnabled: Bool = false
     
+    var weeklyChartYDomain: ClosedRange<Int> = 0...0
+    @Published var chartYDomain: ClosedRange<Int> = 0...0
+    
     @Published var state: ProgressChartsState = .idle
     @Published var userMoodRecords: [UserMoodModel] = [] {
         didSet {
@@ -75,7 +80,11 @@ final class ProgressChartsViewModel: ProgressChartsViewModelProtocol {
         }
     }
     
-    @Published private(set) var weeklyChartData: [ChartModel] = []
+    @Published private(set) var weeklyChartData: [ChartModel] = [] {
+        didSet {
+            weeklyChartYDomain = getChartDomain(for: .oneWeek)
+        }
+    }
     @Published private(set) var userSmokingRecords: [UserSmokingSessionMetrics] = [] {
         didSet {
             guard !userMoodRecords.isEmpty else { return }
@@ -86,8 +95,8 @@ final class ProgressChartsViewModel: ProgressChartsViewModelProtocol {
     
     @Published private(set) var chartData: [ChartModel] = [] {
         didSet {
+            chartYDomain = getChartDomain(for: selectedSotringMethod)
             state = .loaded
-            calculateCorrelation()
         }
     }
     
@@ -142,9 +151,7 @@ private extension ProgressChartsViewModel {
             .sink { finish in
                 print(finish)
             } receiveValue: { [weak self] data in
-                self?.userMoodRecords = data.sorted(by: {
-                    $0.dateOfClassification < $1.dateOfClassification
-                })
+                self?.userMoodRecords = data
             }.store(in: &cancellables)
     }
     
@@ -171,7 +178,9 @@ private extension ProgressChartsViewModel {
         let smokingSessions = filterChartsData(for: period).userSmokingSessions.map {
             ChartModel(id: UUID(), type: .smoking, mood: $0.classification, date: $0.dateOfClassification)
         }
-        return userMoods + smokingSessions
+        
+        let data = userMoods + smokingSessions
+        return data
     }
     // MARK: Filtering userMoods
     //TODO: check for availability for longer periods
@@ -221,6 +230,26 @@ private extension ProgressChartsViewModel {
         return filteredData
     }
     
+    // MARK: Getting domain for Y-axis of charts
+    func getChartDomain(for period: ProgressChartsPeriods) -> ClosedRange<Int> {
+        var moodsArr: [Int] = []
+        switch period {
+        case .oneWeek:
+            moodsArr = weeklyChartData.map {
+                $0.mood.moodNumber
+            }
+        default:
+            moodsArr = chartData.map {
+                $0.mood.moodNumber
+            }
+        }
+        if let lowerBound = moodsArr.min(), let upperBound = moodsArr.max() {
+            let range = lowerBound...upperBound
+            return range
+        }
+        return 0...ClassifiedMood.allCases.count
+    }
+    
     func calculateCorrelation() -> Double {
         // This one needs to be a Set so I don`t add a new value each time smoking session with corresponding date found
         var moodsArr = Set<UserMoodModel>()
@@ -238,7 +267,7 @@ private extension ProgressChartsViewModel {
         }
         
         let moodArrValues = moodsArr.sorted{ $0.dateOfClassification < $1.dateOfClassification }.map {
-            Double($0.classification.getMoodNumberValue())
+            Double($0.classification.moodNumber)
         }
         
         let groupedValues = Dictionary(grouping: smokingArr, by: { $0.dateOfClassificationMonthAndYear })
@@ -248,11 +277,11 @@ private extension ProgressChartsViewModel {
         
         for (_, values) in sortedGroupedValues {
             if values.count > 1 {
-                let totalValue = values.reduce(0.0) { $0 + $1.classification.getMoodNumberValue() }
+                let totalValue = values.reduce(0.0) { $0 + Double($1.classification.moodNumber) }
                 let meanValue = totalValue / Double(values.count)
                 meanMoodValues.append(meanValue)
             } else {
-                meanMoodValues.append(values.first!.classification.getMoodNumberValue())
+                meanMoodValues.append(Double(values.first!.classification.moodNumber))
             }
         }
         

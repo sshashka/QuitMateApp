@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AdditionalInfoCell: View {
-//    let image: String
     let leadingText: String
     let trailingText: String
     var body: some View {
@@ -19,14 +18,14 @@ struct AdditionalInfoCell: View {
                 Text(leadingText)
                 Text(trailingText)
             }
-            .fontStyle(.regularText)
+            .foregroundStyle(Color.white)
+            .fontStyle(.poppinsSemibold16)
         }
-        .padding(.horizontal)
     }
 }
 
 struct AdditionalInfoCell_Previews: PreviewProvider {
     static var previews: some View {
-        AdditionalInfoCell(leadingText: "KEkekke", trailingText: "fdjiofsjodfjiodsfosd")
+        AdditionalInfoCell(leadingText: "20$", trailingText: "/ day")
     }
 }
