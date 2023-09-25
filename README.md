@@ -6,4 +6,4 @@ This project aims to enhance user engagement in healthcare using AI technology. 
 * AI-driven Recommendations: Leverage AI capabilities to offer personalized recommendations based on the user's well-being and historical data.
 
 # Made by using: 
-Swift, SwiftUI, UIKit, Firebase, and SigmaSwiftStatistics for calculating Pearson correlation
+Swift, SwiftUI, UIKit, Charts, Combine, Firebase, and SigmaSwiftStatistics for calculating Pearson correlation
