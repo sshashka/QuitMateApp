@@ -47,8 +47,4 @@ final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
-    deinit {
-        print("\(self) deinited")
-    }
 }

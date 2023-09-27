@@ -285,10 +285,7 @@ private extension ProgressChartsViewModel {
             }
         }
         
-        print(moodArrValues, meanMoodValues)
-        
         let result = Sigma.pearson(x: moodArrValues, y: meanMoodValues)
-        print("Pearson correlation coefficient: \(String(describing: result))")
         guard let result else { return -1.0 }
         return result
     }

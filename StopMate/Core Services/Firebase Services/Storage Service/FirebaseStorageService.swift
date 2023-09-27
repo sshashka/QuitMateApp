@@ -12,6 +12,8 @@ import FirebaseStorage
 //import UIKit
 
 fileprivate enum FirebaseStorageServiceReferences: String {
+    case youtubeApiKey = "YoutubeApiKey"
+    case aiKey = "AIKey"
     case moods = "User-Moods"
     case user = "User"
     case history = "History"
@@ -26,7 +28,12 @@ protocol FirebaseStorageServicePublishersProtocol: AnyObject {
     var userSmokingSessionMetricsSubject: CurrentValueSubject<[UserSmokingSessionMetrics]?, Error> { get }
 }
 
-protocol FirebaseStorageServiceProtocol: FirebaseStorageServicePublishersProtocol {
+protocol FirebaseStorageServiceSecurityProtocol: AnyObject {
+    func getYoutubeApiKey(completion: @escaping(String) -> Void)
+    func getAiKey(completion: @escaping(String) -> Void)
+}
+
+protocol FirebaseStorageServiceProtocol: FirebaseStorageServicePublishersProtocol, FirebaseStorageServiceSecurityProtocol {
     func createNewUser(userModel: User)
     func getUserMoodsData() -> AnyPublisher<[UserMoodModel], Error>
     func uploadNewUserMood(mood: ClassifiedMood)
@@ -44,7 +51,6 @@ protocol FirebaseStorageServiceProtocol: FirebaseStorageServicePublishersProtoco
 }
 
 final class FirebaseStorageService: FirebaseStorageServiceProtocol {
-    
     var userSmokingSessionMetricsSubject = CurrentValueSubject<[UserSmokingSessionMetrics]?, Error>(nil)
     
     var userProfilePicturePublisher = CurrentValueSubject<Data?, Error>(nil)
@@ -230,8 +236,25 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         }
     }
     
-    deinit {
-        print("\(self) deinited")
+    //MARK: Getting api keys
+    func getYoutubeApiKey(completion: @escaping(String) -> Void) {
+        let reference = getChildReference(for: .youtubeApiKey)
+        reference.observe(.value) { snapshot in
+            let reference = try? snapshot.data(as: String.self)
+            if let reference {
+                completion(reference)
+            }
+        }
+    }
+    
+    func getAiKey(completion: @escaping(String) -> Void) {
+        let reference = getChildReference(for: .aiKey)
+        reference.observe(.value) { snapshot in
+            let reference = try? snapshot.data(as: String.self)
+            if let reference {
+                completion(reference)
+            }
+        }
     }
 }
 

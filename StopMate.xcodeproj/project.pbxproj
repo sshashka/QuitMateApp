@@ -184,6 +184,8 @@
 		30F9D3002A7D967D00986B97 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9D2FF2A7D967D00986B97 /* Image+Extension.swift */; };
 		30F9D3062A804F1B00986B97 /* ChartsViewAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9D3052A804F1B00986B97 /* ChartsViewAnnotation.swift */; };
 		30F9D3082A806FD900986B97 /* ImageProfileLoadingStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9D3072A806FD900986B97 /* ImageProfileLoadingStates.swift */; };
+		30FCFA0E2AC30FB3005AB7C3 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30FCFA0D2AC30FB3005AB7C3 /* KeychainSwift */; };
+		30FCFA102AC3101F005AB7C3 /* ApiKeysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCFA0F2AC3101F005AB7C3 /* ApiKeysService.swift */; };
 		30FE9CDC2A64B35F00FC5858 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CDB2A64B35F00FC5858 /* LoaderView.swift */; };
 		30FE9CDE2A64B94600FC5858 /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CDD2A64B94600FC5858 /* UserDefaultsConstants.swift */; };
 		30FE9CE12A6611A700FC5858 /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CE02A6611A700FC5858 /* AdditionalInfoView.swift */; };
@@ -364,6 +366,7 @@
 		30F9D2FF2A7D967D00986B97 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		30F9D3052A804F1B00986B97 /* ChartsViewAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewAnnotation.swift; sourceTree = "<group>"; };
 		30F9D3072A806FD900986B97 /* ImageProfileLoadingStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProfileLoadingStates.swift; sourceTree = "<group>"; };
+		30FCFA0F2AC3101F005AB7C3 /* ApiKeysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeysService.swift; sourceTree = "<group>"; };
 		30FE9CDB2A64B35F00FC5858 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		30FE9CDD2A64B94600FC5858 /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
 		30FE9CE02A6611A700FC5858 /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
@@ -384,6 +387,7 @@
 				30A1205429FC1A0A0062A019 /* FirebaseFirestore in Frameworks */,
 				30A1205829FC1A0A0062A019 /* FirebaseStorage in Frameworks */,
 				30400F692A61686E006D46C9 /* YoutubeKit in Frameworks */,
+				30FCFA0E2AC30FB3005AB7C3 /* KeychainSwift in Frameworks */,
 				305B65522A1C0B20006215E6 /* OpenAI in Frameworks */,
 				30CB0BDA2AA9365E00BECF4B /* SigmaSwiftStatistics in Frameworks */,
 				30A1204E29FC1A0A0062A019 /* FirebaseAuth in Frameworks */,
@@ -915,7 +919,7 @@
 				305B41C22A8C2D35001B09C2 /* Reasons To Stop Coordinator */,
 				305B41C32A8C2D49001B09C2 /* Recomendations Coordinator */,
 				305B41C42A8C2D54001B09C2 /* Settings Coordinator */,
-				305B41C52A8C2D6F001B09C2 /* OnboardingCoordinator.swift */,
+				30FCFA112AC33698005AB7C3 /* Onboarding */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1100,7 +1104,7 @@
 				30549F132A3A7B2000872DAD /* View Modifiers */,
 				304EC1A72A03BC65001667FC /* Core Views */,
 				30A11FF729FB29160062A019 /* ButtonStyles */,
-				30AAD91C2A0E6702000FF93D /* Firebase Services */,
+				30FCFA122AC336A3005AB7C3 /* Core Services */,
 				301821CD299D22BD0088863C /* Extensions */,
 				302B48C529F9552E0031CFE6 /* Constants */,
 				300ACB112A3FC3B100DA76D5 /* Localizable.strings */,
@@ -1350,6 +1354,31 @@
 			path = "Supplementary Views";
 			sourceTree = "<group>";
 		};
+		30FCFA112AC33698005AB7C3 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				305B41C52A8C2D6F001B09C2 /* OnboardingCoordinator.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		30FCFA122AC336A3005AB7C3 /* Core Services */ = {
+			isa = PBXGroup;
+			children = (
+				30AAD91C2A0E6702000FF93D /* Firebase Services */,
+				30FCFA132AC336AD005AB7C3 /* Keys Service */,
+			);
+			path = "Core Services";
+			sourceTree = "<group>";
+		};
+		30FCFA132AC336AD005AB7C3 /* Keys Service */ = {
+			isa = PBXGroup;
+			children = (
+				30FCFA0F2AC3101F005AB7C3 /* ApiKeysService.swift */,
+			);
+			path = "Keys Service";
+			sourceTree = "<group>";
+		};
 		30FE9CDF2A66118400FC5858 /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1396,6 +1425,7 @@
 				30400F682A61686E006D46C9 /* YoutubeKit */,
 				30F9D2FD2A7D964800986B97 /* SkeletonUI */,
 				30CB0BD92AA9365E00BECF4B /* SigmaSwiftStatistics */,
+				30FCFA0D2AC30FB3005AB7C3 /* KeychainSwift */,
 			);
 			productName = QuitMate;
 			productReference = 301FB5662AAF115400F8E846 /* StopMate.app */;
@@ -1431,6 +1461,7 @@
 				30400F672A61686E006D46C9 /* XCRemoteSwiftPackageReference "YoutubeKit" */,
 				30F9D2FC2A7D964800986B97 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 				30CB0BD82AA9365E00BECF4B /* XCRemoteSwiftPackageReference "SigmaSwiftStatistics" */,
+				30FCFA0C2AC30FB3005AB7C3 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 30CA1B34299AE191001E5BF3;
 			projectDirPath = "";
@@ -1549,6 +1580,7 @@
 				30E69D852A41C85F00213F9D /* ReasonsToStopNewFinishingDateView.swift in Sources */,
 				302FD2032A373ADA00E7BE70 /* FirstTimeEntryView.swift in Sources */,
 				30CA3A2E29B0EF7000181539 /* ReasonsToStopViewController.swift in Sources */,
+				30FCFA102AC3101F005AB7C3 /* ApiKeysService.swift in Sources */,
 				305B41CA2A8D993E001B09C2 /* VideoInfoViewImage.swift in Sources */,
 				30FEA7412A8AFE6700239912 /* SystemIconConstants.swift in Sources */,
 				30FE9CE32A6654D500FC5858 /* DisabledStateModifier.swift in Sources */,
@@ -1913,6 +1945,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		30FCFA0C2AC30FB3005AB7C3 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1965,6 +2005,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 30F9D2FC2A7D964800986B97 /* XCRemoteSwiftPackageReference "SkeletonUI" */;
 			productName = SkeletonUI;
+		};
+		30FCFA0D2AC30FB3005AB7C3 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30FCFA0C2AC30FB3005AB7C3 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

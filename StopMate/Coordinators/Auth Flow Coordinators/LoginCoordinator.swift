@@ -69,8 +69,4 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
-    deinit {
-        print("\(self) is deinited")
-    }
 }

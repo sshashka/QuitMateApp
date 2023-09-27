@@ -66,7 +66,6 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
     
     private func getUserData() {
         state = .loading
-//        storageService.userPublisher
         storageService.getUserModel()
         storageService.userDataPublisher
             .sink { _ in
@@ -101,7 +100,7 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
 #endif
         let daysWithoutSmoking = userData.daysWithoutSmoking
         // Please put your own token here
-        let apiKey = ""
+        let apiKey = ApiKeysService.shared.aiKey
         
         let openAi = OpenAI(apiToken: apiKey)
         let query: CompletionsQuery
@@ -112,7 +111,6 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
 
         case .timerResetRecomendation(let reasons, let metrics):
             query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods.joined(separator: ",")) can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling \(reasons.joined(separator: ",")). My urge to smoke was: \(metrics?.urgeToSmokeValue ?? 10) out of 10 and my mood was \(metrics?.classification.rawValue ?? "Bad") when i decided to smoke again. So the point is I dont want to this happen again add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
-            print(query)
         }
 
         openAi.completions(query: query)
@@ -125,7 +123,7 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
                 }
                 guard let firstResponse = results.first else { return }
                 self?.state = .loaded
-                self?.recomendation = firstResponse
+                self?.recomendation = firstResponse.trimmingCharacters(in: .whitespacesAndNewlines)
             }.store(in: &disposeBag)
     }
     

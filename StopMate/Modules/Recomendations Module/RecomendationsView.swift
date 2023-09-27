@@ -22,11 +22,6 @@ struct RecomendationsView<ViewModel>: View where ViewModel: RecomendationsViewMo
                 }
             })
             .padding(.bottom, Spacings.spacing15)
-//            Button {
-//                viewModel.generateResponse()
-//            } label: {
-//                Text("Regenerate response")
-//            }
             .buttonStyle(StandartButtonStyle())
             .isEnabled(viewModel.doneAndRegenerateButtonsEnabled)
             Button {

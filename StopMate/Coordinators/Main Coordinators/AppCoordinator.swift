@@ -23,17 +23,9 @@ final class AppCoordinator: AppCoordinatorProtocol {
     
     weak var finishDelegate: CoordinatorFinishDelegate? = nil
     
-    var navigationController: UINavigationController {
-        didSet {
-            print(navigationController.viewControllers)
-        }
-    }
+    var navigationController: UINavigationController
     
-    var childCoordinators: [Coordinator] = [] {
-        didSet {
-            print(childCoordinators)
-        }
-    }
+    var childCoordinators: [Coordinator] = []
     
     private let firebaseStorageService = FirebaseStorageService()
     
@@ -65,7 +57,6 @@ final class AppCoordinator: AppCoordinatorProtocol {
         mainCoordinator.finishDelegate = self
         mainCoordinator.start()
         childCoordinators.append(mainCoordinator)
-        print(navigationController.viewControllers)
     }
     // This should be called from push notification not tabbar
     private func showMoodClassificationVC() {
@@ -101,6 +92,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func start() {
+        ApiKeysService.shared.setKeys()
         UINavigationBar.appearance().tintColor = UIColor(named: ColorConstants.buttonsColor)
         let loaderVC = UIHostingController(rootView: LoaderView())
         navigationController.pushWithCustomAnination(loaderVC)

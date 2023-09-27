@@ -80,7 +80,6 @@ class SettingsCoordinator: NSObject, SettingsCoordinatorProtocol {
     deinit {
         navigationController.delegate = nil
         navigationController.popViewController(animated: false)
-        print("\(self) deinited")
     }
 }
 

@@ -21,15 +21,6 @@ struct Item: Codable {
     let snippet: Snippet
     let contentDetails: ContentDetails
     let status: Status
-    
-//    static func ==(lhs: Item, rhs: Item) -> Bool {
-//        return lhs.kind == rhs.kind &&
-//        lhs.etag == rhs.etag &&
-//        lhs.id == rhs.id &&
-//        lhs.snippet == rhs.snippet &&
-//        lhs.contentDetails == rhs.contentDetails &&
-//        lhs.status == rhs.status
-//    }
 }
 
 // MARK: - ContentDetails

@@ -32,10 +32,6 @@ final class TabBarCoordinator: NSObject, Coordinator {
         
     }
     
-    deinit {
-        print("\(self) is deinited")
-    }
-    
     func start() {
         let pages: [TabBarPages] = [.charts, .home, .videos]
         navigationController.setNavigationBarHidden(true, animated: true)

@@ -16,15 +16,15 @@ protocol YoutubeApiServiceProtocol: AnyObject {
 }
 
 class YoutubeApiService: YoutubeApiServiceProtocol {
+    private var disposeBag = Set<AnyCancellable>()
     private func getApiKey() -> String {
         // Put your own key here
-        return ""
+        return ApiKeysService.shared.youtubeApiKey
     }
     
-    private var disposeBag = Set<AnyCancellable>()
         func getVideos() -> AnyPublisher<YoutubeAPIResponce, Never> {
             let subject = PassthroughSubject<YoutubeAPIResponce, Never>()
-            var key: String = getApiKey()
+            let key: String = getApiKey()
             let urlString = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=id&part=contentDetails&part=snippet&part=status&playlistId=PLvrp9iOILTQZNKggn9HlTpQRSE7deeA6_&key=\(key)&maxResults=10"
             let url = URL(string: urlString)
     //        guard let url = url else { return }

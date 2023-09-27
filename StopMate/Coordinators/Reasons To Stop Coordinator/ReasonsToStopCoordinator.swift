@@ -35,10 +35,6 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
         self.navigationController = navigationController
     }
     
-    deinit {
-        print("\(self) is deinited")
-    }
-    
     func showReasonsToStop() {
         let vc = ReasonsToStopViewController.module
         vc.presenter?.didSendEventClosure = { [weak self] event in

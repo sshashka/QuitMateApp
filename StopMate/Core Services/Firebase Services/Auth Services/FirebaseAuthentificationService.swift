@@ -103,10 +103,6 @@ final class FirebaseAuthentificationService: AuthentificationServiceProtocol {
         Auth.auth().currentUser?.delete()
     }
     
-    deinit {
-        print("Auth service deinit")
-    }
-    
     func signOut() {
         do{
             try Auth.auth().signOut()

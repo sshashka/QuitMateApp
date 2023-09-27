@@ -15,7 +15,7 @@ enum FirebaseAuthStateHandlerResult {
     case userDidNotCompleteOnboarding
 }
 
-// Handle auth state change in realtime
+/// This class handles user authentification states
 final class FirebaseAuthStateHandler {
     private let storageService = FirebaseStorageService()
     private var disposeBag = Set<AnyCancellable>()
@@ -29,7 +29,6 @@ final class FirebaseAuthStateHandler {
                 UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: UserDefaultsConstants.userId)
                 self?.storageService.checkIfUserExists { status in
                     if status == true {
-//                        publisher.send(.userIsAuthentificated)
                         self?.storageService.checkIfUserCompletedOnboarding { result in
                             switch result {
                             case true:
@@ -45,11 +44,5 @@ final class FirebaseAuthStateHandler {
             }
         }
         return publisher.eraseToAnyPublisher()
-    }
-    
-    
-    
-    deinit {
-        print("\(self) deinited")
     }
 }

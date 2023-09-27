@@ -26,11 +26,7 @@ final class SettingsTableViewFooterView: UIView {
         self.addSubview(logoutButton)
         logoutButton.frame = bounds
         logoutButton.addTarget(self, action: #selector(didTapOnSignOut), for: .touchUpInside)
-        setupView()
-        print("\(self) inited")
-        print(logoutButton.frame)
-        
-        
+        setupView()        
     }
     
     required init?(coder: NSCoder) {
