@@ -1,5 +1,798 @@
 {
   "sourceLanguage" : "en",
-  "strings" : {},
+  "strings" : {
+    "" : {
+
+    },
+    "-1" : {
+
+    },
+    "%" : {
+
+    },
+    "%lld" : {
+
+    },
+    "0" : {
+
+    },
+    "1" : {
+
+    },
+    "1 Month" : {
+
+    },
+    "2 Weeks" : {
+
+    },
+    "3 Months" : {
+
+    },
+    "Age" : {
+
+    },
+    "Auth.age" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Age"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш вік"
+          }
+        }
+      }
+    },
+    "Auth.agePromt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How old are you?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скільки вам років?"
+          }
+        }
+      }
+    },
+    "Auth.alreadyHaveAnAccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already have an accout? Log In"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вже маєте аккаунт?"
+          }
+        }
+      }
+    },
+    "Auth.amount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amount"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кількість"
+          }
+        }
+      }
+    },
+    "Auth.amountPrompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How much money do you spend on cigarets daily?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Яку кількість грошей ви витрачаєте на паління щоденно?"
+          }
+        }
+      }
+    },
+    "Auth.dontHaveAnAccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don`t have an account? Register now"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає аккаунту? Зареєструйтесь зараз"
+          }
+        }
+      }
+    },
+    "Auth.email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
+    },
+    "Auth.emailWithInstructionsSent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email with instructions has been sent"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лист з інструкціями вже на вашій електронній пошті"
+          }
+        }
+      }
+    },
+    "Auth.finishingDate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finishing date:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата закінчення"
+          }
+        }
+      }
+    },
+    "Auth.finishingSmokingPromt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When do you want to finish?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коли ви плануєте остаточно кинути палити?"
+          }
+        }
+      }
+    },
+    "Auth.forgotPassword" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forgot password?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Забули пароль?"
+          }
+        }
+      }
+    },
+    "Auth.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log in"
+          }
+        }
+      }
+    },
+    "Auth.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your name"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваше ім'я"
+          }
+        }
+      }
+    },
+    "Auth.namePrompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What should we call you?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Як вас звати?"
+          }
+        }
+      }
+    },
+    "Auth.password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пароль"
+          }
+        }
+      }
+    },
+    "Auth.passwordConfirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password confirmation"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Підтвердження паролю"
+          }
+        }
+      }
+    },
+    "Auth.passwordEightCharacters" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password, at least 8 characters"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пароль, щонайменше 8 символів"
+          }
+        }
+      }
+    },
+    "Auth.register" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registration"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реєстрація"
+          }
+        }
+      }
+    },
+    "Auth.startingDate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starting date:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата початку"
+          }
+        }
+      }
+    },
+    "Auth.startingDatePromt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When did you start quitting process?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коли ви почали процес відмови від куріння"
+          }
+        }
+      }
+    },
+    "Benefits.betterCirculationHeader" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Better Circulation"
+          }
+        }
+      }
+    },
+    "Benefits.betterCirculationText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your blood circulation improves, leading to warmer hands and feet and a reduced risk of blood clots."
+          }
+        }
+      }
+    },
+    "Benefits.improvedMentalHealthHeader" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Improved Mental Health"
+          }
+        }
+      }
+    },
+    "Benefits.improvedMentalHealthText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitting smoking can improve mental health and mood, reducing symptoms of depression and anxiety."
+          }
+        }
+      }
+    },
+    "Benefits.increasedEnergyHeader" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Increased Energy"
+          }
+        }
+      }
+    },
+    "Benefits.increasedEnergyText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As your body starts to heal from the damage caused by smoking, you may notice increased energy levels and improved overall vitality."
+          }
+        }
+      }
+    },
+    "Benefits.lifeWithoutSmoking" : {
+      "extractionState" : "manual"
+    },
+    "By clicking on finish you agree to the [Privacy policy](https://docs.google.com/document/d/1ww6ypCKPNF8_el1_9nvxhfCwfES6VGBEyNjH9VyookY/edit?usp=sharing) and [Terms and Conditions](https://docs.google.com/document/d/1zMRvkPLOX2DPuYvYnURhzNo5lObr_XMjoZMSUUlkVlU/edit?usp=sharing) " : {
+
+    },
+    "Chart.checkMoods" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check your activity through period"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Огляд активності за певний період"
+          }
+        }
+      }
+    },
+    "Charts.activity" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activity"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Активність"
+          }
+        }
+      }
+    },
+    "Charts.correlation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This bar shows you correlation between your daily moods and moods when you smoked. The bigger value means stronger correlation"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей стовпчик показує вам співвідношення між вашим щоденним самопочуттям і самопочуттям, коли ви курили. Більше значення означає сильнішу залежність вашого самопочуття під час куріння від вашого щоденного самопочуття."
+          }
+        }
+      }
+    },
+    "Charts.detailedInfo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailed info"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деталі"
+          }
+        }
+      }
+    },
+    "Charts.markNewMood" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark new mood"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати настрій"
+          }
+        }
+      }
+    },
+    "Charts.moodAlreadyMarked" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have already marked your mood today. So, come back tomorrow."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви вже позначили свій сьогоднішній настрій. Тож повертайся завтра."
+          }
+        }
+      }
+    },
+    "Charts.weekly.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chart for this week"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Графік за цей тиждень"
+          }
+        }
+      }
+    },
+    "Contact information" : {
+
+    },
+    "Date of classification: %@" : {
+
+    },
+    "Day" : {
+
+    },
+    "Don`t change the finishing date" : {
+
+    },
+    "Done" : {
+
+    },
+    "Email" : {
+
+    },
+    "Finish" : {
+
+    },
+    "Hey" : {
+
+    },
+    "How did you feel when it happened" : {
+
+    },
+    "How strong was your urge to smoke?" : {
+
+    },
+    "I feel..." : {
+
+    },
+    "Log In" : {
+
+    },
+    "MainScreen.DaysToFinish" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Days to finish"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Днів до завершення"
+          }
+        }
+      }
+    },
+    "MainScreen.daysWithoutSmoking" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Days without smoking"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Днів вільних від куріння"
+          }
+        }
+      }
+    },
+    "MainScreen.moneySaved" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Money saved"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Збережено грошей"
+          }
+        }
+      }
+    },
+    "MainScreen.progress" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прогрес"
+          }
+        }
+      }
+    },
+    "MainScreen.quittingAnalysis" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitting Analysis"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аналіз"
+          }
+        }
+      }
+    },
+    "MainScreen.quittingDuration" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitting Duration"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тривалість"
+          }
+        }
+      }
+    },
+    "MainScreen.quittingInformation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitting Information"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інформація"
+          }
+        }
+      }
+    },
+    "MainScreen.unrealeasedChemichals" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Of unreleased chemicals"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вироблено хімікатів"
+          }
+        }
+      }
+    },
+    "MainScreen.userSmoked" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I smoked"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я покурив"
+          }
+        }
+      }
+    },
+    "Mood" : {
+
+    },
+    "Moods" : {
+
+    },
+    "Name" : {
+
+    },
+    "Next" : {
+
+    },
+    "No records, yet" : {
+
+    },
+    "OK" : {
+
+    },
+    "Personal information" : {
+
+    },
+    "Picker" : {
+
+    },
+    "Please tell us about your emotional state" : {
+
+    },
+    "Select a type of history:" : {
+
+    },
+    "Set new photo" : {
+
+    },
+    "Shared.NoData" : {
+
+    },
+    "Smoking" : {
+
+    },
+    "Start watching" : {
+
+    },
+    "Type" : {
+
+    },
+    "Videos" : {
+
+    },
+    "What`s in your mind" : {
+
+    },
+    "You have selected these reasons: %@" : {
+
+    },
+    "You mood was: %@" : {
+
+    },
+    "Your history" : {
+
+    },
+    "Your recomendation on that day was: %@" : {
+
+    }
+  },
   "version" : "1.0"
 }
