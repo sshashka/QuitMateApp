@@ -1,26 +1,10 @@
-/*
+/* 
   Localizable.strings
-  QuitMate
+  StopMate
 
-  Created by Саша Василенко on 19.06.2023.
-  
+  Created by Саша Василенко on 29.09.2023.
 */
 
-"Log In" = "Вхід";
-"Email" = "Email";
-"Password, at least 8 characters" = "Пароль, мінімум 8 символів";
-"Forgot password?" = "Забули пароль?";
-"Don`t have an account? Create new" = "Немає аккаунту? Створіть новий зараз";
-"Register" = "Реєстрація";
-"Password confirmation" = "Підтвердження паролю";
-"Already have an accout? Log In" = "Вже маєте аккаут? Перейти до входу";
-"What should we call you?" = "What should we call you?";
-"Your name" = "Ваше ім'я";
-"How old are you?" = "Скільки вам років";;
-"Your age" = "Ваш вік";
-"How much money do you spend on cigarets daily?" = "Яку кількість грошей ви витрачаєте на куріння кожного дня?";
-"Amount" = "Кількість";
-"When did you start quitting process?" = "Коли ви перестали курити";
-"Starting date:" = "Дата початку: ";
-"When do you want to finish?" = "Коли б ви хотіли повністью кинути курити";
-"Finishing date:" = "Кінцева дата";
+
+"Auth.email" = "Email";
+"Auth.password" = "Password";
