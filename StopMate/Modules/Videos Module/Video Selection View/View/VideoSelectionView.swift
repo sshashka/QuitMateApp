@@ -32,7 +32,7 @@ struct VideoSelectionView<ViewModel>: View where ViewModel: VideoSelectionViewMo
                     }
                 }
                 .padding(.horizontal, Spacings.spacing15)
-            }.navigationTitle("Videos")
+            }.navigationTitle(Localizables.VideosStrings.videos)
         }
     }
 }

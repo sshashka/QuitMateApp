@@ -73,6 +73,7 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     
     func showRecomendations() {
         let recomendationsCoordinator = RecomendationsCoordinator(navigationController)
+        guard let userStateMetrics else { return }
         recomendationsCoordinator.recomendationType = .timerResetRecomendation(selectedReasons, userStateMetrics)
         recomendationsCoordinator.finishDelegate = finishDelegate
         childCoordinators.append(recomendationsCoordinator)

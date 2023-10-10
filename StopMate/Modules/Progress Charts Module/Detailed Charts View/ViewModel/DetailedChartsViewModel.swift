@@ -42,13 +42,13 @@ final class DetailedChartsViewModel: DetailedChartsViewModelProtocol {
     }
     
     private func getMoodsDetails() {
-        let text = "Сhart above shows you that you marked your mood as :\n"
+        let text = Localizables.DetailedCharts.chartAboveMoodsDetails
         let sortedMoodsCount = moodsCountData.sorted {$0.count > $1.count}
         let moodAndCount: [String] = sortedMoodsCount.map {
-            " - \($0.mood.rawValue): \($0.count) times\n"
+            return String (localized: "Charts.moodsCount.\($0.mood.localizedCase) \($0.count)", table: "Localizable")
         }
         let overallMoodsCount = moodsCountData.reduce(0) { $0 + $1.count }
-        let overallMoodsCountText = "Overall you have marked your mood for \(overallMoodsCount) times!"
+        let overallMoodsCountText = String(localized: "Charts.overallTimes.\(overallMoodsCount)", table: "Localizable")
         moodsCountText = text + moodAndCount.joined() + overallMoodsCountText
     }
     
@@ -62,19 +62,18 @@ final class DetailedChartsViewModel: DetailedChartsViewModelProtocol {
                 maxMoodCountsByMonthAndYear[monthAndYear] = (mood: maxStatistics.mood, count: maxStatistics.count)
             }
         }
-        var messageToUser = "Сhart above shows you how many times you marked a specific mood in a month, and the number of marks in each month in total. Here are the most marked moods and their number for each month:\n "
+        var messageToUser = Localizables.DetailedCharts.monthlyChartExplanation
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM yyyy"
-        dateFormatter.locale = NSLocale(localeIdentifier: "EN") as Locale
         // Sort the dictionary by keys (dates)
         let sortedMaxMoodCounts = maxMoodCountsByMonthAndYear.sorted { $0.key < $1.key }
 
         for (monthAndYear, maxMoodCount) in sortedMaxMoodCounts {
             let formattedMonthAndYear = dateFormatter.string(from: monthAndYear).capitalized
-            let mood = maxMoodCount.mood.rawValue
+            let mood = maxMoodCount.mood.localizedCase
             let count = maxMoodCount.count
-            let message = " - \(formattedMonthAndYear): your most marked mood - \(mood) : \(count) times\n"
+            let message = String(localized: "Charts.monthMoodCount.\(formattedMonthAndYear)\(mood)\(count)", table: "Localizable")
             messageToUser += message
         }
         monthsDetailsText = messageToUser

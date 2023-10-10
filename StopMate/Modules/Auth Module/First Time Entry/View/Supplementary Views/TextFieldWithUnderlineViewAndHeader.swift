@@ -16,13 +16,6 @@ struct TextFieldWithUnderlineViewAndHeader: View {
             FirstTimeEntryHeaderView(text: headerText)
             Spacer()
             TextFieldWithUnderlineView(text: $text, placeHolderText: placeHolderText)
-//            TextField(placeHolderText, text: $text)
-//                .multilineTextAlignment(.center)
-//                .foregroundColor(Color(ColorConstants.buttonsColor))
-//                .font(.custom(FontsEnum.poppinsMedium.rawValue, size: 24))
-//            Divider()
-//                .frame(height: 2)
-//                .background(Color(ColorConstants.buttonsColor))
             Spacer()
         }.padding(.horizontal, Spacings.spacing30)
     }

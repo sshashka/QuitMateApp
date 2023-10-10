@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 final class SettingsViewController: UIViewController {
-    private let settingsLabels: [String] = ["Change password", "Terms and conditions", "Privacy policy", "Watch your history", "Onboarding", "Delete account"]
+    private let settingsLabels: [String] = [Localizables.SettingsStrings.changePassword, Localizables.SettingsStrings.termsAndConditions, Localizables.SettingsStrings.privacyPolicy, Localizables.SettingsStrings.watchYourHistory, Localizables.OnboardingStrings.onboardingHeader, Localizables.SettingsStrings.deleteAccuont]
 //    private let gradientLayer = CAGradientLayer()
     private var viewModel: SettingsViewModelProtocol?
     private var disposeBag = Set<AnyCancellable>()
@@ -85,7 +85,7 @@ private extension SettingsViewController {
     
     
     func didSelectPasswordReset() {
-        let alert = UIAlertController(title: "Do you want to reset your password?", message: "Note: this action cannot be undone ", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: Localizables.SettingsStrings.resetPasswordPromt, preferredStyle: .alert)
         let action = UIAlertAction(title: "Sure", style: .destructive) { [weak self] _ in
             self?.viewModel?.resetPassword()
             self?.showPasswordResetAlert()
@@ -108,14 +108,14 @@ private extension SettingsViewController {
     }
     
     func showPasswordResetAlert() {
-        let alert = UIAlertController(title: "Password reset message has been sent", message: "Please check your email for instructions", preferredStyle: .alert)
+        let alert = UIAlertController(title: Localizables.SettingsStrings.passwordResetAlertTitle, message: Localizables.SettingsStrings.passwordResetAlertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         
         present(alert, animated: true)
     }
     
     func showDeleteAccountAlert() {
-        let alert = UIAlertController(title: nil, message: "Do you really want to delete your account?", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: Localizables.SettingsStrings.accountDeleteMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive) {[weak self] _ in
             self?.viewModel?.didTapOnAccountDelete()
         })
@@ -146,11 +146,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             didSelectPasswordReset()
         case 1:
             let vc = TermsAndConditionsView()
-//            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.termsAndConditions
+            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.termsAndConditions
             navigationController?.pushViewController(vc, animated: true)
         case 2:
             let vc = TermsAndConditionsView()
-//            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.privacyPolicy
+            vc.selectedURL = PrivacyPolicyAndTermsAndConditionsURL.privacyPolicy
             navigationController?.pushViewController(vc, animated: true)
         case 3:
             viewModel?.didTapOnHistory()

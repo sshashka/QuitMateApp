@@ -21,14 +21,7 @@ struct UserProgressView: View {
                 ProgressPercentageView(percentage: percentage)
                     .padding(.vertical, Spacings.spacing30)
             }
-        
     }
-    
-//    private func animateCircle(to targetPercentage: Float) {
-//        withAnimation {
-//            percentage = targetPercentage
-//        }
-//    }
 }
 
 

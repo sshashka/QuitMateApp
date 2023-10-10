@@ -12,20 +12,19 @@ struct ManualMoodClassifierView<ViewModel>: View where ViewModel: ManualMoodClas
     let vibrationGenerator = UINotificationFeedbackGenerator()
     var body: some View {
         VStack(alignment: .center) {
-            Text("Hey")
+            Text(Localizables.MoodModuleStrings.hey)
                 .modifier(TextViewModifier(font: .regular, size: 18))
-            Text("What`s in your mind")
+            Text(Localizables.MoodModuleStrings.whatIsInYourMind)
                 .modifier(TextViewModifier(font: .regular, size: 18))
-            Text("I feel...")
-                .modifier(TextViewModifier(font: .light, size: 14))
+            Text(Localizables.MoodModuleStrings.iFeel)
+                .modifier(TextViewModifier(font: .light, size: 18))
             MoodSelectionView(moods: viewModel.moodsArray, selectedMood: $viewModel.selectedMood)
             Spacer(minLength: Spacings.spacing20)
             Button {
                 viewModel.didTapOnDoneButton()
                 vibrationGenerator.notificationOccurred(.success)
             } label: {
-                Text("Done")
-                    .modifier(TextViewModifier(font: .bold, size: 14))
+                Text(Localizables.Shared.done)
             }
             .buttonStyle(StandartButtonStyle())
         }

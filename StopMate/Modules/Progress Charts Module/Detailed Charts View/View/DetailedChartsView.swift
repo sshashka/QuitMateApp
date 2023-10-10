@@ -15,7 +15,7 @@ struct DetailedChartsView<ViewModel>: View where ViewModel: DetailedChartsViewMo
             VStack(spacing: Spacings.spacing20) {
                 Chart(viewModel.progressChartStats) { data in
                     BarMark(x: .value("", data.count), 
-                            y: .value("", data.mood.rawValue))
+                            y: .value("", data.mood.localizedCase))
                 }
                 .frame(height: 200)
                 Text(viewModel.moodsCountText)
@@ -26,7 +26,7 @@ struct DetailedChartsView<ViewModel>: View where ViewModel: DetailedChartsViewMo
                 Chart(viewModel.progressChartStats) { data in
                     BarMark(x: .value("", data.count), 
                             y: .value("", data.monthAndYear))
-                        .foregroundStyle(by: .value("", data.mood.rawValue))
+                        .foregroundStyle(by: .value("", data.mood.localizedCase))
                 }
                 .frame(height: 200)
                 
@@ -35,13 +35,12 @@ struct DetailedChartsView<ViewModel>: View where ViewModel: DetailedChartsViewMo
                 
                 Divider()
                 
-                HStack(alignment: .top) {
+                VStack(alignment: .center) {
                     CorrelationView(correlation: viewModel.correlation)
                         .padding(.horizontal)
-                        .frame(maxHeight: 200)
-                    Text(Localizables.correlationBarExplanation)
+                        .frame(width: 170, height: 200)
+                    Text(Localizables.DetailedCharts.correlationBarExplanation)
                         .fontStyle(.customSemibold16)
-                        .multilineTextAlignment(.trailing)
                 }
             }
             .padding(Spacings.spacing30)

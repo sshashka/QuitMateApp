@@ -13,7 +13,7 @@ struct TimeAndScoreView: View {
         VStack {
             Text(quittingDuration)
                 .modifier(TextViewModifier(font: .semiBold, size: 18))
-            Text(Localizables.quittingDuration)
+            Text(Localizables.MainScreen.quittingDuration)
                 .modifier(TextViewModifier(font: .medium, size: 14))
         }
     }

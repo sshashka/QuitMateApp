@@ -19,7 +19,7 @@ struct MoodSelectionView: View {
                         selectedMood = mood
                     } label: {
                         HStack {
-                            Text(mood.rawValue)
+                            Text(mood.classifiedMood?.localizedCase)
                             if selectedMood == mood {
                                 Image(systemName: "checkmark")
                             }

@@ -10,7 +10,7 @@ import PhotosUI
 import Foundation
 
 struct EditProfileView: View {
-    @State var info: String = "Info"
+    @State var info: String = Localizables.info
     @State var selectedItem: PhotosPickerItem? = nil
 
     @StateObject var viewModel: EditProfileViewModel
@@ -28,7 +28,7 @@ struct EditProfileView: View {
 
             PhotosPicker(selection: $selectedItem, matching: .images,
                          photoLibrary: .shared()) {
-                Text("Set new photo")
+                Text(Localizables.EditProfileStrings.setNewPhoto)
                     .fontStyle(.buttonsText)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color.buttonsPurpleColor)
@@ -41,13 +41,13 @@ struct EditProfileView: View {
                 }
             }
             Form {
-                Section("Personal information") {
-                    TextField("Name", text: $viewModel.userName)
-                    TextField("Age", text: $viewModel.userAge)
+                Section(Localizables.EditProfileStrings.personalInformation) {
+                    TextField(Localizables.Shared.name, text: $viewModel.userName)
+                    TextField(Localizables.Shared.age, text: $viewModel.userAge)
                         .keyboardType(.numberPad)
                 }
                 
-                Section("Contact information") {
+                Section(Localizables.EditProfileStrings.contactInfo) {
                     TextField("Email", text: $viewModel.userEmail)
                         .keyboardType(.emailAddress)
                 }
@@ -57,7 +57,7 @@ struct EditProfileView: View {
         .padding()
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Done") {
+                Button(Localizables.Shared.done) {
                     viewModel.updateUserProfile()
                 }
                 .foregroundColor(Color.buttonsPurpleColor)

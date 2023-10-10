@@ -36,6 +36,17 @@ enum ProgressChartsPeriods: String {
             return 6
         }
     }
+    
+    var localizedCase: String {
+        switch self {
+        case .oneWeek:
+            return String(localized: "Shared.week.\(1)")
+        case .twoWeeks:
+            return String(localized: "Shared.week.\(2)")
+        case .oneMonth, .threeMonth, .sixMonth:
+            return String(localized: "Shared.month.\(self.valueOfPeriod)")
+        }
+    }
 }
 
 protocol ProgressChartsViewModelProtocol: AnyObject, ObservableObject {
@@ -123,7 +134,7 @@ final class ProgressChartsViewModel: ProgressChartsViewModelProtocol {
     
     func didTapOnAddingMood() {
         guard canAddNewMood else {
-            alertText = Localizables.moodAlreadyMarkedToday
+            alertText = Localizables.ChartsStrings.moodAlreadyMarkedToday
             isShowingAlert.toggle()
             return
         }

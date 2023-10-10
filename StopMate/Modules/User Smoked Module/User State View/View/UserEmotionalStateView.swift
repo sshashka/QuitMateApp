@@ -12,20 +12,21 @@ struct UserEmotionalStateView<ViewModel>: View where ViewModel: UserEmotionalSta
 
     var body: some View {
         VStack(alignment: .leading) {
-           Text("Please tell us about your emotional state")
+            Text(Localizables.UserSmokedModuleStrings.tellUsAboutEmotionalState)
                 .fontStyle(.customMedium20)
-            Text("How strong was your urge to smoke?")
+            Text(Localizables.UserSmokedModuleStrings.urgeToSmokePromt)
                 .fontStyle(.customSemibold16)
             SmokeUrgeButtonGrid(selection: $viewModel.urgeToSmokeValue)
             Spacer(minLength: Spacings.spacing25)
-            Text("How did you feel when it happened")
+            Text(Localizables.UserSmokedModuleStrings.howDidYouFeel)
                 .fontStyle(.customSemibold16)
             MoodSelectionView(moods: ClassifiedMood.allCases, selectedMood: $viewModel.selectedMood)
             Spacer(minLength: Spacings.spacing15)
             Button {
+                viewModel.isDoneButtonEnabled ? self.vibrate(event: .success) : self.vibrate(event: .fail)
                 viewModel.didTapOnDoneButton()
             } label: {
-                Text("Done")
+                Text(Localizables.Shared.next)
             }
             .buttonStyle(StandartButtonStyle())
             .isEnabled(viewModel.isDoneButtonEnabled)

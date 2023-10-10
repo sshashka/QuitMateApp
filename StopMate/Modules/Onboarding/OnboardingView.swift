@@ -11,12 +11,12 @@ struct OnboardingView<ViewModel>: View where ViewModel: OnboardingViewModelProto
     @ObservedObject var viewModel: ViewModel
     var body: some View {
         TabView {
-            OnboardingTab(headerText: "Smoking session", icon: IconConstants.timerReset, systemIcon: nil, description: "If you still couldn't hold back and started smoking again tap on 'I smoked' button on main menu to add a record about your emotional state and so.")
-            OnboardingTab(headerText: "Viewing your moods", icon: nil, systemIcon: SystemIconConstants.chart, description: "To see all of your marked moods throughout the period of use of this app just tap on charts icon on the bottom")
-            OnboardingTab(headerText: "Seeing detailed info", icon: IconConstants.chartDetails, systemIcon: nil, description: "To see more of mood-related data just tap on the button that says 'Detailed info' on the bottom of charts screen")
-            OnboardingTab(headerText: "Marking new mood", icon: IconConstants.moodIcon, systemIcon: nil, description: "You can mark your mood on the charts tab. Just tap on the button that says 'Mark new mood' and select your mood. But be careful you can do this only once a day!")
-            OnboardingTab(headerText: "Changing settings", icon: nil, systemIcon: SystemIconConstants.gearShape, description: "If you need to change some information about you or see your history of interactions with the app go to main screen an tap on the gear icon")
-            OnboardingTab(headerText: "Onboarding", icon: IconConstants.onboarding, systemIcon: nil, description: "If you feel that you need to see this tutorial once again just go to settings and tap on 'Onboarding' button")
+            OnboardingTab(headerText: Localizables.OnboardingStrings.smokingSessionHeader, icon: IconConstants.timerReset, systemIcon: nil, description: Localizables.OnboardingStrings.smokingSessionDescription)
+            OnboardingTab(headerText: Localizables.OnboardingStrings.viewMoodsHeader, icon: nil, systemIcon: SystemIconConstants.chart, description: Localizables.OnboardingStrings.viewMoodsDescription)
+            OnboardingTab(headerText: Localizables.OnboardingStrings.onboardingDetailedInfoHeader, icon: IconConstants.chartDetails, systemIcon: nil, description: Localizables.OnboardingStrings.onboardingDetailedInfoDescription)
+            OnboardingTab(headerText: Localizables.OnboardingStrings.markingNewMoodHeader, icon: IconConstants.moodIcon, systemIcon: nil, description: Localizables.OnboardingStrings.markingNewMoodDescription)
+            OnboardingTab(headerText: Localizables.OnboardingStrings.changingSettingsHeader, icon: nil, systemIcon: SystemIconConstants.gearShape, description: Localizables.OnboardingStrings.changingSettingsDescription)
+            OnboardingTab(headerText: Localizables.OnboardingStrings.onboardingHeader, icon: IconConstants.onboarding, systemIcon: nil, description: Localizables.OnboardingStrings.onboardingDescription)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
         .toolbar {

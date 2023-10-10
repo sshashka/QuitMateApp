@@ -18,7 +18,7 @@ struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewMo
     var body: some View {
         VStack {
             TabView(selection: $selectedField) {
-                TextFieldWithUnderlineViewAndHeader(headerText: Localizables.namePromt, text: $viewModel.name, placeHolderText: Localizables.name)
+                TextFieldWithUnderlineViewAndHeader(headerText: Localizables.FirstTimeEntryStrings.namePromt, text: $viewModel.name, placeHolderText: Localizables.FirstTimeEntryStrings.name)
                     .focused($focusedField, equals: .name)
                     .tag(Field.name)
                     .onAppear {
@@ -27,8 +27,8 @@ struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewMo
                         }
                     }
                 
-                TextFieldWithUnderlineViewAndHeader(headerText: Localizables
-                    .agePromt, text: $viewModel.age ,placeHolderText: Localizables.age)
+                TextFieldWithUnderlineViewAndHeader(headerText: Localizables.FirstTimeEntryStrings
+                    .agePromt, text: $viewModel.age ,placeHolderText: Localizables.FirstTimeEntryStrings.age)
                     .keyboardType(.numberPad)
                     .focused($focusedField, equals: .age)
                     .tag(Field.age)
@@ -38,7 +38,7 @@ struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewMo
                         }
                     }
                 
-                CurrencyPicker(selection: $viewModel.currency, text: $viewModel.moneySpendOnSmoking, placeHolderText: Localizables.amountPromt, headerText: Localizables.amount)
+                CurrencyPicker(selection: $viewModel.currency, text: $viewModel.moneySpendOnSmoking, placeHolderText: Localizables.FirstTimeEntryStrings.amount, headerText: Localizables.FirstTimeEntryStrings.amountPromt)
                     .keyboardType(.numberPad)
                     .focused($focusedField, equals: .money)
                     .tag(Field.money)
@@ -48,7 +48,7 @@ struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewMo
                         }
                     }
     
-                PeriodOfTimeToQuitView(period: .startingDate, headerText: Localizables.startingDatePromt, datePickerText: Localizables.startingDate, date: $viewModel.startingDate)
+                PeriodOfTimeToQuitView(period: .startingDate, headerText: Localizables.FirstTimeEntryStrings.startingDatePromt, datePickerText: Localizables.FirstTimeEntryStrings.startingDate, date: $viewModel.startingDate)
                     .tag(Field.startingDate)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
@@ -56,7 +56,7 @@ struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewMo
                         }
                     }
                 
-                PeriodOfTimeToQuitView(period: .finishingDate, headerText: Localizables.finishingSmokingPromt, datePickerText: Localizables.finishingDate, date: $viewModel.finishingDate)
+                PeriodOfTimeToQuitView(period: .finishingDate, headerText: Localizables.FirstTimeEntryStrings.finishingSmokingPromt, datePickerText: Localizables.FirstTimeEntryStrings.finishingDate, date: $viewModel.finishingDate)
                     .tag(Field.finishingDate)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
@@ -86,7 +86,7 @@ struct FirstTimeEntryView<ViewModel>: View where ViewModel: FirstTimeEntryViewMo
                     viewModel.didTapOnFinish()
                 }
             } label: {
-                Text(selectedField == .privacyPolicy ? "Finish" : "Next")
+                Text(selectedField == .privacyPolicy ? Localizables.Shared.finish : Localizables.Shared.next)
             }
             .buttonStyle(StandartButtonStyle())
             .padding(Spacings.spacing30)

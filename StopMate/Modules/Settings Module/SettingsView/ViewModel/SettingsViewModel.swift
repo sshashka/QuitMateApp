@@ -104,7 +104,7 @@ final class SettingsViewModel: ObservableObject, SettingsViewModelProtocol {
     
     func didTapOnAddingMood() {
         guard canAddNewMood else {
-            errorText = "You have already marked your mood today. So, come back tomorrow."
+            errorText = Localizables.ChartsStrings.moodAlreadyMarkedToday
             isShowingAlert.toggle()
             return
         }

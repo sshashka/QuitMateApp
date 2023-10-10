@@ -12,7 +12,6 @@ protocol AddAdditionalInfoViewModelProtocol: ObservableObject {
     var weeklyData: String { get }
     var monthlyData: String { get }
     var yearlyData: String { get }
-    
     var headerText: String { get }
     var explanatoryText: String { get }
 }

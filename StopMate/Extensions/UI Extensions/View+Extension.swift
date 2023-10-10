@@ -17,8 +17,21 @@ extension View {
         modifier(DisabledStateModifier(state))
     }
     
-    func vibrate(event: VibrationEvent) -> some View {
-        modifier(VibrationModifier(event: event))
+    func hapticFeedBack(_ type: VibrationEvent) -> some View {
+        modifier(HapticFeedbackGenerator(event: type))
+    }
+    
+    func vibrate(event: VibrationEvent) {
+        let generator = UINotificationFeedbackGenerator()
+        switch event {
+        case .fail:
+            generator.notificationOccurred(.error)
+        case .success:
+            generator.notificationOccurred(.success)
+        case .hard:
+            let generator = UIImpactFeedbackGenerator()
+            generator.impactOccurred(intensity: 1.0)
+        }
     }
 }
 

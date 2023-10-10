@@ -35,7 +35,7 @@ struct MoodChartView: View {
                         AxisValueLabel {
                             if let mood = ClassifiedMood(moodNumber: number) {
                                 VStack(alignment: .leading) {
-                                    Text(mood.rawValue)
+                                    Text(mood.localizedCase)
                                 }
                             }
                         }

@@ -19,6 +19,25 @@ enum ClassifiedMood: String, Codable, CaseIterable, Plottable {
         return ClassifiedMood(rawValue: self.rawValue)
     }
     
+    var localizedCase: String {
+        switch self {
+        case .angry:
+            Localizables.MoodsStrings.angry
+        case .disgust:
+            Localizables.MoodsStrings.disgust
+        case .fear:
+            Localizables.MoodsStrings.fear
+        case .happy:
+            Localizables.MoodsStrings.happy
+        case .neutral:
+            Localizables.MoodsStrings.neutral
+        case .sad:
+            Localizables.MoodsStrings.sad
+        case .surprise:
+            Localizables.MoodsStrings.surprise
+        }
+    }
+    
     var moodNumber: Int {
         switch self {
         case .angry:

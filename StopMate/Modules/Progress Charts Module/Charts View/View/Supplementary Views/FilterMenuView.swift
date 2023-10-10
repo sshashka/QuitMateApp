@@ -12,40 +12,38 @@ struct FilterMenuView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(Localizables.activity)
+                Text(Localizables.ChartsStrings.activity)
                     .modifier(TextViewModifier(font: .medium, size: 20))
-                Text(Localizables.checkMoodsPeriod)
+                Text(Localizables.ChartsStrings.checkMoodsPeriod)
                     .modifier(TextViewModifier(font: .regular, size: 12))
                     .fixedSize()
             }
             Spacer()
             ZStack {
                 Menu {
-                    Button("2 Weeks", action: {
+                    Button(ProgressChartsPeriods.twoWeeks.localizedCase, action: {
                         selectedFilteringMethod = .twoWeeks
                     })
-                    Button("1 Month", action: {
+                    Button(ProgressChartsPeriods.oneMonth.localizedCase, action: {
                         selectedFilteringMethod = .oneMonth
                     })
-                    Button("3 Months") {
+                    Button(ProgressChartsPeriods.threeMonth.localizedCase) {
                         selectedFilteringMethod = .threeMonth
                     }
                 } label: {
-                    Text(selectedFilteringMethod.rawValue)
+                    Text(selectedFilteringMethod.localizedCase)
                     // Fixes text being trunkated when changes occur
                         .fixedSize()
                 }
-//                .fixedSize()
                 .padding()
                 RoundedRectangle(cornerRadius: LayoutConstants.cornerRadius)
                     .stroke()
             }
         }
         .foregroundColor(Color.labelColor)
-//        .padding(.horizontal)
     }
 }
-//
+
 struct FilterMenuView_Previews: PreviewProvider {
     static var previews: some View {
         FilterMenuView(selectedFilteringMethod: .constant(.oneMonth))

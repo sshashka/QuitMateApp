@@ -13,7 +13,7 @@ enum RecomendationsViewModelState {
     case loading
     case loaded
 }
-
+//MARK: - Protocol
 protocol RecomendationsViewModelProtocol: AnyObject, ObservableObject {
     var state: RecomendationsViewModelState { get }
     var recomendation: String { get }
@@ -22,11 +22,11 @@ protocol RecomendationsViewModelProtocol: AnyObject, ObservableObject {
     func generateResponse()
     func start()
 }
-
+//MARK: - Protocol implementation
 final class RecomendationsViewModel: RecomendationsViewModelProtocol {
     enum TypeOfRecomendation {
         case moodRecomendation
-        case timerResetRecomendation([String], UserSmokingSessionMetrics?)
+        case timerResetRecomendation([String], UserSmokingSessionMetrics)
     }
     var didSendEventClosure: ((RecomendationsViewModel.EventType) -> Void)?
     private var typeOfGenerationEvent: TypeOfRecomendation
@@ -53,7 +53,7 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
             generateResponse()
         }
     }
-    
+    //MARK: init
     init(storageService: FirebaseStorageServiceProtocol, type: TypeOfRecomendation) {
         self.storageService = storageService
         self.typeOfGenerationEvent = type
@@ -63,7 +63,73 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
         getUserData()
         generateResponse()
     }
+   
+    //MARK: - Public methods
+    func generateResponse() {
+        state = .loading
+        guard let userData = userData else { return }
+        guard let statsData = statsData else { return }
+        
+        var tokens = 0
+        //AI model requires more tokens for cyrilyc languages
+        let locale = Locale.current
+        guard locale.language.languageCode == "uk" else {
+            tokens = 450
+            return
+        }
+        tokens = 700
+        
+//#if DEBUG
+//        tokens = 150
+//#endif
+        let daysWithoutSmoking = userData.daysWithoutSmoking
+        // Please put your own token here for debug
+        let apiKey = ApiKeysService.shared.aiKey
+        
+        let openAi = OpenAI(apiToken: apiKey)
+        let query: CompletionsQuery
+        
+        switch typeOfGenerationEvent {
+        case .moodRecomendation:
+            query = CompletionsQuery(model: .textDavinci_003, prompt: RecomendationPrompts.getRecomendationForMoodAdded(userData: userData, userStats: statsData), temperature: 1.0, maxTokens: tokens)
+
+        case .timerResetRecomendation(let reasons, let metrics):
+            query = CompletionsQuery(model: .textDavinci_003, prompt: RecomendationPrompts.getPromtForSmokingSession(userData: userData, userStats: statsData, reasons: reasons, metrics: metrics), temperature: 1.0, maxTokens: tokens)
+        }
     
+        openAi.completions(query: query)
+            .receive(on: RunLoop.main)
+            .sink {
+                print($0)
+            } receiveValue: { [weak self] result in
+                let results = result.choices.map {
+                    $0.text
+                }
+                guard let firstResponse = results.first else { return }
+                self?.state = .loaded
+                self?.recomendation = firstResponse.trimmingCharacters(in: .whitespacesAndNewlines)
+            }.store(in: &disposeBag)
+    }
+    
+    //MARK: Saving responce
+    func didTapDone() {
+        guard let statsData else { return }
+        guard let lastMood = statsData.last?.classification else { return }
+        let record: UserHistoryModel
+        switch typeOfGenerationEvent {
+        case .moodRecomendation:
+            record = UserHistoryModel(dateOfClassification: Date.now, selectedMoood: lastMood, selectedReasons: nil, recomendation: recomendation, typeOfHistory: .moodRecords)
+        case .timerResetRecomendation(let array, _):
+            record = UserHistoryModel(dateOfClassification: Date.now, selectedMoood: nil, selectedReasons: array, recomendation: recomendation, typeOfHistory: .timerResetsRecords)
+        }
+        
+        storageService.addRecordToUserHistory(record: record)
+        didSendEventClosure?(.finish)
+    }
+}
+
+private extension RecomendationsViewModel {
+    //MARK: - Private methods
     private func getUserData() {
         state = .loading
         storageService.getUserModel()
@@ -82,65 +148,6 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
                 self?.statsData = data
             }.store(in: &disposeBag)
         
-    }
-    
-    func generateResponse() {
-        state = .loading
-        guard let userData = userData else { return }
-        guard let statsData = statsData else { return }
-        let name = userData.name
-        //TODO: Remove force unwrap
-        let moods = statsData.map {
-            $0.classification.classifiedMood!.rawValue
-        }
-        
-        var tokens = 450
-#if DEBUG
-        tokens = 150
-#endif
-        let daysWithoutSmoking = userData.daysWithoutSmoking
-        // Please put your own token here
-        let apiKey = ApiKeysService.shared.aiKey
-        
-        let openAi = OpenAI(apiToken: apiKey)
-        let query: CompletionsQuery
-        
-        switch typeOfGenerationEvent {
-        case .moodRecomendation:
-            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods) can u do an small analysis of my moods for me, provide me some help how not to start smoking again, and afer it add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
-
-        case .timerResetRecomendation(let reasons, let metrics):
-            query = CompletionsQuery(model: .textDavinci_003, prompt: "Hello there, my name is \(name) I am a smoker and I try to quit. I don`t smoke for \(daysWithoutSmoking) days and I`m proud of it I do diary of my moods during the process and here they are \(moods.joined(separator: ",")) can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling \(reasons.joined(separator: ",")). My urge to smoke was: \(metrics?.urgeToSmokeValue ?? 10) out of 10 and my mood was \(metrics?.classification.rawValue ?? "Bad") when i decided to smoke again. So the point is I dont want to this happen again add just something to cheer me up. Thanks", temperature: 1.0, maxTokens: tokens)
-        }
-
-        openAi.completions(query: query)
-            .receive(on: RunLoop.main)
-            .sink {
-                print($0)
-            } receiveValue: { [weak self] result in
-                let results = result.choices.map {
-                    $0.text
-                }
-                guard let firstResponse = results.first else { return }
-                self?.state = .loaded
-                self?.recomendation = firstResponse.trimmingCharacters(in: .whitespacesAndNewlines)
-            }.store(in: &disposeBag)
-    }
-    
-    func didTapDone() {
-        guard let statsData else { return }
-        guard let lastMood = statsData.last?.classification else { return }
-//        let type: UserHistoryRecordsType
-        let record: UserHistoryModel
-        switch typeOfGenerationEvent {
-        case .moodRecomendation:
-            record = UserHistoryModel(dateOfClassification: Date.now, selectedMoood: lastMood, selectedReasons: nil, recomendation: recomendation, typeOfHistory: .moodRecords)
-        case .timerResetRecomendation(let array, _):
-            record = UserHistoryModel(dateOfClassification: Date.now, selectedMoood: nil, selectedReasons: array, recomendation: recomendation, typeOfHistory: .timerResetsRecords)
-        }
-        
-        storageService.addRecordToUserHistory(record: record)
-        didSendEventClosure?(.finish)
     }
 }
 

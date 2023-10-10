@@ -102,9 +102,9 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
         guard let userStatistics else { return }
         switch type {
         case .money:
-            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: userStatistics.moneyUserSpendsOnSmoking, valueType: .daily, valueUnit: .money(userStatistics.userCurrency?.rawValue ?? "$")), headerText: "Savings", explanatoryText: "here you can see how much money you can save in a certain period of time")
+            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: userStatistics.moneyUserSpendsOnSmoking, valueType: .daily, valueUnit: .money(userStatistics.userCurrency?.rawValue ?? "$")), headerText: Localizables.MainScreen.additionalScreenSavingsHeader, explanatoryText: Localizables.MainScreen.additionalScreenSavingsExplanatory)
         case .enviroment:
-            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: 2.5, valueType: .daily, valueUnit: .emissions("g")), headerText: "Pollutions", explanatoryText: "here you can see how many emissions will not be produced in a certain period of time")
+            additionalInfoViewModel = AdditionalInfoViewModel(value: AdditionalInfoModel(value: 2.5, valueType: .daily, valueUnit: .emissions("g")), headerText: Localizables.MainScreen.additionalScreenPollutions, explanatoryText: Localizables.MainScreen.additionalScreenPollutionsExplanatory)
         }
         isPresentingSheet = true
     }
@@ -148,7 +148,6 @@ private extension MainScreenViewModel {
         let date = Date.now
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy"
-        dateFormatter.locale = NSLocale(localeIdentifier: "EN") as Locale
         todayDate = dateFormatter.string(from: date)
     }
     

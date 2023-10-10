@@ -4,14 +4,13 @@
 //
 //  Created by Саша Василенко on 04.05.2023.
 //
-
+//
 import SwiftUI
 import SkeletonUI
 
 struct ProgressChartsView<ViewModel>: View where ViewModel: ProgressChartsViewModelProtocol {
     @StateObject var viewModel: ViewModel
     @State var isPresentingSheet = false
-    private let generator = UINotificationFeedbackGenerator()
     var body: some View {
         NavigationStack {
             VStack {
@@ -33,14 +32,17 @@ struct ProgressChartsView<ViewModel>: View where ViewModel: ProgressChartsViewMo
                 HStack {
                     Button(action: {
                         viewModel.didTapOnAddingMood()
+                        viewModel.isShowingAlert ? self.vibrate(event: .fail) : self.vibrate(event: .success)
                     }, label: {
-                        Text(Localizables.markNewMood)
+                        Text(Localizables.ChartsStrings.markNewMood)
                     })
+                    .lineLimit(1)
                     .buttonStyle(StandartButtonStyle())
                     Button(action: {
+                        self.vibrate(event: .success)
                         isPresentingSheet.toggle()
                     }, label: {
-                        Text(Localizables.detailedInfo)
+                        Text(Localizables.ChartsStrings.detailedInfo)
                     })
                     .buttonStyle(StandartButtonStyle())
                     .isEnabled(viewModel.isDetailedChartsEnabled)
@@ -50,7 +52,7 @@ struct ProgressChartsView<ViewModel>: View where ViewModel: ProgressChartsViewMo
             }
         }.toolbar(content: {
             ToolbarItem(placement: .principal) {
-                Text(Localizables.chartsWeeklyHeader)
+                Text(Localizables.ChartsStrings.chartsWeeklyHeader)
                     .fontStyle(.customSemibold18)
             }
         })

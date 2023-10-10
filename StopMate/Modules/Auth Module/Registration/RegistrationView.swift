@@ -17,13 +17,13 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
         VStack {
             Spacer()
             HStack {
-                Text(Localizables.register)
+                Text(Localizables.AuthStrings.register)
                     .fontStyle(.header)
                 Spacer()
             }
             
             Group {
-                TextField("", text: $viewModel.email, prompt: Text(Localizables.email).foregroundColor(.black))
+                TextField("", text: $viewModel.email, prompt: Text(Localizables.AuthStrings.email).foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
                     .frame(height: 47)
                     .focused($focused, equals: .email)
@@ -33,7 +33,7 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
                             .foregroundColor(viewModel.emailTextFieldColor)
                     }
                 
-                SecureField("", text: $viewModel.password, prompt: Text(Localizables.passwordEightCharacters).foregroundColor(.black))
+                SecureField("", text: $viewModel.password, prompt: Text(Localizables.AuthStrings.passwordEightCharacters).foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
                     .frame(height: 47)
                     .focused($focused, equals: .password)
@@ -43,7 +43,7 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
                             .foregroundColor(viewModel.passwordTextFieldColor)
                     }
                 
-                SecureField("", text: $viewModel.passwordConfirmation, prompt: Text(Localizables.passwordConfirm).foregroundColor(.black))
+                SecureField("", text: $viewModel.passwordConfirmation, prompt: Text(Localizables.AuthStrings.passwordConfirm).foregroundColor(.black))
                     .padding(.horizontal, Spacings.spacing25)
                     .frame(height: 47)
                     .focused($focused, equals: .passwordConfirm)
@@ -72,7 +72,7 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
             Button {
                 viewModel.didTapDoneButton()
             } label: {
-                Text(Localizables.register)
+                Text(Localizables.AuthStrings.register)
                     .fontStyle(.clearButtonsText)
             }
             .buttonStyle(StandartButtonStyle())
@@ -83,7 +83,7 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
             Button {
                 viewModel.didTapLoginButton()
             } label: {
-                Text(Localizables.alreadyHaveAnAccount)
+                Text(Localizables.AuthStrings.alreadyHaveAnAccount)
                     .fontStyle(.clearButtonsText)
             }
         }

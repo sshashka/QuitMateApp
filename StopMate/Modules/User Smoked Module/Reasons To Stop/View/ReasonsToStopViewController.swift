@@ -12,16 +12,16 @@ final class ReasonsToStopViewController: UIViewController {
     private let label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Please select up to 10 reasons why did you start smoking again"
+        label.text = Localizables.UserSmokedModuleStrings.selectUpTenReasons
         label.textColor = .systemGray
         label.numberOfLines = 2
-        label.font = UIFont(name: FontsEnum.light.rawValue, size: 14)
+        label.font = UIFont(name: FontsEnum.light.rawValue, size: 16)
         return label
     }()
     var presenter: ReasonsToStopPresenterProtocol?
     private var doneButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Done", for: .normal)
+        button.setTitle(Localizables.Shared.next, for: .normal)
         button.titleLabel?.font = UIFont(name: FontsEnum.semiBold.rawValue, size: 18)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: ColorConstants.buttonsColor)
@@ -86,7 +86,6 @@ private extension ReasonsToStopViewController {
         reasonsToStopCollectionView.backgroundColor = .systemBackground
         
         presenter?.showArrayOfReasons()
-//        view.addSubview(reasonsToStopCollectionView)
     }
     
     func setupConstraints() {

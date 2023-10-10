@@ -5,31 +5,111 @@
 
     },
     "-1" : {
-
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-1"
+          }
+        }
+      }
     },
     "%" : {
-
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%"
+          }
+        }
+      }
     },
     "%lld" : {
 
     },
     "0" : {
-
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "0"
+          }
+        }
+      }
     },
     "1" : {
-
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
+        }
+      }
     },
-    "1 Month" : {
-
+    "AdditionalScreen.pollutionsExplanatory" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Here you can see how many emissions will not be produced in a certain period of time"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тут ви можете побачити, скільки викидів не буде вироблено за певний період часу"
+          }
+        }
+      }
     },
-    "2 Weeks" : {
-
+    "AdditionalScreen.pollutionsHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pollutions"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Викиди"
+          }
+        }
+      }
     },
-    "3 Months" : {
-
+    "AdditionalScreen.savingsExplanatory" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Here you can see how much money you can save in a certain period of time"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тут ви можете побачити, скільки грошей ви можете заощадити за певний період часу"
+          }
+        }
+      }
     },
-    "Age" : {
-
+    "AdditionalScreen.savingsHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Savings"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заощадження"
+          }
+        }
+      }
     },
     "Auth.age" : {
       "extractionState" : "manual",
@@ -226,6 +306,12 @@
             "state" : "translated",
             "value" : "Log in"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
         }
       }
     },
@@ -373,6 +459,12 @@
             "state" : "translated",
             "value" : "Better Circulation"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Покращення кровообігу"
+          }
         }
       }
     },
@@ -383,6 +475,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Your blood circulation improves, leading to warmer hands and feet and a reduced risk of blood clots."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Покращується кровообіг, що призводить до теплішого стану рук і ніг і зниження ризику утворення тромбів."
           }
         }
       }
@@ -395,6 +493,12 @@
             "state" : "translated",
             "value" : "Improved Mental Health"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поліпшення психічного здоров'я"
+          }
         }
       }
     },
@@ -405,6 +509,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quitting smoking can improve mental health and mood, reducing symptoms of depression and anxiety."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відмова від куріння може покращити психічне здоров’я та настрій, зменшити симптоми депресії та тривоги."
           }
         }
       }
@@ -417,6 +527,12 @@
             "state" : "translated",
             "value" : "Increased Energy"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Підвищена енергія"
+          }
         }
       }
     },
@@ -428,14 +544,64 @@
             "state" : "translated",
             "value" : "As your body starts to heal from the damage caused by smoking, you may notice increased energy levels and improved overall vitality."
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коли ваше тіло починає відновлюватися від шкоди, спричиненої курінням, ви можете помітити підвищення рівня енергії та покращення загального життєвого тонусу."
+          }
         }
       }
     },
     "Benefits.lifeWithoutSmoking" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Life without smoking starts now"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Життя без куріння починається зараз"
+          }
+        }
+      }
     },
-    "By clicking on finish you agree to the [Privacy policy](https://docs.google.com/document/d/1ww6ypCKPNF8_el1_9nvxhfCwfES6VGBEyNjH9VyookY/edit?usp=sharing) and [Terms and Conditions](https://docs.google.com/document/d/1zMRvkPLOX2DPuYvYnURhzNo5lObr_XMjoZMSUUlkVlU/edit?usp=sharing) " : {
-
+    "Benefits.PrivacyPolicy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By clicking on finish you agree to the [Privacy policy](https://docs.google.com/document/d/1ww6ypCKPNF8_el1_9nvxhfCwfES6VGBEyNjH9VyookY/edit?usp=sharing) and [Terms and Conditions](https://docs.google.com/document/d/1zMRvkPLOX2DPuYvYnURhzNo5lObr_XMjoZMSUUlkVlU/edit?usp=sharing)"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натискаючи на кнопку \"Готово\" ви погоджуєтесь з [Політикою приватності](https://docs.google.com/document/d/1ww6ypCKPNF8_el1_9nvxhfCwfES6VGBEyNjH9VyookY/edit?usp=sharing) та [Умовами використання](https://docs.google.com/document/d/1zMRvkPLOX2DPuYvYnURhzNo5lObr_XMjoZMSUUlkVlU/edit?usp=sharing)"
+          }
+        }
+      }
+    },
+    "By clicking on finish you agree to the [Privacy policy](https://docs.google.com/document/d/1ww6ypCKPNF8_el1_9nvxhfCwfES6VGBEyNjH9VyookY/edit?usp=sharing) and [Terms and Conditions](https://docs.google.com/document/d/1zMRvkPLOX2DPuYvYnURhzNo5lObr_XMjoZMSUUlkVlU/edit?usp=sharing)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By clicking on finish you agree to the [Privacy policy](https://docs.google.com/document/d/1ww6ypCKPNF8_el1_9nvxhfCwfES6VGBEyNjH9VyookY/edit?usp=sharing) and [Terms and Conditions](https://docs.google.com/document/d/1zMRvkPLOX2DPuYvYnURhzNo5lObr_XMjoZMSUUlkVlU/edit?usp=sharing)"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натискаючи на кнопку \"Готово\" ви погоджуєтесь з [Політикою приватності](https://docs.google.com/document/d/1ww6ypCKPNF8_el1_9nvxhfCwfES6VGBEyNjH9VyookY/edit?usp=sharing) та [Умовами використання](https://docs.google.com/document/d/1zMRvkPLOX2DPuYvYnURhzNo5lObr_XMjoZMSUUlkVlU/edit?usp=sharing)"
+          }
+        }
+      }
     },
     "Chart.checkMoods" : {
       "localizations" : {
@@ -469,6 +635,22 @@
         }
       }
     },
+    "Charts.chartAboveMoodsDetails" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сhart above shows you that you marked your mood as :\n"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Графік зверху показує, що ви позначили свій настрій як:\n"
+          }
+        }
+      }
+    },
     "Charts.correlation" : {
       "localizations" : {
         "en" : {
@@ -480,7 +662,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Цей стовпчик показує вам співвідношення між вашим щоденним самопочуттям і самопочуттям, коли ви курили. Більше значення означає сильнішу залежність вашого самопочуття під час куріння від вашого щоденного самопочуття."
+            "value" : "Це ✨Стовпчик✨. Слідкуйте за ним, оскільки він показує вам співвідношення між щоденним самопочуттям і станом , коли ви покурили."
           }
         }
       }
@@ -517,6 +699,38 @@
         }
       }
     },
+    "Charts.monthlyChartExplanation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сhart above shows you how many times you marked a specific mood in a month, and the number of marks in each month in total. Here are the most marked moods and their number for each month:\n"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Графік вище показує, скільки разів ви відмічали певний настрій протягом місяця та загальну кількість відміток у кожному місяці. Ось найбільш помітні настрої та їх кількість за кожен місяць:\n"
+          }
+        }
+      }
+    },
+    "Charts.monthMoodCount.%@%@%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- In %@ : your most marked mood was: %@ for %lld times\n"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- В %@  ваш найбільш помітний настрій був %@ - %lldраз \n"
+          }
+        }
+      }
+    },
     "Charts.moodAlreadyMarked" : {
       "localizations" : {
         "en" : {
@@ -529,6 +743,108 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ви вже позначили свій сьогоднішній настрій. Тож повертайся завтра."
+          }
+        }
+      }
+    },
+    "Charts.moodsCount.%@ %lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "- %1$@ : %2$lld time\n"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "- %1$@ : %2$lld times\n"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "- %1$@ : %2$lld рази\n"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "- %1$@ : %2$lld раз\n"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "- %1$@ : %2$lld раз\n"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "- %1$@ : %2$lld раз\n"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Charts.moodsCount.%lld%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Charts.moodsCount.%1$lld%2$lld"
+          }
+        }
+      }
+    },
+    "Charts.overallTimes.%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overall you have marked your mood for %11d times!"
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Загалом ви відмітили дані про свій настрій %lld рази!"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Загалом ви відмітили дані про свій настрій %lld раз!"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Загалом ви відмітили дані про свій настрій %lld раз!"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Загалом ви відмітили дані про свій настрій %lld разів!"
+                }
+              }
+            }
           }
         }
       }
@@ -550,38 +866,83 @@
         }
       }
     },
-    "Contact information" : {
-
-    },
-    "Date of classification: %@" : {
-
-    },
     "Day" : {
 
     },
-    "Don`t change the finishing date" : {
-
+    "EditProfile.contactInfo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact Information"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Контактна інформація"
+          }
+        }
+      }
     },
-    "Done" : {
-
+    "EditProfile.personalInformation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personal Information"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Персональна інформація"
+          }
+        }
+      }
+    },
+    "EditProfile.setNewPhoto" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set a new photo"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановити нове фото"
+          }
+        }
+      }
     },
     "Email" : {
-
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
     },
-    "Finish" : {
-
-    },
-    "Hey" : {
-
-    },
-    "How did you feel when it happened" : {
-
-    },
-    "How strong was your urge to smoke?" : {
-
-    },
-    "I feel..." : {
-
+    "Happy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Happy"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щасливий"
+          }
+        }
+      }
     },
     "Log In" : {
 
@@ -730,68 +1091,1272 @@
         }
       }
     },
+    "Marked moods" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marked moods"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Денні самопочуття"
+          }
+        }
+      }
+    },
     "Mood" : {
-
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настрій"
+          }
+        }
+      }
     },
-    "Moods" : {
-
+    "MoodModuleStrings.hey" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hey"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привіт"
+          }
+        }
+      }
     },
-    "Name" : {
-
+    "MoodModuleStrings.iFeel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I feel..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я відчуваю..."
+          }
+        }
+      }
     },
-    "Next" : {
-
+    "MoodModuleStrings.whatIsInYourMind" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What`s in your mind?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Яким словом ви можете описати своє самопочуття?"
+          }
+        }
+      }
     },
-    "No records, yet" : {
-
+    "Moods.angry" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angry"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Злість"
+          }
+        }
+      }
+    },
+    "Moods.disgust" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disgust"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Огида"
+          }
+        }
+      }
+    },
+    "Moods.fear" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fear"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Страх"
+          }
+        }
+      }
+    },
+    "Moods.happy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Happy"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щастя"
+          }
+        }
+      }
+    },
+    "Moods.neutral" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neutral"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нічого"
+          }
+        }
+      }
+    },
+    "Moods.sad" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sad"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сум"
+          }
+        }
+      }
+    },
+    "Moods.surprise" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Surprise"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Здивованість"
+          }
+        }
+      }
     },
     "OK" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ОК"
+          }
+        }
+      }
+    },
+    "Onboarding.changingSettingsDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you need to change some information about you or see your history of interactions with the app go to main screen an tap on the gear icon"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо вам потрібно змінити певну інформацію про себе або переглянути історію взаємодії з додатком, перейдіть на головний екран і торкніться значка шестірні"
+          }
+        }
+      }
+    },
+    "Onboarding.changingSettingsHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Changing settings"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зміна налаштувань"
+          }
+        }
+      }
+    },
+    "Onboarding.Description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you feel that you need to see this tutorial once again just go to settings and tap on 'Onboarding' button"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо ви вважаєте, що вам потрібно ще раз переглянути цей туторіал, просто перейдіть до налаштувань і натисніть кнопку «Налаштування»."
+          }
+        }
+      }
+    },
+    "Onboarding.markingNewMoodDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can mark your mood on the charts tab. Just tap on the button that says 'Mark new mood' and select your mood. But be careful you can do this only once a day"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете позначити свій настрій на вкладці діаграм. Просто торкніться кнопки «Позначити новий настрій» і виберіть свій настрій. Але будьте обережні, це можна робити лише раз на день"
+          }
+        }
+      }
+    },
+    "Onboarding.markingNewMoodHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marking new mood"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Позначення нового настрою"
+          }
+        }
+      }
+    },
+    "Onboarding.onboardingDetailedInfoDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To see more of mood-related data just tap on the button that says 'Detailed info' on the bottom of charts screen"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб переглянути більше даних про настрій, просто торкніться кнопки «Деталі» внизу екрана з графікамв"
+          }
+        }
+      }
+    },
+    "Onboarding.onboardingDetailedInfoHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seeing detailed info"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перегляд детальної інформації"
+          }
+        }
+      }
+    },
+    "Onboarding.onboardingHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onboarding"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Туторіал"
+          }
+        }
+      }
+    },
+    "Onboarding.smokingDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you still couldn't hold back and started smoking again tap on 'I smoked' button on main menu to add a record about your emotional state and so."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо ви все ж не втрималися і знову почали курити, натисніть на кнопку «Я покурив» у головному меню, щоб додати запис про свій емоційний стан тощо."
+          }
+        }
+      }
+    },
+    "Onboarding.smokingHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smoking session"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Куріння"
+          }
+        }
+      }
+    },
+    "Onboarding.viewMoodsDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To see all of your marked moods throughout the period of use of this app just tap on charts icon on the bottom"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб переглянути всі позначені настрої протягом періоду використання цього додатка, просто торкніться значка діаграми внизу"
+          }
+        }
+      }
+    },
+    "Onboarding.viewMoodsHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Viewing your moods"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перегляд записів про ваш настрій"
+          }
+        }
+      }
+    },
+    "Recomentdations.PromptForMood.%@%lld%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello there, my name is %1$@ I am a smoker and I try to quit. I don`t smoke for %2$lld days and I`m proud of it I do diary of my moods during the process and here they are %3$@ can u do an small analysis of my moods for me, provide me some help how not to start smoking again, and afer it add just something to cheer me up. Thanks\n"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привіт, мене звуть %1$@. Я курю і намагаюся кинути. Я не палю %2lld днів, і я пишаюся цим. Я веду щоденник змін свого самопочуття, і ось записи за останні %2lld днів %3$@. Чи не міг би ти зробити для мене невеликий аналіз мого настрою та розповісти мені, як не почати палити знову. Також я б хотів щоб ти додав декілька приємних слів для того, щоб підбадьорити мене. Дякую"
+          }
+        }
+      }
+    },
+    "Recomentdations.PromptForMood.%lld%lld%lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello there, my name is %1lld I am a smoker and I try to quit. I don`t smoke for %2lld days and I`m proud of it I do diary of my moods during the process and here they are %3lld can u do an small analysis of my moods for me, provide me some help how not to start smoking again, and afer it add just something to cheer me up. Thanks"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привіт, мене звуть %1lld. Я курю і намагаюся кинути. Я не палю %2lld днів, і я пишаюся цим. Я веду щоденник свого настрою під час процесу, і ось вони %3lld, чи можете ви зробити для мене невеликий аналіз мого настрою, допоможіть мені, як не почніть палити знову, а потім додайте щось, щоб підбадьорити мене. Дякую"
+          }
+        }
+      }
+    },
+    "Recomentdations.PromptForSmoking.%@%lld%@%@%lld%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello there, my name is %@ I am a smoker and I try to quit. I don`t smoke for %lld days and I`m proud of it I do diary of my moods during the process and here they are %@ can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling %@. My urge to smoke was: %lld out of 10 and my mood was %@ when i decided to smoke again. So the point is I dont want to this happen again add just something to cheer me up. Thanks"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привіт, мене звуть %@. Я курю і намагаюся кинути палити. Я не палю %lld днів, і я пишаюся цим. Я веду щоденник змін свого самопочуття, і ось записи за дні. Один запис це один день %@ Чи не міг би ти зробити аналіз мого настрою, та сказати мені кілька підбадьорливих слів, тому що я знову почав курити, оскільки я відчував я відчував %@. Своє бажання палити я оцінюю в: %lld з 10, а мій настрій оли я вирішив знову закурити був %@ і тому, я не хочу, щоб це повторилося."
+          }
+        }
+      }
+    },
+    "Recomentdations.PromptForSmoking.%lld%lld%lld%lld%lld%lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Hello there, my name is %1lld I am a smoker and I try to quit. I don`t smoke for %2lld days and I`m proud of it I do diary of my moods during the process and here they are %3lld can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling %4lld. My urge to smoke was: %5lld out of 10 and my mood was %6lld when i decided to smoke again. So the point is I dont want to this happen again add just something to cheer me up. Thanks\""
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привіт, мене звуть %1lld. Я курю і намагаюся кинути палити. Я не палю %2lld днів, і я пишаюся цим. Я веду щоденник свого настрою під час процесу, і ось вони %3lld Чи можете ви зробити для мене невеликий аналіз мого настрою, надайте мені кілька підбадьорливих слів, тому що я знову почав курити, тому що я відчував %4lld. Моє бажання палити було: %5lld з 10, а мій настрій був %6lld, коли я вирішив знову закурити. Отже, я не хочу, щоб це повторилося, додайте щось, щоб підбадьорити мене. Дякую"
+          }
+        }
+      }
+    },
+    "Settings.accountDeleteMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do you really want to delete your account?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви справді хочете видалити обліковий запис?"
+          }
+        }
+      }
+    },
+    "Settings.accountDeleteTitle" : {
 
     },
-    "Personal information" : {
-
+    "Settings.changePassword" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change password"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Змінити пароль"
+          }
+        }
+      }
     },
-    "Picker" : {
-
+    "Settings.deleteAccount" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete account"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити обліковий запис"
+          }
+        }
+      }
     },
-    "Please tell us about your emotional state" : {
-
+    "Settings.logout" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logout"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вихід"
+          }
+        }
+      }
     },
-    "Select a type of history:" : {
-
+    "Settings.passwordResetAlertMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check your email for instructions"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будь ласка перевірте вашу електрону пошту задля подальших інструкцій"
+          }
+        }
+      }
     },
-    "Set new photo" : {
-
+    "Settings.passwordResetAlertTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password reset message has been sent"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повідомлення з інструкціями було надіслано "
+          }
+        }
+      }
+    },
+    "Settings.privacyPolicy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy policy"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy policy"
+          }
+        }
+      }
+    },
+    "Settings.resetPasswordPromt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do you really want to reset your password?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви б справді хотіли скинути ваш пароль?"
+          }
+        }
+      }
+    },
+    "Settings.termsAndConditions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms and Conditions"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms and Conditions"
+          }
+        }
+      }
+    },
+    "Settings.WatchHistory" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Watch your history"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переглянути історію"
+          }
+        }
+      }
+    },
+    "Shared.age" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Age"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вік"
+          }
+        }
+      }
+    },
+    "Shared.day" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Day"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "День"
+          }
+        }
+      }
+    },
+    "Shared.done" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далі"
+          }
+        }
+      }
+    },
+    "Shared.finish" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finish"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
+        }
+      }
+    },
+    "Shared.Info" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інформація"
+          }
+        }
+      }
+    },
+    "Shared.markedMoods" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marked Moods"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Денні настрої"
+          }
+        }
+      }
+    },
+    "Shared.month" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Month"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Місяць"
+          }
+        }
+      }
+    },
+    "Shared.month.%lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld Month"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Months"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Місяці"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Місяці"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Місяць"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Місяці"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Shared.name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ім'я"
+          }
+        }
+      }
+    },
+    "Shared.next" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далі"
+          }
+        }
+      }
     },
     "Shared.NoData" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No data"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає даних"
+          }
+        }
+      }
+    },
+    "Shared.smokingSessions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smoking sessions"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сесії куріння"
+          }
+        }
+      }
+    },
+    "Shared.twoWeeks" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 Weeks"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "2 Тижні"
+          }
+        }
+      }
+    },
+    "Shared.week" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "week"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тиждень"
+          }
+        }
+      }
+    },
+    "Shared.week.%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld Week"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Weeks"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld Тиждень"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Тижні"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Shared.year" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "year"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рік"
+          }
+        }
+      }
     },
     "Smoking" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "kkkk"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
-    "Start watching" : {
-
+    "Smoking sessions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smoking sessions"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сессії куріння"
+          }
+        }
+      }
     },
     "Type" : {
 
     },
-    "Videos" : {
-
+    "UserHistory.dateOfClassification.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date of classification: %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата: %@"
+          }
+        }
+      }
     },
-    "What`s in your mind" : {
-
+    "UserHistory.moods" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moods"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настрої"
+          }
+        }
+      }
+    },
+    "UserHistory.navigationTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your history"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваша історія"
+          }
+        }
+      }
+    },
+    "UserHistory.selectTypeOfHistory" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select a type of history: "
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оберіть категорію даних"
+          }
+        }
+      }
+    },
+    "UserHistory.smokingSessions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smoking sessions"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Куріння"
+          }
+        }
+      }
+    },
+    "UserHistory.youHaveSelectedReasons: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have selected reasons: %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви обрали наступні причини: %@"
+          }
+        }
+      }
+    },
+    "UserHistory.yourMoodWas. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On that day your mood was: %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Того дня ви описали свій настрій словом: %@"
+          }
+        }
+      }
+    },
+    "UserHistory.yourRecomendationOnThatDayWas: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your recomendation on that day was: %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваша рекомендація в той день була наступною: %@"
+          }
+        }
+      }
+    },
+    "UserSmoked.dontChangeFinishingDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don`t change the finishing date"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не змінювати дату закінчення"
+          }
+        }
+      }
+    },
+    "UserSmoked.howDidYouFeelPromt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How did you feel when it happened?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Як ви почували себе коли це трапилось?"
+          }
+        }
+      }
+    },
+    "UserSmoked.selectUp10Reasons" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select up to 10 reasons why did you start smoking again"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будь ласка оберіть до 10 причин чому ви покурили"
+          }
+        }
+      }
+    },
+    "UserSmoked.setNewFinishingDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set new finishing date"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановіть нову дату закінчення"
+          }
+        }
+      }
+    },
+    "UserSmoked.tellUsAboutEmotionalState" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please tell us about your emotional state"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розкажіть нам про ваш емоційний стан"
+          }
+        }
+      }
+    },
+    "UserSmoked.urgeToSmokePromt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How strong was your urge to smoke?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наскільки сильним було ваше бажання курити?"
+          }
+        }
+      }
+    },
+    "Videos.startWatching" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start watching"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почати перегляд"
+          }
+        }
+      }
+    },
+    "Videos.videos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Videos"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відео"
+          }
+        }
+      }
     },
     "You have selected these reasons: %@" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви обрали ці причини: %@"
+          }
+        }
+      }
     },
     "You mood was: %@" : {
-
-    },
-    "Your history" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обраний вами настрій: %@"
+          }
+        }
+      }
     },
     "Your recomendation on that day was: %@" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Того дня рекомендація була наступною: %@"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

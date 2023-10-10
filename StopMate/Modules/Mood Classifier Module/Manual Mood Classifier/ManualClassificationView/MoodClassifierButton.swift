@@ -19,9 +19,9 @@ struct MoodClassifierButton: View {
             selectedMood = buttonPressed ? labelText : nil
         } label: {
             HStack {
-                Text(labelText.rawValue)
+                Text(labelText.localizedCase)
                     .modifier(TextViewModifier(font: .semiBold, size: 14))
-                Image(systemName: labelText == selectedMood ? "checkmark" : "")
+                Image(systemName: labelText == selectedMood ? "checkmark" : nil)
             }
         }
         .buttonStyle(StandartButtonStyle())

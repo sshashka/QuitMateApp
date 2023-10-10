@@ -22,4 +22,10 @@ struct UserHistoryModel: Codable, Hashable {
     var selectedReasons: [String]?
     var recomendation: String
     var typeOfHistory: UserHistoryRecordsType
+    
+    var dateOfClassificationFormatted: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d/MMM/yyyy"
+        return dateFormatter.string(from: dateOfClassification)
+    }
 }

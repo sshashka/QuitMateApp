@@ -44,6 +44,9 @@ struct LoaderView: View {
         }
         .padding(30)
         .ignoresSafeArea()
+        .onDisappear(perform: {
+            self.vibrate(event: .success)
+        })
     }
 }
 

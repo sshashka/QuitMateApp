@@ -13,7 +13,6 @@ final class ReasonsToStopCollectionViewCell: UICollectionViewCell {
     private let label: UILabel = {
         let label = UILabel()
         label.setPoppinsFont(size: 18, style: .bold)
-//        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -39,16 +38,6 @@ final class ReasonsToStopCollectionViewCell: UICollectionViewCell {
     func handleCellDeselectedState() {
         contentView.backgroundColor = .lightGray
     }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        layer.shadowPath = UIBezierPath(
-//            roundedRect: bounds,
-//            cornerRadius: 20
-//        ).cgPath
-//    }
-    
 }
 
 private extension ReasonsToStopCollectionViewCell {
@@ -66,9 +55,5 @@ private extension ReasonsToStopCollectionViewCell {
         contentView.addSubview(label)
         contentView.layer.masksToBounds = true
         contentView.layer.cornerRadius = 7
-//        contentView.layer.borderWidth = 3
-//        contentView.layer.borderColor = UIColor.white.cgColor
     }
-    
-    
 }

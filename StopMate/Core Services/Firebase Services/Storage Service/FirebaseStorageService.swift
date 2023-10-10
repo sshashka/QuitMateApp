@@ -9,8 +9,6 @@ import FirebaseDatabase
 import FirebaseDatabaseSwift
 import FirebaseStorage
 
-//import UIKit
-
 fileprivate enum FirebaseStorageServiceReferences: String {
     case youtubeApiKey = "YoutubeApiKey"
     case aiKey = "AIKey"

@@ -20,7 +20,7 @@ struct CurrencyPicker: View {
             HStack {
                 TextFieldWithUnderlineView(text: $text, placeHolderText: placeHolderText)
                 VStack {
-                    Picker("Picker", selection: $selection) {
+                    Picker("", selection: $selection) {
                         ForEach(currencies, id: \.self) {
                             Text($0.rawValue)
                         }

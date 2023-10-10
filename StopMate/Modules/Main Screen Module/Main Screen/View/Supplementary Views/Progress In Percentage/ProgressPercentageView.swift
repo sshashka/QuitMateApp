@@ -13,7 +13,7 @@ struct ProgressPercentageView: View {
         ZStack {
             VStack(alignment: .center, spacing: Spacings.spacing10) {
                 Group {
-                    Text(Localizables.progress)
+                    Text(Localizables.MainScreen.progress)
                         .modifier(TextViewModifier(font: .medium, size: 18))
                     Text("\(Int(percentage * 100))")
 //                    Text(String(percentage.formatted(.percent)))

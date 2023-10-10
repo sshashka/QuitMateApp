@@ -12,7 +12,7 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text(Localizables.quittingAnalysis)
+                Text(Localizables.MainScreen.quittingAnalysis)
                     .modifier(TextViewModifier(font: .semiBold, size: 18))
                     .minimumScaleFactor(0.7)
                 Text(dateInString)

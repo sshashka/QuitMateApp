@@ -27,7 +27,7 @@ struct RecomendationsView<ViewModel>: View where ViewModel: RecomendationsViewMo
             Button {
                 viewModel.didTapDone()
             } label: {
-                Text("Done")
+                Text(Localizables.Shared.done)
             }
             .buttonStyle(StandartButtonStyle())
             .isEnabled(viewModel.doneAndRegenerateButtonsEnabled)

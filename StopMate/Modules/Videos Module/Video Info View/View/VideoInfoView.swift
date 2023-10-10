@@ -32,7 +32,7 @@ struct VideoInfoView<ViewModel>: View where ViewModel: VideoInfoViewModelProtoco
                 } label: {
                     HStack {
                         Image(systemName: SystemIconConstants.playFill)
-                        Text("Start watching")
+                        Text(Localizables.VideosStrings.startWatching)
                             .fontStyle(.buttonsText)
                     }
                 }

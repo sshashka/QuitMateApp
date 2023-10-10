@@ -24,7 +24,7 @@ struct AuthentificationView<ViewModel>: View where ViewModel: AuthentificationVi
             }
             Group {
                 ZStack {
-                    TextField("", text: $viewModel.email, prompt: Text(Localizables.email).foregroundColor(Color.black))
+                    TextField("", text: $viewModel.email, prompt: Text(Localizables.AuthStrings.email).foregroundColor(Color.black))
                         .padding(.horizontal, Spacings.spacing25)
                         .frame(height: 47)
                         .keyboardType(.emailAddress)
@@ -40,7 +40,7 @@ struct AuthentificationView<ViewModel>: View where ViewModel: AuthentificationVi
                     focused = .email
                 }
                 ZStack {
-                    SecureField("", text: $viewModel.password, prompt: Text(Localizables.password).foregroundColor(.black))
+                    SecureField("", text: $viewModel.password, prompt: Text(Localizables.AuthStrings.password).foregroundColor(.black))
                         .padding(.horizontal, Spacings.spacing25)
                         .frame(height: 47)
                         .focused($focused, equals: .password)
@@ -76,7 +76,7 @@ struct AuthentificationView<ViewModel>: View where ViewModel: AuthentificationVi
             } label: {
                 HStack {
                     Spacer()
-                    Text(Localizables.forgotPassword)
+                    Text(Localizables.AuthStrings.forgotPassword)
                         .fontStyle(.clearButtonsText)
                 }
             }.disabled(viewModel.passwordResetIsEnabled ? false : true)
@@ -84,7 +84,7 @@ struct AuthentificationView<ViewModel>: View where ViewModel: AuthentificationVi
             Button {
                 viewModel.didTapOnLogin()
             } label: {
-                Text(Localizables.login)
+                Text(Localizables.AuthStrings.login)
             }
             .buttonStyle(StandartButtonStyle())
             .padding(.top, Spacings.spacing25)
@@ -95,7 +95,7 @@ struct AuthentificationView<ViewModel>: View where ViewModel: AuthentificationVi
             Button {
                 viewModel.didTapOnRegister()
             } label: {
-                Text(Localizables.dontHaveAnAccount)
+                Text(Localizables.AuthStrings.dontHaveAnAccount)
                     .fontStyle(.clearButtonsText)
             }
         }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProtocol {
+    let vibrationGenerator = UINotificationFeedbackGenerator()
     @State private var resetButtonPressed: Bool = false
     @StateObject var viewModel: ViewModel
     var body: some View {
@@ -37,9 +38,10 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
             .padding(.horizontal, Spacings.spacing30)
             Spacer(minLength: Spacings.spacing15)
             Button {
+                self.vibrate(event: .hard)
                 viewModel.didTapOnReset()
             } label: {
-                Text(Localizables.userSmokedButton)
+                Text(Localizables.MainScreen.userSmokedButton)
             }
             .buttonStyle(StandartButtonStyle())
             .padding(.horizontal, Spacings.spacing30)

@@ -16,7 +16,7 @@ final class SettingsTableViewFooterView: UIView {
     
     private let logoutButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Log out", for: .normal)
+        button.setTitle(Localizables.SettingsStrings.logout, for: .normal)
         button.setTitleColor(.red, for: .normal)
         return button
     }()

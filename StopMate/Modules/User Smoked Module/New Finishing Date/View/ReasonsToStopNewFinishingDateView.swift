@@ -11,18 +11,18 @@ struct ReasonsToStopNewFinishingDateView: View {
     @StateObject var viewModel: ReasonsToStopNewFinishingDateViewModel
     var body: some View {
         VStack {
-            PeriodOfTimeToQuitView(period: .finishingDate, headerText: "Set new finishing date", datePickerText: "Finishing date", date: $viewModel.newDate)
+            PeriodOfTimeToQuitView(period: .finishingDate, headerText: Localizables.UserSmokedModuleStrings.setNewFinishingDate, datePickerText: Localizables.FirstTimeEntryStrings.finishingDate, date: $viewModel.newDate)
             Spacer()
             Button {
                 viewModel.doNotChangeFinishingDate()
             } label: {
-                Text("Don`t change the finishing date")
+                Text(Localizables.UserSmokedModuleStrings.dontChangeFinishingDate)
                     .fontStyle(.clearButtonsText)
             }
             Button {
                 viewModel.updateValue()
             } label: {
-                Text("Finish")
+                Text(Localizables.Shared.finish)
             }.buttonStyle(StandartButtonStyle())
                 .padding(Spacings.spacing30)
         }

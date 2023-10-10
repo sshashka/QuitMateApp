@@ -114,7 +114,7 @@ final class AuthentificationViewModel: AuthentificationViewModelProtocol {
         guard !email.isEmpty else { return }
         authentificationService.resetPasswordForNotAuthentoficatedUser(email: email)
         isShowingAlert = true
-        error = Localizables.emailWithInstructionsSent
+        error = Localizables.AuthStrings.emailWithInstructionsSent
 //        error = "Email with instructions has been sent"
     }
 }

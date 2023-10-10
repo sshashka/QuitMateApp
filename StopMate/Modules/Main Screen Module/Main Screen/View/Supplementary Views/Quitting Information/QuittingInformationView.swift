@@ -12,15 +12,15 @@ struct QuittingInformationView: View {
     @EnvironmentObject var vm: MainScreenViewModel
     var body: some View {
         VStack(alignment: .leading) {
-            Text(Localizables.quittingInformation)
+            Text(Localizables.MainScreen.quittingInformation)
                 .fontStyle(.customSemibold16)
             
                 HStack(alignment: .center) {
                     StatsView(image: IconConstants.noSmoking, titleText: vm.daysWithoutSmoking,
-                              secondaryText: Localizables.daysWithoutSmoking, tintColor: .blue)
+                              secondaryText: Localizables.MainScreen.daysWithoutSmoking, tintColor: .blue)
                     Spacer()
                     StatsView(image: IconConstants.money, titleText: vm.moneySaved,
-                              secondaryText: Localizables.moneySaved, tintColor: .green)
+                              secondaryText: Localizables.MainScreen.moneySaved, tintColor: .green)
                     .onTapGesture {
                         vm.didTapOnAdditionalStats(type: .money)
                     }
@@ -28,13 +28,13 @@ struct QuittingInformationView: View {
             
                 HStack(alignment: .center) {
                     StatsView(image: IconConstants.earth, titleText: vm.emissions,
-                              secondaryText: Localizables.unrealeasedChemichals, tintColor: .green)
+                              secondaryText: Localizables.MainScreen.unrealeasedChemichals, tintColor: .green)
                     .onTapGesture {
                         vm.didTapOnAdditionalStats(type: .enviroment)
                     }
                     Spacer()
                     StatsView(image: IconConstants.finish,titleText: vm.daysToFinish,
-                              secondaryText: Localizables.daysToFinish, tintColor: nil)
+                              secondaryText: Localizables.MainScreen.daysToFinish, tintColor: nil)
                 }
             
         }

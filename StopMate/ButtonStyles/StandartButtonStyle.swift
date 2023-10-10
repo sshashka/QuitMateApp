@@ -15,7 +15,6 @@ struct StandartButtonStyle: ButtonStyle {
             .foregroundColor(.white)
             .background(Color.buttonsPurpleColor)
             .cornerRadius(10)
-            .font(.custom(FontsEnum.semiBold.rawValue, size: 14))
+            .fontStyle(.buttonsText)
     }
-    
 }
