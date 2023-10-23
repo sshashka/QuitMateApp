@@ -15,22 +15,24 @@ class RecomendationPrompts {
         let daysWithoutSmoking = userData.daysWithoutSmoking
         let moods = userStats.map {
             $0.classification.localizedCase
-        }.joined(separator: ",")
+        }.joined(separator: ", ")
         
         return String(localized: "Recomentdations.PromptForMood.\(userName)\(daysWithoutSmoking)\(moods)")
     }
     
-    static func getPromtForSmokingSession(userData: User, userStats: [UserMoodModel], reasons: [String], metrics: UserSmokingSessionMetrics) -> String {
+    static func getPromtForSmokingSession(userData: User, userStats: [UserMoodModel], reasons: [ReasonsToStop], metrics: UserSmokingSessionMetrics) -> String {
         let userName = userData.name
         let daysWithoutSmoking = userData.daysWithoutSmoking
         let moods = userStats.map {
             $0.classification.localizedCase
-        }.joined(separator: ",")
-        
+        }.joined(separator: ", ")
+        let reasons = reasons.map {
+            $0.localizedCase
+        }.joined(separator: ", ")
         let urgeToSmokeValue = metrics.urgeToSmokeValue
         let mood = metrics.classification.localizedCase
         
         
-        return String(localized: "Recomentdations.PromptForSmoking.\(userName)\(daysWithoutSmoking)\(moods)\(reasons.joined(separator: ","))\(urgeToSmokeValue)\(mood)")
+        return String(localized: "Recomentdations.PromptForSmoking.\(userName)\(daysWithoutSmoking)\(moods)\(reasons)\(urgeToSmokeValue)\(mood)")
     }
 }

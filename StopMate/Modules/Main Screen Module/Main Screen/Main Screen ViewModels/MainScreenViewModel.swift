@@ -11,7 +11,7 @@ import Combine
 enum AdditionalStatsTypes {
     case money, enviroment
 }
-
+// MARK: - Protocol
 protocol MainScreenViewModelProtocolVariables: ObservableObject {
     var state: MainScreenViewModelStates { get }
     var showingAdditionalInfo: Bool { get set }
@@ -39,15 +39,17 @@ enum MainScreenViewModelStates {
     case loading, loaded
 }
 
+
 final class MainScreenViewModel: MainScreenViewModelProtocol {
     private let storageService: FirebaseStorageServiceProtocol
     private var disposeBag = Set<AnyCancellable>()
-
+    // MARK: - Published properties
     @Published private var userStatistics: User? {
         didSet {
             setupPiplines()
         }
     }
+    
     
     var didSendEventClosure: ((MainScreenViewModel.EventType) -> Void)?
     
@@ -74,12 +76,12 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     @Published var isPresentingSheet: Bool = false
     
     @Published var additionalInfoViewModel: AdditionalInfoViewModel?
-    
+    // MARK: - init
     init(storageService: FirebaseStorageServiceProtocol) {
         self.storageService = storageService
         getUserModel()
     }
-    
+    // MARK: - Public methods
     private func getUserModel() {
         storageService.userDataPublisher
             .sink {
@@ -110,9 +112,15 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     }
     
 }
-
+// MARK: - Private methods
 private extension MainScreenViewModel {
     func setupPiplines() {
+        guard let userStatistics else {
+            return
+        }
+        if userStatistics.milestoneCompleted {
+            didSendEventClosure?(.milestoneCompleted)
+        }
         getMoneySavedOnSigarets()
         getPercentsToFinish()
         getTodayDate()
@@ -159,6 +167,7 @@ private extension MainScreenViewModel {
     func getDaysLeft() {
         guard let userStatistics = userStatistics else { return }
         daysToFinish = String(userStatistics.daysToFinish)
+        print(userStatistics.finishingDate)
     }
     
     func getEmissions() {
@@ -166,9 +175,9 @@ private extension MainScreenViewModel {
         emissions = String(Double(userStatistics.daysWithoutSmoking) * 2.5) + "g"
     }
 }
-
+// MARK: - Events for coordinator
 extension MainScreenViewModel {
     enum EventType {
-        case didTapResetButton, didTapOnSettings
+        case didTapResetButton, didTapOnSettings, milestoneCompleted
     }
 }

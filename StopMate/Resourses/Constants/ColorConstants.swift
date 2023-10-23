@@ -14,4 +14,5 @@ final class ColorConstants {
     static let gray = "ColorGray"
     static let red = "ColorRed"
     static let labelReversed = "LabelColorReversed"
+    static let experimantalBackgroundColor = "ExperimantalBackgroundColor"
 }

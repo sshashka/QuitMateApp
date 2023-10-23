@@ -11,13 +11,13 @@ struct ManualMoodClassifierView<ViewModel>: View where ViewModel: ManualMoodClas
     @StateObject var viewModel: ViewModel
     let vibrationGenerator = UINotificationFeedbackGenerator()
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .leading) {
             Text(Localizables.MoodModuleStrings.hey)
                 .modifier(TextViewModifier(font: .regular, size: 18))
             Text(Localizables.MoodModuleStrings.whatIsInYourMind)
-                .modifier(TextViewModifier(font: .regular, size: 18))
+                .modifier(TextViewModifier(font: .regular, size: 16))
             Text(Localizables.MoodModuleStrings.iFeel)
-                .modifier(TextViewModifier(font: .light, size: 18))
+                .modifier(TextViewModifier(font: .light, size: 16))
             MoodSelectionView(moods: viewModel.moodsArray, selectedMood: $viewModel.selectedMood)
             Spacer(minLength: Spacings.spacing20)
             Button {

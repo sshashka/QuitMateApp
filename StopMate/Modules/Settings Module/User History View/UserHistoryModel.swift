@@ -19,7 +19,7 @@ struct UserHistoryModel: Codable, Hashable {
     let id = UUID()
     var dateOfClassification: Date
     var selectedMoood: ClassifiedMood?
-    var selectedReasons: [String]?
+    var selectedReasons: [ReasonsToStop]?
     var recomendation: String
     var typeOfHistory: UserHistoryRecordsType
     

@@ -15,27 +15,29 @@ struct QuittingInformationView: View {
             Text(Localizables.MainScreen.quittingInformation)
                 .fontStyle(.customSemibold16)
             
-                HStack(alignment: .center) {
-                    StatsView(image: IconConstants.noSmoking, titleText: vm.daysWithoutSmoking,
-                              secondaryText: Localizables.MainScreen.daysWithoutSmoking, tintColor: .blue)
-                    Spacer()
-                    StatsView(image: IconConstants.money, titleText: vm.moneySaved,
-                              secondaryText: Localizables.MainScreen.moneySaved, tintColor: .green)
-                    .onTapGesture {
-                        vm.didTapOnAdditionalStats(type: .money)
-                    }
-                }.skeleton(with: vm.state == .loading)
-            
-                HStack(alignment: .center) {
-                    StatsView(image: IconConstants.earth, titleText: vm.emissions,
-                              secondaryText: Localizables.MainScreen.unrealeasedChemichals, tintColor: .green)
-                    .onTapGesture {
-                        vm.didTapOnAdditionalStats(type: .enviroment)
-                    }
-                    Spacer()
-                    StatsView(image: IconConstants.finish,titleText: vm.daysToFinish,
-                              secondaryText: Localizables.MainScreen.daysToFinish, tintColor: nil)
+            HStack(alignment: .center) {
+                StatsView(image: IconConstants.noSmoking, titleText: vm.daysWithoutSmoking,
+                          secondaryText: Localizables.MainScreen.daysWithoutSmoking, tintColor: .blue)
+                Spacer()
+                StatsView(image: IconConstants.money, titleText: vm.moneySaved,
+                          secondaryText: Localizables.MainScreen.moneySaved, tintColor: .green,
+                          needDisclosureIndicator: true)
+                .onTapGesture {
+                    vm.didTapOnAdditionalStats(type: .money)
                 }
+            }.skeleton(with: vm.state == .loading)
+            
+            HStack(alignment: .center) {
+                StatsView(image: IconConstants.earth, titleText: vm.emissions,
+                          secondaryText: Localizables.MainScreen.unrealeasedChemichals, tintColor: .green,
+                          needDisclosureIndicator: true)
+                .onTapGesture {
+                    vm.didTapOnAdditionalStats(type: .enviroment)
+                }
+                Spacer()
+                StatsView(image: IconConstants.finish,titleText: vm.daysToFinish,
+                          secondaryText: Localizables.MainScreen.daysToFinish, tintColor: nil)
+            }
             
         }
     }

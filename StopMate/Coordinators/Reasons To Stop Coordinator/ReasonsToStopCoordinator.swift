@@ -20,7 +20,7 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     
     var type: CoordinatorType { .reasonsToStop }
     
-    private var selectedReasons = [String]()
+    private var selectedReasons = [ReasonsToStop]()
     
     private var userStateMetrics: UserSmokingSessionMetrics?
     

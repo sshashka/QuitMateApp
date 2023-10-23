@@ -38,7 +38,7 @@ final class ReasonsToStopViewController: UIViewController {
     }()
     
     private var selectedItems = Set<Int>()
-    private var reasonsToStopArray: [String] = []
+    private var reasonsToStopArray: [ReasonsToStop] = []
     
 
     override func viewDidLoad() {
@@ -56,7 +56,6 @@ private extension ReasonsToStopViewController {
     @objc func didTapDoneButton() {
         presenter?.didTapDoneButton(reasons: Array(selectedItems))
     }
-//    func setupNav
     
     func setupLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(100), heightDimension: .fractionalHeight(0.8))
@@ -100,7 +99,7 @@ private extension ReasonsToStopViewController {
 }
 
 extension ReasonsToStopViewController: ReasonsToStopViewProtocol {
-    func showReasons(reasons: [String]) {
+    func showReasons(reasons: [ReasonsToStop]) {
         self.reasonsToStopArray = reasons
         reasonsToStopCollectionView.reloadData()
     }
@@ -110,7 +109,7 @@ extension ReasonsToStopViewController: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReasonsToStopCollectionViewCell.identifier, for: indexPath) as? ReasonsToStopCollectionViewCell
         guard let cell = cell else { return UICollectionViewCell() }
-        cell.setText(text: reasonsToStopArray[indexPath.row])
+        cell.setText(text: reasonsToStopArray[indexPath.row].localizedCase)
         return cell
     }
     

@@ -6,6 +6,12 @@
     },
     "-1" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-1"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16,6 +22,12 @@
     },
     "%" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25,10 +37,29 @@
       }
     },
     "%lld" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
     },
     "0" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "0"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39,6 +70,12 @@
     },
     "1" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -58,7 +95,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Тут ви можете побачити, скільки викидів не буде вироблено за певний період часу"
+            "value" : "Тут ви можете побачити, скільки шкідливих хімікатів не буде вироблено за певний період часу"
           }
         }
       }
@@ -803,7 +840,13 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
+            "value" : "Charts.moodsCount.%1$lld%2$lld"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Charts.moodsCount.%1$lld%2$lld"
           }
         }
@@ -867,7 +910,14 @@
       }
     },
     "Day" : {
-
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "День"
+          }
+        }
+      }
     },
     "EditProfile.contactInfo" : {
       "localizations" : {
@@ -945,7 +995,14 @@
       }
     },
     "Log In" : {
-
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log In"
+          }
+        }
+      }
     },
     "MainScreen.DaysToFinish" : {
       "localizations" : {
@@ -1070,7 +1127,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не вироблено хімікатів"
+            "value" : "Без хімікатів"
           }
         }
       }
@@ -1104,6 +1161,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Денні самопочуття"
+          }
+        }
+      }
+    },
+    "MilestoneCompletedStrings.bottomText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today is a day you set as your final day to overcome your smoking habit, and we wanted to take a moment to congratulate you on reaching this significant milestone. This is a tremendous achievement and a testament to your strength, determination, and commitment to your own well-being.\n\nBreaking free from the grips of addiction is no small feat, and your dedication to this journey is truly admirable. You've shown incredible resilience, and you should be immensely proud of yourself.\n\nRemember, this milestone is just the beginning of a healthier, happier chapter in your life. As you continue on this path, know that you have a support system here for you. Whether it's a word of encouragement or a listening ear, we're here to help you stay on track.\n\nYour journey towards a smoke-free life is inspiring not only for you but for others who may be facing similar challenges. Your success serves as a beacon of hope and a reminder that positive change is always possible.\n\nOnce again, congratulations on this incredible achievement. Embrace this moment, and look forward to all the brighter days that lie ahead.\n\nWishing you continued strength and success on your journey!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сьогодні день, який ви визначили своїм останнім днем, щоб подолати свою звичку палити, і ми б хотіли скористатися моментом, щоб привітати вас із досягненням цієї важливої ​​цілі. Це величезне досягнення та свідчення вашої сили, рішучості та відданості власному добробуту.\n\nВирватися з лещата залежності – це не маленький подвиг, і ваша відданість цій цілі справді неймовірна. Ви продемонстрували неймовірну стійкість, і ви повинні надзвичайно собою пишатися.\n\nПам’ятайте, що ця віха є лише початком здоровішої та щасливішої глави у вашому житті. Продовжуючи цей шлях, знайте, що у вас є система підтримки. Незалежно від того, чи це слово підбадьорення, чи те, щоб вислухати, ми тут, щоб допомогти вам залишатися на шляху.\n\nВаша подорож до життя без тютюнового диму надихає не лише вас, а й інших, які можуть зіткнутися з подібними проблемами. Ваш успіх служить маяком надії та нагадуванням про те, що позитивні зміни завжди можливі.\n\nЩе раз вітаємо з цим неймовірним досягненням. Прийміть цей момент і чекайте всіх яскравих днів, які попереду.\n\nБажаємо Вам подальших сил та успіхів на Вашому шляху!"
+          }
+        }
+      }
+    },
+    "MilestoneCompletedStrings.continueUsingAsDiary" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue using as diary"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не змінювати дату закінчення"
+          }
+        }
+      }
+    },
+    "MilestoneCompletedStrings.header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wow, looks like it`s time to say goodbye?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ого, невже прийшов час прощатись?"
+          }
+        }
+      }
+    },
+    "MilestoneCompletedStrings.setANewDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set a new finishing date"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановити нову дату закінчення"
           }
         }
       }
@@ -1145,7 +1266,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Я відчуваю..."
+            "value" : "Це..."
           }
         }
       }
@@ -1486,6 +1607,326 @@
         }
       }
     },
+    "ReasonsToStop.accessToCigarettes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access To Cigarettes"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступ до сигарет"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.advertising" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advertising"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реклама"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.alcoholConsumption" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alcohol consumption"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вживання алкоголю"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.beliefThatSmokingIsEnjoyable" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The belief that smoking is enjoyable"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відчуття під час куріння"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.boredom" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boredom"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нудьга"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.fearOfFailure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fear of failure"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Страх невдачі"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.feelingOverwhelmed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feeling overwhelmed"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почуття приголомшеності"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.HabitsAndRoutines" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habits and routines"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Звичка"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.lackOfAlternatives" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lack of alternatives"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безальтернативність"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.lackOfCommitment" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lack of commitment"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відсутність зобов'язань"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.lackOfInformation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lack of information"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відсутність інформації"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.lackOfSelfEfficacy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lack of self-efficacy"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відсутність самоефективності"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.lackOfSupport" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lack of support"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відсутність підтримки"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.lowMood" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Low mood"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Погане самопочуття"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.mentalHealthConditions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mental health conditions"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Умови психічного здоров'я"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.nicotineAddiction" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicotine addiction"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нікотинова залежність"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.peerPressure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peer pressure"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тиск з боку інших"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.socialSituations" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Social situations"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Соціальні ситуації"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.stress" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stress"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стрес"
+          }
+        }
+      }
+    },
+    "ReasonsToStop.weightGain" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weight gain"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зміни в вазі"
+          }
+        }
+      }
+    },
     "Recomentdations.PromptForMood.%@%lld%@" : {
       "localizations" : {
         "en" : {
@@ -1497,24 +1938,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Привіт, мене звуть %1$@. Я курю і намагаюся кинути. Я не палю %2lld днів, і я пишаюся цим. Я веду щоденник змін свого самопочуття, і ось записи за останні %2lld днів %3$@. Чи не міг би ти зробити для мене невеликий аналіз мого настрою та розповісти мені, як не почати палити знову. Також я б хотів щоб ти додав декілька приємних слів для того, щоб підбадьорити мене. Дякую"
-          }
-        }
-      }
-    },
-    "Recomentdations.PromptForMood.%lld%lld%lld" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hello there, my name is %1lld I am a smoker and I try to quit. I don`t smoke for %2lld days and I`m proud of it I do diary of my moods during the process and here they are %3lld can u do an small analysis of my moods for me, provide me some help how not to start smoking again, and afer it add just something to cheer me up. Thanks"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Привіт, мене звуть %1lld. Я курю і намагаюся кинути. Я не палю %2lld днів, і я пишаюся цим. Я веду щоденник свого настрою під час процесу, і ось вони %3lld, чи можете ви зробити для мене невеликий аналіз мого настрою, допоможіть мені, як не почніть палити знову, а потім додайте щось, щоб підбадьорити мене. Дякую"
+            "value" : "Привіт, мене звуть %1$@. Я курю і намагаюся кинути. Я не палю %2$lld днів, і я пишаюся цим. Я веду щоденник змін свого самопочуття, і ось деякі записи моїх самопочуттів з цього щоденника.і %3$@. Чи не міг би ти зробити для мене невеликий аналіз мого настрою та розповісти мені, як не почати палити знову. Також я б хотів щоб ти додав декілька приємних слів для того, щоб підбадьорити мене. Дякую. Також хочу зазначити що дане повідомленя написано українською мовою, тому твоя відповідь теж має бути українською."
           }
         }
       }
@@ -1530,24 +1954,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Привіт, мене звуть %@. Я курю і намагаюся кинути палити. Я не палю %lld днів, і я пишаюся цим. Я веду щоденник змін свого самопочуття, і ось записи за дні. Один запис це один день %@ Чи не міг би ти зробити аналіз мого настрою, та сказати мені кілька підбадьорливих слів, тому що я знову почав курити, оскільки я відчував я відчував %@. Своє бажання палити я оцінюю в: %lld з 10, а мій настрій оли я вирішив знову закурити був %@ і тому, я не хочу, щоб це повторилося."
-          }
-        }
-      }
-    },
-    "Recomentdations.PromptForSmoking.%lld%lld%lld%lld%lld%lld" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "\"Hello there, my name is %1lld I am a smoker and I try to quit. I don`t smoke for %2lld days and I`m proud of it I do diary of my moods during the process and here they are %3lld can u do an small analysis of my moods for me, provide me some cheer words because I started smoking again, because i ve been feeling %4lld. My urge to smoke was: %5lld out of 10 and my mood was %6lld when i decided to smoke again. So the point is I dont want to this happen again add just something to cheer me up. Thanks\""
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Привіт, мене звуть %1lld. Я курю і намагаюся кинути палити. Я не палю %2lld днів, і я пишаюся цим. Я веду щоденник свого настрою під час процесу, і ось вони %3lld Чи можете ви зробити для мене невеликий аналіз мого настрою, надайте мені кілька підбадьорливих слів, тому що я знову почав курити, тому що я відчував %4lld. Моє бажання палити було: %5lld з 10, а мій настрій був %6lld, коли я вирішив знову закурити. Отже, я не хочу, щоб це повторилося, додайте щось, щоб підбадьорити мене. Дякую"
+            "value" : "Привіт, мене звуть %@. Я курю і намагаюся кинути палити. Я не палю %lld днів, і я пишаюся цим. Я веду щоденник змін свого самопочуття, і ось деякі записи моїх самопочуттів з цього щоденника. %@. Чи не міг би ти зробити аналіз мого настрою, та сказати мені кілька підбадьорливих слів, тому що я знову почав курити, оскільки я відчував %@. Своє бажання покурити в я оцінюю в: %lld балів з 10, а мій настрій коли я вирішив знову закурити був %@. Я не хочу, щоб це повторилося. Також хочу зазначити що дане повідомленя написано українською мовою, тому твоя відповідь теж має бути українською."
           }
         }
       }
@@ -1821,7 +2228,7 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Місяць"
           }
         }
@@ -1954,7 +2361,7 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "2 Тижні"
           }
         }
@@ -2001,7 +2408,7 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
+                  "state" : "translated",
                   "value" : "%lld Тиждень"
                 }
               },
@@ -2032,23 +2439,6 @@
         }
       }
     },
-    "Smoking" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "kkkk"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
-    },
     "Smoking sessions" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2069,7 +2459,24 @@
     "Type" : {
 
     },
+    "UserHistory.dateOfClassification:.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date of classification: %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата: %@"
+          }
+        }
+      }
+    },
     "UserHistory.dateOfClassification.%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2150,6 +2557,7 @@
       }
     },
     "UserHistory.youHaveSelectedReasons: %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2161,6 +2569,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ви обрали наступні причини: %@"
+          }
+        }
+      }
+    },
+    "UserHistory.youHaveSelectedReasons.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have selected reasons: %@"
           }
         }
       }
@@ -2321,39 +2739,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Відео"
-          }
-        }
-      }
-    },
-    "You have selected these reasons: %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ви обрали ці причини: %@"
-          }
-        }
-      }
-    },
-    "You mood was: %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Обраний вами настрій: %@"
-          }
-        }
-      }
-    },
-    "Your recomendation on that day was: %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Того дня рекомендація була наступною: %@"
           }
         }
       }

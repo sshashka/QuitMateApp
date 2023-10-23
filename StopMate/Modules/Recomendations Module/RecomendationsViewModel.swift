@@ -26,7 +26,7 @@ protocol RecomendationsViewModelProtocol: AnyObject, ObservableObject {
 final class RecomendationsViewModel: RecomendationsViewModelProtocol {
     enum TypeOfRecomendation {
         case moodRecomendation
-        case timerResetRecomendation([String], UserSmokingSessionMetrics)
+        case timerResetRecomendation([ReasonsToStop], UserSmokingSessionMetrics)
     }
     var didSendEventClosure: ((RecomendationsViewModel.EventType) -> Void)?
     private var typeOfGenerationEvent: TypeOfRecomendation
@@ -78,36 +78,37 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
             return
         }
         tokens = 700
-        
 //#if DEBUG
 //        tokens = 150
 //#endif
-        let daysWithoutSmoking = userData.daysWithoutSmoking
         // Please put your own token here for debug
         let apiKey = ApiKeysService.shared.aiKey
         
         let openAi = OpenAI(apiToken: apiKey)
-        let query: CompletionsQuery
+        let query: ChatQuery
         
         switch typeOfGenerationEvent {
         case .moodRecomendation:
-            query = CompletionsQuery(model: .textDavinci_003, prompt: RecomendationPrompts.getRecomendationForMoodAdded(userData: userData, userStats: statsData), temperature: 1.0, maxTokens: tokens)
-
+            query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .user, content: RecomendationPrompts.getRecomendationForMoodAdded(userData: userData, userStats: statsData))], maxTokens: tokens)
         case .timerResetRecomendation(let reasons, let metrics):
-            query = CompletionsQuery(model: .textDavinci_003, prompt: RecomendationPrompts.getPromtForSmokingSession(userData: userData, userStats: statsData, reasons: reasons, metrics: metrics), temperature: 1.0, maxTokens: tokens)
+            query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .user, content: RecomendationPrompts.getPromtForSmokingSession(userData: userData, userStats: statsData, reasons: reasons, metrics: metrics))], maxTokens: tokens)
         }
-    
-        openAi.completions(query: query)
+        print(query)
+        openAi.chatsStream(query: query)
             .receive(on: RunLoop.main)
             .sink {
                 print($0)
             } receiveValue: { [weak self] result in
-                let results = result.choices.map {
-                    $0.text
+                switch result {
+                case .success(let responce):
+                    self?.state = .loaded
+                    var text = String()
+                    text = responce.choices.first?.delta.content ?? String()
+                    self?.recomendation += text
+                case .failure(_):
+                    break
                 }
-                guard let firstResponse = results.first else { return }
-                self?.state = .loaded
-                self?.recomendation = firstResponse.trimmingCharacters(in: .whitespacesAndNewlines)
+//                self?.recomendation = firstResponse.trimmingCharacters(in: .whitespacesAndNewlines)
             }.store(in: &disposeBag)
     }
     

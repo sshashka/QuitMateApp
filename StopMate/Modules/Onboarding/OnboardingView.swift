@@ -18,6 +18,7 @@ struct OnboardingView<ViewModel>: View where ViewModel: OnboardingViewModelProto
             OnboardingTab(headerText: Localizables.OnboardingStrings.changingSettingsHeader, icon: nil, systemIcon: SystemIconConstants.gearShape, description: Localizables.OnboardingStrings.changingSettingsDescription)
             OnboardingTab(headerText: Localizables.OnboardingStrings.onboardingHeader, icon: IconConstants.onboarding, systemIcon: nil, description: Localizables.OnboardingStrings.onboardingDescription)
         }
+        .background(CirclesBackgroundView())
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

@@ -23,4 +23,6 @@ final class IconConstants {
     static var timerReset: String { "Reset" }
     static var chartDetails: String { "chartDetails" }
     static var onboarding: String { "Onboarding" }
+    
+    static var cry: String { "Cry" }
 }

@@ -23,12 +23,12 @@ struct UserHistoryView: View {
                             ForEach(viewModel.filteredRecords, id: \.self) { record in
                                 GroupBox {
                                     VStack(alignment: .leading, spacing: Spacings.spacing10) {
-                                        Text("UserHistory.dateOfClassification.\(record.dateOfClassificationFormatted)")
+                                        Text("UserHistory.dateOfClassification:.\(record.dateOfClassificationFormatted)")
                                         if viewModel.selectedHistoryType == .moodRecords {
                                             Text("UserHistory.yourMoodWas. \(record.selectedMoood?.localizedCase ?? Localizables.noData)")
                                         }
                                         else if viewModel.selectedHistoryType == .timerResetsRecords {
-                                            Text("UserHistory.youHaveSelectedReasons: \(record.selectedReasons?.joined(separator: ",") ?? "")")
+                                            Text("UserHistory.youHaveSelectedReasons.\(record.selectedReasons?.map{ $0.localizedCase}.joined(separator: ",") ?? "")")
                                         }
                                         Text("UserHistory.yourRecomendationOnThatDayWas: \(record.recomendation)")
                                     }.fontStyle(.customSemibold16)

@@ -48,7 +48,7 @@ final class TabBarCoordinator: NSObject, Coordinator {
     
     private func getTabControllers(page: TabBarPages) -> UINavigationController {
         let navVC = UINavigationController()
-//        navVC.delegate = se
+        //        navVC.delegate = se
         navVC.tabBarItem = UITabBarItem.init(title: nil, image: page.getImages(), selectedImage: nil)
         navVC.setNavigationBarHidden(false, animated: false)
         switch page {
@@ -72,6 +72,8 @@ final class TabBarCoordinator: NSObject, Coordinator {
                     self?.showReasonsToStop()
                 case .didTapOnSettings:
                     self?.showSettings(navigationVC: navVC)
+                case .milestoneCompleted:
+                    self?.showMilestoneCompletedView()
                 }
             }
             let hostingVC = UIHostingController(rootView: mainView)
@@ -92,6 +94,13 @@ final class TabBarCoordinator: NSObject, Coordinator {
         return navVC
     }
     
+    private func showMilestoneCompletedView() {
+        let vc = UIHostingController(rootView: MilestoneCompletedView())
+        //        vc.modalPresentationStyle = .fullScreen
+        vc.view.backgroundColor = UIColor(resource: .background)
+        navigationController.present(vc, animated: true)
+    }
+    
     private func showVideoInfo(for id: String, navigationVC: UINavigationController) {
         let vm = VideoInfoViewModel(youtubeService: YoutubeApiService(), id: id)
         vm.didSendEventClosure = { [weak self] event in
@@ -108,13 +117,13 @@ final class TabBarCoordinator: NSObject, Coordinator {
         vc.title = nil
         navigationVC.pushViewController(vc, animated: true)
     }
-
+    
     private func showVideo(id: String, navigationVC: UINavigationController) {
         let vc = YoutubePlayer()
         vc.videoID = id
         navigationVC.pushViewController(vc, animated: true)
     }
-
+    
     private func showSettings(navigationVC: UINavigationController) {
         let coordinator = SettingsCoordinator(navigationVC)
         childCoordinators.append(coordinator)
@@ -124,10 +133,12 @@ final class TabBarCoordinator: NSObject, Coordinator {
             self?.childCoordinators = self?.childCoordinators.filter({ $0.type != child.type }) ?? []
         }
     }
-
+    
     private func setupTabBar(controllers tabController: [UIViewController]) {
         tabBarController.tabBar.tintColor = UIColor(named: ColorConstants.buttonsColor)
-        tabBarController.tabBar.backgroundColor = .systemBackground
+#if DEBUG
+        tabBarController.tabBar.backgroundColor = UIColor(resource: .experimantalBackground)
+#endif
         tabBarController.setViewControllers(tabController, animated: true)
         tabBarController.selectedIndex = 1
         navigationController.viewControllers = [tabBarController]

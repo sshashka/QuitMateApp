@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ReasonsToStopViewProtocol: AnyObject {
-    func showReasons(reasons: [String])
+    func showReasons(reasons: [ReasonsToStop])
 }

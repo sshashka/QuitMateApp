@@ -126,7 +126,7 @@ struct Localizables {
     //MARK: Videos view strings
     struct VideosStrings {
         static let videos = mainCatalog("Videos.videos")
-        static let startWatching = mainCatalog("Videos.startWatching")        
+        static let startWatching = mainCatalog("Videos.startWatching")
     }
     
     //MARK: User smoked module strings
@@ -185,6 +185,36 @@ struct Localizables {
         static let moods = mainCatalog("UserHistory.moods")
         static let smokingSessions = mainCatalog("UserHistory.smokingSessions")
         static let selectTypeOfHistory = mainCatalog("UserHistory.selectTypeOfHistory")
+    }
+    
+    struct ReasonsToStopStrings {
+        static let nicotineAddiction = mainCatalog("ReasonsToStop.nicotineAddiction")
+        static let stress = mainCatalog("ReasonsToStop.stress")
+        static let socialSituations = mainCatalog("ReasonsToStop.socialSituations")
+        static let habits = mainCatalog("ReasonsToStop.HabitsAndRoutines")
+        static let weitghtGain = mainCatalog("ReasonsToStop.weightGain")
+        static let boredom = mainCatalog("ReasonsToStop.boredom")
+        static let lackOfSupport = mainCatalog("ReasonsToStop.lackOfSupport")
+        static let alcoholConsumption = mainCatalog("ReasonsToStop.alcoholConsumption")
+        static let advertising = mainCatalog("ReasonsToStop.advertising")
+        static let lowMood = mainCatalog("ReasonsToStop.lowMood")
+        static let peerPressure = mainCatalog("ReasonsToStop.peerPressure")
+        static let mentalHealthConditions = mainCatalog("ReasonsToStop.mentalHealthConditions")
+        static let lackOfInformation = mainCatalog("ReasonsToStop.lackOfInformation")
+        static let feelingOverwhelmed = mainCatalog("ReasonsToStop.feelingOverwhelmed")
+        static let lackOfAlternatives = mainCatalog("ReasonsToStop.lackOfAlternatives")
+        static let beliefThatSmokingIsEnjoyable = mainCatalog("ReasonsToStop.beliefThatSmokingIsEnjoyable")
+        static let accessToCigarettes = mainCatalog("ReasonsToStop.accessToCigarettes")
+        static let lackOfCommitment = mainCatalog("ReasonsToStop.lackOfCommitment")
+        static let lackOfSelfEfficacy = mainCatalog("ReasonsToStop.lackOfSelfEfficacy")
+        static let fearOfFailure = mainCatalog("ReasonsToStop.fearOfFailure")
+    }
+    
+    struct MilestoneCompletedStrings {
+        static let header = mainCatalog("MilestoneCompletedStrings.header")
+        static let bottomText = mainCatalog("MilestoneCompletedStrings.bottomText")
+        static let continueUsingAsDiary = mainCatalog("MilestoneCompletedStrings.continueUsingAsDiary")
+        static let setANewDate = mainCatalog("MilestoneCompletedStrings.setANewDate")
     }
     
 }

@@ -47,6 +47,7 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
             .padding(.horizontal, Spacings.spacing30)
             Spacer(minLength: Spacings.spacing15)
         }
+//        .background(Color(ColorResource.experimantalBackground))
         .sheet(isPresented: $viewModel.isPresentingSheet) {
             if let viewModel = viewModel.additionalInfoViewModel {
                 AdditionalInfoView(viewModel: viewModel)

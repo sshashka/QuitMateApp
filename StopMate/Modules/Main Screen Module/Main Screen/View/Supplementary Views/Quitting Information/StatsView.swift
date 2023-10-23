@@ -12,6 +12,7 @@ struct StatsView: View {
     let titleText: String
     let secondaryText: String
     let tintColor: Color?
+    var needDisclosureIndicator: Bool = false
     var body: some View {
         HStack(alignment: .center) {
             Image(image)
@@ -26,6 +27,7 @@ struct StatsView: View {
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
             }
+            Image(systemName: needDisclosureIndicator ? "info.square" : nil)
         }
         .minimumScaleFactor(0.7)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -35,6 +37,7 @@ struct StatsView: View {
 
 struct StatsView_Previews: PreviewProvider {
     static var previews: some View {
-        StatsView(image: IconConstants.moon, titleText: "120", secondaryText: "Days without smoking", tintColor: .blue)
+        
+        StatsView(image: IconConstants.moon, titleText: "120", secondaryText: "Days without smoking", tintColor: .blue, needDisclosureIndicator: true)
     }
 }

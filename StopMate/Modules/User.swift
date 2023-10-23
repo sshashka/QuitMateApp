@@ -13,6 +13,7 @@ enum Currency: String, Hashable, Codable {
 }
 
 struct User: Codable {
+    //MARK: - Variables
     var name: String
     var age: String
     var email: String?
@@ -24,6 +25,50 @@ struct User: Codable {
     var moneyUserSpendsOnSmoking: Double
     var userCurrency: Currency? = .usd
     var didCompleteTutorial: Bool = false
+    
+    //MARK: - Computed properties
+    var milestoneCompleted: Bool {
+        if currentDate == finishingDate || currentDate > finishingDate {
+            return true
+        } else {
+            return true
+        }
+    }
+    
+    var moneySpentOnSigarets: Double {
+        self.moneyUserSpendsOnSmoking * Double(daysWithoutSmoking)
+    }
+    
+    var daysWithoutSmoking: Int {
+        let result = substractTwoDatesInDay(from: startingDate, to: currentDate)
+        return result
+    }
+    
+    var completionPercents: Double {
+        let startingToFinishingDateDifference = startingToFinishingDateDifference
+        let daysLeft = daysWithoutSmoking
+        let result = Double(daysLeft)/Double(startingToFinishingDateDifference)
+        return result
+    }
+    
+    var daysToFinish: Int {
+        substractTwoDatesInDay(from: currentDate, to: milestoneCompleted ? currentDate : finishingDate)
+    }
+    
+    var dateInComponentsWithoutSmoking: String {
+        substractTwoDates(from: startingDate, to: currentDate, components: [.year, .month, .day])
+    }
+    //MARK: - Public methods
+    func substractTwoDatesInDay(from lessDate: Date, to moreDate: Date) -> Int {
+        let calendar = Calendar.current
+        return calendar.dateComponents([.day], from: lessDate, to: moreDate).day!
+    }
+    
+    func substractTwoDates(from lessDate: Date, to moreDate: Date, components: Set<Calendar.Component>) -> String {
+        let calendar = Calendar.current
+        let difference = calendar.dateComponents(components, from: lessDate, to: moreDate)
+        return difference.toSting()
+    }
     
     // Unfortunately Firebase Realtime does not support Codable for update operations
     func toDictionary() -> [AnyHashable: Any] {
@@ -47,45 +92,9 @@ struct User: Codable {
         return dict
     }
 }
-
+//MARK: - Private methods
 extension User {
-    
-    var moneySpentOnSigarets: Double {
-        self.moneyUserSpendsOnSmoking * Double(daysWithoutSmoking)
-    }
-    
-    var daysWithoutSmoking: Int {
-        let result = substractTwoDatesInDay(from: startingDate, to: currentDate)
-        return result
-    }
-    
     private var startingToFinishingDateDifference: Int {
-        substractTwoDatesInDay(from: startingDate, to: finishingDate)
-    }
-    
-    var completionPercents: Double {
-        let startingToFinishingDateDifference = startingToFinishingDateDifference
-        let daysLeft = daysWithoutSmoking
-        let result = Double(daysLeft)/Double(startingToFinishingDateDifference)
-        return result
-    }
-    
-    var dateInComponentsWithoutSmoking: String {
-        substractTwoDates(from: startingDate, to: currentDate, components: [.year, .month, .day])
-    }
-    
-    func substractTwoDatesInDay(from lessDate: Date, to moreDate: Date) -> Int {
-        let calendar = Calendar.current
-        return calendar.dateComponents([.day], from: lessDate, to: moreDate).day!
-    }
-    
-    func substractTwoDates(from lessDate: Date, to moreDate: Date, components: Set<Calendar.Component>) -> String {
-        let calendar = Calendar.current
-        let difference = calendar.dateComponents(components, from: lessDate, to: moreDate)
-        return difference.toSting()
-    }
-
-    var daysToFinish: Int {
-        substractTwoDatesInDay(from: currentDate, to: finishingDate)
+        substractTwoDatesInDay(from: startingDate, to: milestoneCompleted ? currentDate : finishingDate)
     }
 }
