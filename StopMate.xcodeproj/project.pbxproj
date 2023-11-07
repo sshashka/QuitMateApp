@@ -10,6 +10,7 @@
 		30064B2F2A1574C600C70664 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */; };
 		300ACB0B2A3FB8B500DA76D5 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300ACB0A2A3FB8B500DA76D5 /* RegistrationView.swift */; };
 		300ACB192A40ABF000DA76D5 /* RecomendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300ACB182A40ABF000DA76D5 /* RecomendationsView.swift */; };
+		300D93732AE8710800944899 /* MilestoneCompletedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D93722AE8710800944899 /* MilestoneCompletedViewModel.swift */; };
 		301820DD2ADCAEFE003F8859 /* MilestoneCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301820DC2ADCAEFE003F8859 /* MilestoneCompletedView.swift */; };
 		301821CF299D79C10088863C /* FirebaseAuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301821CE299D79C10088863C /* FirebaseAuthentificationService.swift */; };
 		3019DEE72A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */; };
@@ -199,6 +200,7 @@
 		30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		300ACB0A2A3FB8B500DA76D5 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		300ACB182A40ABF000DA76D5 /* RecomendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsView.swift; sourceTree = "<group>"; };
+		300D93722AE8710800944899 /* MilestoneCompletedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCompletedViewModel.swift; sourceTree = "<group>"; };
 		301820DC2ADCAEFE003F8859 /* MilestoneCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCompletedView.swift; sourceTree = "<group>"; };
 		301821CE299D79C10088863C /* FirebaseAuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentificationService.swift; sourceTree = "<group>"; };
 		3019DEE62A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -235,7 +237,6 @@
 		30400F5D2A5F5F56006D46C9 /* VideoInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoViewModel.swift; sourceTree = "<group>"; };
 		30400F612A60B652006D46C9 /* YoutubePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayer.swift; sourceTree = "<group>"; };
 		30400F6A2A62069C006D46C9 /* UserHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryView.swift; sourceTree = "<group>"; };
-		3040A48E2AD5ECD400911CF7 /* StopMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StopMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3040D9BD2A4E3D9A0089F83E /* UserInfoValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoValidation.swift; sourceTree = "<group>"; };
 		3044405A29F7125D00AD40F2 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		3044405C29F741B500AD40F2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -338,6 +339,7 @@
 		30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierCoordinator.swift; sourceTree = "<group>"; };
 		30C23CAE2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher<Bool,Never>+Extension.swift"; sourceTree = "<group>"; };
 		30C338EA2A538BA40000E6CC /* FirebaseAuthStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthStateHandler.swift; sourceTree = "<group>"; };
+		30C357B62AEBC93F00972643 /* StopMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StopMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30CA1B40299AE191001E5BF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30CA1B54299AE573001E5BF3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		30CA1B56299AF0EB001E5BF3 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
@@ -430,8 +432,28 @@
 			isa = PBXGroup;
 			children = (
 				301820DC2ADCAEFE003F8859 /* MilestoneCompletedView.swift */,
+				300D93722AE8710800944899 /* MilestoneCompletedViewModel.swift */,
 			);
 			path = MilestoneCompleted;
+			sourceTree = "<group>";
+		};
+		300D936F2AE86D8600944899 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				30FCFA122AC336A3005AB7C3 /* Core Services */,
+				304EC1A72A03BC65001667FC /* Core Views */,
+				301821CD299D22BD0088863C /* Extensions */,
+				300D93702AE86D9000944899 /* CoreModels */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		300D93702AE86D9000944899 /* CoreModels */ = {
+			isa = PBXGroup;
+			children = (
+				30AAD9202A0EFB72000FF93D /* User.swift */,
+			);
+			path = CoreModels;
 			sourceTree = "<group>";
 		};
 		301821CC299D22AF0088863C /* Auth Module */ = {
@@ -581,6 +603,7 @@
 		303BA53D2AE024380047147D /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				303BA5452AE027270047147D /* Info.plist */,
 				303BA4FF2ADFE3B60047147D /* GoogleService-Info.plist */,
 				306C9B4E2ADFE1250047EBE8 /* StopMate.entitlements */,
 			);
@@ -726,10 +749,10 @@
 		30549F102A3A7A2A00872DAD /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				306C9B262ADFDF810047EBE8 /* MainCircleView.swift */,
 				306C9B2A2ADFDF8F0047EBE8 /* CirclesBackgroundView.swift */,
 				303BA4FB2ADFE3220047147D /* MoodSelectionView.swift */,
-				306C9B262ADFDF810047EBE8 /* MainCircleView.swift */,
-				306C9B3C2ADFE05E0047EBE8 /* ProfileImagePic.swift */,
+				30C357B72AEBCA2000972643 /* ProfileImage */,
 				306CB12E2A684B3800893295 /* CustomProgressView.swift */,
 				3044405A29F7125D00AD40F2 /* RoundedCorner.swift */,
 			);
@@ -793,7 +816,6 @@
 				30E9FE192A707DA60061BCBE /* User History View */,
 				30400F492A5DB1C8006D46C9 /* Edit profile view */,
 				30AAD91F2A0E6A8D000FF93D /* SettingsView */,
-				30F9D3072A806FD900986B97 /* ImageProfileLoadingStates.swift */,
 				3040A48B2AD592C900911CF7 /* Terms and Conditions View */,
 			);
 			path = "Settings Module";
@@ -951,15 +973,14 @@
 				301821CC299D22AF0088863C /* Auth Module */,
 				307C26FD2A9FFDA300A645CA /* Loader View */,
 				30783013299DA4D4003FAA10 /* Main Screen Module */,
+				300D936E2AE729BE00944899 /* MilestoneCompleted */,
 				3093432B29DC5E8C00D9C1AA /* Mood Classifier Module */,
 				30FEA73F2A8AF0C200239912 /* Onboarding */,
 				30A8A1B729A553EC00EC4232 /* Progress Charts Module */,
 				300ACB172A40A6C300DA76D5 /* Recomendations Module */,
 				306531F429E4B1EB00E0544F /* Settings Module */,
 				30CA3A3129B0F1ED00181539 /* User Smoked Module */,
-				30AAD9202A0EFB72000FF93D /* User.swift */,
 				30F527EF2A5788CA0031D0F4 /* Videos Module */,
-				300D936E2AE729BE00944899 /* MilestoneCompleted */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1153,12 +1174,20 @@
 			path = "UI Extensions";
 			sourceTree = "<group>";
 		};
+		30C357B72AEBCA2000972643 /* ProfileImage */ = {
+			isa = PBXGroup;
+			children = (
+				306C9B3C2ADFE05E0047EBE8 /* ProfileImagePic.swift */,
+				30F9D3072A806FD900986B97 /* ImageProfileLoadingStates.swift */,
+			);
+			path = ProfileImage;
+			sourceTree = "<group>";
+		};
 		30CA1B34299AE191001E5BF3 = {
 			isa = PBXGroup;
 			children = (
-				303BA5452AE027270047147D /* Info.plist */,
 				30CA1B3F299AE191001E5BF3 /* StopMate */,
-				3040A48E2AD5ECD400911CF7 /* StopMate.app */,
+				30C357B62AEBC93F00972643 /* StopMate.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1167,9 +1196,7 @@
 			children = (
 				30E9CB4D29F6E6D400E1F0C2 /* App */,
 				30A0E4D029DEF4E7000CA339 /* Coordinators */,
-				30FCFA122AC336A3005AB7C3 /* Core Services */,
-				304EC1A72A03BC65001667FC /* Core Views */,
-				301821CD299D22BD0088863C /* Extensions */,
+				300D936F2AE86D8600944899 /* Core */,
 				3093432A29DC5E4B00D9C1AA /* Modules */,
 				306C9B232ADFDF2E0047EBE8 /* Resourses */,
 			);
@@ -1460,7 +1487,7 @@
 				30FCFA0D2AC30FB3005AB7C3 /* KeychainSwift */,
 			);
 			productName = QuitMate;
-			productReference = 3040A48E2AD5ECD400911CF7 /* StopMate.app */;
+			productReference = 30C357B62AEBC93F00972643 /* StopMate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1570,6 +1597,7 @@
 				303BA4FC2ADFE3220047147D /* MoodSelectionView.swift in Sources */,
 				30E9CB3E29F6D02C00E1F0C2 /* MainScreenView.swift in Sources */,
 				3044405B29F7125D00AD40F2 /* RoundedCorner.swift in Sources */,
+				300D93732AE8710800944899 /* MilestoneCompletedViewModel.swift in Sources */,
 				30400F472A5D8250006D46C9 /* VideoInfoView.swift in Sources */,
 				30A2453C2A41151500AA0093 /* RecomendationsCoordinator.swift in Sources */,
 				30A0E4CB29DE19E1000CA339 /* Coordinator.swift in Sources */,
@@ -1833,7 +1861,7 @@
 				CODE_SIGN_ENTITLEMENTS = StopMate/Resourses/StopMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StopMate/Info.plist;
@@ -1850,7 +1878,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.16;
+				MARKETING_VERSION = 1.18;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1874,7 +1902,7 @@
 				CODE_SIGN_ENTITLEMENTS = StopMate/Resourses/StopMate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8ANLV69UU4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StopMate/Info.plist;
@@ -1891,7 +1919,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.16;
+				MARKETING_VERSION = 1.18;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrvasylenko.StopMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

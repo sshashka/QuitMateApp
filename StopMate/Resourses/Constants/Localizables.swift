@@ -105,6 +105,11 @@ struct Localizables {
         
         static let twoWeeks = mainCatalog("Shared.twoWeeks")
         static let month = mainCatalog("Shared.month.%lld")
+        static let sure = mainCatalog("Shared.sure")
+        static let cancel = mainCatalog("Shared.cancel")
+        static let ok = mainCatalog("Shared.ok")
+        static let yes = mainCatalog("Shared.yes")
+        static let no = mainCatalog("Shared.no")
     }
     
     //MARK: Onboarding view strings
@@ -156,6 +161,7 @@ struct Localizables {
         static let passwordResetAlertMessage = mainCatalog("Settings.passwordResetAlertMessage")
         static let resetPasswordPromt = mainCatalog("Settings.resetPasswordPromt")
         static let logout = mainCatalog("Settings.logout")
+        static let edit = mainCatalog("Settings.edit")
     }
     
     struct MoodsStrings {

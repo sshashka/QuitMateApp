@@ -48,7 +48,6 @@ final class TabBarCoordinator: NSObject, Coordinator {
     
     private func getTabControllers(page: TabBarPages) -> UINavigationController {
         let navVC = UINavigationController()
-        //        navVC.delegate = se
         navVC.tabBarItem = UITabBarItem.init(title: nil, image: page.getImages(), selectedImage: nil)
         navVC.setNavigationBarHidden(false, animated: false)
         switch page {
@@ -95,9 +94,21 @@ final class TabBarCoordinator: NSObject, Coordinator {
     }
     
     private func showMilestoneCompletedView() {
-        let vc = UIHostingController(rootView: MilestoneCompletedView())
-        //        vc.modalPresentationStyle = .fullScreen
+        let vm = MilestoneCompletedViewModel()
+        let vc = UIHostingController(rootView: MilestoneCompletedView(vm: vm))
+        
         vc.view.backgroundColor = UIColor(resource: .background)
+        vm.didSendEvent = { [weak self] event in
+            switch event {
+            case .dontChangeAnything:
+                vc.dismiss(animated: true)
+            case .resetFinishingDate:
+                vc.dismiss(animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self?.showReasonsToStop()
+                }
+            }
+        }
         navigationController.present(vc, animated: true)
     }
     

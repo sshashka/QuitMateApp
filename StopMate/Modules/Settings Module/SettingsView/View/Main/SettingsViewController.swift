@@ -11,7 +11,6 @@ import Combine
 
 final class SettingsViewController: UIViewController {
     private let settingsLabels: [String] = [Localizables.SettingsStrings.changePassword, Localizables.SettingsStrings.termsAndConditions, Localizables.SettingsStrings.privacyPolicy, Localizables.SettingsStrings.watchYourHistory, Localizables.OnboardingStrings.onboardingHeader, Localizables.SettingsStrings.deleteAccuont]
-//    private let gradientLayer = CAGradientLayer()
     private var viewModel: SettingsViewModelProtocol?
     private var disposeBag = Set<AnyCancellable>()
     private let settingsTableView: UITableView = {
@@ -70,7 +69,7 @@ private extension SettingsViewController {
     }
     
     func setupEditButton() {
-        let button = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonDidTap))
+        let button = UIBarButtonItem(title: Localizables.SettingsStrings.edit, style: .plain, target: self, action: #selector(editButtonDidTap))
         self.navigationItem.rightBarButtonItems = [button]
     }
     
@@ -86,11 +85,11 @@ private extension SettingsViewController {
     
     func didSelectPasswordReset() {
         let alert = UIAlertController(title: nil, message: Localizables.SettingsStrings.resetPasswordPromt, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Sure", style: .destructive) { [weak self] _ in
+        let action = UIAlertAction(title: Localizables.Shared.sure, style: .destructive) { [weak self] _ in
             self?.viewModel?.resetPassword()
             self?.showPasswordResetAlert()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: Localizables.Shared.cancel, style: .cancel)
         
         alert.addAction(action)
         alert.addAction(cancelAction)
@@ -100,7 +99,7 @@ private extension SettingsViewController {
     
     func showAlert() {
         let alert = UIAlertController(title: nil, message: viewModel?.errorText, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+        alert.addAction(UIAlertAction(title: Localizables.Shared.ok, style: .default) { [weak self] _ in
             self?.viewModel?.isShowingAlert.toggle()
         })
         
@@ -109,17 +108,17 @@ private extension SettingsViewController {
     
     func showPasswordResetAlert() {
         let alert = UIAlertController(title: Localizables.SettingsStrings.passwordResetAlertTitle, message: Localizables.SettingsStrings.passwordResetAlertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: Localizables.Shared.ok, style: .default))
         
         present(alert, animated: true)
     }
     
     func showDeleteAccountAlert() {
         let alert = UIAlertController(title: nil, message: Localizables.SettingsStrings.accountDeleteMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive) {[weak self] _ in
+        alert.addAction(UIAlertAction(title: Localizables.Shared.yes, style: .destructive) {[weak self] _ in
             self?.viewModel?.didTapOnAccountDelete()
         })
-        alert.addAction(UIAlertAction(title: "No", style: .cancel))
+        alert.addAction(UIAlertAction(title: Localizables.Shared.no, style: .cancel))
         present(alert, animated: true)
     }
     
@@ -165,13 +164,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = SettingsTableViewFooterView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+        let view = SettingsTableViewFooterView(frame: CGRect(x: .zero, y: .zero, width: tableView.frame.width, height: Spacings.spacing40))
         view.delegate = self
         return view
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40
+        return Spacings.spacing40
     }
 }
 

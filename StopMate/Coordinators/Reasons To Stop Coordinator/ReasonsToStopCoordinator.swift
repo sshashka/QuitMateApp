@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+
 protocol ReasonsToStopCoordinatorProtocol: Coordinator {
     func showReasonsToStop()
 }

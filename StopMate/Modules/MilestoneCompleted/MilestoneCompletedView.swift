@@ -7,22 +7,23 @@
 
 import SwiftUI
 
-struct MilestoneCompletedView: View {
+struct MilestoneCompletedView<ViewModel>: View where ViewModel: MilestoneCompletedViewModelProtocol {
+    let vm: ViewModel
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading, spacing: Spacings.spacing15) {
                 Text(Localizables.MilestoneCompletedStrings.header)
                     .fontStyle(.header)
                 Text(Localizables.MilestoneCompletedStrings.bottomText)
-                    .fontStyle(.regularText)
+                    .fontStyle(.recomendationsText)
                 Button {
-                    
+                    vm.didTapOnDontChangeAnything()
                 } label: {
                     Text(Localizables.MilestoneCompletedStrings.continueUsingAsDiary)
                 }
                 
                 Button {
-                    
+                    vm.didTapOnResetFinishingDate()
                 } label: {
                     Text(Localizables.MilestoneCompletedStrings.setANewDate)
                 }
@@ -36,5 +37,5 @@ struct MilestoneCompletedView: View {
 }
 
 #Preview {
-    MilestoneCompletedView()
+    MilestoneCompletedView(vm: MilestoneCompletedViewModel())
 }

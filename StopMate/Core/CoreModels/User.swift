@@ -28,11 +28,7 @@ struct User: Codable {
     
     //MARK: - Computed properties
     var milestoneCompleted: Bool {
-        if currentDate == finishingDate || currentDate > finishingDate {
-            return true
-        } else {
-            return true
-        }
+        return currentDate == finishingDate || currentDate > finishingDate ? true : false
     }
     
     var moneySpentOnSigarets: Double {

@@ -12,14 +12,16 @@ import Foundation
 enum RecomendationsViewModelState {
     case loading
     case loaded
+    case isShowingError
 }
 //MARK: - Protocol
 protocol RecomendationsViewModelProtocol: AnyObject, ObservableObject {
     var state: RecomendationsViewModelState { get }
+    var isShowingAlert: Bool { get set }
     var recomendation: String { get }
     var doneAndRegenerateButtonsEnabled: Bool { get set }
     func didTapDone()
-    func generateResponse()
+    func generateResponse() async
     func start()
 }
 //MARK: - Protocol implementation
@@ -28,29 +30,38 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
         case moodRecomendation
         case timerResetRecomendation([ReasonsToStop], UserSmokingSessionMetrics)
     }
+    //MARK: - Properties
     var didSendEventClosure: ((RecomendationsViewModel.EventType) -> Void)?
     private var typeOfGenerationEvent: TypeOfRecomendation
+    private var disposeBag: Set<AnyCancellable> = Set<AnyCancellable>()
+    private let storageService: FirebaseStorageServiceProtocol
+    //MARK: - Published properties
+    @Published var recomendation: String = ""
+    @Published var doneAndRegenerateButtonsEnabled: Bool = false
+    @Published var isShowingAlert: Bool = false
+    
     @Published var state: RecomendationsViewModelState = .loading {
         didSet {
             guard state == .loaded else { doneAndRegenerateButtonsEnabled = false; return }
             doneAndRegenerateButtonsEnabled = true
         }
     }
-    @Published var recomendation: String = ""
-    @Published var doneAndRegenerateButtonsEnabled: Bool = false
     
-    private var disposeBag: Set<AnyCancellable> = Set<AnyCancellable>()
-    private let storageService: FirebaseStorageServiceProtocol
     private var userData: User? {
         didSet {
             guard statsData != nil else { return }
-            generateResponse()
+            Task {
+                await generateResponse()
+            }
         }
     }
+    
     private var statsData: [UserMoodModel]? {
         didSet {
             guard userData != nil else { return }
-            generateResponse()
+            Task {
+                await generateResponse()
+            }
         }
     }
     //MARK: init
@@ -61,11 +72,14 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
     
     func start() {
         getUserData()
-        generateResponse()
+        Task {
+            await generateResponse()
+        }
     }
    
     //MARK: - Public methods
-    func generateResponse() {
+    @MainActor
+    func generateResponse() async {
         state = .loading
         guard let userData = userData else { return }
         guard let statsData = statsData else { return }
@@ -78,9 +92,9 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
             return
         }
         tokens = 700
-//#if DEBUG
-//        tokens = 150
-//#endif
+#if DEBUG
+        tokens = 150
+#endif
         // Please put your own token here for debug
         let apiKey = ApiKeysService.shared.aiKey
         
@@ -93,23 +107,30 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
         case .timerResetRecomendation(let reasons, let metrics):
             query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .user, content: RecomendationPrompts.getPromtForSmokingSession(userData: userData, userStats: statsData, reasons: reasons, metrics: metrics))], maxTokens: tokens)
         }
-        print(query)
-        openAi.chatsStream(query: query)
-            .receive(on: RunLoop.main)
-            .sink {
-                print($0)
-            } receiveValue: { [weak self] result in
-                switch result {
-                case .success(let responce):
-                    self?.state = .loaded
-                    var text = String()
-                    text = responce.choices.first?.delta.content ?? String()
-                    self?.recomendation += text
-                case .failure(_):
-                    break
-                }
-//                self?.recomendation = firstResponse.trimmingCharacters(in: .whitespacesAndNewlines)
-            }.store(in: &disposeBag)
+        do {
+            let result = try await openAi.chats(query: query)
+            recomendation = result.choices.first?.message.content ?? String()
+            state = .loaded
+        } catch {
+            state = .isShowingError
+            isShowingAlert = true
+        }
+        
+//        openAi.chatsStream(query: query)
+//            .receive(on: RunLoop.main)
+//            .sink {
+//                print($0)
+//            } receiveValue: { [weak self] result in
+//                switch result {
+//                case .success(let responce):
+//                    self?.state = .loaded
+//                    var text = String()
+//                    text = responce.choices.first?.delta.content ?? String()
+//                    self?.recomendation += text
+//                case .failure(_):
+//                    break
+//                }
+//            }.store(in: &disposeBag)
     }
     
     //MARK: Saving responce
@@ -129,8 +150,8 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
     }
 }
 
+//MARK: - Private methods
 private extension RecomendationsViewModel {
-    //MARK: - Private methods
     private func getUserData() {
         state = .loading
         storageService.getUserModel()

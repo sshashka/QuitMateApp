@@ -36,6 +36,9 @@ struct RecomendationsView<ViewModel>: View where ViewModel: RecomendationsViewMo
         .onAppear {
             viewModel.start()
         }
+        .alert("Kek", isPresented: $viewModel.isShowingAlert) {
+            
+        }
     }
 }
 

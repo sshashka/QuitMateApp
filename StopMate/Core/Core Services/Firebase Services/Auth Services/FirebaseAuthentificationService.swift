@@ -22,8 +22,6 @@ import Foundation
 import FirebaseAuth
 import Combine
 
-// Enum of auth errors
-
 enum ResultOfAuthentification {
     case success
     case failure(String)

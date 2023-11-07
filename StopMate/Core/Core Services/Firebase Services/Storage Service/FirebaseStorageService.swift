@@ -130,6 +130,7 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
             } else if (snapshot.value as Any?) != nil {
                 let user = try? snapshot.data(as: User.self)
                 if let user = user {
+                    print(user.finishingDate)
                     self?.userDataPublisher.send(user)
                 }
             }

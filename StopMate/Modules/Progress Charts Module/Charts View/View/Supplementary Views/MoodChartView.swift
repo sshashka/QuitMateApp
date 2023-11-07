@@ -11,6 +11,8 @@ import Charts
 struct MoodChartView: View {
     var dataForCharts: [ChartModel]
     var domain: ClosedRange<Int>
+    private let smokingSessions = Localizables.Shared.smokingSeesions
+    private let markedMoods = Localizables.Shared.markedMoods
     @State var state: ProgressChartsState
     
     var body: some View {
@@ -21,13 +23,13 @@ struct MoodChartView: View {
             }
         } else {
             Chart(dataForCharts) { chart in
-                PointMark(x: .value("Day", chart.date), y: .value("Mood", chart.mood.moodNumber))
+                PointMark(x: .value("", chart.date), y: .value("", chart.mood.moodNumber))
                     .interpolationMethod(.linear)
-                    .foregroundStyle(by: .value("Type", chart.type))
+                    .foregroundStyle(by: .value("", chart.type))
                 
-                LineMark(x: .value("Day", chart.date), y: .value("Mood", chart.mood.moodNumber))
+                LineMark(x: .value("", chart.date), y: .value("", chart.mood.moodNumber))
                     .interpolationMethod(.linear)
-                    .foregroundStyle(by: .value("Type", chart.type))
+                    .foregroundStyle(by: .value("", chart.type))
             }
             .chartYAxis {
                 AxisMarks(preset: .automatic, position: .leading, values: .stride(by: 1)) {

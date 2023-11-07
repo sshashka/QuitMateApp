@@ -296,7 +296,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Дата закінчення"
+            "value" : "Кінцева дата:"
           }
         }
       }
@@ -910,7 +910,14 @@
       }
     },
     "Day" : {
+      "extractionState" : "stale",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Day"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -990,6 +997,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Щасливий"
+          }
+        }
+      }
+    },
+    "Kek" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kek"
           }
         }
       }
@@ -1176,7 +1193,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Сьогодні день, який ви визначили своїм останнім днем, щоб подолати свою звичку палити, і ми б хотіли скористатися моментом, щоб привітати вас із досягненням цієї важливої ​​цілі. Це величезне досягнення та свідчення вашої сили, рішучості та відданості власному добробуту.\n\nВирватися з лещата залежності – це не маленький подвиг, і ваша відданість цій цілі справді неймовірна. Ви продемонстрували неймовірну стійкість, і ви повинні надзвичайно собою пишатися.\n\nПам’ятайте, що ця віха є лише початком здоровішої та щасливішої глави у вашому житті. Продовжуючи цей шлях, знайте, що у вас є система підтримки. Незалежно від того, чи це слово підбадьорення, чи те, щоб вислухати, ми тут, щоб допомогти вам залишатися на шляху.\n\nВаша подорож до життя без тютюнового диму надихає не лише вас, а й інших, які можуть зіткнутися з подібними проблемами. Ваш успіх служить маяком надії та нагадуванням про те, що позитивні зміни завжди можливі.\n\nЩе раз вітаємо з цим неймовірним досягненням. Прийміть цей момент і чекайте всіх яскравих днів, які попереду.\n\nБажаємо Вам подальших сил та успіхів на Вашому шляху!"
+            "value" : "Сьогодні день, який ви визначили своїм останнім днем, щоб подолати свою звичку палити, і ми б хотіли скористатися моментом, щоб привітати вас із досягненням цієї важливої ​​цілі. Це величезне досягнення та свідчення вашої сили, рішучості та відданості власному добробуту.\n\nВирватися з лещата залежності – це не маленький подвиг, і ваша відданість цій цілі справді неймовірна. Ви продемонстрували неймовірну стійкість, і ви повинні надзвичайно собою пишатися.\n\nПам’ятайте, що ця віха є лише початком здоровішої та щасливішої глави у вашому житті. Продовжуючи цей шлях, знайте, що у вас є система підтримки. Незалежно від того, чи це слово підбадьорення, чи те, щоб вислухати, ми тут, щоб допомогти вам залишатися на шляху.\n\nВаша подорож до життя без тютюнового диму надихає не лише вас, а й інших, які можуть зіткнутися з подібними проблемами. Ваш успіх служить маяком надії та нагадуванням про те, що позитивні зміни завжди можливі.\n\nЩе раз вітаємо з цим неймовірним досягненням. Прийміть цей момент і чекайте всіх яскравих днів, які попереду.\n\nБажаємо Вам подальших сил та успіхів на Вашому шляху!\nЯкщо так сталось, що ви продовжуєте курити натисніть на кнопку встановлення нової дати"
           }
         }
       }
@@ -1192,7 +1209,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не змінювати дату закінчення"
+            "value" : "Не змінювати кінцеву дату"
           }
         }
       }
@@ -1224,12 +1241,13 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Встановити нову дату закінчення"
+            "value" : "Встановити нову кінцеву дату"
           }
         }
       }
     },
     "Mood" : {
+      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -2010,6 +2028,22 @@
         }
       }
     },
+    "Settings.edit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Редагувати"
+          }
+        }
+      }
+    },
     "Settings.logout" : {
       "localizations" : {
         "en" : {
@@ -2134,6 +2168,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вік"
+          }
+        }
+      }
+    },
+    "Shared.cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відміна"
           }
         }
       }
@@ -2319,6 +2369,22 @@
         }
       }
     },
+    "Shared.no" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ні"
+          }
+        }
+      }
+    },
     "Shared.NoData" : {
       "localizations" : {
         "en" : {
@@ -2335,6 +2401,22 @@
         }
       }
     },
+    "Shared.ok" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ок"
+          }
+        }
+      }
+    },
     "Shared.smokingSessions" : {
       "localizations" : {
         "en" : {
@@ -2347,6 +2429,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сесії куріння"
+          }
+        }
+      }
+    },
+    "Shared.sure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sure"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Звісно"
           }
         }
       }
@@ -2439,6 +2537,22 @@
         }
       }
     },
+    "Shared.yes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Так"
+          }
+        }
+      }
+    },
     "Smoking sessions" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2457,7 +2571,15 @@
       }
     },
     "Type" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип"
+          }
+        }
+      }
     },
     "UserHistory.dateOfClassification:.%@" : {
       "localizations" : {
@@ -2556,8 +2678,7 @@
         }
       }
     },
-    "UserHistory.youHaveSelectedReasons: %@" : {
-      "extractionState" : "stale",
+    "UserHistory.youHaveSelectedReasons.%@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2568,17 +2689,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ви обрали наступні причини: %@"
-          }
-        }
-      }
-    },
-    "UserHistory.youHaveSelectedReasons.%@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You have selected reasons: %@"
+            "value" : "Причинами було наступне: %@"
           }
         }
       }
@@ -2626,7 +2737,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не змінювати дату закінчення"
+            "value" : "Не змінювати кінцеву дату"
           }
         }
       }
@@ -2674,7 +2785,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Встановіть нову дату закінчення"
+            "value" : "Встановіть нову дату"
           }
         }
       }

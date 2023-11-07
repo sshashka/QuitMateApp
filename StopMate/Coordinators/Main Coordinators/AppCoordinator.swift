@@ -118,6 +118,8 @@ extension AppCoordinator: CoordinatorFinishDelegate {
     func instantiateNewCoordinator(coordinator: CoordinatorType) {
         switch coordinator {
         case .reasonsToStop:
+            navigationController.viewControllers = []
+            childCoordinators = []
             showReasonsToStop()
         case .moodClassifier:
             navigationController.viewControllers.removeAll()
