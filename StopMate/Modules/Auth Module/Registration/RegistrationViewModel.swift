@@ -13,7 +13,7 @@ enum RegistrationViewModelStates {
     case idle, loading
 }
 
-protocol RegistrationViewModelProtocol: AnyObject, ObservableObject {
+protocol RegistrationViewModelProtocol: AnyObject, ObservableObject, ViewModelBaseProtocol {
     var state: RegistrationViewModelStates { get }
     var email: String { get set }
     var password: String { get set }

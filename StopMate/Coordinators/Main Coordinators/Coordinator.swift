@@ -16,11 +16,13 @@ protocol Coordinator: AnyObject {
     
     var type: CoordinatorType {get}
     
+    var container: AppContainer { get }
+    
     func start()
     
     func finish()
     
-    init(_ navigationController: UINavigationController)
+    init(_ navigationController: UINavigationController, container: AppContainer)
 }
 
 extension Coordinator {

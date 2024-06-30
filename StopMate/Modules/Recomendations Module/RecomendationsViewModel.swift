@@ -25,7 +25,7 @@ protocol RecomendationsViewModelProtocol: AnyObject, ObservableObject {
     func start()
 }
 //MARK: - Protocol implementation
-final class RecomendationsViewModel: RecomendationsViewModelProtocol {
+final class RecomendationsViewModel: RecomendationsViewModelProtocol, ViewModelBaseProtocol {
     enum TypeOfRecomendation {
         case moodRecomendation
         case timerResetRecomendation([ReasonsToStop], UserSmokingSessionMetrics)
@@ -103,13 +103,42 @@ final class RecomendationsViewModel: RecomendationsViewModelProtocol {
         
         switch typeOfGenerationEvent {
         case .moodRecomendation:
-            query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .user, content: RecomendationPrompts.getRecomendationForMoodAdded(userData: userData, userStats: statsData))], maxTokens: tokens)
+            query = ChatQuery(
+                messages: [.init(
+                    role: .user,
+                    content: [.init(
+                        chatCompletionContentPartTextParam: .init(
+                            text: RecomendationPrompts.getRecomendationForMoodAdded(
+                                userData: userData,
+                                userStats: statsData
+                            )
+                        )
+                    )]
+                )!],
+                model: .gpt3_5Turbo
+            )
+//            query = ChatQuery(messages: [.init(role: .user, content: RecomendationPrompts.getRecomendationForMoodAdded(userData: userData, userStats: statsData)) ?? ""], model: .gpt3_5Turbo, maxTokens: tokens)
         case .timerResetRecomendation(let reasons, let metrics):
-            query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .user, content: RecomendationPrompts.getPromtForSmokingSession(userData: userData, userStats: statsData, reasons: reasons, metrics: metrics))], maxTokens: tokens)
+            query = ChatQuery(
+                messages: [.init(
+                    role: .user,
+                    content: [.init(
+                        chatCompletionContentPartTextParam: .init(
+                            text:  RecomendationPrompts.getPromtForSmokingSession(
+                                userData: userData,
+                                userStats: statsData,
+                                reasons: reasons,
+                                metrics: metrics
+                            )
+                        )
+                    )]
+                )!],
+                model: .gpt3_5Turbo
+            )
         }
         do {
             let result = try await openAi.chats(query: query)
-            recomendation = result.choices.first?.message.content ?? String()
+            recomendation = result.choices.first?.message.content?.string ?? String()
             state = .loaded
         } catch {
             state = .isShowingError

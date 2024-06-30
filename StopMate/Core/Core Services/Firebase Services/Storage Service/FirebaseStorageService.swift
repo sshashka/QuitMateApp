@@ -41,7 +41,7 @@ protocol FirebaseStorageServiceProtocol: FirebaseStorageServicePublishersProtoco
     func updateUserProfilePic(with: Data)
     func getUserHistory() -> AnyPublisher<[UserHistoryModel], Error>
     func updateUserProfileData(user: User)
-    func checkIfUserExists(completion: @escaping(Bool) -> Void)
+    func checkIfUserExists(userID: String?, completion: @escaping(Bool) -> Void)
     func retrieveUserProfilePic()
     func updateUserOnboardingStatus()
     func addUserSmokingSessionMetrics(entry: UserSmokingSessionMetrics)
@@ -214,8 +214,9 @@ final class FirebaseStorageService: FirebaseStorageServiceProtocol {
         try? reference.setValue(from: record)
     }
     // MARK: Checing if user exists
-    func checkIfUserExists(completion: @escaping(Bool) -> Void) {
-        let reference = getChildReferenceWithUserId(for: .user)
+    func checkIfUserExists(userID: String?, completion: @escaping(Bool) -> Void) {
+        guard let userID else { return }
+        let reference = getChildReference(for: .user).child(userID)
         reference.observeSingleEvent(of: .value) { snapshot in
             guard snapshot.exists() else {
                 completion(false)

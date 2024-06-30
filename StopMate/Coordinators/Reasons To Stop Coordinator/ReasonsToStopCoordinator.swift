@@ -13,6 +13,13 @@ protocol ReasonsToStopCoordinatorProtocol: Coordinator {
 }
 
 final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
+    var container: AppContainer
+    
+    init(_ navigationController: UINavigationController, container: AppContainer) {
+        self.navigationController = navigationController
+        self.container = container
+    }
+    
     var finishDelegate: CoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
@@ -32,10 +39,6 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
         showUserStateView()
     }
     
-    init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
     func showReasonsToStop() {
         let vc = ReasonsToStopViewController.module
         vc.presenter?.didSendEventClosure = { [weak self] event in
@@ -49,9 +52,8 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
     }
     
     func showUserStateView() {
-        let viewModel = UserEmotionalStateViewModel(storageService: storageService)
-        let vc = UIHostingController(rootView: UserEmotionalStateView(viewModel: viewModel))
-        viewModel.didSendEventClosure = { [weak self] event in
+        let module = UserEmotionalStateViewBuilder.build(container: container)
+        module.viewModel.didSendEventClosure = { [weak self] event in
             switch event {
             case .done(let metrics):
                 self?.showReasonsToStop()
@@ -60,20 +62,19 @@ final class ReasonsToStopCoordinator: ReasonsToStopCoordinatorProtocol {
                 self?.finishDelegate?.instantiateNewCoordinator(coordinator: .tabbar)
             }
         }
-        navigationController.pushWithCustomAnination(vc)
+        navigationController.pushWithCustomAnination(module.viewController)
     }
     func showFinishingDate() {
-        let vm = ReasonsToStopNewFinishingDateViewModel(storageService: storageService)
-        let vc = UIHostingController(rootView: ReasonsToStopNewFinishingDateView(viewModel: vm))
-        
-        vm.didSendEventClosure = { [weak self] event in
+        let module = ReasonsToStopNewFinishingDateViewBuilder.build(container: container)
+        module.viewModel.didSendEventClosure = { [weak self] event in
             self?.showRecomendations()
         }
-        navigationController.pushViewController(vc, animated: true)
+        
+        navigationController.pushViewController(module.viewController, animated: true)
     }
     
     func showRecomendations() {
-        let recomendationsCoordinator = RecomendationsCoordinator(navigationController)
+        let recomendationsCoordinator = RecomendationsCoordinator(navigationController, container: container)
         guard let userStateMetrics else { return }
         recomendationsCoordinator.recomendationType = .timerResetRecomendation(selectedReasons, userStateMetrics)
         recomendationsCoordinator.finishDelegate = finishDelegate

@@ -13,14 +13,19 @@ protocol RecomendationsCoordinatorProtocol: Coordinator {
 }
 
 final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
+    var container: AppContainer
+    
+    init(_ navigationController: UINavigationController, container: AppContainer) {
+        self.navigationController = navigationController
+        self.container = container
+    }
+    
     internal func showRecomendationsView() {
-        let storageService = FirebaseStorageService()
-        let viewModel = RecomendationsViewModel(storageService: storageService, type: recomendationType)
-        let recomendationsVC = UIHostingController(rootView: RecomendationsView(viewModel: viewModel))
-        viewModel.didSendEventClosure = { [weak self] event in
+        let module = RecomentationsViewBuilder.build(container: container, typeOfRecomendation: recomendationType)
+        module.viewModel.didSendEventClosure = { [weak self] event in
             self?.finish()
         }
-        navigationController.pushViewController(recomendationsVC, animated: true)
+        navigationController.pushViewController(module.viewController, animated: true)
     }
     
     var finishDelegate: CoordinatorFinishDelegate?
@@ -35,9 +40,5 @@ final class RecomendationsCoordinator: RecomendationsCoordinatorProtocol {
     
     func start() {
         showRecomendationsView()
-    }
-    
-    init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
     }
 }

@@ -1002,6 +1002,7 @@
       }
     },
     "Kek" : {
+      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {

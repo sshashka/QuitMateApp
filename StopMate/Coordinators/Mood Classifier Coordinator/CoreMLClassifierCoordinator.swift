@@ -12,6 +12,13 @@ protocol CoreMLClassifierCoordinatorProtocol: Coordinator {
 }
 
 final class CoreMLClassifierCoordinator: CoreMLClassifierCoordinatorProtocol {
+    var container: AppContainer
+    
+    required init(_ navigationController: UINavigationController, container: AppContainer) {
+        self.navigationController = navigationController
+        self.container = container
+    }
+    
     internal func showCoreMLClassifier() {
         let vc = MoodClassifierViewController.module
         vc.presenter?.didSendEventClosure = { [weak self] event in
@@ -39,15 +46,9 @@ final class CoreMLClassifierCoordinator: CoreMLClassifierCoordinatorProtocol {
     }
     
     private func showRecomendations() {
-        let coordinator = RecomendationsCoordinator(navigationController)
+        let coordinator = RecomendationsCoordinator(navigationController, container: container)
         coordinator.finishDelegate = finishDelegate
         childCoordinators.append(coordinator)
         coordinator.start()
     }
-    
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
-    
 }

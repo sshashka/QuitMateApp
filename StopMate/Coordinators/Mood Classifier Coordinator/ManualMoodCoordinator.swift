@@ -15,11 +15,12 @@ protocol ManualMoodCoordinatorProtocol: Coordinator {
 final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
     var didSendEventClosure: ((CoordinatorType) -> Void)?
     
-    internal func showManualSelectionView() {
-        let viewModel = ManualMoodClassifierModuleViewModel(storageService: FirebaseStorageService())
-        let view = ManualMoodClassifierView(viewModel: viewModel)
-        let vc = UIHostingController(rootView: view)
-        viewModel.didSendEndEventClosure = { [weak self] event in
+    var container: AppContainer
+    
+    func showManualSelectionView() {
+        let module = MoodClassifierViewBuilder.build(contailer: container)
+        let vc = module.viewController
+        module.viewModel.didSendEndEventClosure = { [weak self] event in
             self?.showRecomendations()
         }
         navigationController.pushWithCustomAnination(vc)
@@ -34,7 +35,7 @@ final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
     var type: CoordinatorType {.moodClassifier}
     
     private func showRecomendations() {
-        let coordinator = RecomendationsCoordinator(navigationController)
+        let coordinator = RecomendationsCoordinator(navigationController, container: container)
         coordinator.finishDelegate = finishDelegate
         childCoordinators.append(coordinator)
         coordinator.start()
@@ -44,7 +45,8 @@ final class ManualMoodCoordinator: ManualMoodCoordinatorProtocol {
         showManualSelectionView()
     }
     
-    init(_ navigationController: UINavigationController) {
+    required init(_ navigationController: UINavigationController, container: AppContainer) {
         self.navigationController = navigationController
+        self.container = container
     }
 }

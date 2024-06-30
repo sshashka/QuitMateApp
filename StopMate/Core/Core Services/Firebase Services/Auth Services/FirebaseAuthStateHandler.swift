@@ -15,8 +15,12 @@ enum FirebaseAuthStateHandlerResult {
     case userDidNotCompleteOnboarding
 }
 
+protocol FirebaseAuthStateHandlerProtocol: AnyObject {
+    func checkIfUserIsAuthentificated() -> AnyPublisher<FirebaseAuthStateHandlerResult, Never>
+}
+
 /// This class handles user authentification states
-final class FirebaseAuthStateHandler {
+final class FirebaseAuthStateHandler: FirebaseAuthStateHandlerProtocol {
     private let storageService = FirebaseStorageService()
     private var disposeBag = Set<AnyCancellable>()
         
@@ -26,8 +30,9 @@ final class FirebaseAuthStateHandler {
             if user == nil {
                 publisher.send(.userIsNotAuthentificated)
             } else {
-                UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: UserDefaultsConstants.userId)
-                self?.storageService.checkIfUserExists { status in
+                let userId = Auth.auth().currentUser?.uid
+                UserDefaults.standard.set(userId, forKey: UserDefaultsConstants.userId)
+                self?.storageService.checkIfUserExists(userID: userId) { status in
                     if status == true {
                         self?.storageService.checkIfUserCompletedOnboarding { result in
                             switch result {

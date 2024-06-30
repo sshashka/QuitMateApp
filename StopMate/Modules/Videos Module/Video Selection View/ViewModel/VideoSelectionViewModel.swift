@@ -22,7 +22,7 @@ protocol VideoSelectionViewModelProtocol: AnyObject, ObservableObject {
 }
 
 final class VideoSelectionViewModel: VideoSelectionViewModelProtocol {
-    private let youtubeService: YoutubeApiService
+    private let youtubeService: YoutubeApiServiceProtocol
     private var disposeBag = Set<AnyCancellable>()
     var didSendEvetClosure: ((VideoSelectionViewModel.EventTypes) -> Void)?
     private var videosList: YoutubeAPIResponce? {
@@ -41,7 +41,7 @@ final class VideoSelectionViewModel: VideoSelectionViewModelProtocol {
     @Published private (set) var state: VideoSelectionViewModelStates
     @Published private (set) var isLoadingMoreVideos: Bool = false
     
-    init(youtubeService: YoutubeApiService) {
+    init(youtubeService: YoutubeApiServiceProtocol) {
         self.youtubeService = youtubeService
         self.state = .loading
         start()

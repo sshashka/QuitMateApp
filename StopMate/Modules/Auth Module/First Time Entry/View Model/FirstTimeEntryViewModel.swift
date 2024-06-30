@@ -19,7 +19,7 @@ protocol FirstTimeEntryViewModelProtocol: AnyObject, ObservableObject {
     func didTapOnFinish()
 }
 
-final class FirstTimeEntryViewModel: FirstTimeEntryViewModelProtocol {
+final class FirstTimeEntryViewModel: FirstTimeEntryViewModelProtocol, ViewModelBaseProtocol {
     let storageService: FirebaseStorageServiceProtocol
     var didSendEventClosure: ((FirstTimeEntryViewModel.EventType) -> Void)?
     @Published var name: String = ""

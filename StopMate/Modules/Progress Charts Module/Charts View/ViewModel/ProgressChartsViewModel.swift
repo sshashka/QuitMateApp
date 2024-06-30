@@ -190,7 +190,12 @@ private extension ProgressChartsViewModel {
             ChartModel(id: UUID(), type: .smoking, mood: $0.classification, date: $0.dateOfClassification)
         }
         
-        let data = userMoods + smokingSessions
+        print("\(period.rawValue)")
+        userMoods.forEach {
+            print("\($0.date) + \($0.id)")
+        }
+        
+        let data = userMoods.sorted { $0.date > $1.date } + smokingSessions.sorted { $0.date > $1.date}
         return data
     }
     // MARK: Filtering userMoods
@@ -265,7 +270,6 @@ private extension ProgressChartsViewModel {
         // This one needs to be a Set so I don`t add a new value each time smoking session with corresponding date found
         var moodsArr = Set<UserMoodModel>()
         var smokingArr = [UserSmokingSessionMetrics]()
-        
         // TODO: Remake it smarter way
         // Finding records made on the same day in two arrays
         for smokingRecord in userSmokingRecords {

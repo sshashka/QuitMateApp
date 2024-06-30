@@ -12,7 +12,7 @@ enum AuthentificationViewModelStates {
     case idle, loading
 }
 
-protocol AuthentificationViewModelProtocol: AnyObject, ObservableObject {
+protocol AuthentificationViewModelProtocol: AnyObject, ObservableObject, ViewModelBaseProtocol {
     var email: String { get set }
     var password: String { get set }
     var emailTextFieldColor: Color? { get }

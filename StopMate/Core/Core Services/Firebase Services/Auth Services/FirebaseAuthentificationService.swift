@@ -79,9 +79,8 @@ final class FirebaseAuthentificationService: AuthentificationServiceProtocol {
                     }
                 }
             } else {
-                // Костыль
                 completion(.success)
-                UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "UserID")
+                UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: UserDefaultsConstants.userId)
             }
         }
     }

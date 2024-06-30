@@ -15,7 +15,7 @@ protocol AppCoordinatorProtocol: Coordinator {
 final class AppCoordinator: AppCoordinatorProtocol {
     
     func showReasonsToStop() {
-        let vc = ReasonsToStopCoordinator(navigationController)
+        let vc = ReasonsToStopCoordinator(navigationController, container: container)
         vc.finishDelegate = self
         vc.start()
         childCoordinators.append(vc)
@@ -27,23 +27,26 @@ final class AppCoordinator: AppCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
     
-    private let firebaseStorageService = FirebaseStorageService()
+    var container: AppContainer
     
-    private let firebaseAuthStateHandler = FirebaseAuthStateHandler()
+//    private let firebaseStorageService = FirebaseStorageService()
+//    
+//    private let firebaseAuthStateHandler = FirebaseAuthStateHandler()
     
     var type: CoordinatorType {.app}
     
     private var disposeBag = Set<AnyCancellable>()
     
-    required init(_ navigationController: UINavigationController) {
+    required init(_ navigationController: UINavigationController, container: AppContainer) {
         self.navigationController = navigationController
+        self.container = container
     }
     
     private func showLogin() {
         childCoordinators = []
         navigationController.viewControllers.removeAll()
         self.navigationController.setNavigationBarHidden(false, animated: false)
-        let authCoordinator = LoginCoordinator(navigationController)
+        let authCoordinator = LoginCoordinator(navigationController, container: container)
         authCoordinator.finishDelegate = self
         authCoordinator.start()
         childCoordinators.append(authCoordinator)
@@ -53,14 +56,14 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinators = []
         navigationController.viewControllers.removeAll()
         navigationController.setNavigationBarHidden(true, animated: false)
-        let mainCoordinator = TabBarCoordinator(navigationController)
+        let mainCoordinator = TabBarCoordinator(navigationController, container: container)
         mainCoordinator.finishDelegate = self
         mainCoordinator.start()
         childCoordinators.append(mainCoordinator)
     }
-    // This should be called from push notification not tabbar
+
     private func showMoodClassificationVC() {
-        let moodClassifierCoordinator = ManualMoodCoordinator(navigationController)
+        let moodClassifierCoordinator = ManualMoodCoordinator(navigationController, container: container)
         moodClassifierCoordinator.finishDelegate = self
         moodClassifierCoordinator.start()
         childCoordinators.append(moodClassifierCoordinator)
@@ -69,14 +72,14 @@ final class AppCoordinator: AppCoordinatorProtocol {
     private func showFirstTimeEntryFlow() {
         childCoordinators = []
         navigationController.viewControllers.removeAll()
-        let coordinator = FirstTimeEntryCoordinator(navigationController)
+        let coordinator = FirstTimeEntryCoordinator(navigationController, container: container)
         coordinator.finishDelegate = self
         childCoordinators.append(coordinator)
         coordinator.start()
     }
     
     private func showRegistration() {
-        let registrationCoordinator = FirstTimeEntryCoordinator(navigationController)
+        let registrationCoordinator = FirstTimeEntryCoordinator(navigationController, container: container)
         registrationCoordinator.finishDelegate = self
         registrationCoordinator.start()
         childCoordinators.append(registrationCoordinator)
@@ -85,7 +88,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
     private func showOnboarding() {
         navigationController.viewControllers = []
         childCoordinators = []
-        let onboardingCoordinator = OnboardingCoordinator(navigationController)
+        let onboardingCoordinator = OnboardingCoordinator(navigationController, container: container)
         onboardingCoordinator.finishDelegate = self
         childCoordinators.append(onboardingCoordinator)
         onboardingCoordinator.start()
@@ -96,7 +99,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
         UINavigationBar.appearance().tintColor = UIColor(named: ColorConstants.buttonsColor)
         let loaderVC = UIHostingController(rootView: LoaderView())
         navigationController.pushWithCustomAnination(loaderVC)
-        firebaseAuthStateHandler.checkIfUserIsAuthentificated()
+        container.firebaseAuthStateHandler.checkIfUserIsAuthentificated()
             .debounce(for: 2, scheduler: RunLoop.main)
             .sink {[weak self] result in
             self?.navigationController.popWithCustomAnimation(loaderVC)

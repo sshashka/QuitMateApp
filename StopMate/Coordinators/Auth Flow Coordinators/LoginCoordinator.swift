@@ -14,11 +14,17 @@ protocol LoginCoordinatorProtocol: Coordinator {
 
 
 final class LoginCoordinator: LoginCoordinatorProtocol {
+    var container: AppContainer
+    
+    required init(_ navigationController: UINavigationController, container: AppContainer) {
+        self.navigationController = navigationController
+        self.container = container
+    }
+    
     private let authService = FirebaseAuthentificationService()
     internal func showAuthentificationViewController() {
-        let vm = AuthentificationViewModel(authentificationService: authService)
-        let authentificationVC = UIHostingController(rootView: AuthentificationView(viewModel: vm))
-        vm.didSendEventClosure = { [weak self] event in
+        let authModule = AuthentificationViewBuilder.build(container: container)
+        authModule.viewModel.didSendEventClosure = { [weak self] event in
             switch event {
             case .login:
                 self?.finish()
@@ -28,16 +34,13 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
                 self?.showRegistrationView()
             }
         }
-        navigationController.setViewControllersWithCustomAnimation([authentificationVC])
-//        navigationController.pushWithCustomAnination(authentificationVC)
+        navigationController.setViewControllersWithCustomAnimation([authModule.viewController])
     }
     
     
-    func showRegistrationView() {
-        let registrationViewModel = RegistrationViewModel(authentificationService: authService)
-        let registrationVC = UIHostingController(rootView: RegistrationView(viewModel: registrationViewModel))
-        
-        registrationViewModel.didSendEventClosure = { [weak self] event in
+    func showRegistrationView() {     
+        let registrationModule = RegistrationViewBuilder.build(container: container)
+        registrationModule.viewModel.didSendEventClosure = { [weak self] event in
             switch event {
             case .done:
                 // Since i already observe state I dont need to finish and instanciate new coordinator manualy
@@ -47,7 +50,7 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
                 self?.navigationController.popToRootViewController(animated: true)
             }
         }
-        navigationController.pushViewController(registrationVC, animated: true)
+        navigationController.pushViewController(registrationModule.viewController, animated: true)
     }
     
     private func showFirstTimeEntryFlow() {
@@ -60,13 +63,9 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
     
-    var type: CoordinatorType { .auth}
+    var type: CoordinatorType { .auth }
     
     func start() {
         showAuthentificationViewController()
-    }
-    
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
     }
 }

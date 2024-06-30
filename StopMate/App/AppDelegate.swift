@@ -13,6 +13,7 @@ import FirebaseDatabase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var appCoordinator: AppCoordinator?
+    var appContainer: AppContainerImpl = AppContainerImpl()
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         return true
@@ -26,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navVC = UINavigationController()
         window?.rootViewController = navVC
-        
-        appCoordinator = AppCoordinator(navVC)
+
+        appCoordinator = AppCoordinator(navVC, container: appContainer)
         appCoordinator?.start()
         
         window?.makeKeyAndVisible()

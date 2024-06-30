@@ -13,8 +13,13 @@ protocol TabBarCoordinatorProtocol: Coordinator {
 }
 
 final class TabBarCoordinator: NSObject, Coordinator {
-    private var storageService = FirebaseStorageService()
-    private var authService = FirebaseAuthentificationService()
+    var container: AppContainer
+    
+    init(_ navigationController: UINavigationController, container: AppContainer) {
+        self.navigationController = navigationController
+        self.container = container
+        self.tabBarController = .init()
+    }
     
     var finishDelegate: CoordinatorFinishDelegate?
     
@@ -25,12 +30,7 @@ final class TabBarCoordinator: NSObject, Coordinator {
     var childCoordinators: [Coordinator] = []
     
     var type: CoordinatorType { .tabbar }
-    
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        self.tabBarController = .init()
-        
-    }
+
     
     func start() {
         let pages: [TabBarPages] = [.charts, .home, .videos]
@@ -52,20 +52,18 @@ final class TabBarCoordinator: NSObject, Coordinator {
         navVC.setNavigationBarHidden(false, animated: false)
         switch page {
         case .charts:
-            let chartsVM = ProgressChartsViewModel(storageService: storageService)
-            chartsVM.didSendEventClosure = { [weak self] event in
+            let module = ChartsViewBuilder.build(container: container)
+            module.viewModel.didSendEventClosure = { [weak self] event in
                 switch event {
                 case .newMood:
                     self?.finishDelegate?.instantiateNewCoordinator(coordinator: .moodClassifier)
                 }
             }
-            let vc = UIHostingController(rootView: ProgressChartsView(viewModel: chartsVM))
-            navVC.pushViewController(vc, animated: true)
+            navVC.pushViewController(module.viewController, animated: true)
         case .home:
-            storageService.getUserModel()
-            let vm = MainScreenViewModel(storageService: storageService)
-            let mainView = MainScreenView(viewModel: vm)
-            vm.didSendEventClosure = { [weak self] event in
+            container.firebaseStorageService.getUserModel()
+            let module = MainScreenViewBuilder.build(container: container)
+            module.viewModel.didSendEventClosure = { [weak self] event in
                 switch event {
                 case .didTapResetButton:
                     self?.showReasonsToStop()
@@ -75,20 +73,18 @@ final class TabBarCoordinator: NSObject, Coordinator {
                     self?.showMilestoneCompletedView()
                 }
             }
-            let hostingVC = UIHostingController(rootView: mainView)
+            let hostingVC = module.viewController
             navVC.pushWithCustomAnination(hostingVC)
         case .videos:
-            let youtubeService = YoutubeApiService()
-            let viewModel = VideoSelectionViewModel(youtubeService: youtubeService)
-            let videosVC = UIHostingController(rootView: VideoSelectionView(viewModel: viewModel))
-            viewModel.didSendEvetClosure = { [weak self] event in
+            let module = VideosViewBuilder.build(container: container)
+            module.viewModel.didSendEvetClosure = { [weak self] event in
                 switch event {
                 case .didSelectVideo(let id):
                     self?.showVideoInfo(for: id, navigationVC: navVC)
                 }
             }
             navVC.navigationBar.prefersLargeTitles = true
-            navVC.pushViewController(videosVC, animated: true)
+            navVC.pushViewController(module.viewController, animated: true)
         }
         return navVC
     }
@@ -113,8 +109,8 @@ final class TabBarCoordinator: NSObject, Coordinator {
     }
     
     private func showVideoInfo(for id: String, navigationVC: UINavigationController) {
-        let vm = VideoInfoViewModel(youtubeService: YoutubeApiService(), id: id)
-        vm.didSendEventClosure = { [weak self] event in
+        let module = VideoInfoViewBuilder.build(container: container, id: id)
+        module.viewModel.didSendEventClosure = { [weak self] event in
             switch event {
             case .loadVideo(let id):
                 self?.showVideo(id: id, navigationVC: navigationVC)
@@ -124,7 +120,7 @@ final class TabBarCoordinator: NSObject, Coordinator {
                 navigationVC.navigationBar.prefersLargeTitles = true
             }
         }
-        let vc = UIHostingController(rootView: VideoInfoView(vm: vm))
+        let vc = module.viewController
         vc.title = nil
         navigationVC.pushViewController(vc, animated: true)
     }
@@ -136,7 +132,7 @@ final class TabBarCoordinator: NSObject, Coordinator {
     }
     
     private func showSettings(navigationVC: UINavigationController) {
-        let coordinator = SettingsCoordinator(navigationVC)
+        let coordinator = SettingsCoordinator(navigationVC, container: container)
         childCoordinators.append(coordinator)
         coordinator.finishDelegate = self.finishDelegate
         coordinator.start()

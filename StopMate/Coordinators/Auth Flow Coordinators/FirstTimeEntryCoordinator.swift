@@ -12,6 +12,13 @@ protocol FirstTimeEntryCoordinatorProtocol: Coordinator {
 }
 
 final class FirstTimeEntryCoordinator: FirstTimeEntryCoordinatorProtocol {
+    var container: AppContainer
+    
+    required init(_ navigationController: UINavigationController, container: AppContainer) {
+        self.navigationController = navigationController
+        self.container = container
+    }
+    
     internal func showRegisterScreen() {
         let storageService = FirebaseStorageService()
         let vm = FirstTimeEntryViewModel(storageService: storageService)
@@ -32,9 +39,5 @@ final class FirstTimeEntryCoordinator: FirstTimeEntryCoordinatorProtocol {
     
     func start() {
         showRegisterScreen()
-    }
-    
-    init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
     }
 }

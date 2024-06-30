@@ -11,7 +11,7 @@ protocol OnboardingViewModelProtocol: AnyObject, ObservableObject {
     func didTapOnClose()
 }
 
-final class OnboardingViewModel: OnboardingViewModelProtocol {
+final class OnboardingViewModel: OnboardingViewModelProtocol, ViewModelBaseProtocol {
     private let storageService: FirebaseStorageServiceProtocol
     var didSendEventClosure: ((OnboardingViewModel.EventTypes) -> Void)?
     init(storageService: FirebaseStorageServiceProtocol) {

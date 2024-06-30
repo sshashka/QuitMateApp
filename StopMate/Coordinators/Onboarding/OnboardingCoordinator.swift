@@ -15,6 +15,8 @@ protocol OnboardingCoordinatorProtocol: Coordinator {
 final class OnboardingCoordinator: OnboardingCoordinatorProtocol {
     private let storageService = FirebaseStorageService()
     
+    var container: AppContainer
+    
     var finishDelegate: CoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
@@ -23,16 +25,16 @@ final class OnboardingCoordinator: OnboardingCoordinatorProtocol {
     
     var type: CoordinatorType { .onboarding }
     
-    init(_ navigationController: UINavigationController) {
+    required init (_ navigationController: UINavigationController, container: AppContainer) {
         self.navigationController = navigationController
+        self.container = container
     }
     
     func start() {
-        let vm = OnboardingViewModel(storageService: storageService)
-        let vc = UIHostingController(rootView: OnboardingView(viewModel: vm))
-        vm.didSendEventClosure = { [weak self] _ in
+        let onboardingModule = OnboardingViewBuilder.build(container: container)
+        onboardingModule.viewModel.didSendEventClosure = { [weak self] _ in
             self?.finish()
         }
-        navigationController.pushWithCustomAnination(vc)
+        navigationController.pushWithCustomAnination(onboardingModule.viewController)
     }
 }

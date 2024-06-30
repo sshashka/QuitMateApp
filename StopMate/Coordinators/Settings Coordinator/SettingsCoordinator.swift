@@ -13,6 +13,13 @@ protocol SettingsCoordinatorProtocol: Coordinator {
 }
 
 class SettingsCoordinator: NSObject, SettingsCoordinatorProtocol {
+    var container: AppContainer
+    
+    required init(_ navigationController: UINavigationController, container: AppContainer) {
+        self.navigationController = navigationController
+        self.container = container
+    }
+    
     
     private let storageService = FirebaseStorageService()
     
@@ -33,10 +40,6 @@ class SettingsCoordinator: NSObject, SettingsCoordinatorProtocol {
         showSettings()
         storageService.getUserModel()
         storageService.retrieveUserProfilePic()
-    }
-    
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
     }
     
     func showSettings() {

@@ -65,7 +65,6 @@
 		30400F622A60B652006D46C9 /* YoutubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30400F612A60B652006D46C9 /* YoutubePlayer.swift */; };
 		30400F692A61686E006D46C9 /* YoutubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 30400F682A61686E006D46C9 /* YoutubeKit */; };
 		30400F6B2A62069C006D46C9 /* UserHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30400F6A2A62069C006D46C9 /* UserHistoryView.swift */; };
-		3040D9BE2A4E3D9A0089F83E /* UserInfoValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3040D9BD2A4E3D9A0089F83E /* UserInfoValidation.swift */; };
 		3044405B29F7125D00AD40F2 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044405A29F7125D00AD40F2 /* RoundedCorner.swift */; };
 		3044405D29F741B500AD40F2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044405C29F741B500AD40F2 /* HeaderView.swift */; };
 		3044405F29F7438700AD40F2 /* TimeAndScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044405E29F7438700AD40F2 /* TimeAndScoreView.swift */; };
@@ -81,6 +80,14 @@
 		305B41CA2A8D993E001B09C2 /* VideoInfoViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B41C92A8D993E001B09C2 /* VideoInfoViewImage.swift */; };
 		305B41CC2A8D995F001B09C2 /* ChanelAndVideoStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B41CB2A8D995F001B09C2 /* ChanelAndVideoStatisticsView.swift */; };
 		305B65522A1C0B20006215E6 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 305B65512A1C0B20006215E6 /* OpenAI */; };
+		3061C7632B0D4BC00048C5F6 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061C7622B0D4BC00048C5F6 /* Module.swift */; };
+		3061C7652B0D4ED50048C5F6 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061C7642B0D4ED50048C5F6 /* AppContainer.swift */; };
+		3061C7672B0D527D0048C5F6 /* AuthentificationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061C7662B0D527D0048C5F6 /* AuthentificationViewBuilder.swift */; };
+		3061C7692B0F6CD70048C5F6 /* ViewModelBaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061C7682B0F6CD70048C5F6 /* ViewModelBaseProtocol.swift */; };
+		3061C76B2B0FFC4F0048C5F6 /* RegistrationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061C76A2B0FFC4F0048C5F6 /* RegistrationViewBuilder.swift */; };
+		3061C76D2B0FFF1D0048C5F6 /* FirstTimeEntryViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061C76C2B0FFF1D0048C5F6 /* FirstTimeEntryViewBuilder.swift */; };
+		3061C76F2B10E9950048C5F6 /* OnboardingViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061C76E2B10E9950048C5F6 /* OnboardingViewBuilder.swift */; };
+		3061C7712B10EBF70048C5F6 /* RecomentationsViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061C7702B10EBF70048C5F6 /* RecomentationsViewBuilder.swift */; };
 		30645F312A7B1A7200E633E4 /* BenefitsOfQuittingAndPrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30645F302A7B1A7200E633E4 /* BenefitsOfQuittingAndPrivacyPolicyView.swift */; };
 		306531F629E4B20500E0544F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306531F529E4B20500E0544F /* SettingsViewController.swift */; };
 		306531F829E4B84800E0544F /* SettingsTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */; };
@@ -194,6 +201,14 @@
 		30FE9CE12A6611A700FC5858 /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9CE02A6611A700FC5858 /* AdditionalInfoView.swift */; };
 		30FEA73C2A8AF0AE00239912 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEA73B2A8AF0AE00239912 /* OnboardingView.swift */; };
 		30FEA73E2A8AF0BD00239912 /* OnboardingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEA73D2A8AF0BD00239912 /* OnboardingTab.swift */; };
+		9578928A2B3247D600CE159D /* MainScreenViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957892892B3247D600CE159D /* MainScreenViewBuilder.swift */; };
+		9578928C2B32485F00CE159D /* AdditionalInfoViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9578928B2B32485F00CE159D /* AdditionalInfoViewModule.swift */; };
+		9578928E2B3249E800CE159D /* VideosViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9578928D2B3249E800CE159D /* VideosViewBuilder.swift */; };
+		957892902B324B4000CE159D /* ChartsViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9578928F2B324B4000CE159D /* ChartsViewBuilder.swift */; };
+		957892922B324C3200CE159D /* VideoInfoViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957892912B324C3200CE159D /* VideoInfoViewBuilder.swift */; };
+		957892942B324EE400CE159D /* MoodClassifierViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957892932B324EE400CE159D /* MoodClassifierViewBuilder.swift */; };
+		957892962B32526500CE159D /* UserEmotionalStateViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957892952B32526500CE159D /* UserEmotionalStateViewBuilder.swift */; };
+		957892982B32543300CE159D /* ReasonsToStopNewFinishingDateViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957892972B32543300CE159D /* ReasonsToStopNewFinishingDateViewBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,7 +252,6 @@
 		30400F5D2A5F5F56006D46C9 /* VideoInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoViewModel.swift; sourceTree = "<group>"; };
 		30400F612A60B652006D46C9 /* YoutubePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayer.swift; sourceTree = "<group>"; };
 		30400F6A2A62069C006D46C9 /* UserHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryView.swift; sourceTree = "<group>"; };
-		3040D9BD2A4E3D9A0089F83E /* UserInfoValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoValidation.swift; sourceTree = "<group>"; };
 		3044405A29F7125D00AD40F2 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		3044405C29F741B500AD40F2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		3044405E29F7438700AD40F2 /* TimeAndScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAndScoreView.swift; sourceTree = "<group>"; };
@@ -252,6 +266,14 @@
 		305B41C72A8C2E13001B09C2 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		305B41C92A8D993E001B09C2 /* VideoInfoViewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoViewImage.swift; sourceTree = "<group>"; };
 		305B41CB2A8D995F001B09C2 /* ChanelAndVideoStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChanelAndVideoStatisticsView.swift; sourceTree = "<group>"; };
+		3061C7622B0D4BC00048C5F6 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		3061C7642B0D4ED50048C5F6 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		3061C7662B0D527D0048C5F6 /* AuthentificationViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewBuilder.swift; sourceTree = "<group>"; };
+		3061C7682B0F6CD70048C5F6 /* ViewModelBaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBaseProtocol.swift; sourceTree = "<group>"; };
+		3061C76A2B0FFC4F0048C5F6 /* RegistrationViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewBuilder.swift; sourceTree = "<group>"; };
+		3061C76C2B0FFF1D0048C5F6 /* FirstTimeEntryViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeEntryViewBuilder.swift; sourceTree = "<group>"; };
+		3061C76E2B10E9950048C5F6 /* OnboardingViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewBuilder.swift; sourceTree = "<group>"; };
+		3061C7702B10EBF70048C5F6 /* RecomentationsViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomentationsViewBuilder.swift; sourceTree = "<group>"; };
 		30645F302A7B1A7200E633E4 /* BenefitsOfQuittingAndPrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsOfQuittingAndPrivacyPolicyView.swift; sourceTree = "<group>"; };
 		306531F529E4B20500E0544F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		306531F729E4B84800E0544F /* SettingsTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewFooterView.swift; sourceTree = "<group>"; };
@@ -339,7 +361,6 @@
 		30C1CB1F29F1396500F7A044 /* MoodClassifierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierCoordinator.swift; sourceTree = "<group>"; };
 		30C23CAE2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher<Bool,Never>+Extension.swift"; sourceTree = "<group>"; };
 		30C338EA2A538BA40000E6CC /* FirebaseAuthStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthStateHandler.swift; sourceTree = "<group>"; };
-		30C357B62AEBC93F00972643 /* StopMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StopMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30CA1B40299AE191001E5BF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30CA1B54299AE573001E5BF3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		30CA1B56299AF0EB001E5BF3 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
@@ -376,6 +397,15 @@
 		30FE9CE02A6611A700FC5858 /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
 		30FEA73B2A8AF0AE00239912 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		30FEA73D2A8AF0BD00239912 /* OnboardingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTab.swift; sourceTree = "<group>"; };
+		957892882B32477900CE159D /* StopMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StopMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		957892892B3247D600CE159D /* MainScreenViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewBuilder.swift; sourceTree = "<group>"; };
+		9578928B2B32485F00CE159D /* AdditionalInfoViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewModule.swift; sourceTree = "<group>"; };
+		9578928D2B3249E800CE159D /* VideosViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewBuilder.swift; sourceTree = "<group>"; };
+		9578928F2B324B4000CE159D /* ChartsViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewBuilder.swift; sourceTree = "<group>"; };
+		957892912B324C3200CE159D /* VideoInfoViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoViewBuilder.swift; sourceTree = "<group>"; };
+		957892932B324EE400CE159D /* MoodClassifierViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodClassifierViewBuilder.swift; sourceTree = "<group>"; };
+		957892952B32526500CE159D /* UserEmotionalStateViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEmotionalStateViewBuilder.swift; sourceTree = "<group>"; };
+		957892972B32543300CE159D /* ReasonsToStopNewFinishingDateViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsToStopNewFinishingDateViewBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +435,7 @@
 			children = (
 				30F7E58E2A2EBAA200EAE058 /* AuthentificationView.swift */,
 				304A29652A30BBFB00AC2458 /* AuthentificationViewModel.swift */,
+				3061C7662B0D527D0048C5F6 /* AuthentificationViewBuilder.swift */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -414,6 +445,7 @@
 			children = (
 				30064B2E2A1574C600C70664 /* RegistrationViewModel.swift */,
 				300ACB0A2A3FB8B500DA76D5 /* RegistrationView.swift */,
+				3061C76A2B0FFC4F0048C5F6 /* RegistrationViewBuilder.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -424,6 +456,7 @@
 				300ACB182A40ABF000DA76D5 /* RecomendationsView.swift */,
 				30A245372A40F40900AA0093 /* RecomendationsViewModel.swift */,
 				30A245392A40FAE000AA0093 /* RecomendationPrompts.swift */,
+				3061C7702B10EBF70048C5F6 /* RecomentationsViewBuilder.swift */,
 			);
 			path = "Recomendations Module";
 			sourceTree = "<group>";
@@ -444,6 +477,9 @@
 				304EC1A72A03BC65001667FC /* Core Views */,
 				301821CD299D22BD0088863C /* Extensions */,
 				300D93702AE86D9000944899 /* CoreModels */,
+				3061C7622B0D4BC00048C5F6 /* Module.swift */,
+				3061C7642B0D4ED50048C5F6 /* AppContainer.swift */,
+				3061C7682B0F6CD70048C5F6 /* ViewModelBaseProtocol.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -462,7 +498,6 @@
 				301D900D2A1D714F00043F37 /* First Time Entry */,
 				30064B2C2A1574A400C70664 /* Authentification */,
 				30064B2D2A1574B700C70664 /* Registration */,
-				3040D9BD2A4E3D9A0089F83E /* UserInfoValidation.swift */,
 			);
 			path = "Auth Module";
 			sourceTree = "<group>";
@@ -486,6 +521,7 @@
 				3051D2B92A9F667700BFE163 /* View */,
 				3051D2BA2A9F667F00BFE163 /* ViewModel */,
 				3051D2BF2A9F75DF00BFE163 /* Model */,
+				957892952B32526500CE159D /* UserEmotionalStateViewBuilder.swift */,
 			);
 			path = "User State View";
 			sourceTree = "<group>";
@@ -505,6 +541,7 @@
 			children = (
 				308779DB2A795B9300AA1627 /* View */,
 				30F9018E2A8304DD00E3042E /* View Model */,
+				3061C76C2B0FFF1D0048C5F6 /* FirstTimeEntryViewBuilder.swift */,
 			);
 			path = "First Time Entry";
 			sourceTree = "<group>";
@@ -542,6 +579,7 @@
 			children = (
 				30BFF1AC2A26C148003B7E06 /* ViewModels */,
 				3025FF392A1181F3002D71A8 /* ManualClassificationView */,
+				957892932B324EE400CE159D /* MoodClassifierViewBuilder.swift */,
 			);
 			path = "Manual Mood Classifier";
 			sourceTree = "<group>";
@@ -615,6 +653,7 @@
 			children = (
 				305B41CD2A8D99CF001B09C2 /* View */,
 				305B41CE2A8D99D7001B09C2 /* ViewModel */,
+				957892912B324C3200CE159D /* VideoInfoViewBuilder.swift */,
 			);
 			path = "Video Info View";
 			sourceTree = "<group>";
@@ -933,6 +972,7 @@
 			children = (
 				3040D9BC2A4E3D140089F83E /* ViewModel */,
 				3098C25D2A028C92008B4114 /* View */,
+				9578928F2B324B4000CE159D /* ChartsViewBuilder.swift */,
 			);
 			path = "Charts View";
 			sourceTree = "<group>";
@@ -1187,7 +1227,7 @@
 			isa = PBXGroup;
 			children = (
 				30CA1B3F299AE191001E5BF3 /* StopMate */,
-				30C357B62AEBC93F00972643 /* StopMate.app */,
+				957892882B32477900CE159D /* StopMate.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1229,6 +1269,7 @@
 				30E9FE0F2A6F1BA90061BCBE /* View */,
 				30E9FE102A6F1BAF0061BCBE /* ViewModel */,
 				30E9FE112A6F1BB50061BCBE /* Model */,
+				9578928B2B32485F00CE159D /* AdditionalInfoViewModule.swift */,
 			);
 			path = "Additional Info";
 			sourceTree = "<group>";
@@ -1372,6 +1413,7 @@
 				30296FC02A5C216600DEC32B /* Video Selection View */,
 				30400F502A5E029B006D46C9 /* Model */,
 				3082365F2ABF151B00E96D09 /* Services */,
+				9578928D2B3249E800CE159D /* VideosViewBuilder.swift */,
 			);
 			path = "Videos Module";
 			sourceTree = "<group>";
@@ -1399,6 +1441,7 @@
 			children = (
 				3051D2BB2A9F695900BFE163 /* View */,
 				3051D2BC2A9F696300BFE163 /* ViewModel */,
+				957892972B32543300CE159D /* ReasonsToStopNewFinishingDateViewBuilder.swift */,
 			);
 			path = "New Finishing Date";
 			sourceTree = "<group>";
@@ -1443,6 +1486,7 @@
 			children = (
 				30E9FE0E2A6F1B770061BCBE /* View */,
 				30E9FE0D2A6F1B0B0061BCBE /* Main Screen ViewModels */,
+				957892892B3247D600CE159D /* MainScreenViewBuilder.swift */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";
@@ -1453,6 +1497,7 @@
 				30FEA73B2A8AF0AE00239912 /* OnboardingView.swift */,
 				30FEA73D2A8AF0BD00239912 /* OnboardingTab.swift */,
 				305B41C72A8C2E13001B09C2 /* OnboardingViewModel.swift */,
+				3061C76E2B10E9950048C5F6 /* OnboardingViewBuilder.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1487,7 +1532,7 @@
 				30FCFA0D2AC30FB3005AB7C3 /* KeychainSwift */,
 			);
 			productName = QuitMate;
-			productReference = 30C357B62AEBC93F00972643 /* StopMate.app */;
+			productReference = 957892882B32477900CE159D /* StopMate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1572,23 +1617,25 @@
 				3078302429A2DD9A003FAA10 /* UILabel+Extension.swift in Sources */,
 				30A0E4CD29DE1B35000CA339 /* AppCoordinator.swift in Sources */,
 				30C23CAF2A328EED003E72F6 /* Publisher<Bool,Never>+Extension.swift in Sources */,
+				3061C76B2B0FFC4F0048C5F6 /* RegistrationViewBuilder.swift in Sources */,
 				306C9B292ADFDF880047EBE8 /* IconConstants.swift in Sources */,
 				302B48CA29F967F30031CFE6 /* MainScreenViewModel.swift in Sources */,
 				30296FBF2A5C20B800DEC32B /* SettingsCoordinator.swift in Sources */,
 				30ABA7B429E8C7660048C97E /* DateComponents+Extension.swift in Sources */,
 				30B7513629F345FD00295A7E /* ClassificationResultModel.swift in Sources */,
 				3019DEE72A0B050E00C7B1CC /* SettingsViewProfileHeaderView.swift in Sources */,
+				3061C7712B10EBF70048C5F6 /* RecomentationsViewBuilder.swift in Sources */,
 				30F527F12A5788E00031D0F4 /* VideoSelectionView.swift in Sources */,
 				306C9B2B2ADFDF8F0047EBE8 /* CirclesBackgroundView.swift in Sources */,
 				308779D82A794E6A00AA1627 /* ProgressChartStatisticsModel.swift in Sources */,
 				30AAD9252A106553000FF93D /* ReasonsToStopCoordinator.swift in Sources */,
 				30C003902A9E260900CE942D /* SmokeUrgeButtonGrid.swift in Sources */,
 				308779D42A792B6900AA1627 /* DetailedChartsViewModel.swift in Sources */,
-				3040D9BE2A4E3D9A0089F83E /* UserInfoValidation.swift in Sources */,
 				306531F629E4B20500E0544F /* SettingsViewController.swift in Sources */,
 				30C1CB2029F1396500F7A044 /* MoodClassifierCoordinator.swift in Sources */,
 				305B41C82A8C2E13001B09C2 /* OnboardingViewModel.swift in Sources */,
 				30E9FE182A707B1B0061BCBE /* UserHistoryViewModel.swift in Sources */,
+				3061C76F2B10E9950048C5F6 /* OnboardingViewBuilder.swift in Sources */,
 				30AAD91B2A0E4BB7000FF93D /* SettingsViewModel.swift in Sources */,
 				303BA53F2AE026120047147D /* UserDefaultsConstants.swift in Sources */,
 				30AAD9212A0EFB72000FF93D /* User.swift in Sources */,
@@ -1599,6 +1646,7 @@
 				3044405B29F7125D00AD40F2 /* RoundedCorner.swift in Sources */,
 				300D93732AE8710800944899 /* MilestoneCompletedViewModel.swift in Sources */,
 				30400F472A5D8250006D46C9 /* VideoInfoView.swift in Sources */,
+				3061C7692B0F6CD70048C5F6 /* ViewModelBaseProtocol.swift in Sources */,
 				30A2453C2A41151500AA0093 /* RecomendationsCoordinator.swift in Sources */,
 				30A0E4CB29DE19E1000CA339 /* Coordinator.swift in Sources */,
 				307E7DFE29EF312200DFCEE3 /* MoodClassifierViewController.swift in Sources */,
@@ -1615,8 +1663,10 @@
 				306C9B452ADFE0760047EBE8 /* TextViewModifier.swift in Sources */,
 				30CA1B41299AE191001E5BF3 /* AppDelegate.swift in Sources */,
 				305B41CC2A8D995F001B09C2 /* ChanelAndVideoStatisticsView.swift in Sources */,
+				957892922B324C3200CE159D /* VideoInfoViewBuilder.swift in Sources */,
 				30400F522A5E0302006D46C9 /* YoutubeApiService.swift in Sources */,
 				302EEE3129EB683F005732E3 /* AutomaticMoodClassifierModulePresenter.swift in Sources */,
+				3061C7652B0D4ED50048C5F6 /* AppContainer.swift in Sources */,
 				306C9B272ADFDF810047EBE8 /* MainCircleView.swift in Sources */,
 				306C9B352ADFE0280047EBE8 /* HapticFeedbackGenerator.swift in Sources */,
 				30FEA73E2A8AF0BD00239912 /* OnboardingTab.swift in Sources */,
@@ -1642,12 +1692,14 @@
 				306C9B432ADFE0720047EBE8 /* SystemIconConstants.swift in Sources */,
 				30CA3A0B29AFFA7200181539 /* MoodChartView.swift in Sources */,
 				306C9B392ADFE0370047EBE8 /* Localizables.swift in Sources */,
+				3061C7672B0D527D0048C5F6 /* AuthentificationViewBuilder.swift in Sources */,
 				30645F312A7B1A7200E633E4 /* BenefitsOfQuittingAndPrivacyPolicyView.swift in Sources */,
 				30E69D852A41C85F00213F9D /* ReasonsToStopNewFinishingDateView.swift in Sources */,
 				302FD2032A373ADA00E7BE70 /* FirstTimeEntryView.swift in Sources */,
 				30CA3A2E29B0EF7000181539 /* ReasonsToStopViewController.swift in Sources */,
 				306C9B372ADFE0320047EBE8 /* LayoutConstants.swift in Sources */,
 				30FCFA102AC3101F005AB7C3 /* ApiKeysService.swift in Sources */,
+				957892982B32543300CE159D /* ReasonsToStopNewFinishingDateViewBuilder.swift in Sources */,
 				305B41CA2A8D993E001B09C2 /* VideoInfoViewImage.swift in Sources */,
 				3021339E29EC3D5A002ED5C5 /* MoodClassifierViewControllerProtocol.swift in Sources */,
 				30400F6B2A62069C006D46C9 /* UserHistoryView.swift in Sources */,
@@ -1666,6 +1718,7 @@
 				30FE9CDC2A64B35F00FC5858 /* LoaderView.swift in Sources */,
 				302C494E29FB276300D43421 /* MoodClassifierButton.swift in Sources */,
 				30FE9CE12A6611A700FC5858 /* AdditionalInfoView.swift in Sources */,
+				3061C76D2B0FFF1D0048C5F6 /* FirstTimeEntryViewBuilder.swift in Sources */,
 				306C9B332ADFE0230047EBE8 /* Exo2TextStyles.swift in Sources */,
 				30AAD9232A0F0A40000FF93D /* HeaderViewViewModel.swift in Sources */,
 				3057162429C7E77D002C20A0 /* ReasonsTopStopView+Module.swift in Sources */,
@@ -1685,16 +1738,19 @@
 				306C9B3B2ADFE0470047EBE8 /* PrivacyPolicyAndTermsAndConditionsURL.swift in Sources */,
 				30E8A3402A6E034300334693 /* AdditionalInfoViewModel.swift in Sources */,
 				304A29662A30BBFB00AC2458 /* AuthentificationViewModel.swift in Sources */,
+				9578928C2B32485F00CE159D /* AdditionalInfoViewModule.swift in Sources */,
 				30BFF1B02A26C292003B7E06 /* MoodClassifierSelectionViewModel.swift in Sources */,
 				3084F5322AAD064B006526A5 /* CorrelationView.swift in Sources */,
 				30727A182A33E0D9004A29B6 /* TextFieldWithUnderlineViewAndHeader.swift in Sources */,
 				30F527EE2A5626580031D0F4 /* UINavigationController+Extension.swift in Sources */,
 				30A1200429FB45D70062A019 /* CustomTextField.swift in Sources */,
 				307E7E0129EF486300DFCEE3 /* MoodClassifierModulePresenterProtocol.swift in Sources */,
+				9578928E2B3249E800CE159D /* VideosViewBuilder.swift in Sources */,
 				303B9EB829C1C415008D2C64 /* ReasonsToStopViewProtocol.swift in Sources */,
 				30A2453A2A40FAE000AA0093 /* RecomendationPrompts.swift in Sources */,
 				30F53D3C29A3DF2E005063D4 /* GlowEffectSwiftUI.swift in Sources */,
 				30549F172A3A7E7600872DAD /* FirstTimeEntryViewModel.swift in Sources */,
+				957892942B324EE400CE159D /* MoodClassifierViewBuilder.swift in Sources */,
 				306531F829E4B84800E0544F /* SettingsTableViewFooterView.swift in Sources */,
 				30E8A3422A6E05BF00334693 /* AdditionalInfoModel.swift in Sources */,
 				30400F542A5E12ED006D46C9 /* VideoSelectionViewModel.swift in Sources */,
@@ -1707,6 +1763,7 @@
 				30F9189C2A9BF366006C9C88 /* UserEmotionalStateView.swift in Sources */,
 				3098C25F2A028CC6008B4114 /* FilterMenuView.swift in Sources */,
 				30400F4B2A5DB1D6006D46C9 /* EditProfileView.swift in Sources */,
+				3061C7632B0D4BC00048C5F6 /* Module.swift in Sources */,
 				30E9FE162A7028060061BCBE /* UserHistoryModel.swift in Sources */,
 				30A376462A84F54200F18863 /* BenefitsOfQuittingView.swift in Sources */,
 				30FEA73C2A8AF0AE00239912 /* OnboardingView.swift in Sources */,
@@ -1717,10 +1774,13 @@
 				306C9B492ADFE0810047EBE8 /* VibrationEvent.swift in Sources */,
 				30F9D3082A806FD900986B97 /* ImageProfileLoadingStates.swift in Sources */,
 				30A245382A40F40900AA0093 /* RecomendationsViewModel.swift in Sources */,
+				957892962B32526500CE159D /* UserEmotionalStateViewBuilder.swift in Sources */,
 				301820DD2ADCAEFE003F8859 /* MilestoneCompletedView.swift in Sources */,
 				30A1204829FC13A70062A019 /* ProgressChartsViewModel.swift in Sources */,
 				306531FA29E4BB5100E0544F /* SettingsTableViewCell.swift in Sources */,
+				957892902B324B4000CE159D /* ChartsViewBuilder.swift in Sources */,
 				3078300E299D82B8003FAA10 /* UIButton+Extension.swift in Sources */,
+				9578928A2B3247D600CE159D /* MainScreenViewBuilder.swift in Sources */,
 				308779D62A792CB600AA1627 /* DetailedChartModel.swift in Sources */,
 				302EEE3329EB686C005732E3 /* UserMoodClassifierService.swift in Sources */,
 			);
